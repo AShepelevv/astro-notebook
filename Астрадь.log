@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 20:28
 entering extended mode
 **./Астрадь.tex
 (Астрадь.tex
@@ -951,14 +951,14 @@ File: c:/Pictures/Lagrange's_points.pdf Graphic file (type pdf)
 Package pdftex.def Info: c:/Pictures/Lagrange's_points.pdf used on input line 3
 03.
 (pdftex.def)             Requested size: 158.76537pt x 128.48674pt.
- [14 <c:/Pictures/Lagrange's_points.pdf>] <c:/Pictures/Ellips.png, id=196, 852.
-93657pt x 573.64313pt>
-File: c:/Pictures/Ellips.png Graphic file (type png)
+ [14 <c:/Pictures/Lagrange's_points.pdf>] <c:/Pictures/Ellips.pdf, id=196, 305.
+54149pt x 204.7409pt>
+File: c:/Pictures/Ellips.pdf Graphic file (type pdf)
 
-<use c:/Pictures/Ellips.png>
-Package pdftex.def Info: c:/Pictures/Ellips.png used on input line 336.
-(pdftex.def)             Requested size: 282.25255pt x 189.828pt.
- [15 <c:/Pictures/Ellips.png>] (Астрадь.aux) ) 
+<use c:/Pictures/Ellips.pdf>
+Package pdftex.def Info: c:/Pictures/Ellips.pdf used on input line 336.
+(pdftex.def)             Requested size: 282.25255pt x 189.13869pt.
+ [15 <c:/Pictures/Ellips.pdf>] (Астрадь.aux) ) 
 Here is how much of TeX's memory you used:
  4390 strings out of 493320
  55423 string characters out of 3138960
@@ -982,9 +982,9 @@ blic/cm-super/sfbx1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-s
 uper/sfbx1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx
 1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0700.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Астрадь.pdf (15 pages, 687868 bytes).
+Output written on Астрадь.pdf (15 pages, 646761 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
+ 271 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
