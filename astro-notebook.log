@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 22:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 22:51
 entering extended mode
-**./–ê—Å—Ç—Ä–∞–¥—å.tex
-(–ê—Å—Ç—Ä–∞–¥—å.tex
+**./astro-notebook.tex
+(astro-notebook.tex
 LaTeX2e <2017-04-15>
 Babel <3.9t> and hyphenation patterns for 76 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -700,12 +700,12 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
 )
-(–ê—Å—Ç—Ä–∞–¥—å.aux
+(astro-notebook.aux
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 3.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
-\openout1 = `–ê—Å—Ç—Ä–∞–¥—å.aux'.
+\openout1 = `astro-notebook.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -812,296 +812,46 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (–ê—Å—Ç—Ä–∞–¥—å.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (astro-notebook.toc)
 \tf@toc=\write3
-\openout3 = `–ê—Å—Ç—Ä–∞–¥—å.toc'.
+\openout3 = `astro-notebook.toc'.
 
- [1] [2]
-
-LaTeX Warning: File `i010-001-245539763.jpg' not found on input line 68.
-
-
-! Package pdftex.def Error: File `i010-001-245539763.jpg' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 ...aphics[scale=0.35]{i010-001-245539763.jpg}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 68.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmtt.fd"
-File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-
-! LaTeX Error: File `picture-081-314' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.77 \includegraphics[scale=0.2]{picture-081-314}
-                                                 
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `32' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.85 \includegraphics[scale=0.4]{32}
-                                    
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[3]
-
-LaTeX Warning: Command \CYRM invalid in math mode on input line 134.
-
-Missing character: There is no Ã in font cmr10!
-
-Overfull \hbox (0.4861pt too wide) in paragraph at lines 136--137
-[]\T2A/cmr/bx/n/10 “ÂÚ¸ˇ ÍÓÒ-ÏË-˜Â-ÒÍ‡ˇ ÒÍÓ-ÓÒÚ¸ \T2A/cmr/m/n/10 --- ÏË-ÌË-Ï‡
-Î¸-Ì‡ˇ ÒÍÓ-ÓÒÚ¸, ÍÓ-ÚÓ-Û˛ ÌÂÓ·-
- []
-
-[4] [5]
-
-! LaTeX Error: File `468_1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165 \includegraphics[scale=0.571]{468_1}
-                                          
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-
-! LaTeX Error: File `525px-Orbit_ru' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.196 \includegraphics[scale=0.31]{525px-Orbit_ru}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Phase_angle' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.208 ...phics[width = 0.6\textwidth]{Phase_angle}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7]
-
-LaTeX Warning: Command \CYRA invalid in math mode on input line 227.
-
-Missing character: There is no ¿ in font cmr10!
-
-LaTeX Warning: Command \CYRV invalid in math mode on input line 227.
-
-Missing character: There is no ¬ in font cmr10!
-
-! LaTeX Error: File `Ebb_and_flow' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.229 ...aphics[width = 1\textwidth]{Ebb_and_flow}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[8]
-
-! LaTeX Error: File `full_sollar_eclipse' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.242 ...th = 1.05\textwidth]{full_sollar_eclipse}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `partly_sollar_eclipse' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.250 ... = 0.95\textwidth]{partly_sollar_eclipse}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[9]
-
-! LaTeX Error: File `moon_eclipse' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.273 \includegraphics[scale=0.27]{moon_eclipse}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Phases' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.283 ...degraphics[width = 0.3\textwidth]{Phases}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Phases_2' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.284 ...graphics[width = 0.3\textwidth]{Phases_2}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[10]
-
-! LaTeX Error: File `000041' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.297 \includegraphics[scale=0.46]{000041}
-                                          
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Lagrange's_points' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.315 ...idth = 0.45\textwidth]{Lagrange's_points}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11] [12]
-
-! LaTeX Error: File `Ellips' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.346 ...degraphics[width = 0.8\textwidth]{Ellips}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[13] (–ê—Å—Ç—Ä–∞–¥—å.aux) ) 
+ [1]
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored) [2]
+(astro-notebook.aux) ) 
 Here is how much of TeX's memory you used:
- 4414 strings out of 493320
- 54765 string characters out of 3138960
- 128276 words of memory out of 3000000
- 7783 multiletter control sequences out of 15000+200000
- 15465 words of font info for 37 fonts, out of 3000000 for 9000
+ 4307 strings out of 493320
+ 54407 string characters out of 3138960
+ 124276 words of memory out of 3000000
+ 7737 multiletter control sequences out of 15000+200000
+ 9297 words of font info for 21 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,11n,25p,1115b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-supe
-r/cm-super-t2a.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/cm-super/sftt1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/cm-super/sfxc2488.pfb>
-Output written on –ê—Å—Ç—Ä–∞–¥—å.pdf (14 pages, 267503 bytes).
+ 39i,4n,25p,425b,172s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-
+super-t2a.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc2488.pfb>
+Output written on astro-notebook.pdf (3 pages, 49475 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
+ 29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
