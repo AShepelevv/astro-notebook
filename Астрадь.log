@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 19:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 20:21
 entering extended mode
 **./Астрадь.tex
 (Астрадь.tex
@@ -871,13 +871,13 @@ Package pdftex.def Info: c:/Pictures/525px-Orbit_ru.png used on input line 184.
 
 (pdftex.def)             Requested size: 163.35861pt x 163.35861pt.
  [7 <c:/Pictures/525px-Orbit_ru.png>]
-<c:/Pictures/Phase_angel.png, id=48, 437.38406pt x 241.65282pt>
-File: c:/Pictures/Phase_angel.png Graphic file (type png)
+<c:/Pictures/Phase_angle.pdf, id=48, 229.29143pt x 126.78065pt>
+File: c:/Pictures/Phase_angle.pdf Graphic file (type pdf)
 
-<use c:/Pictures/Phase_angel.png>
-Package pdftex.def Info: c:/Pictures/Phase_angel.png used on input line 196.
-(pdftex.def)             Requested size: 253.68292pt x 140.15872pt.
- [8 <c:/Pictures/Phase_angel.png>]
+<use c:/Pictures/Phase_angle.pdf>
+Package pdftex.def Info: c:/Pictures/Phase_angle.pdf used on input line 196.
+(pdftex.def)             Requested size: 211.69075pt x 117.05359pt.
+ [8 <c:/Pictures/Phase_angle.pdf>]
 
 LaTeX Warning: Command \CYRA invalid in math mode on input line 215.
 
@@ -886,14 +886,14 @@ Missing character: There is no � in font cmr10!
 LaTeX Warning: Command \CYRV invalid in math mode on input line 215.
 
 Missing character: There is no � in font cmr10!
-<c:/Pictures/Ebb_and_flow.png, id=53, 960.58875pt x 351.56343pt>
-File: c:/Pictures/Ebb_and_flow.png Graphic file (type png)
+<c:/Pictures/Ebb_and_flow.pdf, id=68, 386.78392pt x 141.04794pt>
+File: c:/Pictures/Ebb_and_flow.pdf Graphic file (type pdf)
 
-<use c:/Pictures/Ebb_and_flow.png>
-Package pdftex.def Info: c:/Pictures/Ebb_and_flow.png used on input line 217.
-(pdftex.def)             Requested size: 307.39467pt x 112.5026pt.
- [9 <c:/Pictures/Ebb_and_flow.png>]
-<c:/Pictures/full_sollar_eclipse.pdf, id=58, 441.40709pt x 109.77914pt>
+<use c:/Pictures/Ebb_and_flow.pdf>
+Package pdftex.def Info: c:/Pictures/Ebb_and_flow.pdf used on input line 217.
+(pdftex.def)             Requested size: 352.81435pt x 128.65944pt.
+
+<c:/Pictures/full_sollar_eclipse.pdf, id=69, 441.40709pt x 109.77914pt>
 File: c:/Pictures/full_sollar_eclipse.pdf Graphic file (type pdf)
 
 <use c:/Pictures/full_sollar_eclipse.pdf>
@@ -905,7 +905,8 @@ Overfull \hbox (17.64178pt too wide) in paragraph at lines 230--234
  [] 
  []
 
-<c:/Pictures/partly_sollar_eclipse.pdf, id=59, 419.25735pt x 157.98824pt>
+[9 <c:/Pictures/Ebb_and_flow.pdf>]
+<c:/Pictures/partly_sollar_eclipse.pdf, id=103, 419.25735pt x 157.98824pt>
 File: c:/Pictures/partly_sollar_eclipse.pdf Graphic file (type pdf)
 
 <use c:/Pictures/partly_sollar_eclipse.pdf>
@@ -914,43 +915,43 @@ ne 238.
 (pdftex.def)             Requested size: 335.17255pt x 126.30396pt.
  [10 <c:/Pictures/full_sollar_eclipse.pdf> <c:/Pictures/partly_sollar_eclipse.p
 df>]
-<c:/Pictures/moon_eclipse.png, id=89, 1231.60126pt x 325.215pt>
+<c:/Pictures/moon_eclipse.png, id=133, 1231.60126pt x 325.215pt>
 File: c:/Pictures/moon_eclipse.png Graphic file (type png)
 
 <use c:/Pictures/moon_eclipse.png>
 Package pdftex.def Info: c:/Pictures/moon_eclipse.png used on input line 261.
 (pdftex.def)             Requested size: 332.53679pt x 87.80922pt.
 
-<c:/Pictures/Phases.png, id=90, 301.8778pt x 302.63063pt>
-File: c:/Pictures/Phases.png Graphic file (type png)
+<c:/Pictures/Phases.pdf, id=134, 140.85202pt x 141.06702pt>
+File: c:/Pictures/Phases.pdf Graphic file (type pdf)
 
-<use c:/Pictures/Phases.png>
-Package pdftex.def Info: c:/Pictures/Phases.png used on input line 271.
-(pdftex.def)             Requested size: 96.60286pt x 96.84377pt.
+<use c:/Pictures/Phases.pdf>
+Package pdftex.def Info: c:/Pictures/Phases.pdf used on input line 271.
+(pdftex.def)             Requested size: 105.84537pt x 106.00664pt.
 
-<c:/Pictures/Phases_2.png, id=91, 456.20438pt x 456.20438pt>
-File: c:/Pictures/Phases_2.png Graphic file (type png)
+<c:/Pictures/Phases_2.pdf, id=135, 163.61125pt x 163.61125pt>
+File: c:/Pictures/Phases_2.pdf Graphic file (type pdf)
 
-<use c:/Pictures/Phases_2.png>
-Package pdftex.def Info: c:/Pictures/Phases_2.png used on input line 272.
-(pdftex.def)             Requested size: 95.80574pt x 95.80574pt.
+<use c:/Pictures/Phases_2.pdf>
+Package pdftex.def Info: c:/Pictures/Phases_2.pdf used on input line 272.
+(pdftex.def)             Requested size: 105.84537pt x 105.84424pt.
  [11 <c:/Pictures/moon_eclipse.png>]
-<c:/Pictures/000041.jpg, id=96, 490.83376pt x 468.75125pt>
+<c:/Pictures/000041.jpg, id=140, 490.83376pt x 468.75125pt>
 File: c:/Pictures/000041.jpg Graphic file (type jpg)
 
 <use c:/Pictures/000041.jpg>
 Package pdftex.def Info: c:/Pictures/000041.jpg used on input line 285.
 (pdftex.def)             Requested size: 225.78625pt x 215.62819pt.
- [12 <c:/Pictures/Phases.png> <c:/Pictures/Phases_2.png>] [13 <c:/Pictures/0000
+ [12 <c:/Pictures/Phases.pdf> <c:/Pictures/Phases_2.pdf>] [13 <c:/Pictures/0000
 41.jpg>]
-<c:/Pictures/Lagrange's_points.pdf, id=106, 183.34097pt x 148.36629pt>
+<c:/Pictures/Lagrange's_points.pdf, id=166, 183.34097pt x 148.36629pt>
 File: c:/Pictures/Lagrange's_points.pdf Graphic file (type pdf)
 
 <use c:/Pictures/Lagrange's_points.pdf>
 Package pdftex.def Info: c:/Pictures/Lagrange's_points.pdf used on input line 3
 03.
 (pdftex.def)             Requested size: 158.76537pt x 128.48674pt.
- [14 <c:/Pictures/Lagrange's_points.pdf>] <c:/Pictures/Ellips.png, id=136, 852.
+ [14 <c:/Pictures/Lagrange's_points.pdf>] <c:/Pictures/Ellips.png, id=196, 852.
 93657pt x 573.64313pt>
 File: c:/Pictures/Ellips.png Graphic file (type png)
 
@@ -981,9 +982,9 @@ blic/cm-super/sfbx1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-s
 uper/sfbx1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx
 1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0700.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Астрадь.pdf (15 pages, 717926 bytes).
+Output written on Астрадь.pdf (15 pages, 687868 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
+ 249 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
