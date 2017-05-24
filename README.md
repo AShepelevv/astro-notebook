@@ -1,2 +1,2 @@
-# astro-notebook
-short notebook of basic theory on astronomy 
+# Astro-notebook
+notebook of basic theory on astronomy 
