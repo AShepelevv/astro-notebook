@@ -1,4 +1,13 @@
-*.log
-*.toc
-*.aux
-/.texpadtmp
+*
+/*
+
+!astro-notebook.tex
+!sections/
+!img/
+!*.jpg
+!*.png
+!*.pdf
+!*.eps
+!*.cls
+!*.sty
+!README.md
