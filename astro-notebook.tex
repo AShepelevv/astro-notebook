@@ -1,29 +1,23 @@
 \documentclass[10pt,a5paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
 \usepackage[OT1]{fontenc}
 \usepackage{amsmath}
-\unitlength=1mm
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage[left=1.2 cm,right=1.2 cm,top=1.8 cm,bottom=1.8 cm]{geometry}
+\usepackage[left=1.2cm, right=1.2cm, top=1.8cm, bottom=1.8 cm]{geometry}
 \usepackage{graphicx}
-\usepackage{сelestial-mechanics-elements}
-\graphicspath{{img\}}
-\title{Астрадь}
+\graphicspath{{./img/}}
+
 \begin{document}
-
 \begin{titlepage}
-	
-	\begin{center}
-	\vspace*{5 cm}
-		{\Huge \bfseries \scshape Астрадь}
-	\end{center}
+	\vspace*{5cm}
+	\centering
+	{\Huge \scshape \bfseries Астрадь}
 \end{titlepage}
-
 \tableofcontents
 \newpage
 
-\input{celestial-mechanics-elements}
-\input{conic-sections}
+\input{sections/celestial-mechanic.tex}
+\input{sections/conic-sections.tex}
 \end{document}
