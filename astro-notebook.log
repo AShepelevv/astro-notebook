@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 22:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.16)  24 MAY 2017 23:34
 entering extended mode
 **./astro-notebook.tex
 (astro-notebook.tex
@@ -818,40 +818,27 @@ G,.JBIG2,.JB2,.eps]
 
  [1]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\.tex" File ignored) [2]
-(astro-notebook.aux) ) 
-Here is how much of TeX's memory you used:
- 4307 strings out of 493320
- 54407 string characters out of 3138960
- 124276 words of memory out of 3000000
- 7737 multiletter control sequences out of 15000+200000
- 9297 words of font info for 21 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 39i,4n,25p,425b,172s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-
-super-t2a.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc2488.pfb>
-Output written on astro-notebook.pdf (3 pages, 49475 bytes).
-PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+! LaTeX Error: File `newton-law-of-universal-gravitation.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.27 \input{newton-law-of-universal-gravitation}
+                                                
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 4268 strings out of 493320
+ 52739 string characters out of 3138960
+ 122276 words of memory out of 3000000
+ 7734 multiletter control sequences out of 15000+200000
+ 8480 words of font info for 20 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 39i,4n,25p,247b,158s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
