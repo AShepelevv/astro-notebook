@@ -10,4 +10,5 @@
 !*.eps
 !*.cls
 !*.sty
+!*.tex
 !README.md
