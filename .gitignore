@@ -1,0 +1,5 @@
+*
+!.gitignore
+!/sections/
+!/img/
+!astro-notebook.tex
