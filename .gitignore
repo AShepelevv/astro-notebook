@@ -2,9 +2,5 @@
 *.toc
 *.aux
 *.gz
+astro-notebook.pdf
 /.texpadtmp
-*.pdf
-!/img
-!/img/*.pdf
-!/img/*.png
-!/img/*.jpg
