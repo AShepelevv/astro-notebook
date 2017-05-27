@@ -3,3 +3,8 @@
 *.aux
 *.gz
 /.texpadtmp
+*.pdf
+!/img
+!/img/*.pdf
+!/img/*.png
+!/img/*.jpg
