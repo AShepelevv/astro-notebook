@@ -1,6 +1,6 @@
+/astro-notebook.pdf
 *.log
 *.toc
 *.aux
 *.gz
-astro-notebook.pdf
 /.texpadtmp
