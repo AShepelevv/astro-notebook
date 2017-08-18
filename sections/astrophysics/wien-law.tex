@@ -1,6 +1,15 @@
 \subsection{Закон смещения Вина}
 \textit{Закон смещения Виина} --- закон, устанавливающий зависимость длины волны от температуры чёрного тела, на которой поток излучения энергии чёрного тела достигает своего максимума (Рис.\ref{pic:wien-law}).
 
+\begin{center}
+ \begin{tikzpicture}
+  \begin{axis}[width=7.5cm, height=7.5cm, no markers, grid = major]
+   \addplot+[line width=0.035cm, green!70!black, x=l,y=t4] table{data.txt};
+   \addplot+[line width=0.035cm, blue!70!black, x=t5,y=t6] table{data.txt};
+  \end{axis}
+ \end{tikzpicture}
+\end{center}
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.35]{Wien-law}
