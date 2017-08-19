@@ -1,18 +1,29 @@
 \subsection{Закон смещения Вина}
-\textit{Закон смещения Виина} --- закон, устанавливающий зависимость длины волны от температуры чёрного тела, на которой поток излучения энергии чёрного тела достигает своего максимума (Рис.\ref{pic:wien-law}).
-
-\begin{center}
- \begin{tikzpicture}
-  \begin{axis}[width=7.5cm, height=7.5cm, no markers, grid = major]
-   \addplot+[line width=0.035cm, green!70!black, x=l,y=t4] table{data.txt};
-   \addplot+[line width=0.035cm, blue!70!black, x=t5,y=t6] table{data.txt};
-  \end{axis}
- \end{tikzpicture}
-\end{center}
+\textit{Закон смещения Вина} --- закон, устанавливающий зависимость длины волны от температуры чёрного тела, на которой поток излучения энергии чёрного тела достигает своего максимума (Рис.\ref{pic:wien-law}).
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.35]{Wien-law}
+ \begin{tikzpicture}
+  \begin{axis}[width=7.5cm, height=7.5cm,legend pos = outer north east, no markers,minor x tick num = 1,minor y tick num = 1,grid = both,line width=1pt,cycle list = {
+{smooth,green!50!black,solid},
+{smooth,blue!50!green,solid},
+{smooth,blue,solid},
+{smooth,green!50!white,solid},
+{smooth,black,solid},
+{smooth,red,solid},
+{smooth,brown,solid}
+}
+]
+   \addplot table[x=l,y=t10] {data.txt};
+   \addplot table[x=l,y=t9] {data.txt};
+   \addplot table[x=l,y=t8] {data.txt};
+   \addplot table[x=l,y=t7] {data.txt};
+   \addplot table[x=l,y=t6] {data.txt};
+   \addplot table[x=l,y=t5] {data.txt};
+   \addplot table[x=l,y=t4] {data.txt};
+   \legend{5500K, 5000K, 4500K, 4000K, 3500K, 3000K, 2500K}
+  \end{axis}
+ \end{tikzpicture}
 \end{center}
 \caption{Кривые спектральной плотности потока излучения абсолютно чёрных тел с разной температурой}\label{pic:wien-law}
 \end{figure}
