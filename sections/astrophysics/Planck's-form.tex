@@ -13,11 +13,19 @@ B(\lambda,T)=\frac{2hc^2}{\lambda^5} \cdot \frac{1}{\exp\left(\frac{hc}{\lambda 
 Стоит заметить, что при переходе функции к длинам волн меняется не только частота на длину волны, но и интервал. 
 
 Формула Планка появилась тогда, как стало ясно, что формула Рэлея — Джинса удоволетворительно описывает излучение только в области длинных волн, а с убыванием длин волн даёт сильные расхождения с эмпирическими данными. Формула Рэлея-Джинса для длин волн записывается таким образом:
-\begin{equation}
+\begin{equation}\label{Ray-Jean}
 B(\lambda,T)=\frac{2ckT}{\lambda^4}
 \end{equation}
 
 Если формулу Рэлея — Джинса записать для частоты излучения, то формула примет данный вид:
-\begin{equation}
+\begin{equation}\label{Ray-Jean2}
 B(\nu,T)=\frac{2\nu^2 kT}{c^2}
+\end{equation}
+
+Также формулы (\ref{Ray-Jean}) и (\ref{Ray-Jean2}) можно записать для коротковолновой и высокочастотной области:
+\begin{equation}
+U(\lambda,T)\approx\frac{2hc^2}{\lambda^5}\exp\left(-\frac{hc}{\lambda kT}\right)
+\end{equation}
+\begin{equation}
+U(\nu,T)\approx\frac{2h\nu^3}{c^2}\exp\left(-\frac{h\nu}{kT}\right)
 \end{equation}
