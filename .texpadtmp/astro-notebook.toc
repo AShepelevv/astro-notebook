@@ -1,0 +1,18 @@
+\select@language {russian}
+\contentsline {section}{\numberline {1}Небесная механика}{2}
+\contentsline {subsection}{\numberline {1.1}Расстояние и размеры}{2}
+\contentsline {subsection}{\numberline {1.2}Закон всемирного тяготения}{3}
+\contentsline {subsection}{\numberline {1.3}Закон сохранения энергии и типы орбит}{4}
+\contentsline {subsection}{\numberline {1.4}Законы Кеплера}{5}
+\contentsline {subsection}{\numberline {1.5}Точки Лагранжа}{6}
+\contentsline {subsection}{\numberline {1.6}Конфигурации планет}{7}
+\contentsline {subsection}{\numberline {1.7}Приливы и отливы}{7}
+\contentsline {subsection}{\numberline {1.8}Солнечные и лунные затмения. Сарос}{8}
+\contentsline {subsubsection}{\numberline {1.8.1}Полное солнечное затмение}{8}
+\contentsline {subsubsection}{\numberline {1.8.2}Кольцеобразное солнечное затмение}{9}
+\contentsline {subsubsection}{\numberline {1.8.3}Лунное затмение}{9}
+\contentsline {subsubsection}{\numberline {1.8.4}Фаза затмения}{9}
+\contentsline {subsection}{\numberline {1.9}Синодический период}{9}
+\contentsline {subsection}{\numberline {1.10}Движение по орбите}{10}
+\contentsline {subsection}{\numberline {1.11}Фазы планет и спутников}{10}
+\contentsline {subsection}{\numberline {1.12}Прецессия}{11}
