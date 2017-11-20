@@ -12,6 +12,7 @@
 \graphicspath{{./img/}}
 
 \usepackage{tikz}
+\usetikzlibrary{decorations.text}
 \usepackage{pgfplots}
 \usepackage{pgf}
 \usepgflibrary{decorations.pathmorphing} % LATEX and plain TEX and pure pgf 
@@ -26,6 +27,9 @@
 \newcommand{\au}{\text{а.\,е.}}
 \newcommand{\tw}{\textwidth}
 \newcommand{\imp}[1]{{\itshape#1}}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
 
 \usepackage						{fontspec}
 \setmainfont						{CMU Serif} 
