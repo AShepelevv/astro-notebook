@@ -1,0 +1,58 @@
+\documentclass[10pt, a5paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=1.2cm, right=1.2cm, top=1.8cm, bottom=1.8 cm]{geometry}
+%\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subcaption}
+\graphicspath{{./img/}}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf}
+\usepgflibrary{decorations.pathmorphing} % LATEX and plain TEX and pure pgf 
+\usetikzlibrary{decorations.shapes}
+
+\usepackage{wasysym}
+\usepackage[final]{pdfpages}
+
+
+\newcommand{\term}[1]{{\sffamily\bfseries#1}}
+\newcommand{\moon}{\rightmoon}
+\newcommand{\au}{\text{а.\,е.}}
+\newcommand{\tw}{\textwidth}
+\newcommand{\imp}[1]{{\itshape#1}}
+
+\usepackage						{fontspec}
+\setmainfont						{CMU Serif} 
+\setsansfont						{CMU Sans Serif}	
+
+\setlength    {\parskip}        { 4pt}
+\setlength    {\parindent}      { 0pt}
+\renewcommand {\baselinestretch}{ 1.02 }
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\begin{document}
+
+\includepdf[pages=-]{sys/cover.pdf}
+\input{sys/authors.tex}
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\input{sections/cel.mech}
+\input{sections/conic.sec}
+\input{sections/astrophys}
+\input{sections/optic}
+\input{sections/spher.astro}
+
+\end{document}

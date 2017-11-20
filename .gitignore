@@ -1,0 +1,7 @@
+*.log
+*.toc
+*.aux
+*.gz
+*.out
+astro-notebook.pdf
+.texpadtmp/
