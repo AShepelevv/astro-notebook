@@ -1,49 +1,25 @@
 \subsection{Закон Стефана-Больцмана}
-Светимость абсолютно чёрного тела, где $S$ --- площадь поверхности тела, $T$ --- температура тела, $\sigma=5.67\cdot 10^{-8} \text{Вт}/(\text{м}^2\cdot \text{К}^4)$ --- постоянная Стефана-Больцмана, которая определяется как $\sigma=(2\pi^5k^4)/(15c^2h^3)$
-\begin{equation}
-L=S\sigma T^4
+Светимость абсолютно чёрного тела
+	\begin{equation}
+	L = S \sigma T^4,
+	\label{eq:steff-bol-law}
 \end{equation}
-Для тел сферической формы формула принимает следующий вид:
+ где $S$~--- площадь поверхности тела, $T$~--- температура тела, $\sigma$~--- постоянная Стефана-Больцмана.
+  
+Важно отметить, что \imp{закон Стефана-Больцмана}~--- прямое следствие формулы Планка \eqref{Planck's formula}, т.\,к.\begin{equation}
+	\sigma T^4 = \int\limits^\infty_0 B(\lambda, T)\,d\lambda,
+\end{equation}
+отсюда $\sigma = (2\pi^5k^4)/(15c^2h^3) = 5.67 \cdot 10^{-8}~\text{Вт}/(\text{м}^2\cdot \text{К}^4)$.
+
+
+Для тел сферической формы формула~\eqref{eq:steff-bol-law} принимает следующий вид:
 \begin{equation}
 L=4\pi R^2\sigma T^4
 \end{equation}
-Полезные соотношения для звёзд главной последовательности:
+Для звёзд главной последовательности в окрестности Солнца выполняются пропорциональности
 \begin{equation}
 L\sim M^{3.9}
 \end{equation}
 \begin{equation}
 L\sim R^{5.2}
-\end{equation}
-Для нормальных звёзд и гигантов:
-\begin{flushleft}
-Время жизни звезды
-\end{flushleft}
-\begin{equation}
-t\sim M^{-3}
-\end{equation}
-\paragraph{Зависимость жизни звезды от массы:}
-\begin{flushleft}
-\textbf{Возможные значения массы звезды при рождении:}
-\end{flushleft}
-\begin{equation}
-0.08M_{sun}<M<150M_{sun}
-\end{equation}
-Сверхновая
-\begin{equation}
-M>8M_{sun}
-\end{equation}
-Белый карлик
-\begin{equation}
-M<8M_{sun}
-\end{equation}
-\textbf{На конечных стадиях:}
-\begin{flushleft}
-Белый карлик (предел Чандрасекара)
-\end{flushleft}
-\begin{equation}
-M<1.44M_{sun}
-\end{equation}
-Нейтронная звезда
-\begin{equation}
-1.44M_{sun}<M<2.5M_{sun}
 \end{equation}
