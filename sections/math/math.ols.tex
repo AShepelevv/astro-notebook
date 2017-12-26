@@ -1,22 +1,28 @@
 \subsection{МНК}
-\term{Метод наименьших квадратов}~--- математический метод, применяемый для решения различных задач, основанный на минимизации суммы квадратов отклонений некоторых функций от искомых переменных. Этот метод помогает найти уравнение зависимости, которая лучшим образом ложится на точки графика. Для этого находят функцию, сумма квадратов отклонений которой от заданных точек, минимальна.
+\term{Метод наименьших квадратов}~--- математический метод, применяемый для решения различных задач, основанный на минимизации суммы квадратов отклонений некоторых функций от искомых переменных. Этот метод помогает найти уравнение зависимости, на котораую лучшим образом ложатся точки на графике. Для этого находят функцию, сумма квадратов отклонений которой от заданных точек, минимальна.
 \begin{equation}
-\sum\limits_{i=1}^n e_i^2 = \sum\limits_{i=1}^n (y_i - f(x_i))^2 = \min_x
+\sum\limits_{i=1}^n e_i^2 = \sum\limits_{i=1}^n (y_i - f(x_i))^2 = \min_g \sum\limits_{i=1}^n (y_i - g(x_i))^2
 \end{equation}
 Выведем формулу для аппроксимации линейной функцией:
-\begin{align*}
-y &= ax + b\\
-F(a,b) &= \sum\limits_{i=1}^n(y_i-(ax_i + b))^2 \rightarrow \min\\
-\begin{cases}
-\dfrac{\partial  F(a,b)}{\partial a} &= -2\sum\limits_{i=1}^n(y_i-(ax_i + b))x_i = 0\\
-\dfrac{\partial  F(a,b)}{\partial b} &= -2\sum\limits_{i=1}^n(y_i-(ax_i + b)) = 0
-\end{cases}\\
-\begin{cases}
-a \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i &= \sum\limits_{i=1}^n x_iy_i\\
- \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n b &= \sum\limits_{i=1}^n y_i
-\end{cases}\\
-\begin{cases}
-a &= \dfrac{n\sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \sum\limits_{i=1}^n y_i}{n \sum\limits_{i=1}^n x_i^2 - (\sum\limits_{i=1}^n x_i)^2}\\
-b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n}
-\end{cases}
-\end{align*}
+\begin{equation*}
+f(x) = ax + b
+\end{equation*}
+\begin{equation*}
+F(a,b) = \sum\limits_{i=1}^n(y_i-(ax_i + b))^2 \rightarrow \min 
+\end{equation*}
+\begin{equation*}
+\left\{ \begin{array}{rcl}
+\dfrac{\partial  F(a,b)}{\partial a} = -2\sum\limits_{i=1}^n(y_i-(ax_i + b))x_i = 0\\
+\dfrac{\partial  F(a,b)}{\partial b} = -2\sum\limits_{i=1}^n(y_i-(ax_i + b)) = 0
+\end{array} \right. \Longleftrightarrow
+\left\{ \begin{array}{rcl}
+a \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i = \sum\limits_{i=1}^n x_iy_i\\
+ \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n b = \sum\limits_{i=1}^n y_i
+\end{array} \right.
+\end{equation*}
+\begin{equation*}
+\left\{ \begin{array}{rcl}
+a &= \dfrac{n\sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \sum\limits_{i=1}^n y_i}{n \sum\limits_{i=1}^n x_i^2 - \left(\sum\limits_{i=1}^n x_i\right)^2} = \dfrac{\langle xy \rangle -\langle x\rangle \langle y \rangle}{\langle x^2 \rangle - \langle x \rangle^2}\\
+b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} = \dfrac{\langle y \rangle - a \langle x \rangle}{n^2}
+\end{array} \right.
+\end{equation*}
