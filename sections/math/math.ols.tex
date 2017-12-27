@@ -32,3 +32,11 @@ a = \dfrac{n\sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \sum\limits_{i
 b = \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} 
 = \langle y \rangle - a \langle x \rangle
 \end{equation}
+
+Погрешности найденных коэффициентов определяются следующими выражениями:
+\begin{equation}
+	\sigma_a \approx \frac{1}{\sqrt{n}} \sqrt{\dfrac{\langle y^2 \rangle - \langle y \rangle^2}{\langle x^2 \rangle - \langle x \rangle^2} - b^2},
+\end{equation}
+\begin{equation}
+	\sigma_b = \sigma_a \sqrt{\langle x^2 \rangle - \langle x \rangle^2}.	
+\end{equation}
