@@ -1,0 +1,42 @@
+\subsection{МНК}
+\term{Метод наименьших квадратов}~--- математический метод, применяемый для решения различных задач, основанный на минимизации суммы квадратов отклонений некоторых функций от искомых переменных. Данный метод помогает найти функцию, на которую лучшим образом ложатся точки на графике. Для этого определяется функция $f$, сумма квадратов отклонений~$e_i$ которой от заданных точек $\left( x_i, y_i \right)$, минимальна.
+\begin{equation}
+\sum\limits_{i=1}^n e_i^2 = \sum\limits_{i=1}^n \bigl[ y_i - f(x_i) \bigr]^2 = \min_{g(x)} \sum\limits_{i=1}^n \bigl[y_i - g(x_i) \bigr]^2
+\label{eq:ols-cond}
+\end{equation}
+Вывод формул для коэффициентов \imp{линейной функции} по МНК:
+\begin{equation*}
+f(x) = ax + b,
+\end{equation*}
+\begin{equation*}
+F(a,b) = \sum\limits_{i=1}^n \bigl[y_i-(ax_i + b) \bigr]^2 \rightarrow \min_{a, b}.
+\end{equation*}
+Условие \eqref{eq:ols-cond} выполняется при равенстве нулю обеих частных производных функции $F(a, b)$, то есть
+\begin{equation*}
+\left\{ \begin{aligned}
+\dfrac{\partial  F(a,b)}{\partial a} =& -2\sum\limits_{i=1}^n \bigl[ y_i-(ax_i + b) \bigr] x_i = 0;\\
+\dfrac{\partial  F(a,b)}{\partial b} =& -2\sum\limits_{i=1}^n \bigl[ y_i-(ax_i + b) \bigr] = 0.
+\end{aligned} \right. ~\Longrightarrow~
+\left\{ \begin{aligned}
+a \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i &= \sum\limits_{i=1}^n x_i y_i;\\
+ \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n b &= \sum\limits_{i=1}^n y_i.
+\end{aligned} \right.
+\end{equation*}
+
+\begin{equation}
+a = \dfrac{n\sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \sum\limits_{i=1}^n y_i}{n \sum\limits_{i=1}^n x_i^2 - \left(\sum\limits_{i=1}^n x_i\right)^2} 
+= \dfrac{\langle xy \rangle -\langle x\rangle \langle y \rangle}{\langle x^2 \rangle - \langle x \rangle^2}
+\end{equation}
+
+\begin{equation}
+b = \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} 
+= \langle y \rangle - a \langle x \rangle
+\end{equation}
+
+Погрешности найденных коэффициентов определяются следующими выражениями:
+\begin{equation}
+	\sigma_a \approx \frac{1}{\sqrt{n}} \sqrt{\dfrac{\langle y^2 \rangle - \langle y \rangle^2}{\langle x^2 \rangle - \langle x \rangle^2} - b^2},
+\end{equation}
+\begin{equation}
+	\sigma_b = \sigma_a \sqrt{\langle x^2 \rangle - \langle x \rangle^2}.	
+\end{equation}
