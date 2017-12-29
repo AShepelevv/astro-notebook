@@ -1,0 +1,35 @@
+\subsection{Закон Стефана-Больцмана}
+\term{Закон Стефана~--- Больцмана} определяет зависимость плотности мощности излучения абсолютно чёрного тела (АЧТ) $u$ от его температуры $T$:
+\begin{equation}
+u = a T^4,
+\end{equation} 
+где $a$~--- некая универсальная константа.
+Отсюда светимость АЧТ с площадью поверхности $S$
+	\begin{equation}
+	L = S \sigma T^4,
+	\label{eq:steff-bol-law}
+\end{equation}
+константа $\sigma$ называется \imp{постоянной Стефана-Больцмана}.
+  
+Важно отметить, что \imp{закон Стефана-Больцмана}~--- прямое следствие формулы Планка \eqref{Planck's formula}, так как
+\begin{equation}
+	\sigma T^4 = \int\limits^\infty_0 B(\lambda, T)\,d\lambda,
+\end{equation}
+откуда $\sigma = (2\pi^5k^4)/(15c^2h^3) = 5.67 \cdot 10^{-8}~\text{Вт}/(\text{м}^2\cdot \text{К}^4)$.
+
+Для АЧТ сферической формы с радиусом $R$ формула~\eqref{eq:steff-bol-law} принимает вид
+\begin{equation}
+L=4\pi R^2\sigma T^4.
+\end{equation}
+Для звёзд главной последовательности выполняется соотношение
+\begin{equation}
+L\sim M^{\alpha},
+\end{equation}
+где $\alpha$~--- коэффициент пропорциональности, который зависит от массы звезды следующим образом:
+\begin{align*}
+\alpha &= 2.5, \quad M < 0.43 M_\odot; & \alpha &= 4, \quad 0.43 M_\odot < M < 2 M_\odot;\\ \alpha &= 3.2, \quad 2 M_\odot < M < 20 M_\odot; & \alpha &= 1, \quad M > 20 M_\odot.\\
+\end{align*}
+Также справедлива примерная зависимость светимости звёзд от их радиуса, имеющая вид  
+\begin{equation}
+L\sim R^{5.2}.
+\end{equation}

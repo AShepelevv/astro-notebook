@@ -1,0 +1,27 @@
+\subsection{Интеграл}
+\term{Неопределенным интегралом} функции $f(x)$ называется такая функция $F(x)$, производная которой равна $f(x)$.
+\begin{equation}
+F(x) = \int f(x)dx,\quad F^\prime(x)=f(x).
+\end{equation}
+\term{Определенный интеграл} характеризуется верхним и нижним пределом интегрирования. Значение определенного интеграла численно равно площади под графиком функции на данном интервале.
+\begin{equation}
+\int\limits^b_a f(x)\,dx = F(x) \biggr|^b_a = F(b) - F(a)
+\end{equation}
+Правила интегрирования:
+\begin{align*}	
+\int c f(x) \,dx &= c \int f(x) \,dx;  &&&&&\int f(ax + b) \,dx &= \dfrac{1}{a}F(ax + b) + C;\\
+\int f \,dg &= fg - \int g \,df; &&&&& \int \bigl[f(x) + g(x)\bigr] \,dx &= \int f(x) \,dx + \int g(x) \,dx;
+\end{align*}
+
+Таблица интегралов:
+\begin{align*}
+\int 0 \,dx &= C & \int \dfrac{dx}{x \ln x} &= \ln |\ln x| + C; \\
+\int a \,dx &= ax + C; & \int \log_b x \,dx &= x\cdot \dfrac{\ln x - 1}{\ln b} + C;\\
+\int x^a \,dx &= \dfrac{x^{a+1}}{a+1} + C,\quad a \neq -1; & \int \exp^x \,dx &= \exp^x + C; \\
+\int x^{-1} \,dx &= \ln x + C; & \int a^x \,dx &= \dfrac{a^x}{\ln a} + C;\\
+\int \dfrac{dx}{x^2 + a^2} &= \dfrac{1}{a} \arctg \dfrac{x}{a} + C; & \int \dfrac{dx}{\sqrt{a^2 - x^2}} &= \arcsin\dfrac{x}{a} + C;\\
+\int \dfrac{dx}{x^2 - a^2} &= \dfrac{1}{2a} \ln \dfrac{|x - a|}{|x + a|} + C; & \int \dfrac{-dx}{\sqrt{a^2 - x^2}} &= \arccos\dfrac{x}{a} + C;\\
+\int \ln x \,dx &= x \ln x - x + C; & \int \dfrac{dx}{x \sqrt{x^2 - a^2}} &= \dfrac{1}{a}\arccos\dfrac{a}{|x|} + C;\\
+\int \dfrac{dx}{\sqrt{x^2 + a}} &= \ln|x + \sqrt{x^2 + a}| + C; & \int \sin x \,dx &= -\cos x + C;\\
+\int \cos x \,dx &= \sin x + C; & \int \tan x \,dx &= - \ln|\cos x| + C.
+\end{align*}

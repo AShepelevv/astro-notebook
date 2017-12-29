@@ -1,0 +1,72 @@
+\documentclass[10pt, a5paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=1.2cm, right=1.2cm, top=1.8cm, bottom=1.8 cm]{geometry}
+%\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subcaption}
+\graphicspath{{./img/}}
+
+\usepackage{pgfplots}
+
+
+\usepackage{wasysym}
+\usepackage[final]{pdfpages}
+
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
+
+\usepackage{enumerate}
+
+
+\newcommand{\term}[1]{{\sffamily\bfseries#1}}
+\newcommand{\moon}{\rightmoon}
+\newcommand{\au}{\text{а.\,е.}}
+\newcommand{\tw}{\textwidth}
+\newcommand{\imp}[1]{{\itshape#1}}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+%\usepackage						{fontspec}
+%\setmainfont						{CMU Serif} 
+%\setsansfont						{CMU Sans Serif}	
+
+\setlength    {\parskip}        { 4pt}
+\setlength    {\parindent}      { 0pt}
+\renewcommand {\baselinestretch}{ 1.02 }
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\allowdisplaybreaks
+\widowpenalties 1 10000
+\raggedbottom
+\usepackage{starfont}
+
+\begin{document}
+
+\includepdf[pages=-]{sys/cover.pdf}
+\input{sys/authors.tex}
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\input{sections/cel.mech.tex}
+\input{sections/conic.sec.tex}
+\input{sections/astrophys.tex}
+\input{sections/optic.tex}
+\input{sections/spher.astro.tex}
+\input{sections/math.tex}
+\input{sections/tables.tex}
+
+\end{document}
