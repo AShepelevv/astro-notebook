@@ -24,11 +24,36 @@
 
 На всех кривых блеска (Рис.~\ref{var-stars}) заметны два минимума: глубокий (главный), соответствующий затмению главной звезды спутником, и слабый (вторичный), возникающий, когда главная звезда затмевает спутник.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\tw]{var-stars2}
-	\caption{Кривые блеска некоторых затменно-переменных звёзд}
-	\label{var-stars}
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=0.8\tw]{var-stars2}
+%	\caption{Кривые блеска некоторых затменно-переменных звёзд}
+%	\label{var-stars}
+%\end{figure}
+
+\begin{figure}[!h]
+\centering
+ \begin{tikzpicture}
+ \begin{axis}[
+ no markers,
+% xlabel={Прямое восхождение $\alpha^h$}, 
+% ylabel={Склонение $\delta^{\circ}$},
+ minor x tick num = 1,
+ minor y tick num = 1,
+ grid = both,
+ line width=.7pt, 
+% extra y ticks={23.44, -23.44},
+ ymax=1.02,
+ ymin=0.65,
+ xmax=1,
+ xmin=0,
+% xtick={0,4,8,12,16,20,24}
+ ]
+% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
+	\addplot table{data/light-curve-W-UMa.txt};
+ \end{axis}
+ \end{tikzpicture}
+ \caption{График зависимости склонения от прямого восхождения Солнца}
 \end{figure}
 
 
