@@ -1,47 +1,92 @@
-\documentclass[10pt, a5paper]{article}
+\documentclass[10pt, a5paper, twoside]{article}
+
+%%% Русский шрифт
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage[OT1]{fontenc}
+
+%%% Шрифты для математики
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage[left=1.2cm, right=1.2cm, top=1.8cm, bottom=1.8 cm]{geometry}
-%\usepackage{graphicx}
-\usepackage{graphics}
+
+%%% Астрономические символы
+\usepackage{wasysym}
+\usepackage{starfont}	% Значок Цереры
+
+%%% Поля и разметка страницы
+\usepackage[left=1.2cm, right=1.2cm, top=1.5cm, bottom=1.2 cm, headsep=4mm]{geometry}
+
+%%% Набор текста
+% Разрывы страниц в формулах
+\allowdisplaybreaks	
+% Последняя строка абзаца
+%\widowpenalties 1 10000
+%\raggedbottom 
+\widowpenalty10000
+\clubpenalty10000
+
+%%% Иллюстрации
+%\usepackage{graphics}
+\usepackage{graphicx}
 \usepackage{subcaption}
 \graphicspath{{./img/}}
+\usepackage{wrapfig}
 
 \usepackage{pgfplots}
 
+\usepackage		[margin		= 10	pt,
+					font		= footnotesize, 
+					labelfont	= bf, 
+					labelsep	= endash, 
+					labelfont	= bf,
+					textfont	= sl,
+					margin		= 0 	pt, 
+%					textformat	= period, 
+					aboveskip 	= 4		pt, 
+					belowskip 	= -6	pt]	{caption}
+\usepackage		[margin		= 10	pt,
+					font		= footnotesize, 
+					labelfont	= bf, 
+					labelsep	= endash, 
+					labelfont	= bf,
+					textfont	= sl,
+					margin		= 0 	pt, 
+%					textformat	= period, 
+					aboveskip 	= 4		pt, 
+					belowskip 	= 6	pt]	{subcaption}
 
-\usepackage{wasysym}
+
+%%% Insert pdf pages
 \usepackage[final]{pdfpages}
 
+%%% Таблицы
 \usepackage{tabularx}
 \newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
 \newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
 \newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
 
+%%% Нумерованные списки
 \usepackage{enumerate}
 
-
+%%% Новые команды
 \newcommand{\term}[1]{{\sffamily\bfseries#1}}
 \newcommand{\moon}{\rightmoon}
 \newcommand{\au}{\text{а.\,е.}}
 \newcommand{\tw}{\textwidth}
 \newcommand{\imp}[1]{{\itshape#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
+%%% Cчетчики
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
-
-%\usepackage						{fontspec}
-%\setmainfont						{CMU Serif} 
-%\setsansfont						{CMU Sans Serif}	
-
+	
+%%% Размеры
 \setlength    {\parskip}        { 4pt}
 \setlength    {\parindent}      { 0pt}
 \renewcommand {\baselinestretch}{ 1.02 }
 
+%%% Гиперссылки
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=false, %set true if you want colored links
@@ -49,14 +94,19 @@
     linkcolor=blue,  %choose some color if you want links to stand out
 }
 
-\allowdisplaybreaks
-\widowpenalties 1 10000
-\raggedbottom
-\usepackage{starfont}
+%%% Колонтитулы
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CE, CO]{\slshape \small \leftmark}
+\fancyhead[LE, RO]{\slshape \small \thepage}
+%\fancyhead[LO, RE]{\scshape Астрадь}
+
 
 \begin{document}
 
 \includepdf[pages=-]{sys/cover.pdf}
+\includepdf[pages=-]{sys/empty-page.pdf}
 \input{sys/authors.tex}
 \setcounter{tocdepth}{2}
 \tableofcontents
