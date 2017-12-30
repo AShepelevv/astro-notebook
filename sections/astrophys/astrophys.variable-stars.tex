@@ -36,25 +36,73 @@
  \begin{tikzpicture}
  \begin{axis}[
  no markers,
-% xlabel={Прямое восхождение $\alpha^h$}, 
-% ylabel={Склонение $\delta^{\circ}$},
+ xlabel={Фаза}, 
+ ylabel={Блеск $m$, $~^m$},
  minor x tick num = 1,
  minor y tick num = 1,
  grid = both,
  line width=.7pt, 
 % extra y ticks={23.44, -23.44},
- ymax=1.02,
- ymin=0.65,
+ ymax=0.999,
+ ymin=-.1,
+ y dir=reverse,
  xmax=1,
  xmin=0,
 % xtick={0,4,8,12,16,20,24}
  ]
 % \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
-	\addplot table{data/light-curve-W-UMa.txt};
+	\addplot[smooth] table[x=t, y=m]{data/light-curve-W-UMa.txt};
  \end{axis}
  \end{tikzpicture}
- \caption{График зависимости склонения от прямого восхождения Солнца}
+ \caption{Кривая блеска переменной типа W\,UMa}
 \end{figure}
-
-
-
+\begin{figure}[!h]
+\centering
+ \begin{tikzpicture}
+ \begin{axis}[
+ no markers,
+ xlabel={Фаза}, 
+ ylabel={Блеск $m$, $~^m$},
+ minor x tick num = 1,
+ minor y tick num = 1,
+ grid = both,
+ line width=.7pt, 
+% extra y ticks={23.44, -23.44},
+ ymax=0.6,
+ ymin=-.1,
+ y dir=reverse,
+ xmax=1,
+ xmin=0,
+% xtick={0,4,8,12,16,20,24}
+ ]
+% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
+	\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Per.txt};
+ \end{axis}
+ \end{tikzpicture}
+ \caption{Кривая блеска переменной типа $\beta$\,Per}
+\end{figure}
+\begin{figure}[!h]
+\centering
+ \begin{tikzpicture}
+ \begin{axis}[
+ no markers,
+ xlabel={Фаза}, 
+ ylabel={Блеск $m$, $~^m$},
+ minor x tick num = 1,
+ minor y tick num = 1,
+ grid = both,
+ line width=.7pt, 
+% extra y ticks={23.44, -23.44},
+ ymax=0.6,
+ ymin=-.1,
+ y dir=reverse,
+ xmax=1,
+ xmin=0,
+% xtick={0,4,8,12,16,20,24}
+ ]
+% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
+	\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Lyr.txt};
+ \end{axis}
+ \end{tikzpicture}
+ \caption{Кривая блеска переменной типа $\beta$\,Lyr}
+\end{figure}
