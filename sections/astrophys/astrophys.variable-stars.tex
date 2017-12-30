@@ -3,106 +3,116 @@
 
 Переменные звёзды делятся на две большие группы: \imp{затменные} и \imp{физические}, причём физические подразделяются на \imp{пульсирующие} и \imp{эруптивные}.
 
-К \term{пульсирующим} переменным  относят те звёзды, переменность которых вызвана процессами, происходящими в их недрах. Эти процессы приводят к периодическому изменению блеска звезды, а вместе с ним и других характеристик звезды~--- температуры поверхности, радиуса фотосферы и пр. Период переменности заключён в пределе от нескольких долей суток до нескольких лет. Абсолютную звёздную величину  и период связывает следующая формула:
+\begin{wrapfigure}[11]{l}{0.5\tw}
+	\centering
+	\begin{tikzpicture}
+ 		\begin{axis}[
+ 						height	=	4.5cm,
+ 						width	=	.5\tw,
+ 						xlabel	=	{Фаза}, 
+ 						ylabel	=	{Блеск $m$, $~^m$},
+ 						ymax	=	8.,
+ 						ymin	=	6.5,
+ 						y dir	=	reverse,
+ 						xmax	=	1,
+ 						xmin	=	0
+ 					]
+			\addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m]{data/light-curve-D-Cep.txt};
+ 		\end{axis}
+ 	\end{tikzpicture}
+ 	\caption{Кривая блеска переменной типа $\delta$\,Cep}
+ 	\label{pic:d-cep}
+\end{wrapfigure}
+К \term{пульсирующим} переменным  относят те звёзды, переменность которых вызвана процессами, происходящими в их недрах. Эти процессы приводят к периодическому изменению температуры поверхности и радиуса фотосферы, а вместе с ними и блеска звезды. Период переменности варьируется в пределе от долей суток до~нескольких~лет в зависимости от типа переменной. 
+
+Классический пример пульсирующих переменных звёзд~--- \imp{цефеиды}, названные в честь первой открытой переменной данного типа~--- $\delta$\,Cep. Абсолютную звёздную величину $M$ и период $T$ (в сутках) цефеид связывает соотношение
 \begin{equation}
-	M = -1.01^m - 2.97\lg T,
+	M = -1.43^m - 2.81\lg T.
 \end{equation}
-где $T$~--- период, выраженный в сутках, а $M$~--- абсолютная звёздная величина.
+К \term{эруптивным} переменным звёздам относятся звёзды, меняющие свой блеск нерегулярно или единожды за время наблюдений. Все изменения блеска эруптивных звёзд связывают с бурными процессами и вспышками в их хромосферах и коронах. К таким, например, относятся \imp{новые звезды}.
 
-Классический пример пульсирующих переменных звёзд --- цефеиды.
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=0.7\tw]{var-stars}
-\caption{Кривая блеска $\delta$ Цефея}
-\end{center}
-\end{figure}
-
-К \term{эруптивным} переменным звёздам относятся звёзды, меняющие свой блеск нерегулярно или единожды за время наблюдений. Все изменения блеска эруптивных звёзд связывают с бурными процессами и вспышками в их хромосферах и коронах.
-
-\term{Затменно-переменные} звёзды --- системы из двух звёзд, суммарный блеск которых периодически изменяется с течением времени. Причиной изменения блеска могут быть затмения звёзд друг другом, или изменение их формы взаимной гравитацией в тесных системах.
-
-На всех кривых блеска (Рис.~\ref{var-stars}) заметны два минимума: глубокий (главный), соответствующий затмению главной звезды спутником, и слабый (вторичный), возникающий, когда главная звезда затмевает спутник.
-
-%\begin{figure}[h!]
-%	\centering
-%	\includegraphics[width=0.8\tw]{var-stars2}
-%	\caption{Кривые блеска некоторых затменно-переменных звёзд}
-%	\label{var-stars}
-%\end{figure}
+\term{Затменно-переменные} звёзды --- системы из двух звёзд, суммарный блеск которых периодически изменяется с течением времени. Причиной изменения блеска могут быть затмения звёзд друг другом, или изменение их формы взаимной гравитацией в тесных системах. На Рис.\,\ref{pic:w-uma}--\ref{pic:b-lyr}  представлены кривые блеска затменно-перременных звёзд трёх основных типов.
 
 \begin{figure}[!h]
-\centering
- \begin{tikzpicture}
- \begin{axis}[
- no markers,
- xlabel={Фаза}, 
- ylabel={Блеск $m$, $~^m$},
- minor x tick num = 1,
- minor y tick num = 1,
- grid = both,
- line width=.7pt, 
-% extra y ticks={23.44, -23.44},
- ymax=0.999,
- ymin=-.1,
- y dir=reverse,
- xmax=1,
- xmin=0,
-% xtick={0,4,8,12,16,20,24}
- ]
-% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
-	\addplot[smooth] table[x=t, y=m]{data/light-curve-W-UMa.txt};
- \end{axis}
- \end{tikzpicture}
- \caption{Кривая блеска переменной типа W\,UMa}
+	\centering
+	\begin{minipage}[c]{0.49\tw}
+		\begin{tikzpicture}
+ 			\begin{axis}[
+ 							height	=	4.5cm,
+ 							width	=	\tw,
+ 							xlabel	=	{Фаза}, 
+ 							ylabel	=	{Блеск $m$, $~^m$},
+ 							ymax	=	1.1,
+ 							ymin	=	-.1,
+ 							y dir	=	reverse,
+ 							xmax	=	1,
+ 							xmin	=	0
+ 						]
+ 
+				\addplot[smooth] table[x=t, y=m]{data/light-curve-W-UMa.txt};
+ 			\end{axis}
+ 		\end{tikzpicture}
+	\end{minipage}
+  	\hfill
+	\begin{minipage}[c]{0.49\tw}
+		\centering
+ 		\includegraphics[width = .9\tw]{w-uma}
+ 	\end{minipage}
+ 	\caption{Кривая блеска переменной типа W\,UMa}
+ 	\label{pic:w-uma}
 \end{figure}
+
 \begin{figure}[!h]
-\centering
- \begin{tikzpicture}
- \begin{axis}[
- no markers,
- xlabel={Фаза}, 
- ylabel={Блеск $m$, $~^m$},
- minor x tick num = 1,
- minor y tick num = 1,
- grid = both,
- line width=.7pt, 
-% extra y ticks={23.44, -23.44},
- ymax=0.6,
- ymin=-.1,
- y dir=reverse,
- xmax=1,
- xmin=0,
-% xtick={0,4,8,12,16,20,24}
- ]
-% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
-	\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Per.txt};
- \end{axis}
- \end{tikzpicture}
- \caption{Кривая блеска переменной типа $\beta$\,Per}
+	\centering
+	\begin{minipage}[c]{0.49\tw}
+ 		\begin{tikzpicture}
+ 			\begin{axis}[
+ 							height	=	4.5cm,
+ 							width	=	\tw,
+ 							xlabel	=	{Фаза}, 
+ 							ylabel	=	{Блеск $m$, $~^m$},
+ 							ymax	=	.7,
+ 							ymin	=	-.1,
+ 							y dir	=	reverse,
+ 							xmax	=	1.,
+ 							xmin	=	.0
+ 						]
+				\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Per.txt};
+ 			\end{axis}
+ 		\end{tikzpicture}
+ 	\end{minipage}
+ 	\hfill
+ 	\begin{minipage}[c]{0.49\tw}
+ 		\centering
+ 		\includegraphics[width=.9\tw]{b-per}	
+ 	\end{minipage}
+ 	\caption{Кривая блеска переменной типа $\beta$\,Per}
 \end{figure}
+
 \begin{figure}[!h]
-\centering
- \begin{tikzpicture}
- \begin{axis}[
- no markers,
- xlabel={Фаза}, 
- ylabel={Блеск $m$, $~^m$},
- minor x tick num = 1,
- minor y tick num = 1,
- grid = both,
- line width=.7pt, 
-% extra y ticks={23.44, -23.44},
- ymax=0.6,
- ymin=-.1,
- y dir=reverse,
- xmax=1,
- xmin=0,
-% xtick={0,4,8,12,16,20,24}
- ]
-% \addplot [domain=0:24, samples=100]{atan(sin(x*15)*tan(23.44))}; 
-	\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Lyr.txt};
- \end{axis}
- \end{tikzpicture}
- \caption{Кривая блеска переменной типа $\beta$\,Lyr}
+	\centering
+	\begin{minipage}[c]{0.49\tw}
+ 		\begin{tikzpicture}
+ 			\begin{axis}[
+ 							height	=	4.5cm,
+ 							width	=	\tw,
+ 							xlabel	=	{Фаза}, 
+ 							ylabel	=	{Блеск $m$, $~^m$}, 
+ 							ymax	=	.7,
+ 							ymin	=	-.1,
+ 							y dir	=	reverse,
+ 							xmax	=	1,
+ 							xmin	=	.0
+ 						]
+				\addplot[smooth] table[x=t, y=m]{data/light-curve-B-Lyr.txt};
+ 			\end{axis}
+ 		\end{tikzpicture}
+ 	\end{minipage}
+ 	\hfill
+ 	\begin{minipage}[c]{0.49\tw}
+ 		\centering
+ 		\includegraphics[width = .9\tw]{b-lyr}	
+ 	\end{minipage}
+ 	\caption{Кривая блеска переменной типа $\beta$\,Lyr}
+ 	\label{pic:b-lyr}
 \end{figure}
