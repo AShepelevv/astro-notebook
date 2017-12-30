@@ -34,6 +34,37 @@
 \usepackage{wrapfig}
 
 \usepackage{pgfplots}
+\pgfplotsset{	width	=	14	cm,
+					x label style={
+        					font = {\small\sffamily},
+        					yshift = .5pc
+      				},
+      				tick label style={
+      					font = {\scriptsize},
+      				},
+      				y label style={
+      					font = {\small\sffamily},
+      					yshift = -.8pc
+      				},
+      				every tick/.style	=	{
+						black, 
+						line width 	= 	.5	pt
+					},
+					axis line style 	= 	{
+						line width 	= 	.5	pt
+					},
+					grid style	=	{
+						gray,
+						dotted
+					},
+					minor x tick num = 1,
+ 					minor y tick num = 1,
+ 					no markers,
+ 					grid = major,
+ 					every axis/.append style	=	{
+ 						line width	=	.7	pt
+ 					}
+				}
 
 \usepackage		[margin		= 10	pt,
 					font		= footnotesize, 
@@ -41,8 +72,7 @@
 					labelsep	= endash, 
 					labelfont	= bf,
 					textfont	= sl,
-					margin		= 0 	pt, 
-%					textformat	= period, 
+					margin		= 0 	pt,  
 					aboveskip 	= 4		pt, 
 					belowskip 	= -6	pt]	{caption}
 \usepackage		[margin		= 10	pt,
@@ -51,8 +81,7 @@
 					labelsep	= endash, 
 					labelfont	= bf,
 					textfont	= sl,
-					margin		= 0 	pt, 
-%					textformat	= period, 
+					margin		= 0 	pt,  
 					aboveskip 	= 4		pt, 
 					belowskip 	= 6	pt]	{subcaption}
 
