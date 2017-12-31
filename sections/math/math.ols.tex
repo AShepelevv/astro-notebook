@@ -4,10 +4,7 @@
 \sum\limits_{i=1}^n e_i^2 = \sum\limits_{i=1}^n \bigl[ y_i - f(x_i) \bigr]^2 = \min_{g(x)} \sum\limits_{i=1}^n \bigl[y_i - g(x_i) \bigr]^2
 \label{eq:ols-cond}
 \end{equation}
-Вывод формул для коэффициентов \imp{линейной функции} по МНК:
-\begin{equation*}
-f(x) = ax + b,
-\end{equation*}
+Вывод формул для коэффициентов \imp{линейной функции} $f(x) = ax + b$ по МНК:
 \begin{equation*}
 F(a,b) = \sum\limits_{i=1}^n \bigl[y_i-(ax_i + b) \bigr]^2 \rightarrow \min_{a, b}.
 \end{equation*}
@@ -27,7 +24,6 @@ a \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i &= \sum\limits_{i=1}^n x
 a = \dfrac{n\sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \sum\limits_{i=1}^n y_i}{n \sum\limits_{i=1}^n x_i^2 - \left(\sum\limits_{i=1}^n x_i\right)^2} 
 = \dfrac{\langle xy \rangle -\langle x\rangle \langle y \rangle}{\langle x^2 \rangle - \langle x \rangle^2}
 \end{equation}
-
 \begin{equation}
 b = \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} 
 = \langle y \rangle - a \langle x \rangle
