@@ -44,11 +44,51 @@ M & $2 \times 10^3$ --- $3.5 \times 10^3$ & Красный & 0.3 & 0.4 & 0.04\\
 
 \term{Диаграмма Герцшпрунга-Рассела} показывает зависимость между светимостью, спектральным классом и температурой поверхности звезды. 
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.7]{spectr-typ}
-\caption{Диаграмма Герцшпрунга-Рассела}
+\begin{figure}
+	\centering
+%	\begin{tikzpicture}
+% 		\begin{axis}[
+% 						height	=	12cm,
+% 						width	=	10cm,
+% 						ymax	=	15.,
+% 						ymin	=	-10.,
+% 						y dir	=	reverse,
+% 						xmax	=	2.,
+% 						xmin	=	-.5,
+% 						axis x line* = bottom,
+% 						axis y line* = right,
+% 						xlabel=$B-V$,
+% 						y label style = {at={(axis description cs: 1.2, 0.5)}, rotate=180}, 
+% 						ylabel	=	{Абсолютная звёздная величина $M$, $~^m$}
+% 					]
+%%			\addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m]{data/light-curve-D-Cep.txt};
+% 		\end{axis}
+% 		\begin{semilogyaxis}[	
+% 						height	=	12cm,
+% 						width	=	10cm,
+% 						ymax	=	8.312e5,
+% 						ymin	=	8.312e-5,
+% 						xmax	=	2.,
+% 						xmin	=	-.5,
+% 						minor x tick num = 0,
+% 						minor y tick num = 01,
+% 						xtick = {-0.264, 0, 0.3, 0.58, 0.791, 1.57},
+% 						xticklabels = {B0, A0, F0, G0, K0, M0},
+% 						axis x line* = top,
+% 						axis y line* = left,
+% 						xlabel	=	{Спектральный класс}, 
+% 						x label style = {at={(axis description cs: 0.5, 1.11)}, rotate=0},
+% 						ylabel	=	{Светимость $L$, $L_\odot$},
+% 						ymajorgrids	 =	false,
+% 						xmajorgrids	 =	false	
+%    				]
+%		\end{semilogyaxis}
+% 	\end{tikzpicture}
+	\includegraphics[width=10cm]{gr}
+ 	\caption{Диаграмма Герцшпрунга--Рассела}
+ 	\label{pic:d-cep}
 \end{figure}
+
 
 Была предложена примерно в 1910 году независимо Эйнаром Герцшпрунгом и Генри Расселом. Диаграмма используется для классификации звёзд и соответствует современным представлениям о звёздной эволюции.
 
