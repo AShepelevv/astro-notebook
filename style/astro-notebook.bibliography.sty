@@ -1,0 +1,34 @@
+\RequirePackage[backend = bibtex, style=numeric, sorting=none]{biblatex}
+\RequirePackage{qrcode}
+
+\RequirePackage{biblatex-ext-tabular}
+
+\RequirePackage{longtable}
+\RequirePackage{array}
+\newcolumntype{B}[1]{%
+  >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\DeclareFieldFormat{qrurl}{%
+  \raisebox{\dimeval{-\height+\ht\strutbox}}{\qrcode[height=1.1cm]{#1}}}
+  
+\DeclareFieldFormat{url}{}
+
+\newcounter{bibcount}
+\newcommand{\citeindex}{\stepcounter{bibcount}\thebibcount}
+
+\defbibtabular{bibtabular}{
+    \setlength{\LTpre}{0pt}%
+    \setlength{\LTpost}{0pt}%
+    \renewcommand*{\arraystretch}{2}%
+    \begin{longtable}{
+        @{}
+        B{1pc}
+        B{\dimexpr\textwidth-2cm-1pc\relax}
+        B{1.1cm}
+        @{}
+    }
+}{
+    \end{longtable}
+}{
+    \raisebox{\baselineskip}[\baselineskip]{\anchorlang{[\citeindex]}} & \driver{} & \plain{\printfield[qrurl]{url}}\\
+}

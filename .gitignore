@@ -5,6 +5,7 @@ sections/*.log
 *.gz
 *.out
 astro-notebook.*
+!style/astro-notebook.*
 !astro-notebook.tex
 .texpadtmp/
 tikz/**

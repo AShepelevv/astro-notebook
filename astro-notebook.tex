@@ -11,6 +11,8 @@
 
 %\makeindex
 
+\addbibresource{lit.bib}
+
 %%% main
 \begin{document}
     \setboolean{useLightPlotVersion}{true}
@@ -49,8 +51,12 @@
 %	}
 	
 	\newpage
-	\bibliographystyle{ieeetr}
-	{\footnotesize \bibliography{lit}}
+	{
+        \footnotesize
+        \printbibtabular
+	}
+
+
 	
 	\input{sys/notes.tex}
 \end{document}
