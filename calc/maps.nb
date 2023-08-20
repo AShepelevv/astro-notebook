@@ -1,0 +1,396 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15790,        388]
+NotebookOptionsPosition[     14772,        367]
+NotebookOutlinePosition[     15167,        383]
+CellTagsIndexPosition[     15124,        380]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ExportToFile", "[", 
+    RowBox[{"name_", ",", "map_"}], "]"}], ":=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+        "\"\<img\>\"", ",", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"\"\<projection-\>\"", ",", 
+          RowBox[{"ToLowerCase", "[", "name", "]"}], ",", "\"\<.png\>\""}], 
+         "]"}]}], "}"}], "]"}], ",", "map"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.901458000510126*^9, 3.901458023591569*^9}},
+ CellLabel->
+  "In[276]:=",ExpressionUUID->"b3d97ef2-e659-4474-8229-7e3c1c645b76"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", " ", "=", " ", "\"\<PlateCarree\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoStyling", "[", 
+      RowBox[{"{", "\"\<Coastlines\>\"", "}"}], "]"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.0025", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", "All"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], " ", ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.901456002708859*^9, 3.9014561019863358`*^9}, {
+  3.90145618404177*^9, 3.901456557045492*^9}, {3.901456646323649*^9, 
+  3.90145664687311*^9}, {3.901456785225026*^9, 3.901456792016098*^9}, {
+  3.901457422294856*^9, 3.90145744927835*^9}, {3.901457632450601*^9, 
+  3.901457649461841*^9}, {3.9014576953850613`*^9, 3.901457702747086*^9}, {
+  3.90145784997157*^9, 3.9014579710942698`*^9}, {3.901458029604844*^9, 
+  3.901458043846774*^9}, {3.901458258843464*^9, 3.9014582589938498`*^9}, {
+  3.901460759098467*^9, 3.901460774616746*^9}},
+ CellLabel->
+  "In[277]:=",ExpressionUUID->"444a5ea8-4719-4810-bd97-f808a1a46634"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", "=", "\"\<Mercator\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoStyling", "[", 
+      RowBox[{"{", "\"\<Coastlines\>\"", "}"}], "]"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.0025", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "85.05"}], ",", "85.05"}], "}"}], ",", "All"}], 
+       "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], " ", ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.9014565757827873`*^9, {3.9014566247010202`*^9, 3.90145664158524*^9}, {
+   3.901456775937688*^9, 3.901456779908678*^9}, {3.9014574194008017`*^9, 
+   3.901457444678927*^9}, {3.901457564906064*^9, 3.90145756839017*^9}, {
+   3.9014576862998343`*^9, 3.9014577085984697`*^9}, {3.901458046928748*^9, 
+   3.90145804713605*^9}, {3.901458256909684*^9, 3.9014582570252867`*^9}, {
+   3.901460503030281*^9, 3.9014605511516533`*^9}, {3.9014605845932827`*^9, 
+   3.901460722065837*^9}, {3.9014607773025293`*^9, 3.9014607775277433`*^9}},
+ CellLabel->
+  "In[281]:=",ExpressionUUID->"ff409f45-4c08-4605-9126-879498172484"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", "=", "\"\<Robinson\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoStyling", "[", 
+      RowBox[{"{", "\"\<Coastlines\>\"", "}"}], "]"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.003", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", "All"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], " ", ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.901456673887261*^9, {3.9014567389545*^9, 3.9014567509389553`*^9}, {
+   3.901457417199053*^9, 3.901457417394363*^9}, {3.901457555111681*^9, 
+   3.901457555307583*^9}, {3.90145771404519*^9, 3.901457720013213*^9}, {
+   3.901458049336742*^9, 3.901458049583796*^9}, {3.901458254774097*^9, 
+   3.901458254865641*^9}, {3.901460737250745*^9, 3.901460737851165*^9}, {
+   3.901460781715406*^9, 3.901460781907034*^9}},
+ CellLabel->
+  "In[285]:=",ExpressionUUID->"0b255f95-c7da-4fee-a887-08cf28cc0eb6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", "=", " ", "\"\<Orthographic\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoStyling", "[", 
+      RowBox[{"{", "\"\<Coastlines\>\"", "}"}], "]"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.003", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", "All"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], " ", ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.901456698625445*^9, 3.901456729154972*^9}, {
+  3.901456761816794*^9, 3.9014567715353537`*^9}, {3.901456905270318*^9, 
+  3.901456914749412*^9}, {3.901457413668539*^9, 3.90145741454312*^9}, {
+  3.901457533934094*^9, 3.901457548561873*^9}, {3.901457724176135*^9, 
+  3.901457728996108*^9}, {3.901458051456622*^9, 3.901458051702126*^9}, {
+  3.9014582461167927`*^9, 3.90145824691532*^9}},
+ CellLabel->
+  "In[289]:=",ExpressionUUID->"15fa5095-7b99-4183-b191-494e4a8fb281"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", " ", "=", " ", "\"\<Stereographic\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"size", "=", "2.5"}], ";", 
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.003", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", "\"\<World\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "size"}], ",", "size"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "size"}], ",", "size"}], "}"}]}], "}"}]}], ",", " ", 
+     RowBox[{"GeoCenter", "\[Rule]", 
+      RowBox[{"GeoPosition", "[", 
+       RowBox[{"{", 
+        RowBox[{"90", ",", "0"}], "}"}], "]"}]}], ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.901456823856632*^9, 3.9014568873929987`*^9}, {
+  3.901456921636133*^9, 3.901456972686968*^9}, {3.90145700510247*^9, 
+  3.901457173363213*^9}, {3.901457211038764*^9, 3.901457298011775*^9}, {
+  3.901457338648934*^9, 3.9014574052930527`*^9}, {3.9014575154516697`*^9, 
+  3.90145752853332*^9}, {3.901457743849547*^9, 3.901457751311871*^9}, {
+  3.901458055562503*^9, 3.901458055774666*^9}, {3.90145828219144*^9, 
+  3.901458282300901*^9}},
+ CellLabel->
+  "In[293]:=",ExpressionUUID->"2b81b067-6a2d-4184-a78c-91559baefe65"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", "=", "\"\<Gnomonic\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"size", "=", "Pi"}], ";", 
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.003", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", "\"\<World\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "size"}], ",", "size"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "size"}], ",", "size"}], "}"}]}], "}"}]}], ",", " ", 
+     RowBox[{"GeoCenter", "\[Rule]", 
+      RowBox[{"GeoPosition", "[", 
+       RowBox[{"{", 
+        RowBox[{"45", ",", "0"}], "}"}], "]"}]}], ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "4"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.901457469570054*^9, 3.901457510915646*^9}, {
+  3.901457576630534*^9, 3.9014575953976307`*^9}, {3.901457755613474*^9, 
+  3.901457761262381*^9}, {3.901458058050405*^9, 3.901458058281665*^9}, {
+  3.901458290194612*^9, 3.901458290305539*^9}, {3.901519268524455*^9, 
+  3.901519268846813*^9}},
+ CellLabel->
+  "In[305]:=",ExpressionUUID->"073aea3d-eb19-491b-ace0-b64829a5874c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"name", "=", "\"\<LambertCylindrical\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"map", "=", 
+   RowBox[{"GeoGraphics", "[", 
+    RowBox[{
+     RowBox[{"GeoStyling", "[", 
+      RowBox[{"{", "\"\<Coastlines\>\"", "}"}], "]"}], ",", 
+     RowBox[{"GeoProjection", "\[Rule]", " ", "name"}], ",", 
+     RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.003", "]"}], ",", 
+        RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", "All"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "500"}], " ", ",", 
+     RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageResize", "[", 
+   RowBox[{
+    RowBox[{"ImageAdjust", "[", 
+     RowBox[{
+      RowBox[{"ColorConvert", "[", 
+       RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"-", "0.2"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Scaled", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Pi", "/", "2"}], ",", "1"}], "}"}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ExportToFile", "[", 
+  RowBox[{"name", ",", "grayMap"}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.901507274334112*^9, {3.901507432007875*^9, 3.9015074322967577`*^9}, {
+   3.9015074645838118`*^9, 3.901507468277184*^9}, {3.90150779759893*^9, 
+   3.9015078399886923`*^9}, {3.901507907537059*^9, 3.90150791937857*^9}, 
+   3.9015079629896193`*^9, 3.9015080358343563`*^9, {3.901508784370871*^9, 
+   3.901508808398073*^9}, {3.901508867250696*^9, 3.9015088930604362`*^9}},
+ CellLabel->
+  "In[301]:=",ExpressionUUID->"1b966fdc-3cb3-4c98-9ae2-ff1b4a1f60f5"]
+},
+WindowSize->{1227, 897},
+WindowMargins->{{Automatic, 53}, {24, Automatic}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c241393f-727c-492a-adb3-5665e68172a0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 711, 18, 30, "Input",ExpressionUUID->"b3d97ef2-e659-4474-8229-7e3c1c645b76"],
+Cell[1272, 40, 1905, 42, 115, "Input",ExpressionUUID->"444a5ea8-4719-4810-bd97-f808a1a46634"],
+Cell[3180, 84, 1983, 45, 115, "Input",ExpressionUUID->"ff409f45-4c08-4605-9126-879498172484"],
+Cell[5166, 131, 1769, 40, 115, "Input",ExpressionUUID->"0b255f95-c7da-4fee-a887-08cf28cc0eb6"],
+Cell[6938, 173, 1749, 40, 115, "Input",ExpressionUUID->"15fa5095-7b99-4183-b191-494e4a8fb281"],
+Cell[8690, 215, 2149, 51, 136, "Input",ExpressionUUID->"2b81b067-6a2d-4184-a78c-91559baefe65"],
+Cell[10842, 268, 1985, 48, 136, "Input",ExpressionUUID->"073aea3d-eb19-491b-ace0-b64829a5874c"],
+Cell[12830, 318, 1938, 47, 115, "Input",ExpressionUUID->"1b966fdc-3cb3-4c98-9ae2-ff1b4a1f60f5"]
+}
+]
+*)
+
