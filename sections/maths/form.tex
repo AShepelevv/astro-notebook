@@ -1,37 +1,59 @@
 \subsection{Формулы приближенного вычисления}
-Формулы приближенного вычисления при $x \ll 1$:
-\begin{align*}
-	\sin x &\approx x - \frac{x^3}{6} \approx x & \cos x &\approx 1 - \frac{x^2}{2} \\
-	\tg x &\approx x & \ln(1+x) &\approx x \\
-	(1 + x)^\alpha &\approx 1 + \alpha x & e^x &\approx 1 + x \\
-	\sin (\theta + x) &\approx \sin \theta + x \cos \theta & \cos(\theta + x) &\approx \cos \theta - x \sin \theta
-\end{align*}
+Пусть функция $f: \R \rightarrow \R$ имеет производную $n$-ого порядка в точке $x_0$~--- $f^{(n)}(x_0) \in \R$, тогда равенство
+\begin{equation}
+    f(x) = \sum\limits_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + r_n(x)
+    \label{eq:taylor-formula}
+\end{equation}
+называется \term{формулой Тейлора} функции $f$ в точке $x_0$. При этом первое слагаемое называется \imp{многочленом Тейлора}, а второе~--- \imp{остаточным членом}.
 
-\begin{wrapfigure}{r}{0.5\tw}
+Докажем, что остаточный член $r_n(x) = o\big( (x - x_0)^n \big)$ при $x \rightarrow x_0$.\footnote{$g(x) = o(h(x)) ~ \Leftrightarrow ~ \lim\limits_{x \rightarrow 0} \frac{g(x)}{h(x)} = 0$.} Пусть существует $f^{(n)} (x_0) \in \R$, пусть также $P_n(x)$~--- многочлен Тейлора функции. Тогда $P^{(k)}(x_0) = f^{(k)}(x_0), \, 0 \leqslant k \leqslant n$.\footnote{Подробное доказательство этого факта оставим читателю} Поэтому для остаточного члена $r_n(x) = f(x) - P_n(x)$ выполнено $r_n(x_0) = r'_n(x_0) = \ldots = r_n^{(n)} = 0$. Используя правило Лопиталя, получим
+\begin{equation*}
+    \lim_{x \rightarrow x_0} \frac{r_n(x)}{(x - x_0)^n}
+        = \lim_{x \rightarrow x_0} \frac{r'_n(x)}{n (x - x_0)^{n-1}}
+        = \ldots
+        = \lim_{x \rightarrow x_0} \frac{r^{(n-1)}_n(x)}{n!(x - x_0)},
+\end{equation*}
+а по определению производной в точке, последнее выражение равно $r^{(n)}(x) / n! = 0$. Следовательно, $r_n(x) = o\big( (x - x_0)^n \big)$ при $x \rightarrow x_0$.
+
+Если функция $f$ имеет в точке $x_0$ производные всех порядков, то
+\begin{equation}
+    f(x) = \sum\limits_{k=0}^{\infty} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k
+    \label{eq:taylor-series}
+\end{equation}
+называется \term{рядом Тейлора} функции $f$ в точке $x_0$. При $x_0 = 0$ этот ряд также называют \imp{рядом Маклорена}.
+
+В реальных задачах астрономии и физики редко возникает необходимость в использовании ряда Тейлора~\eqref{eq:taylor-series}. Наиболее применима формула Тейлора~\eqref{eq:taylor-formula} при $x_0 = 0$. Откуда можно получить следующие формулы приближенного вычисления при $x \ll 1$:
+\begin{align*}
+	\sin x &\simeq x - \frac{x^3}{6} \simeq x, & 
+	\cos x &\simeq 1 - \frac{x^2}{2} + \frac{x^4}{4!} \simeq 1 - \frac{x^2}{2}, \\
+	\tg x &\simeq x + \frac{x^3}{3} \simeq x, & 
+	\ln(1+x) &\simeq x - \frac{x^2}{2} + \frac{x^3}{3} \simeq x, \\
+	(1 + x)^\alpha &\simeq 1 + \alpha x, & 
+	e^x &\simeq 1 + x + \frac{x^2}{2} \simeq 1 + x, \\
+	\sin (\theta + x) &\simeq \sin \theta + x \cos \theta, & 
+	\cos(\theta + x) &\simeq \cos \theta - x \sin \theta.
+\end{align*}
+\begin{wrapfigure}{r}{0.47\tw}
 	\centering
-	\vspace{-.9pc}
+	\vspace{-1pc}
 	\begin{tikzpicture}
 		\begin{axis}[
 			width	=	.5\tw,
 			height	=	4.5cm,
 			xlabel	=	{$x$},
 			ylabel	=	{$y$},
-%			extra x ticks	=	{1.571},
-%			ytick = {-20, -10, 0, 10, 20},
 			ymax	=	1,
 			ymin	=	0,
 			xmax	=	1.571,
 			xmin	=	0,
-%			xtick	=	{0, 4, 8, 12, 16, 20, 24},
-%			x dir = reverse
 			legend cell align=left,
-				legend style={
+			legend style={
 				row sep = 1mm,
 				draw=none,
 				fill=none,
 				font=\scriptsize,
 				at={(axis cs:1.5, 0.1)}, anchor=south east,
-				},
+			},
 		]
 			\addplot [domain=0:2, samples=100] {sin(deg(x))};
 			\addplot [domain=0:2, samples=100, dashed] {x};
@@ -45,7 +67,9 @@
 	\end{tikzpicture}
 	\caption{}
 \end{wrapfigure}
-Также существует равенство для нескольких малых переменных:
+При необходимости более точного приближения всегда можно выписать следующие несколько членов многочлена Тейлора. 
+
+По аналогии, последовательно применяя формулу Тейлора и принимая различные переменные за аргумент функции, можно получить формулу для нескольких малых переменных:
 \begin{equation*}
-	(1 + a)^\alpha (1 + b)^\beta \ldots \approx 1 + \alpha a + \beta b + \ldots
+	(1 + a)^\alpha (1 + b)^\beta \ldots \simeq 1 + \alpha a + \beta b + \ldots
 \end{equation*}
