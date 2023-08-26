@@ -195,7 +195,7 @@
 \begin{equation}\label{eq:kepler-eq}
 	M = E - e \sin E.
 \end{equation}
-Найдем теперь зависимость эксцентрической аномалии $E$ от истинной, чтобы связать все три аномалии. Вспомним, что точно $B$ принадлежит эллипсу $o$, следовательно, она удовлетворяет уравнению эллипса в декартовых координатах, значит
+Найдем теперь зависимость эксцентрической аномалии $E$ от истинной, чтобы связать все три аномалии. Вспомним, что точка $B$ принадлежит эллипсу $o$, следовательно, она удовлетворяет уравнению эллипса в декартовых координатах, значит
 \begin{equation}
 	\frac{|CH|^2}{a^2} + \frac{|BH|^2}{b^2} = 1.
 	\label{eq:kepler-eq-dec-eq}
@@ -219,8 +219,31 @@
 \begin{equation*}
 	|FB| = r = \frac{a \left(1 - e^2 \right)}{ 1 + e \cos \nu},
 \end{equation*}
-\begin{equation*}
+\begin{equation}
 	1 - e \cos E  = \frac{1 - e^2}{ 1 + e \cos \nu}.
+	\label{eq:kepler-eq-E-nu-1}
+\end{equation}
+
+\newcommand{\sqTgHalf}[1]{#1'}
+
+Приведем \eqref{eq:kepler-eq-E-nu-1} к более простому виду. Воспользуемся для этого формулой для косинуса двойного угла
+\begin{equation*}
+     \cos x = \frac{\raisebox{5pt}{$1 - \tg^2 \dfrac{x}{2}$}}{\raisebox{-5pt}{$1 + \tg^2 \dfrac{x}{2}$}},
 \end{equation*}
+подставим её в \eqref{eq:kepler-eq-E-nu-1}, приведем левую и правую части к общим знаменателям и введём обозначения $\sqTgHalf{E} \equiv \tg^2 (E/2)$ и $\sqTgHalf{\nu} \equiv \tg^2 (\nu/2)$:
+\begin{gather*}
+    \frac{1 + \sqTgHalf{E} - e + e \sqTgHalf{E}}{1 + \sqTgHalf{E}} = \frac{(1 - e^2) \left( 1 + \sqTgHalf{\nu} \right)}{1 + \sqTgHalf{\nu} + e - e \sqTgHalf{\nu}},\\
+    \frac{(1 - e) + (1 + e) \sqTgHalf{E}}{1 + \sqTgHalf{E}} = \frac{(1-e)(1+e)\left( 1 + \sqTgHalf{\nu} \right)}{(1 + e) + (1 - e) \sqTgHalf{\nu} }.
+\end{gather*}
+Разделим обе части на $1 + e$, сократим правую на $1 - e$, также введём обозначение $\varepsilon = (1 - e) / (1 + e)$:
+\begin{equation*}
+    \frac{\varepsilon + \sqTgHalf{E}}{1 + \sqTgHalf{E}} = \frac{1 + \sqTgHalf{\nu}}{1 / \varepsilon + \sqTgHalf{\nu}}.
+\end{equation*}
+Перемножив члены пропорции и приведя подобные, получим
+\begin{gather}
+    \sqTgHalf{E} = \varepsilon \sqTgHalf{\nu},\nonumber\\
+    \tg \frac{E}{2} = \sqrt{\frac{1 - e}{1 + e}} \tg \frac{\nu}{2}.
+    \label{eq:kepler-eq-E-nu-2}
+\end{gather}
 Полученное равенство завершает систему уравнений для $\nu$, $E$ и $M$.
 

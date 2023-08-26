@@ -6,29 +6,29 @@
 	T = 2\pi \sqrt{\frac{a^3}{GM}},
 \end{equation*}
 Однако с учётом того, что расстояние до перицентра  $q = a(1-e)$ и также вспомнив определение средней аномалии можно записать:
-\begin{equation*}
-	M=t \sqrt{\frac{GM(1-e)^3}{q^3}}.
-\end{equation*}
-С другой же стороны из уравнения Кеплера (\ref{eq:kepler-eq}) и разложения синуса в ряд Тейлора (%вставить ссылку на формулу Тейлора
-) средняя аномалия это:
-\begin{gather*}
-	M=E - e \sin E = E - e \left(E - \frac{E^3}{3!} + \frac{E^5}{5!} - \dots\right) \\
-	M = E(1-e) + e\left(\frac{E^3}{3!} - \frac{E^5}{5!} + \dots \right).
-\end{gather*}
-Теперь запишем формулу перехода от истинной аномалии к эксцентрической (%вставить ссылку на формулу с тангенсами
-):
-\begin{equation*}
-	\tan \frac{E}{2} = \sqrt{\frac{1-e}{1+e}} \tan \frac{\nu}{2}.
-\end{equation*}
-Заметим, что при всех $\nu$, исключая $\pi$, мы можем считать, что $E \ll 1$, так как для параболы мы можем считать $1-e \ll 1$. Следовательно, поскольку $\tan x \simeq x$:
-\begin{equation*}
-	E = 2 \sqrt{\frac{1-e}{1+e}} \tan \frac{\nu}{2}.
-\end{equation*}
-И, подставляя это в предыдущее уравнение, получим:
-\begin{equation*}
-	M = t \sqrt{\frac{GM(1-e)^3}{q^3}} = \frac{2(1-e)^{3/2}}{\sqrt{1+e}}\tan\frac{\nu}{2} + \frac{8(1-e)^{3/2}}{3! \cdot (1+e)^{3/2}}\tan^3 \frac{\nu}{2} + \dots
-\end{equation*}
-Сократив на $(1-e)^{3/2}$ и приведя выражение, можно получить \imp{уравнение Баркера}
 \begin{equation}
-	t = \sqrt{\frac{2q^3}{GM}}\left(\tan \frac{\nu}{2 } + \frac{1}{3}\tan^3 \frac{\nu}{2}\right).
+	M = t \sqrt{\frac{GM(1 - e)^3}{q^3}}.
+	\label{eq:third-kepler-law-mean-anomaly}
+\end{equation}
+С другой стороны из уравнения Кеплера \eqref{eq:kepler-eq} и разложения синуса в ряд Тейлора~\eqref{eq:taylor-series} средняя аномалия
+\begin{gather}
+	M = E - e \sin E = E - e \left(E - \frac{E^3}{3!} + \frac{E^5}{5!} - \dots\right),\nonumber\\
+	M = E(1-e) + e\left(\frac{E^3}{3!} - \frac{E^5}{5!} + \dots \right).
+	\label{eq:kepler-eq-series}
+\end{gather}
+Теперь запишем формулу перехода от истинной аномалии к эксцентрической~\eqref{eq:kepler-eq-E-nu-1}:
+\begin{equation*}
+	\tg \frac{E}{2} = \sqrt{\frac{1-e}{1+e}} \tg \frac{\nu}{2}.
+\end{equation*}
+Заметим, что при всех $\nu$, исключая $\pi$, можно считать, что $E \ll 1$, так как для параболы $1-e \ll 1$. Следовательно, поскольку $\tg x \simeq x$,
+\begin{equation*}
+	E = 2 \sqrt{\frac{1-e}{1+e}} \tg \frac{\nu}{2}.
+\end{equation*}
+Подставим это в~\eqref{eq:third-kepler-law-mean-anomaly} c учётом~\eqref{eq:kepler-eq-series}:
+\begin{equation*}
+	M = t \sqrt{\frac{GM(1-e)^3}{q^3}} = \frac{2(1-e)^{3/2}}{\sqrt{1+e}}\tg\frac{\nu}{2} + \frac{8(1-e)^{3/2}}{3! \cdot (1+e)^{3/2}}\tg^3 \frac{\nu}{2} + \dots
+\end{equation*}
+Сократив на $(1-e)^{3/2}$ и приведя выражение, получим \imp{уравнение Баркера}
+\begin{equation}
+	t = \sqrt{\frac{2q^3}{GM}}\left(\tg \frac{\nu}{2 } + \frac{1}{3}\tg^3 \frac{\nu}{2}\right).
 \end{equation}
