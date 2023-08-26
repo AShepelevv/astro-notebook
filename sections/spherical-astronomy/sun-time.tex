@@ -7,26 +7,6 @@
 \end{equation}
 где $t_{\text{сол}}$~--- часовой угол Солнца.
 
-\begin{wrapfigure}[14]{r}{0.6\tw}
-	\centering
-%	\vspace{-1pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			width	=	.63\tw,
-			height	=	5.7cm,
-			xmax 	=	365,
-			xmin	=	0,
-			ymax	=	20,
-			ymin 	= 	-20,
-			ylabel	=	{Уравнение времени $\eta$, мин},
-			xlabel 	= 	{Суток от 1~января 00:00}
-			]
-			\addplot [domain=0:365, samples = 100, black, smooth] {7.53 * cos(360*(x - 81)/365) + 1.5 * sin(360*(x - 81)/365) - 9.87 * sin(2*360*(x - 81)/365)};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{График уравнения времени}
-	\label{pic:time-eq}
-\end{wrapfigure}
 \term{Среднее солнечное время} ($T_\text{ср}$)~--- промежуток времени между нижней кульминацией \imp{среднего Солнца} и текущим его положением. \term{Среднее Солнце}~--- точка небесной сферы, которая равномерно движется по небесному экватору, совершая полный оборот за тропический год. Зная долготу наблюдателя, нетрудно вычислить среднее солнечное время:
 \begin{equation*}
 	T_\text{ср} = \text{UTC} + \frac{\lambda}{15^\circ/\text{час}},
@@ -35,7 +15,104 @@
 
 \term{Поясное} или \term{гражданское время}~--- среднее солнечное время на срединном меридиане географического часового пояса. В России также установлено декретное время, которое на 1 час больше поясного.
 
-\term{Уравнение времени}~--- разница между истинным солнечным временем и средним солнечным временем, возникающая по причине неравномерности движения Земли по орбите и наклона земного экватора к плоскости эклиптики (см.~Рис.\,\ref{pic:time-eq}). Пусть $B \equiv 2 \pi (x - 81)/T_\oplus$, где $x$~--- количество суток, прошедшее с 1~января~00:00, тогда
+\begin{wrapfigure}[12]{r}{0.55\tw}
+	\centering
+	\vspace{-0. the 7pc}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width	=	6.5cm,
+			height	=	4.7cm,
+			xmax 	=	365,
+			xmin	=	0,
+			ymax	=	20,
+			ymin 	= 	-20,
+			ylabel	=	{$\eta$, мин},
+			xlabel 	= 	{$d$, сут}
+		]
+			\addplot [domain=0:365.25, samples = 100, black, smooth]{-7.65 * sin(360*x/365.25) + 9.86 * sin(2 * ( 102.9 + 360*x/365.25 ))};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{График уравнения времени}
+	\label{pic:time-eq}
+\end{wrapfigure}
+\term{Уравнение времени}~--- разница между истинным солнечным временем и средним солнечным временем, возникающая по причине неравномерности движения Земли по орбите и наклона земного экватора к плоскости эклиптики (см.~Рис.\,\ref{pic:time-eq}). Получим приближенное выражение для него. Для это этого вспомним уравнение Кеплера~\eqref{eq:kepler-eq} и величину эксцентриситета орбиты Земли $e_\oplus = 0.017 \ll 1$, откуда следует, что можно применять формулы приближенного вычисления, см.~Раздел~\ref{sec:form}. Рассмотрим выражение
+\begin{multline*}
+    \sin E 
+        = \sin(E - M + M) =\\
+        = \underbrace{\sin (E - M)}_{\simeq E - M} \cos M + \underbrace{\cos(E - M)}_{\simeq 1} \sin M \simeq\\
+        \simeq (E - M) \cos M + \sin M,
+\end{multline*}
+так как $E - M \sim e$. Отсюда можно сделать первое приближение
+\begin{equation*}
+    E_1 
+        = M + e \sin E 
+        = M + e \big( (E - M) \cos M + \sin M \big) 
+        \simeq M + e \sin M.
+\end{equation*}
+Воспользуемся полученным приближением, чтобы точнее оценить $E$.
+\begin{equation*}
+    E
+        = M + e \big( (E_1 - M) \cos M + \sin M \big) 
+        = M + e \sin M + \frac{e^2}{2} \sin 2M.
+\end{equation*}
+
+Теперь запишем первые три члена многочлена Тейлора формулы перехода от истинной аномалии к эксцентрической~\eqref{???}:
+\begin{equation*}
+    \nu 
+        = 2 \arctg \left(\sqrt{\frac{1+e}{1-e}} \tg \frac{E}{2} \right) 
+        \simeq E + e \sin E + \frac{e^2}{4} \sin 2E.
+\end{equation*}
+Подставим сюда выражение для $E(M)$ и воспользуемся формулой для разложения синуса суммы:
+\begin{multline*}
+    \nu 
+        \simeq M + e \sin M + \frac{e^2}{2} \sin 2M + \\
+        + e \bigg( \sin M \cdot \underbrace{\cos (e \sin M + \ldots)}_{\simeq 1} + \cos M \cdot \underbrace{\sin ( e \sin M  + \ldots )}_{\simeq e \sin M} \bigg) + \\
+        + \frac{e^2}{4} \bigg( \sin 2M \cdot \underbrace{\cos (2e \sin M + \ldots)}_{\simeq 1} + \cos 2M \cdot \underbrace{\sin (2e \sin M + \ldots)}_{\ll 1}\bigg)  \simeq \\
+        \simeq M + 2e \sin M + \frac{5e^2}{4} \sin 2M.
+\end{multline*}
+
+Обозначим как $\omega = 103^\circ$ эклиптическую долготу перицентра, тогда эклиптическая долгота Солнца $\lambda = \nu + \omega$. 
+
+Далее найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов для прямоугольного сферического треугольника, представленного на рисунке~\picRef{???}:
+\begin{gather*}
+    \sin \delta \cos 90^\circ = \cos \lambda \sin \alpha - \sin \lambda \cos \alpha \cos \varepsilon, \\
+    \cos \lambda \sin \alpha = \sin \lambda \cos \alpha \cos \varepsilon,\\
+    \frac{\tg \alpha }{\tg \lambda} = \cos \varepsilon.
+\end{gather*}
+Теперь запишем формулу тангенса половинного угла для $\tg \sfrac{\varepsilon}{2}$ и воспользуемся полученным выражением для $\cos \varepsilon$:
+\begin{gather*}
+    \tg^2 \frac{\varepsilon}{2} = \frac{1 - \cos \varepsilon}{1 + \cos \varepsilon} \equiv y ,\\
+    1 - \frac{\tg \alpha}{\tg \lambda} = y \cdot \left( 1 + \frac{\tg \alpha}{\tg \lambda} \right),\\
+    \sin \lambda \cos \alpha - \cos \lambda \sin \alpha = y \cdot \left( \sin \lambda \cos \alpha + \cos \lambda \sin \alpha \right),\\
+    \sin ( \lambda - \alpha ) = y \sin(\alpha + \lambda),\\
+    \alpha = \lambda - \arcsin \left( y \sin( \alpha + \lambda) \right).
+\end{gather*}
+Отметим, при $\varepsilon = 0$ выполняется $\alpha = \lambda$. Следовательно, можно сделать нулевое приближение $\alpha_0 = \lambda$. Воспользуемся методом последовательных приближений для получения более точного выражения для $\alpha(\lambda, \varepsilon)$.
+\begin{gather}
+    \alpha_1 = \lambda - \arcsin \left( y \sin (\alpha_0 + \lambda)  \right) \overset{\varepsilon \ll 1}{\simeq} \lambda - y \sin 2 \lambda,\nonumber\\ 
+    \alpha_2 
+        = \lambda - \arcsin \left( y \sin (\alpha_1 + \lambda) \right)
+        \overset{\varepsilon \ll 1}{\simeq} \lambda - y \sin 2 \lambda + \frac{y^2}{2} \sin 4 \lambda. \label{eq:second-approx-alpha-lambda}
+\end{gather}
+Используем~\eqref{eq:second-approx-alpha-lambda} для записи уравнения времени:
+\begin{multline}
+    \nu    
+        = t_\text{ист} - t_\text{ср}
+        = \alpha_2 - (M + \omega) = \\
+        = \lambda - y \sin 2 \lambda + \frac{y^2}{2} \sin 4 \lambda - M - \omega = \\
+        = \nu - y \sin (2\nu + 2\omega)  + \frac{y^2}{2} \sin (4\nu + 4\omega)  - M \simeq \\
+        \overset{\varepsilon \ll 1,\, e \ll 1}{\simeq} \!\!\underbracket[0.5pt]{~2e \sin M\,}_\text{эксц-ть орб.} - \underbracket[0.5pt]{\tg^2 \frac{\varepsilon}{2} \sin (2M + 2\omega)}_\text{наклон орбиты}.
+        \label{eq:time-eq-M}
+\end{multline}
+Подставим~в~\eqref{eq:time-eq-M} параметры орбиты Земли:
+\begin{equation*}
+    e = 0.0167,~\varepsilon = 23.44^\circ,~\omega = 102.9^\circ,
+\end{equation*}
+чтобы получить уравнение времени в минутах,~\lookPicRef{pic:time-eq}:
 \begin{equation}
-	\eta = T_{\text{ист}} - T_\text{ср} = 7.53 \cos B + 1.5 \sin B - 9.87 \sin 2 B.
+    \eta = t_\text{ист} - t_\text{ср} =  -7.65 \sin \frac{2\pi d}{P} + 9.86 \sin 2 \left( 1.80 + \frac{2\pi d}{P} \right)~\text{мин},
 \end{equation}
+где $T_\text{сид}$~--- сидерический год (здесь не учитываются поправки, связанные с прецессией Земной оси), а $d$~--- время от момента прохождения точки перицентра (в современную эпоху это происходит в период со 2 по 5 января).
+
+
+
