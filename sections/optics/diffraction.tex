@@ -111,9 +111,7 @@
 		width	=	9cm,
 		xlabel	=	{$\frac{\lambda}{b}$, $\text{м}^2$},
 		ylabel	=	{$I/A_0^2$},
-%		ylabel shift	= -1 cm,
-		]
-		
+	]
 		\addplot[smooth, domain=-4:4, samples=200] {(sin(deg(x*pi))/(x*pi))^2};
 	\end{axis}
 \end{tikzpicture}
@@ -121,6 +119,7 @@
 \begin{figure}[p]
 	\centering
 	\begin{subcaptionblock}{\tw}
+        \tikzsetnextfilename{eiry-disk-linear}
 		\begin{tikzpicture}
 			\begin{axis} [
 				width			=	10cm,
@@ -166,6 +165,7 @@
 		\label{}
 	\end{subcaptionblock}\\[2pc]
 	\begin{subcaptionblock}{\tw}
+        \tikzsetnextfilename{eiry-disk-linear-flat}
 		\begin{tikzpicture}
 			\begin{axis} [
 				width			=	10cm,
@@ -195,6 +195,7 @@
 \begin{figure}[p]
 	\centering
 	\begin{subcaptionblock}{\tw}
+        \tikzsetnextfilename{eiry-disk-logarifmic}
 		\begin{tikzpicture}
 			\begin{axis} [
 				width			=	10cm,
@@ -240,21 +241,21 @@
 		\label{}
 	\end{subcaptionblock}\\[2pc]
 	\begin{subcaptionblock}{\tw}
+        \tikzsetnextfilename{eiry-disk-logarifmic-flat}
 		\begin{tikzpicture}
 			\begin{axis} [
 				width			=	10cm,
 				height			=	7.5cm,
 				colormap 		= 	{GSW}{rgb(0cm)=(.1, .1, .1) rgb(.05cm)=(.99, .99, .99) rgb(1cm)	=	(1, 1, 1)},
 				view			=	{0}{90},
-				ytick 	= 	{-3, -2, ..., 3},
+				ytick 	        = 	{-3, -2, ..., 3},
 				colorbar,
 				colorbar style 	= 	{
-				ytick 	= 	{0, .2, .4, .6, .8, 1.},
+				    ytick 	= 	{0, .2, .4, .6, .8, 1.},
 				},
-				xlabel 			=	{$x$, $\frac{\lambda}{D}$},
-				ylabel 			=	{$y$, $\frac{\lambda}{D}$},
-				]
-				
+				xlabel 	        =	{$x$, $\frac{\lambda}{D}$},
+				ylabel 	        =	{$y$, $\frac{\lambda}{D}$},
+			]
 				\ifthenelse{\boolean{useLightPlotVersion}}{}{
 				    \addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
 				}
@@ -269,15 +270,14 @@
 \begin{figure}[p]
 	\begin{subcaptionblock}[t]{\tw}
 		\includegraphics[width=4.7cm]{eiry-disk-0}\hfill
+		\tikzsetnextfilename{eiry-disk-0-plot}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	4.125cm,
 				width	=	5.5cm,
 				xlabel	=	{$x$, $\frac{\lambda}{D}$},
 				ylabel	=	{$I/I_0$},
-%				ylabel shift	= -1.1 cm,
-				]
-				
+			]
 				\addplot[smooth] table[x=x, y=e0]{data/eiry-disk-profile.txt};
 			\end{axis}
 		\end{tikzpicture}
@@ -285,15 +285,14 @@
 	\end{subcaptionblock}\\
 	\begin{subcaptionblock}[t]{\tw}
 		\includegraphics[width=4.7cm]{eiry-disk-1}\hfill
+		\tikzsetnextfilename{eiry-disk-1-plot}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	4.125cm,
 				width	=	5.5cm,
 				xlabel	=	{$x$, $\frac{\lambda}{D}$},
 				ylabel	=	{$I/I_0$},
-%				ylabel shift	= -1.1 cm,
-				]
-				
+			]
 				\addplot[smooth] table[x=x, y=e1]{data/eiry-disk-profile.txt};
 			\end{axis}
 		\end{tikzpicture}
@@ -301,15 +300,14 @@
 	\end{subcaptionblock}\\
 	\begin{subcaptionblock}{\tw}
 		\includegraphics[width=4.7cm]{eiry-disk-2}\hfill
+		\tikzsetnextfilename{eiry-disk-2-plot}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	4.125cm,
 				width	=	5.5cm,
 				xlabel	=	{$x$, $\frac{\lambda}{D}$},
 				ylabel	=	{$I/I_0$},
-%				ylabel shift	= -1.1 cm,
-				]
-				
+			]
 				\addplot[smooth] table[x=x, y=e2]{data/eiry-disk-profile.txt};
 			\end{axis}
 		\end{tikzpicture}
@@ -317,15 +315,14 @@
 	\end{subcaptionblock}\\
 	\begin{subcaptionblock}{\tw}
 		\includegraphics[width=4.7cm]{eiry-disk-3}\hfill
+		\tikzsetnextfilename{eiry-disk-3-plot}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	4.125cm,
 				width	=	5.5cm,
 				xlabel	=	{$x$, $\frac{\lambda}{D}$},
 				ylabel	=	{$I/I_0$},
-%				ylabel shift	= -1.1 cm,
-				]
-				
+			]
 				\addplot[smooth] table[x=x, y=e3]{data/eiry-disk-profile.txt};
 			\end{axis}
 		\end{tikzpicture}
