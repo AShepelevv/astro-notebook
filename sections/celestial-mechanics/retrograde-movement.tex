@@ -84,7 +84,7 @@
         = \frac{(b^2 - 1) - 2b(b^2 - 1) + b^3(b^2 - 1)}{(1 - b^3)(1 - b^2)} = \\
         = \frac{1 - 2b + b^3}{b^3 - 1} = \frac{b^2(b-1) + b(b-1) - (b - 1)}{\left(b-1\right)\left(b^2 + b + 1\right)} = \frac{b^2 + b - 1}{b^2 + b + 1}.
 \end{multline*} 
-Отсюда, размер петли
+Отсюда, учитывая \eqref{eq:retrograde-movement-alpha}, размер петли
 \begin{equation}
     \Delta\lambda = \arccos \frac{b^2 + b - 1}{b^2 + b + 1} - \frac{2}{\left|b\sqrt{b} - 1 \right|} \cdot \arccos \frac{b + \sqrt{b}}{b \sqrt{b} + 1}.
 \end{equation}
@@ -92,6 +92,7 @@
 \begin{wrapfigure}[9]{r}{0.47\tw}
 	\centering
 	\vspace{-1pc}
+	\tikzsetnextfilename{retrograde-movement-loop-size-plot}
 	\begin{tikzpicture}
 		\begin{axis}[
 			width	=	.5\tw,
@@ -122,7 +123,7 @@
 	\end{tikzpicture}
 	\caption{}
 \end{wrapfigure}
-Легко заметить, что для внутренней планеты результат будет тот же, стоит только поменять местами индексы наблюдателя и планеты в вкладках выше. 
+Легко заметить, что для внутренней планеты результат будет тот же, стоит только поменять местами индексы наблюдателя и планеты в выкладках выше. 
 
 
 
