@@ -1,0 +1,133 @@
+\subsection{Ретроградное движение и точки стояния}
+Рассмотрим характер движения планеты по небесной сфере в течение синодического периода. Пусть \imp{наблюдатель}~--- условная точка, обращающаяся вокруг Солнца по некоторой круговой орбите, согласно законам Кеплера. Назовем \imp{лучем зрения} прямую, проходящую через наблюдателя и наблюдаемую планету. Тогда угловая скорость планеты на небесной сфере наблюдателя $\boldsymbol \omega = \cross{(r_\text{п} - r_\text{н})}{(u - v)}$, где $\vec{u}$ и $\vec{v}$~--- векторы орбитальных скоростей планеты и наблюдателя соответсвенно. 
+
+Пусть планета является внешней для наблюдателя, случай внутренней рассматривается аналогично. Найдём угловую скорость планеты в противостоянии и соединении:
+\begin{align*}
+    \omega_\text{п} &= \frac{u - v}{a_\text{п} - a_\text{н}} < 0,\\ 
+    \omega_\text{с} &= \frac{u + v}{a_\text{п} + a_\text{н}} > 0,
+\end{align*}
+где в качестве положительного направления выбрано направления движения Солнца на небе наблюдателя. 
+
+Из геометрического смысла и определения угловой скорости очевидно, что это непрерывная функция, а значит, существуют такие моменты, когда планета меняет направление своего видимого движения по небесной сфере наблюдателя, такие точки называются \term{точками стояния}. А движение планеты в противоположную движению Солнца сторону~--- \term{ретроградным движением}. Причём внешние планеты находятся в ретроградном движении в окрестности противостояния, а внутренние~--- в окрестности нижнего соединения.
+
+Получим выражение для размера петли ретроградного движения планеты. Для простоты изложения положим, что планета является внешней. В конце покажем, что полученное выражение справедливо и для внутренних планет. 
+
+Итак, пусть обиты планеты и наблюдателя круговые с радиусами $a_\text{п}$ и  $a_\text{н}$ соответственно, пусть также $\alpha$~--- разность эклиптических долгот наблюдателя и планеты, \lookPicRef{???}. Тогда расстояние $r$ между ними можно найти из теоремы косинусов:
+\begin{equation}
+    r = \sqrt{a_\text{п}^2 + a_\text{н}^2 - 2 a_\text{п} a_\text{н} \cos \alpha}.
+    \label{eq:retrograde-movement-distance}
+\end{equation}
+
+Пусть $\delta$~--- угол Солнце~-- планета~-- наблюдатель, запишем теорему синусов:
+\begin{equation}
+    \frac{a_\text{н}}{\sin \delta} = \frac{r}{\sin \alpha}.
+    \label{eq:retrograde-movement-sinuses-theorem}
+\end{equation}
+Остается сказать, что обнуление видимой угловой скорости планеты происходит при равенстве проекций скоростей планеты и наблюдателя на нормаль к лучу зрения, что эквивалентно
+\begin{equation}
+    v \cos (\alpha + \delta) = u \cos \delta.
+    \label{eq:retrograde-movement-velocity-projectione-equivalence}
+\end{equation}
+
+Найдём теперь $\alpha$ из системы уравнений \eqref{eq:retrograde-movement-distance}\,--\,\eqref{eq:retrograde-movement-velocity-projectione-equivalence}. Для удобства изложения введём обозначение $b \equiv a_\text{п} / a_\text{н} > 1$. И начнём с \eqref{eq:retrograde-movement-sinuses-theorem}, откуда выразим $\sin \delta$:
+\begin{multline*}
+    \sin \delta 
+        = \frac{a_\text{н} \sin \alpha}{r} 
+        = \frac{a_\text{н} \sin \alpha}{\sqrt{a_\text{п}^2 + a_\text{н}^2 - 2 a_\text{п} a_\text{н} \cos \alpha}} = \\
+        =  \frac{a_\text{н} \sin \alpha}{a_\text{н} \sqrt{1 + \dfrac{a_\text{п}^2}{a_\text{н}^2} - 2 \dfrac{a_\text{п}}{a_\text{н}} \cos \alpha}}
+        = \frac{\sin \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}}.
+\end{multline*}
+Далее получим выражение для $\cos \delta$ из основного тригонометрического тождества:
+\begin{multline*}
+    0 < \cos \delta 
+        = \sqrt{1 - \sin^2 \delta} 
+        = \sqrt{1 - \frac{\sin^2 \alpha}{1 + b^2 - 2 b \cos \alpha}} = \\
+        = \sqrt{\frac{1 + b^2 - 2 b \cos \alpha - 1 + \cos^2 \alpha}{1 + b^2 - 2 b \cos \alpha}}
+        = \frac{b - \cos \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}}
+\end{multline*}
+Также вспомним, что
+\begin{equation*}
+    \frac{u}{v} = \frac{\sqrt{\dfrac{GM_\odot}{a_\text{п}}}}{\sqrt{\dfrac{GM_\odot}{a_\text{н}}}} = \sqrt{\frac{a_\text{н}}{a_\text{п}}} \equiv \sqrt{\frac{1}{b}}.
+\end{equation*}
+Остаётся раскрыть косинус суммы в \eqref{eq:retrograde-movement-velocity-projectione-equivalence}:
+\begin{gather}
+    v (\cos \alpha \cos \delta - \sin \alpha \sin \delta) = u \cos \delta,\nonumber\\
+    \cos \alpha \cos \delta - \sin \alpha \sin \delta = \sqrt{\frac{1}{b}} \cos \delta,\nonumber\\
+    \cos \delta \left( \cos \alpha - \sqrt{\frac{1}{b}} \right) = \sin \alpha \sin \delta,\nonumber\\
+    \frac{b - \cos \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}}\left( \cos \alpha - \sqrt{\frac{1}{b}} \right) = \sin \alpha \frac{\sin \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}},\nonumber\\
+    b \cos \alpha - \sqrt{b} - \cos^2 \alpha + \sqrt{\frac{1}{b}} \cos \alpha = 1 - \cos^2 \alpha,\nonumber\\
+    \cos \alpha = \frac{b + \sqrt{b}}{b \sqrt{b} + 1}.
+    \label{eq:retrograde-movement-alpha}
+\end{gather}
+Вторая точка стояния определяется той же разницей долгот, что видно из \picRef{???}, следовательно, ретроградное движение планеты происходит на протяжении времени
+\begin{equation*}
+    t 
+        = \frac{2 \alpha}{|\omega_\text{н} - \omega_\text{п}|} 
+        = \frac{2 \alpha}{\left|\dfrac{2\pi}{T_\text{н}} - \dfrac{2\pi}{T_\text{п}} \right|} 
+%        = \frac{\alpha}{\pi} \cdot \frac{T_\text{п} T_\text{н}}{T_\text{п} - T_\text{н}} = \\
+        = \frac{\alpha}{\pi}\cdot \frac{T_\text{п}}{\left|\dfrac{T_\text{п}}{T_\text{н}} - 1\right|} 
+        = \frac{\alpha}{\pi}\cdot \frac{T_\text{п}}{\left| b \sqrt{b} - 1 \right|}.
+\end{equation*}
+А планета за это время проходит по орбите угол
+\begin{equation*}
+    \psi = t \omega_\text{п} = \frac{\alpha}{\pi} \cdot \frac{T_\text{п}}{b \sqrt{b} - 1} \cdot \frac{2\pi}{T_\text{п}} = \frac{2\alpha}{b \sqrt{b} - 1}.
+\end{equation*}
+Остается отметить, размер петли попятного движения $\Delta \lambda = 2\delta - \psi$, что следует из \picRef{???}. Чтобы получить аналитический вид данного выражения, найдем
+\begin{multline*}
+    \cos 2 \delta 
+        = 1 - 2 \sin^2 \delta 
+        = 1 - \frac{2(1 - \cos^2 \alpha)}{1 + b^2 - 2b \cos \alpha} = \\
+        =\frac{1 + b^2 - 2 b \cos \alpha - 2 + 2 \cos^2 \alpha}{1 + b^2 - 2b\cos \alpha} =\\
+        = \frac{-1 + b^2 - 2b \cdot \dfrac{b + \sqrt{b}}{b \sqrt{b} + 1} + 2 \cdot \dfrac{b^2 + b +2b\sqrt{b}}{b^3 + 1 + 2 b \sqrt{b}}}{1 + b^2 - 2b \cdot \dfrac{b + \sqrt{b}}{b \sqrt{b} + 1}}\\
+%        = \frac{\dfrac{\scriptstyle{-b^3 - 1 - 2b\sqrt{b} + b^5 + b^2 + 2b^3\sqrt{b} - 2b^3 \sqrt{b} - 2b^3 - 2b^2 - 2b\sqrt{b} + 2b^2 + 2b + 4b\sqrt{b}}}{\scriptstyle{\left(b \sqrt{b} +1\right)^2}}}{\dfrac{\scriptstyle{b\sqrt{b} + 1 + b^3 \sqrt{b} + b^2 - 2b^2 - 2b\sqrt{b}}}{\scriptstyle{b \sqrt{b} + 1}}} = \\
+        = \frac{-1 + 2b + b^2 - 3b^3 + b^5}{\left(b \sqrt{b} + 1\right) \left(1 - b \sqrt{b} - b^2 + b^3 \sqrt{b}\right)} = \\
+        = \frac{(b^2 - 1) - 2b(b^2 - 1) + b^3(b^2 - 1)}{(1 - b^3)(1 - b^2)} = \\
+        = \frac{1 - 2b + b^3}{b^3 - 1} = \frac{b^2(b-1) + b(b-1) - (b - 1)}{\left(b-1\right)\left(b^2 + b + 1\right)} = \frac{b^2 + b - 1}{b^2 + b + 1}.
+\end{multline*} 
+Отсюда, размер петли
+\begin{equation}
+    \Delta\lambda = \arccos \frac{b^2 + b - 1}{b^2 + b + 1} - \frac{2}{\left|b\sqrt{b} - 1 \right|} \cdot \arccos \frac{b + \sqrt{b}}{b \sqrt{b} + 1}.
+\end{equation}
+
+\begin{wrapfigure}[9]{r}{0.47\tw}
+	\centering
+	\vspace{-1pc}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width	=	.5\tw,
+			height	=	4.5cm,
+			xlabel	=	{$b$},
+			ylabel	=	{$\Delta \lambda, ~^\circ$},
+%			ymax	=	1,
+			ymin	=	0,
+			xmax	=	10,
+			xmin	=	0,
+			legend cell align=left,
+			legend style={
+				row sep = 1mm,
+				draw=none,
+				fill=none,
+				font=\scriptsize,
+				at={(axis cs:1.2, 2.5)}, anchor=south west,
+			},
+		]
+			\addplot [domain=0:10, samples=37, smooth] {acos((x^2 + x - 1)/(x^2 + x + 1)) - 2 / abs(x*sqrt(x) - 1) * acos((x + sqrt(x))/(x * sqrt(x) + 1))};
+			\addplot[mark=o, only marks, black, mark options={
+        scale=0.75, fill=white}]  coordinates {(0.42, 14.2) (0.72,16.15) (1.52,15.93) (5.2,9.95) (9.6,6.76)};
+			\legend{
+				$\Delta \lambda(b)$,
+				Планеты Сол.\,сист.
+			}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{}
+\end{wrapfigure}
+Легко заметить, что для внутренней планеты результат будет тот же, стоит только поменять местами индексы наблюдателя и планеты в вкладках выше. 
+
+
+
+
+
+
+
+
