@@ -253,11 +253,11 @@
 \end{equation*}
 Подставив одно уравнение в другое можно получить такое дифференциальное соотношение:
 \begin{equation*}
-	\sqrt{GMp}\,dt=\frac{p^2 d\nu}{(1 + e \cos{\nu})^2}.
+	\sqrt{GMp}\,dt=\frac{p^2 \,d\nu}{(1 + e \cos{\nu})^2}.
 \end{equation*}
 Вспомнив значение для частоты из третьего закона Кеплера и интегрируя с обеих сторон выходит:
 \begin{equation*}
-	\int_{\nu_1}^{\nu_2}{\frac{d\nu}{(1+e\cos \nu)^2}} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
+	\int\limits_{\nu_1}^{\nu_2}{\frac{d\nu}{(1+e\cos \nu)^2}} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
 \end{equation*}
 Далее сделаем замену в интеграле:
 \begin{equation*}
@@ -265,12 +265,12 @@
 \end{equation*}
 Дифференциал тогда:
 \begin{gather*}
-	-\sin \nu \, d \nu = -\frac{(e^2 - 1) \sinh H}{(e \cosh H - 1)^2}dH = -\frac{\sqrt{e^2-1}\sin \nu}{e \cosh H - 1}dH, \\
-	d\nu = \frac{\sqrt{e^2-1}}{e \cosh H - 1}dH.
+	-\sin \nu \, d \nu = -\frac{(e^2 - 1) \sinh H}{(e \cosh H - 1)^2}\,dH = -\frac{\sqrt{e^2-1}\sin \nu}{e \cosh H - 1}\,dH, \\
+	d\nu = \frac{\sqrt{e^2-1}}{e \cosh H - 1}\,dH.
 \end{gather*}
 После замены интеграл упрощается до:
 \begin{equation*}
-	\int_{H_1}^{H_2}{\frac{e \cosh H - 1}{\sqrt{(e^2-1)^3}} dH} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
+	\int\limits_{H_1}^{H_2}{\frac{e \cosh H - 1}{\sqrt{(e^2-1)^3}} \,dH} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
 \end{equation*}
 Отсюда получаем \term{уравнение Кеплера для гиперболы}:
 \begin{equation*}
