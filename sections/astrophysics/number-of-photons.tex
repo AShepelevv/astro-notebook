@@ -1,21 +1,22 @@
 \subsection{Количество фотонов. Средняя Энергия}
-Если разделить формулу Планка на энергию одного фотона, то можно получить функцию распределения количества фотонов по энергиям
+Если разделить спектральную плотность потока излучения из формулы Планка \eqref{eq:plancks-law-lambda}, получится функция плотности распределения коичества фотонов по длине волны:
 \begin{equation*}
 	\frac{\pi B_{\lambda}}{E_{\gamma}} = \frac{2 \pi c}{\lambda^4} \cdot \frac{1}{\exp\left(\frac{hc}{\lambda k T}\right)-1} = f_{\lambda}.
 \end{equation*}
-Интегрируя от 0 до $\infty$ можно получить полное количество фотонов излучаемое АЧТ:
+Интегрируя данную функцию от 0 до $\infty$, можно получить полное количество фотонов излучаемое АЧТ:
 \begin{equation*}
-	N = \int_{0}^{\infty}{\pi f_{\lambda}d\lambda} = \int_{0}^{\infty}{\frac{2\pi c}{\lambda^4} \cdot \frac{d\lambda}{\exp\left(\frac{hc}{\lambda k T}\right)-1}}.
+	N = \int_{0}^{\infty}{\pi f_{\lambda}\,d\lambda} = \int_{0}^{\infty}{\frac{2\pi c}{\lambda^4} \cdot \frac{d\lambda}{\exp\left(\frac{hc}{\lambda k T}\right)-1}}.
 \end{equation*}
-Сделав замену $x = \frac{hc}{\lambda kt}$ интеграл сводится к
+Сделав замену $x = \frac{hc}{\lambda kt}$ интеграл можно преобразовать в такую форму
 \begin{equation*}
-	N = \frac{2\pi k^3 T^3}{h^3 c^2}\int_{0}^{\infty}{\frac{x^2 dx}{e^x-1}}.
+	N = \frac{2\pi k^3 T^3}{h^3 c^2}\int_{0}^{\infty}{\frac{x^2 \,dx}{e^x-1}}.
 \end{equation*}
-Последний интеграл вычисляется аналочично интегралу, что появляется при выводе закона Стефана-Больцмана и равен $2\zeta(3)$, отсюда
+Последний интеграл вычисляется аналочично интегралу, что появляется при выводе закона \hyperref[subsec:stef-boltz-law]{Стефана-Больцмана} \eqref{eq:steff-bol-law} и равен $2\zeta(3)$, отсюда
 \begin{equation}
-	N = \frac{4\pi k^3 \zeta(3)}{h^3 c^2} \cdot T^3 = \beta T^3.
+	N = \frac{4\pi k^3 \zeta(3)}{h^3 c^2} \cdot T^3 = \beta T^3, 
 \end{equation}
-Константа пропорциональности $\beta$ равна примерно $1.52 \cdot 10^{15}$. Если поделить полную энергию излучаемое АЧТ на полное количество фотонов, то можно получить \term{среднюю энергию чернотельного фотона}:
+где константа пропорциональности примерно равна $1.52 \cdot 10^{15}$. 
+Разделив полную энергию, излучаемую абсолютно чёрным телом, на количество фотонов, получим \term{среднюю энергию чернотельного фотона}:
 \begin{equation}
 	\overline{E_{\gamma}} = \frac{\sigma T^4}{\beta T^3} \simeq 2.7 k T.
 \end{equation}
