@@ -246,33 +246,3 @@
     \label{eq:kepler-eq-E-nu-2}
 \end{gather}
 Полученное равенство завершает систему уравнений для $\nu$, $E$ и $M$.
-
-Для гиперболы тоже есть свой вариант уравнения Кеплера. Для того, чтобы его получить запишем выражение для момента импульса и уравнение гиперболы в полярных координатах:
-\begin{equation*}
-	l = r^2 \dot{\nu} = \sqrt{GMp}, \quad r = \frac{p}{1 + e \cos \nu}.
-\end{equation*}
-Подставив одно уравнение в другое можно получить такое дифференциальное соотношение:
-\begin{equation*}
-	\sqrt{GMp}\,dt=\frac{p^2 \,d\nu}{(1 + e \cos{\nu})^2}.
-\end{equation*}
-Вспомнив значение для частоты из третьего закона Кеплера и интегрируя с обеих сторон выходит:
-\begin{equation*}
-	\int\limits_{\nu_1}^{\nu_2}{\frac{d\nu}{(1+e\cos \nu)^2}} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
-\end{equation*}
-Далее сделаем замену в интеграле:
-\begin{equation*}
-	\cos \nu = \frac{e - \cosh H}{e \cosh H - 1}, \quad \sin \nu = \frac{\sqrt{e^2-1} \sinh H}{e \cosh H - 1}.
-\end{equation*}
-Дифференциал тогда:
-\begin{gather*}
-	-\sin \nu \, d \nu = -\frac{(e^2 - 1) \sinh H}{(e \cosh H - 1)^2}\,dH = -\frac{\sqrt{e^2-1}\sin \nu}{e \cosh H - 1}\,dH, \\
-	d\nu = \frac{\sqrt{e^2-1}}{e \cosh H - 1}\,dH.
-\end{gather*}
-После замены интеграл упрощается до:
-\begin{equation*}
-	\int\limits_{H_1}^{H_2}{\frac{e \cosh H - 1}{\sqrt{(e^2-1)^3}} \,dH} = \frac{\omega T}{\sqrt{(e^2 - 1)^3}}.
-\end{equation*}
-Отсюда получаем \term{уравнение Кеплера для гиперболы}:
-\begin{equation}
-	\omega T = M = e \sinh H - H.
-\end{equation}
