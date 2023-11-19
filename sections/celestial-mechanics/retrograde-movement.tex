@@ -10,9 +10,127 @@
 
 Из геометрического смысла и определения угловой скорости очевидно, что это непрерывная функция, а значит, существуют такие моменты, когда планета меняет направление своего видимого движения по небесной сфере наблюдателя, такие точки называются \term{точками стояния}. А движение планеты в противоположную движению Солнца сторону~--- \term{ретроградным движением}. Причём внешние планеты находятся в ретроградном движении в окрестности противостояния, а внутренние~--- в окрестности нижнего соединения.
 
+\begin{wrapfigure}[12]{r}{0.6\tw}
+    \centering
+    \vspace{-1pc}
+	\tikzsetnextfilename{retrograde-movement-schema}
+    \begin{tikzpicture}
+        \footnotesize
+        
+        % The Sun
+        \tkzDefPoint(0,0){S}
+        
+        % Radius of base planet's orbit 
+        \def\r{3}
+        
+        % Ration of orbits' radiuses
+        \def\b{1.5}
+        
+        % Radius of external planet's orbit
+        \def\R{\r * \b}
+        
+        \tkzInit[
+	       xmin={-0.5},
+	       xmax={\R + 1},
+	       ymin={-0.6},
+	       ymax={\R + 0.1},
+	    ]
+	    \tkzClip
+        
+        % Angle alpha from derivation (Base - Exteranal - Sun)
+        \pgfmathsetmacro\ALPHA{acos((\b + sqrt(\b)) / (\b * sqrt(\b) + 1))}
+        
+        % Angle psi from derivation (External at the begin - Sun - external at the end)
+        \pgfmathsetmacro\PSI{2 * \ALPHA / (\b * sqrt(\b) - 1)}
+        
+        % Position of base planet at the begin
+        \tkzDefPoint(\r,0){E}
+        
+        % Position of external planet at the begin
+        \tkzDefPointBy[homothety=center S ratio \b](E) \tkzGetPoint{m}
+        \tkzDefPointBy[rotation=center S angle \ALPHA](m) \tkzGetPoint{M}
+        
+        % Position of base planet at the end
+        \tkzDefPointBy[rotation=center S angle (2 * \ALPHA + \PSI)](E) \tkzGetPoint{E'}
+        
+        % Position of external planet at the end
+        \tkzDefPointBy[homothety=center S ratio \b](E') \tkzGetPoint{m}
+        \tkzDefPointBy[rotation=center S angle -\ALPHA](m) \tkzGetPoint{M'}
+        
+        % Intersection on lines (base - external) at the begin and at the end
+        \tkzInterLL(E,M)(E',M') \tkzGetPoint{I}
+        
+        % Orbital speed vector of the external planet at the begin
+        \tkzDefLine[tangent at=M](S) \tkzGetPoint{x}
+        \tkzDefPointBy[homothety=center M ratio (1.3/sqrt(\b))](x) \tkzGetPoint{vM}
+        
+        % Orbital speed vector of the base planet at the begin
+        \tkzDefLine[tangent at=E](S) \tkzGetPoint{x}
+        \tkzDefPointBy[homothety=center E ratio 1.3](x) \tkzGetPoint{vE}
+        
+        % Line passing through external planet and orthogonal to the line (base - external) at the begin
+        \tkzDefLine[tangent at=M](E) \tkzGetPoint{x}
+        \tkzDefPointBy[homothety=center M ratio 0.5](x) \tkzGetPoint{M1}
+        \tkzDefPointBy[homothety=center M ratio -0.5](x) \tkzGetPoint{M2}
+        
+        % Line passing through base planet and orthogonal to the line (base - external) at the begin
+        \tkzDefLine[tangent at=E](M) \tkzGetPoint{x}
+        \tkzDefPointBy[homothety=center E ratio 0.4](x) \tkzGetPoint{E1}
+        \tkzDefPointBy[homothety=center E ratio -1.2](x) \tkzGetPoint{E2}
+        
+    
+        % Intersection of the line passing through base planet and orthogonal to the line (base - external) at the begin and line Sun - external planet at the begin
+        \tkzInterLL(E,E1)(S,M) \tkzGetPoint{D}
+        
+        
+        \tkzDrawSegments[thick](S,E E,M M,S S,E' E',M' M',S) 
+        \tkzDrawSegments[dashed](M,I M',I)
+        \tkzDrawSegments[semithick,-latex](E,vE M,vM)
+        
+        \tkzDrawLines[semithick](M1,M2 E1,E2)
+        
+        \tkzDrawCircles[black,semithick](S,E S,M)
+        
+        \tkzMarkAngles[arc=l, size=0.7](E,S,M M',S,E')
+        \tkzLabelAngles[pos=0.9](E,S,M M',S,E'){\footnotesize$\alpha$}
+        
+        \tkzMarkAngles[arc=ll, mark=|, mksize=2pt, size=0.4](S,M,E E',M',S)
+        \tkzLabelAngles[pos=0.6](S,M,E E',M',S){\footnotesize$\delta$}
+        
+        \tkzMarkAngles[arc=ll, size=0.4](M,S,M')
+        \tkzLabelAngles[pos=0.6](M,S,M'){\footnotesize$\psi$}
+        
+        \tkzMarkAngles[arc=lll, size=0.4](M,E,vE D,E,S)
+        \tkzLabelAngles[pos=0.4, left](D,E,S){\raisebox{5pt}{~\!\!\scalebox{0.75}{$90^\circ\!\!-\!\delta\!-\!\alpha$}}}
+        
+        \tkzMarkAngles[arc=l, mark=x, mksize=2pt, size=1.1](vE,E,D)
+        \tkzLabelAngles[pos=1.2, above, fill=white, inner sep=0.5](vE,E,D){\footnotesize$\alpha + \delta$}
+        
+        \tkzMarkAngles[arc=ll, mark=||, mksize=3pt, size=0.4](E2,D,S)
+        \tkzLabelAngles[pos=0.45, left](E2,D,S){\footnotesize$90^\circ - \delta$}
+        
+        \tkzMarkAngles[arc=ll, size=9.5](M',I,M)
+        \tkzLabelAngles[pos=9.8](M',I,M){\footnotesize$\Delta\lambda$}
+        
+        \tkzMarkRightAngles[size=0.2](vE,E,S M,E,E1 E,M,M2 vM,M,S)
+        
+        \tkzDrawPoints(S, E, M, E', M', I)
+        
+        \tkzLabelPoints[above](E', I)
+        \tkzLabelPoint[above](M'){$~\,M'$}
+        \tkzLabelPoint[below left](E){$E$} 
+        \tkzLabelPoint[right](M){$M$} 
+        \tkzLabelPoint[left](S){$S$}
+        \tkzLabelPoint[right](vE){$\vec{v}_\text{н}$}
+        \tkzLabelPoint[right](vM){$\vec{v}_\text{п}$}        
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:retrograde-movement-schema}
+\end{wrapfigure}
+
 Получим выражение для размера петли ретроградного движения планеты. Для простоты изложения положим, что планета является внешней. В конце покажем, что полученное выражение справедливо и для внутренних планет. 
 
-Итак, пусть обиты планеты и наблюдателя круговые с радиусами $a_\text{п}$ и  $a_\text{н}$ соответственно, пусть также $\alpha$~--- разность эклиптических долгот наблюдателя и планеты, \lookPicRef{???}. Тогда расстояние $r$ между ними можно найти из теоремы косинусов:
+Итак, пусть обиты планеты и наблюдателя круговые с радиусами $a_\text{п}$ и  $a_\text{н}$ соответственно, пусть также $\alpha$~--- разность эклиптических долгот наблюдателя и планеты, \lookPicRef{pic:retrograde-movement-schema}. Тогда расстояние $r$ между ними можно найти из теоремы косинусов:
 \begin{equation}
     r = \sqrt{a_\text{п}^2 + a_\text{н}^2 - 2 a_\text{п} a_\text{н} \cos \alpha}.
     \label{eq:retrograde-movement-distance}
@@ -25,7 +143,7 @@
 \end{equation}
 Остается сказать, что обнуление видимой угловой скорости планеты происходит при равенстве проекций скоростей планеты и наблюдателя на нормаль к лучу зрения, что эквивалентно
 \begin{equation}
-    v \cos (\alpha + \delta) = u \cos \delta.
+    v_\text{н} \cos (\alpha + \delta) = v_\text{п} \cos \delta.
     \label{eq:retrograde-movement-velocity-projectione-equivalence}
 \end{equation}
 
@@ -47,11 +165,11 @@
 \end{multline*}
 Также вспомним, что
 \begin{equation*}
-    \frac{u}{v} = \frac{\sqrt{\dfrac{GM_\odot}{a_\text{п}}}}{\sqrt{\dfrac{GM_\odot}{a_\text{н}}}} = \sqrt{\frac{a_\text{н}}{a_\text{п}}} \equiv \sqrt{\frac{1}{b}}.
+    \frac{v_\text{п}}{v_\text{н}} = \frac{\sqrt{\dfrac{GM_\odot}{a_\text{п}}}}{\sqrt{\dfrac{GM_\odot}{a_\text{н}}}} = \sqrt{\frac{a_\text{н}}{a_\text{п}}} \equiv \sqrt{\frac{1}{b}}.
 \end{equation*}
 Остаётся раскрыть косинус суммы в \eqref{eq:retrograde-movement-velocity-projectione-equivalence}:
 \begin{gather}
-    v (\cos \alpha \cos \delta - \sin \alpha \sin \delta) = u \cos \delta,\nonumber\\
+    v_\text{н} (\cos \alpha \cos \delta - \sin \alpha \sin \delta) = v_\text{п} \cos \delta,\nonumber\\
     \cos \alpha \cos \delta - \sin \alpha \sin \delta = \sqrt{\frac{1}{b}} \cos \delta,\nonumber\\
     \cos \delta \left( \cos \alpha - \sqrt{\frac{1}{b}} \right) = \sin \alpha \sin \delta,\nonumber\\
     \frac{b - \cos \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}}\left( \cos \alpha - \sqrt{\frac{1}{b}} \right) = \sin \alpha \frac{\sin \alpha}{\sqrt{1 + b^2 - 2 b \cos \alpha}},\nonumber\\
@@ -59,7 +177,7 @@
     \cos \alpha = \frac{b + \sqrt{b}}{b \sqrt{b} + 1}.
     \label{eq:retrograde-movement-alpha}
 \end{gather}
-Вторая точка стояния определяется той же разницей долгот, что видно из \picRef{???}, следовательно, ретроградное движение планеты происходит на протяжении времени
+Вторая точка стояния определяется той же разницей долгот, что видно из \picRef{pic:retrograde-movement-schema}, следовательно, ретроградное движение планеты происходит на протяжении времени
 \begin{equation*}
     t 
         = \frac{2 \alpha}{|\omega_\text{н} - \omega_\text{п}|} 
@@ -72,7 +190,7 @@
 \begin{equation*}
     \psi = t \omega_\text{п} = \frac{\alpha}{\pi} \cdot \frac{T_\text{п}}{b \sqrt{b} - 1} \cdot \frac{2\pi}{T_\text{п}} = \frac{2\alpha}{b \sqrt{b} - 1}.
 \end{equation*}
-Остается отметить, размер петли попятного движения $\Delta \lambda = 2\delta - \psi$, что следует из \picRef{???}. Чтобы получить аналитический вид данного выражения, найдем
+Остается отметить, размер петли попятного движения $\Delta \lambda = 2\delta - \psi$, что следует из \picRef{pic:retrograde-movement-schema}. Чтобы получить аналитический вид данного выражения, найдем
 \begin{multline*}
     \cos 2 \delta 
         = 1 - 2 \sin^2 \delta 
