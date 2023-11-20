@@ -70,11 +70,65 @@
 \end{equation}
 
 \subsubsection{Стереографическая проекция}
-\term{Стереографическая проекция}~--- взаимооднозначное соответствие точек сферы и касательной к ней плоскости, устроенное следующим образом. Через точку~$N$, диаметрально противоположенную точке касания~$C$, и произвольную точку $X \not = N$ на сфере проходит единственный луч, который имеет единственную точку $X'$ пересечения с касательной плоскостью, называемую \imp{стереографической} проекцией точки $X$ с центром в точке $C$, \lookPicRef{pic:map-projection-stereographic}.
+\term{Стереографическая проекция}~--- взаимооднозначное соответствие точек сферы и касательной к ней плоскости, устроенное следующим образом. Через точку~$N$, диаметрально противоположенную точке касания~$S$, и произвольную точку $X \not = N$ на сфере проходит единственный луч, который имеет единственную точку $X'$ пересечения с касательной плоскостью, называемую \imp{стереографической} проекцией точки $X$ с центром в точке $S$, \lookPicRef{pic:map-projection-stereographic}.
 
-Из определения нетрудно понять, что $C = C'$, окрестность точки $N$ проецируется на бесконечность, а сама точка $N$ не имеет проекции и является выколотой точкой стереографической проекции. 
+Из определения нетрудно понять, что $S = S'$, окрестность точки $N$ проецируется на бесконечность, а сама точка $N$ не имеет проекции и является выколотой точкой стереографической проекции. 
 
-Найдем правило преобразования координат при стереографической проекции. Для простоты рассуждений рассмотрим единичную сферу и её стереографическую проекцию с центром в точке $(0^\circ, -90^\circ)$ на плоскость, где введены полярные координаты $(r, \alpha)$ с центром в точке касания со сферой. Тогда очевидно, что $\alpha = \lambda - \lambda_0$, где $\lambda_0$~--- долгота, соответствующая направлению $\alpha = 0^\circ$. Пусть $O$~--- центр сферы, тогда центральный угол $\angle COX = 90^\circ + \varphi$, а угол $\angle CNX = \angle COX / 2 = (90^\circ + \varphi) / 2$, как вписанный, \lookPicRef{???}. Следовательно, $r = 2 \tg \angle CNX$ и окончательно:
+\begin{wrapfigure}[11]{к}{0.5\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{stereographic-projection-schema}
+    \begin{tikzpicture}
+        \footnotesize
+        
+        % The center
+        \tkzDefPoint(0,0){O}
+        
+        % Radius
+        \def\R{1.5}
+        
+        % The pole of the projection
+        \tkzDefShiftPoint[O](0,-\R){S}
+        
+        % The degenerate point the projection
+        \tkzDefShiftPoint[O](0,\R){N}
+        
+        % Angular distance to the X point from the pole
+        \def\PHI{5}
+        \def\P{90 + \PHI}
+        
+        % The point X
+        \tkzDefPointBy[rotation=center O angle \P](S) \tkzGetPoint{X}
+        
+        % The projection X' of the point X
+        \tkzDefLine[tangent at=S](O) \tkzGetPoint{x}
+        \tkzInterLL(N,X)(S,x) \tkzGetPoint{X'}
+        
+        \tkzDrawLines[semithick, add = 0.5 and 0.2](S,X')
+        \tkzDrawSegments(O,X S,N N,X')
+        \tkzDrawCircles[black, semithick](O,S)
+        
+        \tkzMarkAngle[arc=l, size=0.3](S,O,X)
+        \tkzLabelAngle[pos = 0.25, below right](S,O,X){\footnotesize$90^\circ \! + \varphi$}
+        
+        \tkzMarkAngle[arc=ll, size=0.7](S,N,X)
+        \tkzLabelAngle[pos = 0.8, below right](S,N,X){\adjustbox{right=1pc}{\scalebox{0.7}{\footnotesize$\dfrac{90^\circ \! + \varphi}{2}$}}}
+        
+        \tkzMarkRightAngle[size=0.25](X',S,N)
+        
+        \tkzDrawPoints(O, S, N, X, X')
+        
+        \tkzLabelPoint[left](O){$O$}
+        \tkzLabelPoint[above](N){$N$}
+        \tkzLabelPoint[below](S){$S$}
+        \tkzLabelPoint[above right](X){$X$}
+        \tkzLabelPoint[below](X'){$X'$}
+    \end{tikzpicture}  
+    \caption{Схема построения стереографической проекции}
+    \label{pic:stereographic-projection-schema} 
+\end{wrapfigure}
+
+Найдем правило преобразования координат при стереографической проекции. Для простоты рассуждений рассмотрим единичную сферу и её стереографическую проекцию с центром в точке $(0^\circ, -90^\circ)$ на плоскость, где введены полярные координаты $(r, \alpha)$ с центром в точке касания со сферой. Тогда очевидно, что $\alpha = \lambda - \lambda_0$, где $\lambda_0$~--- долгота, соответствующая направлению $\alpha = 0^\circ$. Пусть $O$~--- центр сферы, тогда центральный угол $\angle SOX = 90^\circ + \varphi$, а угол $\angle SNX = \angle SOX / 2 = (90^\circ + \varphi) / 2$, как вписанный, \lookPicRef{pic:stereographic-projection-schema}. Следовательно, $r = 2 \tg \angle SNX$ и окончательно:
 \begin{equation}
     \left\{\begin{aligned}
         \alpha &= \lambda - \lambda_0,\\
@@ -83,11 +137,65 @@
 \end{equation} 
 
 \subsubsection{Гномоническая проекция}
-\term{Гномоническая проекция}~--- взаимооднозначное соответствие точек полусферы и касательной к ней плоскости, \lookPicRef{pic:map-projection-gnomonic}. Устроена схожим со \imp{стереографической} проекцией образом с отличием в том, откуда строятся лучи для проекции точек сферы. В стереографической проекции~--- это точка $N$, диаметрально противоположенная точке касания $C$, а в случае \imp{гномонической}~--- центр сферы $O$. В силу чего в определении фигурирует приставка <<полу->>, так как лучи, проходящие через точки дальней от плоскости проекции полусферы не пересекаются с данной плоскостью. 
+\term{Гномоническая проекция}~--- взаимооднозначное соответствие точек полусферы и касательной к ней плоскости, \lookPicRef{pic:map-projection-gnomonic}. Устроена схожим со \imp{стереографической} проекцией образом с отличием в том, откуда строятся лучи для проекции точек сферы. В стереографической проекции~--- это точка $N$, диаметрально противоположенная точке касания $S$, а в случае \imp{гномонической}~--- центр сферы $O$. В силу чего в определении фигурирует приставка <<полу->>, так как лучи, проходящие через точки дальней от плоскости проекции полусферы не пересекаются с данной плоскостью. 
 
+\begin{wrapfigure}[9]{к}{0.4\tw}
+    \centering
+    \vspace{-0.8pc}
+    \tikzsetnextfilename{gnomonic-projection-schema}
+    \begin{tikzpicture}
+        \footnotesize
+        
+        % The center
+        \tkzDefPoint(0,0){O}
+        
+        % Radius
+        \def\R{2}
+        
+        % The pole of the projection
+        \tkzDefShiftPoint[O](0,-\R){S}
+        
+        % Angular distance to the X point from the pole
+        \def\PHI{-30}
+        \def\P{90 + \PHI}
+        
+        \tkzInit[
+            xmin={-0.5 * \R},
+            xmax={1.9 * \R},
+            ymin={-\R - 0.5},
+            ymax=0.3
+        ]
+        \tkzClip
+        
+        % The point X
+        \tkzDefPointBy[rotation=center O angle \P](S) \tkzGetPoint{X}
+        
+        % The projection X' of the point X
+        \tkzDefLine[tangent at=S](O) \tkzGetPoint{x}
+        \tkzInterLL(O,X)(S,x) \tkzGetPoint{X'}
+        
+        \tkzDrawLines[semithick, add = \R cm and 0.2](S,X')
+        \tkzDrawSegments(O,S O,X')
+        \tkzDrawCircles[black, semithick](O,S)
+        
+        \tkzMarkAngle[arc=l, size=0.6](S,O,X)
+        \tkzLabelAngle[pos = 0.7, below right](S,O,X){\adjustbox{right=1.5pc}{\footnotesize$90^\circ \! + \varphi$}}
+        
+        \tkzMarkRightAngle[size=0.25](X',S,O)
+        
+        \tkzDrawPoints(O, S, X, X')
+        
+        \tkzLabelPoint[left](O){$O$}
+        \tkzLabelPoint[below](S){$S$}
+        \tkzLabelPoint[right=2pt](X){\raisebox{8pt}{$X$}}
+        \tkzLabelPoint[below](X'){$X'$}
+    \end{tikzpicture} 
+    \caption{Схема построения гномонической проекции}
+    \label{pic:gnomonic-projection-schema} 
+\end{wrapfigure}
 Сформулируем свойства гномонической проекции. Во-первых, отметим, что точки большого круга, параллельного плоскости проекции проецируются на бесконечность. Во-вторых, можно заметить, что по определению гномонической проекции и большого круга лучи, формирующие проекцию второго, лежат в одной плоскости. По аксиоме стереометрии пересечение плоскости, сформированной этими лучами, с плоскостью проекции есть прямая. Следовательно, гномоническая проекция все большие круги отображает в прямые.
 
-Исходя из \picRef{???}, гномоническая проекция с центром в точке $(0^\circ, -90^\circ)$ задаётся преобразованием
+Исходя из \picRef{pic:gnomonic-projection-schema}, гномоническая проекция с центром в точке $(0^\circ, -90^\circ)$ задаётся преобразованием
 \begin{equation}
     \left\{\begin{aligned}
         \alpha &= \lambda - \lambda_0;\\
