@@ -44,7 +44,7 @@
 \end{equation}
 Так, например, длина тени Земли~--- области откуда не видно Солнца, составляет около $1.4 \times 10^{6}$~км.
 
-Найдем теперь выражение для размера тени на поверхности~--- области поверхности, пересекающей тень, сферического объекта радиуса~$R$, находящегося на расстоянии  $d_1$ от сферического источника света радиуса $R_0$ и расстоянии $d_2$ от сферической ширмы радиуса $r$ так, что центры всех трёх объектов лежат на одной прямой, \lookPicRef{pic:shadow-size-on-surface}.
+Найдем теперь выражение для размера тени на поверхности~--- области поверхности, пересекающей тень, сферического объекта радиуса~$R$, находящегося на расстоянии  $D$ от сферического источника света радиуса $R_0$ и расстоянии $d$ от сферической ширмы радиуса $r$ так, что центры всех трёх объектов лежат на одной прямой, \lookPicRef{pic:shadow-size-on-surface}.
 
 \begin{figure}[h!]
     \centering
@@ -73,16 +73,19 @@
         \tkzDrawPolygon[fill=white,draw=none](X,H1,H2)
         
         \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2 C3,R3)
-        \tkzDrawSegments(H2,A2 H1,B2 R3,C2 C2,A2 C2,B2 C1,A1 C1,B1)
-        \tkzDrawSegments[dashed](H2,X H1,X R3,X)
+        \tkzDrawSegments(R3,C2 C2,A2 C2,B2 C1,A1 C1,B1)
+        \tkzDrawSegments[semithick](H2,A2 H1,B2)
+        \tkzDrawSegments[dashed](R3,X)
+        \tkzDrawSegments[dashed, semithick](H2,X H1,X)
+        
         
         \begin{scope}[
             dim style/.style={black, latex-latex, opacity=1},
             dim fence style/.style={black, opacity=1}
         ]
             \tkzDrawSegment[opacity=0, dim={$R$, -1cm, above=2pt}](C3,R3)
-            \tkzDrawSegment[opacity=0, dim={$d_2$, -1.4cm, above=2pt}](C3,C1)
-            \tkzDrawSegment[opacity=0, dim={$d_1$, -1.8cm, above=2pt}](C3,C2)
+            \tkzDrawSegment[opacity=0, dim={$d$, -1.4cm, above=2pt}](C3,C1)
+            \tkzDrawSegment[opacity=0, dim={$D$, -1.8cm, above=2pt}](C3,C2)
             \tkzDrawSegment[opacity=0, dim={$h$, 1cm, below=2pt}](X,R3)
             \tkzDrawSegment[opacity=0, dim={$x$, 1.5cm, above=2pt}](X,C1)
         \end{scope}
@@ -106,18 +109,137 @@
 
 Как было получено ранее, длина тени
 \begin{equation*}
-    x = \frac{r (d_1 - d_2)}{R_0 - r}.
+    x = \frac{r (D - d)}{R_0 - r}.
 \end{equation*}
-Следовательно, высота конуса тени, находящегося за пересечением тени с поверхностью объекта, $h = x - d_2 + R$. Заметим, что при $x < d_2 - R$ на поверхности объекта тени вообще не будет. Пусть $x > d_2 - D$, тогда из подобия треугольников радиус тени на поверхности объекта
+Следовательно, высота конуса тени, находящегося за пересечением тени с поверхностью объекта, $h = x - d + R$. Заметим, что при $x < d - R$ на поверхности объекта тени вообще не будет. Пусть $x > d - D$, тогда из подобия треугольников радиус тени на поверхности объекта
 \begin{multline}
     s 
         \overset{r \ll x}{\simeq} \frac{r h}{x} 
-        = \frac{r(x - d_2 + R)}{x} = \\
-        = \frac{r (R_0 - r)}{r (d_1 - d_2)} \cdot \frac{r(d_1 - d_2) - (d_2 - R)(R_0 - r)}{R_0 - r} = \\
-        = \frac{r (d_1 - R) - R_0 (d_2 - R)}{d_1 - d_2}.
+        = \frac{r(x - d + R)}{x} = \\
+        = \frac{r (R_0 - r)}{r (D - d)} \cdot \frac{r(D - d) - (d - R)(R_0 - r)}{R_0 - r} = \\
+        = \frac{r (D - R) - R_0 (d - R)}{D - d}.
 \end{multline}
 
 Среднее значение этой величины для системы Солнце~-- Земля~-- Луна составляет около 200~км, максимальное~--- около 215~км. При нецентральном затмении максимальный диаметр тени Луны на поверхности Земли может достигать 270~км. Это даёт оценку на продолжительность затмения, равную 7.5 минутам. Большинство полных затмений длятся 2\,--\,4~минуты.
+
+Далее, рассмотрим сферический объект~$E$ радиуса~$R$, сферический источник света~---~$S$ радиуса~$R_0$, находящегося на расстоянии~$D$ от центра~$E$, и сферическую ширму~--- $M$ радиуса $r$ на расстоянии~$d$ от центра~$E$. Определим максимальное угловое расстояние~$\gamma$ между источником~$S$ и ширмой~$M$, при наблюдении из центра объекта~$E$, чтобы на его поверхности могло наблюдаться затмение источника~$S$ ширмой~$M$, \lookPicRef{pic:eclipse-vertical-distance}.
+
+\begin{figure}[h!]
+    \centering
+    \tikzsetnextfilename{eclipse-vertical-distance}
+    \begin{tikzpicture}
+        \footnotesize
+        
+        % Radius of the Sun
+        \def\RS{1.2}
+        
+        % Radius of the Earth
+        \def\RE{0.8}
+        
+        % Radius of the Moon
+        \def\RM{0.5}
+    
+        % Earth orbit radius
+        \def\AE{7}
+        
+        % Moon orbit radius
+        \def\AM{2.2}
+        
+        % ALPHA
+        \pgfmathsetmacro\ALPHA{asin((\RE + \RM) / \AM)}
+   
+        % BETA
+        \pgfmathsetmacro\BETA{asin((\RS + \RE) / \AE)}
+     
+        % GAMMA
+        \pgfmathsetmacro\GAMMA{\ALPHA - \BETA}
+        
+        % Earth
+        \tkzDefPoint(0,0){E}
+        \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+        
+        % Sun
+        \tkzDefShiftPoint[E](-\AE,0){S}
+        \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+        
+        % Moon
+        \tkzDefShiftPoint[E](-\AM,0){m}
+        \tkzDefPointBy[rotation=center E angle -\GAMMA](m) \tkzGetPoint{M}
+        \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+        
+        % Intersection of Sun-Earth and common tangent to Sun and Earth
+        \tkzDefPointBy[homothety=center S ratio (\RS / (\RS + \RE))](E)
+        \tkzGetPoint{I}
+        
+        % Tangent points of the Sun
+        \tkzDefLine[tangent from = I](S,s) \tkzGetPoints{S'}{x}
+        \tkzDefPointBy[reflection = over S--M](S') \tkzGetPoint{S''}
+        
+        % Tangent point of the Earth
+        \tkzDefLine[tangent from = I](E,e) \tkzGetPoints{E'}{x}
+        
+        % Tangent points of the Moon
+        \tkzDefLine[tangent from = I](M,m) \tkzGetPoints{x}{M'}
+        \tkzDefPointBy[reflection = over S--M](M') \tkzGetPoint{M''}
+        
+        % Intersection of Moon-Earth and common tangent to Sun and Earth
+        \tkzInterLL(M,E)(S',E') \tkzGetPoint{I'}
+        
+        % Moon's shadow vertix
+        \tkzInterLL(S',M')(S'',M'') \tkzGetPoint{I''}
+        
+
+        \tkzDrawPolygon[fill=gray!40,draw=none](S',I'',S'')    
+            
+        \tkzDrawCircles[black, thick, fill=white](E,e S,s M,m)
+        
+        \tkzDrawSegments(S,E E,M S,S' E,E' M,M')
+        \tkzDrawSegments[semithick](S',I'' S'',I'')
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=1}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$d$, 1.1cm, above=2pt}](M,E)
+            \tkzDrawSegment[opacity=0, dim={$D$, -1.3cm, above=2pt}](S,E)
+        \end{scope}
+        
+        \tkzMarkRightAngles[size=0.15](I,E',E I,S',S E',M',M)
+        
+        \tkzMarkAngle[arc=l, size=0.3](E,I',E')
+        \tkzLabelAngle[pos=0.45](E,I',E'){\footnotesize$\alpha$}
+        
+        \tkzMarkAngle[arc=ll, size=0.8](S,I,S')
+        \tkzLabelAngle[pos=1](S,I,S'){\footnotesize$\beta$}
+        
+        \tkzMarkAngle[arc=lll, size=0.95](M,E,S)
+        \tkzLabelAngle[pos=1.15](M,E,S){\footnotesize$\gamma$}
+        
+        \tkzDrawPoints(E, S, I, S', E', M, M')
+        
+        \tkzLabelSegment[right](S,S'){$R_0$}
+        \tkzLabelSegment[left](E,E'){$R$}
+        \tkzLabelSegment[left](M,M'){$r$}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:eclipse-vertical-distance}
+\end{figure}
+
+Для этого найдем угол $\alpha$. Это угол между общей касательной и прямой, проходящей через центры $M$ и $E$. Из равенства вертикальных углов следует, 
+\begin{equation*}
+    \alpha = \arcsin \frac{R + r}{d}.
+\end{equation*}
+
+Из тех же соображений,
+\begin{equation*}
+    \beta = \arcsin \frac{R + R_0}{D}.
+\end{equation*}
+
+По рисунку легко заметить, что $\alpha$~внешний угол треугольника, в котором оставшимися углами являются $\beta$ и $\gamma$, откуда
+\begin{equation}
+    \gamma = \alpha - \beta = \arcsin \frac{R + r}{d} - \arcsin \frac{R + R_0}{D}.
+\end{equation}
+Для системы Солнце\,--\,Земля\,--\,Луна в приближении круговых орбит этот угол составляет около $1.21^\circ$.
 
 \begin{figure}[h!]
 	\centering
