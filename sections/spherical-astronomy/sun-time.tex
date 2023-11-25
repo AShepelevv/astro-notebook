@@ -56,7 +56,7 @@
         = M + e \sin M + \frac{e^2}{2} \sin 2M.
 \end{equation*}
 
-Теперь запишем первые три члена многочлена Тейлора формулы перехода от истинной аномалии к эксцентрической~\eqref{???}:
+Теперь запишем первые три члена многочлена Тейлора формулы перехода от истинной аномалии к эксцентрической~\eqref{eq:kepler-eq-E-nu-2}:
 \begin{equation*}
     \nu 
         = 2 \arctg \left(\sqrt{\frac{1+e}{1-e}} \tg \frac{E}{2} \right) 
@@ -73,12 +73,58 @@
 
 Обозначим как $\omega = 103^\circ$ эклиптическую долготу перицентра, тогда эклиптическая долгота Солнца $\lambda = \nu + \omega$. 
 
-Далее найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов для прямоугольного сферического треугольника, представленного на рисунке~\picRef{???}:
-\begin{gather*}
-    \sin \delta \cos 90^\circ = \cos \lambda \sin \alpha - \sin \lambda \cos \alpha \cos \varepsilon, \\
-    \cos \lambda \sin \alpha = \sin \lambda \cos \alpha \cos \varepsilon,\\
+\begin{wrapfigure}[5]{r}{0.4\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{sun-lambda-alpha}
+    \tdplotsetmaincoords{70}{-70}
+    \begin{tikzpicture}[tdplot_main_coords]
+        \footnotesize
+        
+        \def\R{5}
+        \def\EPS{23.5}
+        \def\ALPHA{45}
+        \def\LAMBDA{atan(tan(\ALPHA)/cos(\EPS))}
+        \def\DELTA{asin(sin(\LAMBDA)*sin(\EPS))}
+            
+        % Draw triangle
+        \tdplotsetrotatedcoords{0}{0}{0};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:{\ALPHA}:\R);
+        \tdplotsetrotatedcoords{90}{-\EPS}{-90};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\LAMBDA:\R);
+        \tdplotsetrotatedcoords{90+\ALPHA}{-90}{-90};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\DELTA:\R);
+        
+        % Draw points
+        \tdplotCsDrawPoint{\R}{180}{-90}
+        \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90 + \DELTA}
+        \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90}
+        
+        % Label arcs
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90}{$\alpha$}{below}
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90 + \DELTA / 2}{$\lambda$}{above right}
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA}{-90 + \DELTA / 2}{$\delta$}{left}
+        
+        % Mark right angle
+        \tdplotsetrotatedcoords{\ALPHA}{0}{0};
+        \draw [tdplot_rotated_coords](\R,-0.2,0.2) coordinate (c) (\R,0,0.2) coordinate (a1) -- (c) (\R,-0.2,0) coordinate (a2) -- (c) pic [angle radius=0.2cm] {right angle=a1--c--a2};
+        
+        % Mark and label angle t near P
+        \def\angleRadius{0.6}
+        \tdplotsetrotatedcoords{0}{0}{0};
+        \draw [tdplot_rotated_coords, canvas is yz plane at x = \R]({\angleRadius * cos(\EPS)},0) arc (0:{\EPS - 3}:\angleRadius);
+        \tdplotCsLabelPoint{\R}{6}{88.3}{$\varepsilon$}{left}
+    \end{tikzpicture}    
+    \caption{}
+    \label{pic:sun-lamdda-alpha}
+\end{wrapfigure}
+
+Далее найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов для прямоугольного сферического треугольника, представленного на рисунке~\picRef{pic:sun-lamdda-alpha}:
+\begin{gather}
+    \sin \delta \cos 90^\circ = \cos \lambda \sin \alpha - \sin \lambda \cos \alpha \cos \varepsilon,\notag\\
+    \cos \lambda \sin \alpha = \sin \lambda \cos \alpha \cos \varepsilon,\notag\\
     \frac{\tg \alpha }{\tg \lambda} = \cos \varepsilon.
-\end{gather*}
+\end{gather}
 Теперь запишем формулу тангенса половинного угла для $\tg \sfrac{\varepsilon}{2}$ и воспользуемся полученным выражением для $\cos \varepsilon$:
 \begin{gather*}
     \tg^2 \frac{\varepsilon}{2} = \frac{1 - \cos \varepsilon}{1 + \cos \varepsilon} \equiv y ,\\
