@@ -1,54 +1,63 @@
 \subsection{Уравнение Кеплера}
 
-\begin{wrapfigure}[12]{r}{0.48\tw}
+\begin{wrapfigure}[11]{r}{0.48\tw}
 	\centering
-	%	\vspace{-0.3pc}
-	\begin{tikzpicture}[scale = 0.9]
+	\vspace{-0.3pc}
+	\tikzsetnextfilename{kepler-eq}
+	\begin{tikzpicture}
 		\footnotesize
+
+		\def\a{4}
+		\def\e{0.63}
+		\def\E{43}
+		\def\M{\E - \e * sin(\E) * 180 / pi}
+		\def\ellipseAngle{90}
+		\def\circleAngle{55}
+
+		\def\b{sqrt(1 - \e * \e)}
+
+		\tkzDefPoint(0,0){C}
+		\tkzDefShiftPoint[C](\a,0){P}
+		\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+		\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+		\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+        \tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
+        \tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
+        
+        \tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
+        \tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
+        
+        \tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
+        
+        
+		\begin{scope}[yscale=\b]
+		     \draw[thick] (P) arc (0:\ellipseAngle:\a);
+		\end{scope}
 		
-		\draw (5, 0) arc(0:55:5);
-		\draw (5, 0) arc(0:90:5 and 4);
-		\draw (0, 0) -- (5, 0);
+		\draw[semithick] (P) arc (0:\circleAngle:\a);
 		
-		\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
-		\draw (3, 0) -- (3.536, 2.828); %%% a * cos(45) * (b / a)
-		\draw[dashed] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
+		\tkzDrawSegments(C,A A,H C,D)
+		\tkzDrawSegments[semithick](C,P F,B)
+		\tkzDrawSegments[dashed](F,A)
 		
-		\draw (0.5, 0) arc(0:45:0.5);
-		\draw[double] (1.2, 0) arc(0:23:1.2);
-		\draw[decoration={snake, segment length=1.1mm,
-		amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
-		\draw (3.536, 3.536) -- (3.536, 0);
+		\tkzDrawPoints(C, P, F, A, D, H, B)
 		
-		\draw (0, 0) node [anchor=north east] {$C$};
-		\draw (3, 0) node [anchor=north] {$F$};
-		\draw (3.536, 3.536) node[anchor=south west] {$A$};
-		\draw (3.5, 2.7) node[anchor=south west] {$B$};
-		\draw (1.2, 0.05) node[anchor=south west] {$M$};
-		\draw (0, 0) -- (4.603, 1.954); %%% a * cos(23)
-		\draw (0.5, 0.15) node[anchor=south west, fill=white] {$E$};
-		\draw (0, 0) -- (3.536, 3.536);
-		\draw (3.15, 0.2) node[anchor=south west] {$\nu$};
+		\tkzLabelPoints[below](C, P, F, H)
+		\tkzLabelPoints[above right=-1pt](A, D)
+		\tkzLabelPoints[below](o, c)
+		\tkzLabelPoints[above right=-2pt](B)
+
+		\tkzMarkAngle[arc=l, size=0.2](H,F,B)
+		\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+
+		\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+		\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
 		
-		\draw (5, 0) node [anchor= north west] {$P$};
-		\draw (3.536, 0) node [anchor= north] {$H$};
-		\draw (4.603, 1.954) node [anchor=south west] {$D$};
-		\draw (2.95, 4) node [anchor=north] {$c$};
-		\draw (0, 4) node [anchor=north west] {$o$};
-		
-		\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A
-		\draw[fill=white] (3.536, 2.828) circle (0.03); 	 %%% B
-		\draw[fill=white] (0, 0) circle (0.03);			 %%% C
-		\draw[fill=white] (4.603, 1.954) circle (0.03); 	 %%% D
-		\draw[fill=white] (3, 0) circle (0.03); 	         %%% F
-		\draw[fill=white] (3.536, 0) circle (0.03);      %%% H
-		\draw[fill=white] (5, 0) circle (0.03);          %%% P
-		
-		\draw (3.736, 0) -- (3.736, 0.2) -- (3.536, 0.2);
-		
+		\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+		\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
 	\end{tikzpicture}
 	\caption{К выводу уравнения Кеплера}
-	\label{fig:kepler-eq}
+	\label{pic:kepler-eq}
 \end{wrapfigure}
 Рассмотрим эллиптическую орбиту $o$ с центром в точке $C$, центральным телом в фокусе $F$ и большой полуосью $a$. Обозначим за $P$ перицентр данной орбиты, тогда $|CP| = a$. Рассмотрим также окружность $c$, с центром в точке в точке $C$ и радиусом $a$, очевидно, эта окружность будет касаться эллипса внешним образом в точке~$P$. Выберем на эллипсе произвольную точку $B$. Проведем через нее прямую, параллельную малой оси эллипса. Точку пересечения полученной прямой с окружностью $c$ назовем $A$. Угол $E = \angle ACP$ называется \term[эксцентрическая аномалия]{эксцентрической аномалией} точки $B$.
 
@@ -56,104 +65,125 @@
 Получим связь средней аномалии $M$ с эксцентрической~--- $E$~\cite{orbital-motion-roy}. Прежде всего напомним, что эллипс является результатом действия аффинного преобразования сжатия (вдоль малой оси) на окружность с радиусом~$a$. И, наоборот, окружность под действием растяжения переходит в эллипс. В наших обозначениях будем считать, что окружность $o$ под действием сжатия $\xi$ с коэффициентом $a/b$ переходит в эллипс $o$.
 
 \begin{figure}[h!]
+
 	\begin{subcaptionblock}{0.47\tw}
-		\begin{tikzpicture}[scale = 0.9]
+		\tikzsetnextfilename{kepler-eq-BFP-AFP}
+		\begin{tikzpicture}
 			\footnotesize
-			
-			\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5) -- (3, 0) -- cycle;
-			\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5 and 4) -- (3, 0) -- cycle;
-			
-			\draw [line cap = round](5, 0) arc(0:55:5);
-			\draw [line cap = round] (5, 0) arc(0:90:5 and 4);
-			\draw (0, 0) -- (5, 0);
-			
-			\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
-			\draw (3, 0) -- (3.536, 2.828); %%% a * cos(45) * (b / a)
-			\draw[dashes] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
-			
-			\draw (0.5, 0) arc(0:45:0.5);
-			\draw[double] (1.2, 0) arc(0:23:1.2);
-			\draw[decoration={snake, segment length=1.1mm, amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
-			\draw (3.536, 3.536) -- (3.536, 0);
-			
-			\draw (0, 0) node [anchor=north east] {$C$};
-			\draw (3, 0) node [anchor=north] {$F$};
-			\draw (3.536, 3.536) node[anchor=south west] {$A$};
-			\draw (3.5, 2.7) node[anchor=south west] {$B$};
-			\draw (1.2, 0.05) node[anchor=south west] {$M$};
-			\draw (0, 0) -- (4.603, 1.954); %%% a * cos(23)
-			\draw (0.5, 0.15) node[anchor=south west, fill=white] {$E$};
-			\draw (0, 0) -- (3.536, 3.536);
-			\draw (3.15, 0.2) node[anchor=south west] {$\nu$};
-			
-			\draw (5, 0) node [anchor= north west] {$P$};
-			\draw (3.536, 0) node [anchor= north] {$H$};
-			\draw (4.603, 1.954) node [anchor=south west] {$D$};
-			\draw (2.95, 4) node [anchor=north] {$c$};
-			\draw (0, 4) node [anchor=north west] {$o$};
-			
-			\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A
-			\draw[fill=white] (3.536, 2.828) circle (0.03); 	 %%% B
-			\draw[fill=white] (0, 0) circle (0.03);			 %%% C
-			\draw[fill=white] (4.603, 1.954) circle (0.03); 	 %%% D
-			\draw[fill=white] (3, 0) circle (0.03); 	         %%% F
-			\draw[fill=white] (3.536, 0) circle (0.03);      %%% H
-			\draw[fill=white] (5, 0) circle (0.03);          %%% P
-			
-			\draw (3.736, 0) -- (3.736, 0.2) -- (3.536, 0.2);
-			
+
+			\def\a{4}
+			\def\e{0.63}
+			\def\E{43}
+			\def\M{\E - \e * sin(\E) * 180 / pi}
+			\def\ellipseAngle{90}
+			\def\circleAngle{55}
+
+			\def\b{sqrt(1 - \e * \e)}
+
+			\tkzDefPoint(0,0){C}
+			\tkzDefShiftPoint[C](\a,0){P}
+			\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+			\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+			\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
+			\tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
+
+			\tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
+			\tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
+
+			\tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
+
+			\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+
+			\begin{scope}[yscale=\b]
+				\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+				\draw[thick] (P) arc (0:\ellipseAngle:\a);
+			\end{scope}
+
+			\draw[semithick] (P) arc (0:\circleAngle:\a);
+
+			\tkzDrawSegments(C,A A,H C,D)
+			\tkzDrawSegments[semithick](C,P F,B)
+			\tkzDrawSegments[dashed](F,A)
+
+			\tkzDrawPoints(C, P, F, A, D, H, B)
+
+			\tkzLabelPoints[below](C, P, F, H)
+			\tkzLabelPoints[above right=-1pt](A, D)
+			\tkzLabelPoints[below](o, c)
+			\tkzLabelPoints[above right=-2pt](B)
+
+			\tkzMarkAngle[arc=l, size=0.2](H,F,B)
+			\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+
+			\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+			\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
+
+			\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+			\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
 		\end{tikzpicture}
 		\caption{Секторы $\sector BFP$ и $\sector AFP$}
+		\label{pic:kepler-eq-BFP-AFP}
 	\end{subcaptionblock}
 	\hfill
 	\begin{subcaptionblock}{0.47\tw}
-		\begin{tikzpicture}[scale = 0.9]
+		\tikzsetnextfilename{kepler-eq-BFP-DCP}
+		\begin{tikzpicture}
 			\footnotesize
-			
-			\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:23:5) -- (0, 0) -- cycle;
-			\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5 and 4) -- (3, 0) -- cycle;
-			
-			\draw [line cap = round](5, 0) arc(0:55:5);
-			\draw [line cap = round] (5, 0) arc(0:90:5 and 4);
-			\draw (0, 0) -- (5, 0);
-			
-			\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
-			\draw (3, 0) -- (3.536, 2.828); %%% a * cos(45) * (b / a)
-			\draw[dashes] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
-			
-			\draw (0.5, 0) arc(0:45:0.5);
-			\draw[double] (1.2, 0) arc(0:23:1.2);
-			\draw[decoration={snake, segment length=1.1mm, amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
-			\draw (3.536, 3.536) -- (3.536, 0);
-			
-			\draw (0, 0) node [anchor=north east] {$C$};
-			\draw (3, 0) node [anchor=north] {$F$};
-			\draw (3.536, 3.536) node[anchor=south west] {$A$};
-			\draw (3.5, 2.7) node[anchor=south west] {$B$};
-			\draw (1.2, 0.05) node[anchor=south west] {$M$};
-			\draw (0, 0) -- (4.603, 1.954); %%% a * cos(23)
-			\draw (0.5, 0.15) node[anchor=south west, fill=white] {$E$};
-			\draw (0, 0) -- (3.536, 3.536);
-			\draw (3.15, 0.2) node[anchor=south west] {$\nu$};
-			
-			\draw (5, 0) node [anchor= north west] {$P$};
-			\draw (3.536, 0) node [anchor= north] {$H$};
-			\draw (4.603, 1.954) node [anchor=south west] {$D$};
-			\draw (2.95, 4) node [anchor=north] {$c$};
-			\draw (0, 4) node [anchor=north west] {$o$};
-			
-			\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A
-			\draw[fill=white] (3.536, 2.828) circle (0.03); 	 %%% B
-			\draw[fill=white] (0, 0) circle (0.03);			 %%% C
-			\draw[fill=white] (4.603, 1.954) circle (0.03); 	 %%% D
-			\draw[fill=white] (3, 0) circle (0.03); 	         %%% F
-			\draw[fill=white] (3.536, 0) circle (0.03);      %%% H
-			\draw[fill=white] (5, 0) circle (0.03);          %%% P
-			
-			\draw (3.736, 0) -- (3.736, 0.2) -- (3.536, 0.2);
-			
+
+			\def\a{4}
+			\def\e{0.63}
+			\def\E{43}
+			\def\M{\E - \e * sin(\E) * 180 / pi}
+			\def\ellipseAngle{90}
+			\def\circleAngle{55}
+
+			\def\b{sqrt(1 - \e * \e)}
+
+			\tkzDefPoint(0,0){C}
+			\tkzDefShiftPoint[C](\a,0){P}
+			\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+			\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+			\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
+			\tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
+
+			\tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
+			\tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
+
+			\tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
+
+			\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\M:\a) -- (C) -- cycle;
+
+			\begin{scope}[yscale=\b]
+				\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+				\draw[thick] (P) arc (0:\ellipseAngle:\a);
+			\end{scope}
+
+			\draw[semithick] (P) arc (0:\circleAngle:\a);
+
+			\tkzDrawSegments(C,A A,H C,D)
+			\tkzDrawSegments[semithick](C,P F,B)
+			\tkzDrawSegments[dashed](F,A)
+
+			\tkzDrawPoints(C, P, F, A, D, H, B)
+
+			\tkzLabelPoints[below](C, P, F, H)
+			\tkzLabelPoints[above right=-1pt](A, D)
+			\tkzLabelPoints[below](o, c)
+			\tkzLabelPoints[above right=-2pt](B)
+
+			\tkzMarkAngle[arc=l, size=0.2](H,F,B)
+			\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+
+			\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+			\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.9](P,C,A){\footnotesize$E$}
+
+			\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+			\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
 		\end{tikzpicture}
 		\caption{Секторы $\sector DCP$ и $\sector BFP$}
+		\label{pic:kepler-eq-BFP-DCP}
 	\end{subcaptionblock}
 	\caption{}
 \end{figure}
@@ -164,7 +194,7 @@
 \end{equation*}
 
 
-Как известно, площадь эллипса $S = \pi ab$, а окружности с той же большой полуосью~---  $S' = \pi a^2$. По второму закону Кеплера радиус-вектор тела $\overrightarrow{FB}$ за равные промежутки времени заметает равные площади, то есть скорость заметания постоянна и равна $\sigma = \pi a b / T$. A из определения средней аномалии следует, что угловая скорость вектора $\overrightarrow{CD}$ также постоянна и равна $\sigma' = \pi a^2 / T$. Отсюда можно сделать вывод о следующем соотношении между площадями секторов $\sector BFP$ и $ \sector DCP$:
+Как известно, площадь эллипса $S = \pi ab$, а круга с той же большой полуосью~---  $S' = \pi a^2$. По второму закону Кеплера радиус-вектор тела $\overrightarrow{FB}$ за равные промежутки времени заметает равные площади, то есть скорость заметания постоянна и равна $\sigma = \pi a b / T$. A из определения средней аномалии следует, что угловая скорость вектора $\overrightarrow{CD}$ также постоянна и равна $\sigma' = \pi a^2 / T$. Отсюда можно сделать вывод о соотношении между площадями секторов $\sector BFP$ и $ \sector DCP$:
 \begin{equation*}
 	\frac{\area \sector BFP}{\area \sector DCP} = \frac{b}{a}.
 \end{equation*}
