@@ -11,7 +11,6 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          scheme: full
           root_file: astro-notebook.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
