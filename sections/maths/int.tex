@@ -1,57 +1,56 @@
 \subsection{Интеграл}
 \term{Неопределенным интегралом} функции $f(x)$ называется такая функция $F(x)$, производная которой равна $f(x)$.
 \begin{equation}
-	F(x) = \int f(x)dx,\quad F^\prime(x)=f(x).
+	F(x) = \int f(x)dx + C,\quad F^\prime(x)=f(x).
 \end{equation}
 
-\begin{wrapfigure}{r}{0.46\tw}
+\begin{wrapfigure}{r}{0.4\tw}
 	\centering
-	\vspace{-1.1pc}
-	\centering
-	\begin{tikzpicture}[scale=1.1, yscale=0.7]
+	\vspace{-1pc}
+	\tikzsetnextfilename{intergal}
+	\begin{tikzpicture}
 		\footnotesize
-		\clip(-0.5, -1.05) rectangle (3.6, 2.1);
+		\tkzDefPoint(0,0){O};
+		\tkzDefShiftPoint[O](3.5,0){X};
+		\tkzDefShiftPoint[O](0,1.7){Y};
 		
-%		\foreach \x in {-5, -4.9,...,5} {
-%			\draw [line width=.1pt] (\x, -5) -- (\x, 5);
-%		};
-%		
-%		\foreach \x in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (\x , -5) -- (\x , 5);
-%		};
-%		
-%		\foreach \y in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (-5, \y) -- (5, \y);
-%		};
-%		
-%		\foreach \y in {-5, -4.9,..., 5} {
-%			\draw [line width=.1pt] (-5, \y) -- (5, \y);
-%		};
+		\tkzInit[
+		  ymin    =   -0.7,
+		  ymax    =   1.8,
+		  xmin    =   -0.4,
+		  xmax    =   3.7
+		]
+		\tkzClip
 		
-
-		\fill [lightgray] (0.4, 0) -- (0.4, 1.7) .. controls (0.9, 1.65) and (1.1, 0.85) .. (1.55, 0) -- cycle;	
-		\fill [lightgray] (1.55, 0) .. controls (1.9, -0.9) and (2.3, -1.2) .. (2.5, -0.8) -- (2.5, 0) -- cycle;	
-		\draw [thick] (-0.3, 0.5) .. controls (1, 5) and (2, -5) .. (3, 1);	
+		\tkzDrawLine[add = 0.1 and 0, semithick, -latex](O,X);
+		\tkzDrawLines[add = 0.2 and 0, semithick, -latex](O,Y);
 		
-		\draw[semithick, -latex] (-0.5, 0) -- (3.5, 0); 		
-		\draw[semithick, -latex] (0, -0.5) -- (0, 2); 
+		\tkzDefPoint(3, 0.8){F};
 		
-		\draw [dashes] (0.4, 0) -- (0.4, 1.7);
-		\draw [dashes] (2.5, 0) -- (2.5, -0.8);
-
-		\draw (0.9, 0.5) node{$S_+$};
-		\draw (2.15, -0.45) node{$S_-$};
-		\draw (3.5, 0) node[anchor=south]{$x$};
-		\draw (0, 2) node[anchor=west]{$y$};
-		\draw (0.4, 0) node[anchor=north]{$a$};
-		\draw (2.5, 0) node[anchor=south]{$b$};
-		\draw (2.95, 0.8) node[anchor=west]{$f(x)$};
-
-		\point (0.4, 1.7);
-		\point (0.4, 0);
-		\point (2.5, 0);
-		\point (2.5, -0.8);
+		\begin{scope}[yscale=0.7]
+            \fill [lightgray] (0.4, 0) -- (0.4, 1.7) .. controls (0.9, 1.65) and (1.1, 0.85) .. (1.55, 0) -- cycle;	
+            \fill [lightgray] (1.55, 0) .. controls (1.9, -0.9) and (2.3, -1.2) .. (2.5, -0.8) -- (2.5, 0) -- cycle;	
+            \draw [thick] (-0.3, 0.5) .. controls (1, 5) and (2, -5) .. (3, 1);	
+		\end{scope}
 		
+		\tkzDefPoint(0.4,0){A};
+		\tkzDefPoint(0.4,1.19){A'};
+		\tkzDefPoint(2.5,0){B};
+		\tkzDefPoint(2.5,-0.56){B'};
+		
+		\tkzDrawSegments[dashes](A,A' B,B');
+		
+		\tkzLabelSegment[pos=0.43,right=4pt](A,A'){$S_+$};
+		\tkzLabelSegment[pos=0.55,left](B,B'){$S_-$};
+		
+		\tkzLabelPoint[above](X){$x$};
+		\tkzLabelPoint[right](Y){$y$};
+		\tkzLabelPoint[below](A){$a$};
+		\tkzLabelPoint[above](B){$b$};
+	
+		\tkzLabelPoint[right](F){$f(x)$};
+		
+		\tkzDrawPoints(A,A',B,B');		
 	\end{tikzpicture}
 	\caption{}
 	\label{pic:math-int}
@@ -91,3 +90,5 @@
         = \pi \left(2R^3 - \frac{2R^3}{3} \right) 
         = \frac{4}{3} \pi R^3.
 \end{equation*}
+
+В заключение нужно отметить, что интегрирование может вестись не только вдоль координатных осей той или иной системы координат, но и вдоль произвольной кривой в пространстве, по произвольной поверхности в пространстве или, например, произвольной области пространства. В таком случае вместо пределов интегрирования указывают кривую, поверхность или область, по которой ведется интегрирование. Однако за сложной записью в любом случае кроется кратный интеграл, кратность которого определяется размерностью пространства, в котором определена область интегрирования.
