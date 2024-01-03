@@ -26,7 +26,7 @@ jobs:
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            See PR: ${{ PR }} ${{steps.findPr.outputs.pr}}
+            See PR: ${ PR } ${{steps.findPr.outputs.pr}}
       
       - name: Create resources folder
         run: mkdir -p tikz/resource
