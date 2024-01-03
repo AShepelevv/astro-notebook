@@ -31,4 +31,4 @@ jobs:
             ${{ github.actor }} created new commit
             Commit message: ${{ github.event.commits[0].message }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            Output pdf: ${{ steps.upload-pdf.outputs.artifact-url }}
+            Output pdf: ${{ steps.upload-pdf.outputs.artifact-id }}
