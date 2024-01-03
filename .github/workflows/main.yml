@@ -7,20 +7,21 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: Create resources folder
-        run: mkdir -p tikz/resource
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: astro-notebook.tex
-          latexmk_use_xelatex: true
-          latexmk_shell_escape: true
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        # run: mkdir -p tikz/resource
+        run: touch tmp.txt
+      # - name: Compile LaTeX document
+      #   uses: xu-cheng/latex-action@v3
+      #   with:
+      #     root_file: astro-notebook.tex
+      #     latexmk_use_xelatex: true
+      #     latexmk_shell_escape: true
+      #     args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload PDF file
+        id: upload-pdf
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: astro-notebook.pdf
-          env-url: PDF_URL
+          path: tmp.txt
       - name: Send Telegram message
         uses: appleboy/telegram-action@master
         with:
@@ -30,4 +31,4 @@ jobs:
             ${{ github.actor }} created new commit
             Commit message: ${{ github.event.commits[0].message }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            Output pdf: ${{ env.PDF_URL }}
+            Output pdf: ${{ steps.artifact-upload-step.outputs.artifact-url }}
