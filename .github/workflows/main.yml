@@ -4,6 +4,8 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - uses: kceb/pull-request-url-action@v1
+        id: pr-url
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -12,10 +14,8 @@ jobs:
           message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
-      
-            Repository: ${{ github.repository }}
-            
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            See PR: ${{ steps.pr-url.outputs.url }}
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: Create resources folder
