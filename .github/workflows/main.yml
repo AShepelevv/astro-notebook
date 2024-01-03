@@ -4,8 +4,19 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: kceb/pull-request-url-action@v1
-        id: pr-url
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+        
+      - uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: all
+          
+      - run: echo "Your PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
+          
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -15,11 +26,11 @@ jobs:
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            See PR: ${{ steps.pr-url.outputs.url }}
-      - name: Set up Git repository
-        uses: actions/checkout@v4
+            See PR: ${{ PR }} ${{steps.findPr.outputs.pr}}
+      
       - name: Create resources folder
         run: mkdir -p tikz/resource
+        
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
@@ -27,10 +38,17 @@ jobs:
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
           path: astro-notebook.pdf
+      - name: Send result file to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message_file: astro-notebook.pdf
 
           
