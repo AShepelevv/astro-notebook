@@ -6,27 +6,6 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
-        
-      - uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-        with:
-          state: all
-          
-      - run: echo "Your PR is ${PR}"
-        if: success() && steps.findPr.outputs.number
-        env:
-          PR: ${{ steps.findPr.outputs.pr }}
-          
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            See PR: ${ PR } ${{steps.findPr.outputs.pr}}
       
       - name: Create resources folder
         run: mkdir -p tikz/resource
@@ -44,11 +23,20 @@ jobs:
         with:
           name: PDF
           path: astro-notebook.pdf
+
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            **${{ github.actor }}** created new commit
+            Commit message: ${{ github.event.commits[0].message }}
+            **See changes:** https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          
       - name: Send result file to Telegram
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message_file: astro-notebook.pdf
-
-          
