@@ -18,7 +18,7 @@ jobs:
       #     args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload PDF file
         id: upload-pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: tmp.txt
