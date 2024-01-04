@@ -118,7 +118,7 @@
 \RequirePackage{style/astro-notebook.command}
 
 
-%%% Cчетчики
+%%% Счетчики
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
 
@@ -127,6 +127,11 @@
 \setlength {\parskip} { 4pt }
 %\setlength {\parindent} { 0pt }
 \renewcommand {\baselinestretch}{ 1.02 }
+
+
+%%% TOC
+\RequirePackage{tocloft}
+\cftsetindents{subsection}{16pt}{28pt}
 
 
 %%% Гиперссылки
