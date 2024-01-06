@@ -1,4 +1,7 @@
 \subsection{Солнечное время. Уравнение времени}
+
+
+
 \term{Истинные солнечные сутки}~--- промежуток времени между двумя последовательными одноимёнными кульминациями Солнца.
 
 \term{Истинное солнечное время}~--- промежуток времени между нижней кульминацией Солнца и его текущим положением. Рассчитывается по формуле
@@ -7,7 +10,9 @@
 \end{equation}
 где $t_{\text{сол}}$~--- часовой угол Солнца.
 
-\term{Среднее солнечное время} ($T_\text{ср}$)~--- промежуток времени между нижней кульминацией \imp{среднего Солнца} и текущим его положением. \term{Среднее Солнце}~--- точка небесной сферы, которая равномерно движется по небесному экватору, совершая полный оборот за тропический год. Зная долготу наблюдателя, нетрудно вычислить среднее солнечное время:
+\term{Среднее Солнце}~--- точка небесной сферы, которая равномерно движется по небесному экватору, с угловой скоростью, равной средней скорости изменения прям
+
+\term{Среднее солнечное время} ($T_\text{ср}$)~--- промежуток времени между нижней кульминацией \imp{среднего Солнца} и текущим его положением.  Зная долготу наблюдателя, нетрудно вычислить среднее солнечное время:
 \begin{equation*}
 	T_\text{ср} = \text{UTC} + \frac{\lambda}{15^\circ/\text{час}},
 \end{equation*}
@@ -37,41 +42,41 @@
 \end{wrapfigure}
 \term{Уравнение времени}~--- разница между истинным солнечным временем и средним солнечным временем, возникающая по причине неравномерности движения Земли по орбите и наклона земного экватора к плоскости эклиптики (см.~Рис.\,\ref{pic:time-eq}). Получим приближенное выражение для него. Для это этого вспомним уравнение Кеплера~\eqref{eq:kepler-eq} и величину эксцентриситета орбиты Земли $e_\oplus = 0.017 \ll 1$, откуда следует, что можно применять формулы приближенного вычисления, см.~Раздел~\ref{sec:form}. Рассмотрим выражение
 \begin{multline*}
-    \sin E 
+    \sin E
         = \sin(E - M + M) =\\
         = \underbrace{\sin (E - M)}_{\simeq E - M} \cos M + \underbrace{\cos(E - M)}_{\simeq 1} \sin M \simeq\\
         \simeq (E - M) \cos M + \sin M,
 \end{multline*}
 так как $E - M \sim e$. Отсюда можно сделать первое приближение
 \begin{equation*}
-    E_1 
-        = M + e \sin E 
-        = M + e \big( (E - M) \cos M + \sin M \big) 
+    E_1
+        = M + e \sin E
+        = M + e \big( (E - M) \cos M + \sin M \big)
         \simeq M + e \sin M.
 \end{equation*}
 Воспользуемся полученным приближением, чтобы точнее оценить $E$.
 \begin{equation*}
     E
-        = M + e \big( (E_1 - M) \cos M + \sin M \big) 
+        = M + e \big( (E_1 - M) \cos M + \sin M \big)
         = M + e \sin M + \frac{e^2}{2} \sin 2M.
 \end{equation*}
 
 Теперь запишем первые три члена многочлена Тейлора формулы перехода от истинной аномалии к эксцентрической~\eqref{eq:kepler-eq-E-nu-2}:
 \begin{equation*}
-    \nu 
-        = 2 \arctg \left(\sqrt{\frac{1+e}{1-e}} \tg \frac{E}{2} \right) 
+    \nu
+        = 2 \arctg \left(\sqrt{\frac{1+e}{1-e}} \tg \frac{E}{2} \right)
         \simeq E + e \sin E + \frac{e^2}{4} \sin 2E.
 \end{equation*}
 Подставим сюда выражение для $E(M)$ и воспользуемся формулой для разложения синуса суммы:
 \begin{multline*}
-    \nu 
+    \nu
         \simeq M + e \sin M + \frac{e^2}{2} \sin 2M + \\
         + e \bigg( \sin M \cdot \underbrace{\cos (e \sin M + \ldots)}_{\simeq 1} + \cos M \cdot \underbrace{\sin ( e \sin M  + \ldots )}_{\simeq e \sin M} \bigg) + \\
         + \frac{e^2}{4} \bigg( \sin 2M \cdot \underbrace{\cos (2e \sin M + \ldots)}_{\simeq 1} + \cos 2M \cdot \underbrace{\sin (2e \sin M + \ldots)}_{\ll 1}\bigg)  \simeq \\
         \simeq M + 2e \sin M + \frac{5e^2}{4} \sin 2M.
 \end{multline*}
 
-Обозначим как $\omega = 103^\circ$ эклиптическую долготу перицентра, тогда эклиптическая долгота Солнца $\lambda = \nu + \omega$. 
+Обозначим как $\omega = 103^\circ$ эклиптическую долготу перицентра, тогда эклиптическая долгота Солнца $\lambda = \nu + \omega$.
 
 \begin{wrapfigure}[5]{r}{0.4\tw}
     \centering
@@ -80,13 +85,13 @@
     \tdplotsetmaincoords{70}{-70}
     \begin{tikzpicture}[tdplot_main_coords]
         \footnotesize
-        
+
         \def\R{5}
         \def\EPS{23.5}
         \def\ALPHA{45}
         \def\LAMBDA{atan(tan(\ALPHA)/cos(\EPS))}
         \def\DELTA{asin(sin(\LAMBDA)*sin(\EPS))}
-            
+
         % Draw triangle
         \tdplotsetrotatedcoords{0}{0}{0};
         \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:{\ALPHA}:\R);
@@ -94,27 +99,27 @@
         \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\LAMBDA:\R);
         \tdplotsetrotatedcoords{90+\ALPHA}{-90}{-90};
         \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\DELTA:\R);
-        
+
         % Draw points
         \tdplotCsDrawPoint{\R}{180}{-90}
         \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90 + \DELTA}
         \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90}
-        
+
         % Label arcs
         \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90}{$\alpha$}{below}
         \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90 + \DELTA / 2}{$\lambda$}{above right}
         \tdplotCsLabelPoint{\R}{180 + \ALPHA}{-90 + \DELTA / 2}{$\delta$}{left}
-        
+
         % Mark right angle
         \tdplotsetrotatedcoords{\ALPHA}{0}{0};
         \draw [tdplot_rotated_coords](\R,-0.2,0.2) coordinate (c) (\R,0,0.2) coordinate (a1) -- (c) (\R,-0.2,0) coordinate (a2) -- (c) pic [angle radius=0.2cm] {right angle=a1--c--a2};
-        
+
         % Mark and label angle t near P
         \def\angleRadius{0.6}
         \tdplotsetrotatedcoords{0}{0}{0};
         \draw [tdplot_rotated_coords, canvas is yz plane at x = \R]({\angleRadius * cos(\EPS)},0) arc (0:{\EPS - 3}:\angleRadius);
         \tdplotCsLabelPoint{\R}{6}{88.3}{$\varepsilon$}{left}
-    \end{tikzpicture}    
+    \end{tikzpicture}
     \caption{}
     \label{pic:sun-lamdda-alpha}
 \end{wrapfigure}
@@ -135,14 +140,14 @@
 \end{gather*}
 Отметим, при $\varepsilon = 0$ выполняется $\alpha = \lambda$. Следовательно, можно сделать нулевое приближение $\alpha_0 = \lambda$. Воспользуемся методом последовательных приближений для получения более точного выражения для $\alpha(\lambda, \varepsilon)$.
 \begin{gather}
-    \alpha_1 = \lambda - \arcsin \left( y \sin (\alpha_0 + \lambda)  \right) \overset{\varepsilon \ll 1}{\simeq} \lambda - y \sin 2 \lambda,\nonumber\\ 
-    \alpha_2 
+    \alpha_1 = \lambda - \arcsin \left( y \sin (\alpha_0 + \lambda)  \right) \overset{\varepsilon \ll 1}{\simeq} \lambda - y \sin 2 \lambda,\nonumber\\
+    \alpha_2
         = \lambda - \arcsin \left( y \sin (\alpha_1 + \lambda) \right)
         \overset{\varepsilon \ll 1}{\simeq} \lambda - y \sin 2 \lambda + \frac{y^2}{2} \sin 4 \lambda. \label{eq:second-approx-alpha-lambda}
 \end{gather}
 Используем~\eqref{eq:second-approx-alpha-lambda} для записи уравнения времени:
 \begin{multline}
-    \nu    
+    \eta
         = t_\text{ист} - t_\text{ср}
         = \alpha_2 - (M + \omega) = \\
         = \lambda - y \sin 2 \lambda + \frac{y^2}{2} \sin 4 \lambda - M - \omega = \\
@@ -159,6 +164,3 @@
     \eta = t_\text{ист} - t_\text{ср} =  -7.65 \sin \frac{2\pi d}{P} + 9.86 \sin 2 \left( 1.80 + \frac{2\pi d}{P} \right)~\text{мин},
 \end{equation}
 где $T_\text{сид}$~--- сидерический год (здесь не учитываются поправки, связанные с прецессией Земной оси), а $d$~--- время от момента прохождения точки перицентра (в современную эпоху это происходит в период со 2 по 5 января).
-
-
-

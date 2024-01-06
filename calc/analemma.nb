@@ -1,0 +1,267 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9329,        259]
+NotebookOptionsPosition[      8484,        238]
+NotebookOutlinePosition[      8876,        254]
+CellTagsIndexPosition[      8833,        251]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Analemma", "Title",
+ CellChangeTimes->{{3.913527373317152*^9, 
+  3.9135273800875273`*^9}},ExpressionUUID->"b9afb94b-b095-4879-aafe-\
+43a4838777da"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Epsilon]", "=", 
+   RowBox[{"23.5", " ", "Degree"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Omega]", "=", 
+   RowBox[{"102.9", " ", "Degree"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "0.017"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", "=", "365.25"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"m", "[", "t_", "]"}], ":=", 
+   FractionBox[
+    RowBox[{"2", "\[Pi]", " ", "t"}], "T"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Nu]", "[", "t_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"m", "[", "t", "]"}], "+", 
+    RowBox[{"2", "e", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"m", "[", "t", "]"}], "]"}]}], "-", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"Tan", "[", 
+       FractionBox["\[Epsilon]", "2"], "]"}], "2"], 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+       RowBox[{"2", 
+        RowBox[{"m", "[", "t", "]"}]}], "+", 
+       RowBox[{"2", "\[Omega]"}]}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]", "[", "t_", "]"}], ":=", 
+   RowBox[{"-", 
+    RowBox[{"ArcSin", "[", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Epsilon]", "]"}], 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"\[Nu]", "[", "t", "]"}], "+", "\[Omega]"}], " ", "]"}]}], 
+     "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]", "[", "t_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArcSin", "[", 
+      FractionBox[
+       RowBox[{"Tan", "[", 
+        RowBox[{"\[Delta]", "[", "t", "]"}], "]"}], 
+       RowBox[{"Tan", "[", "\[Epsilon]", "]"}]], "]"}], 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        FractionBox["T", "4"], "<", "t", "<", 
+        FractionBox[
+         RowBox[{"3", "T"}], "4"]}], ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "]"}]}], "+", 
+    RowBox[{"\[Pi]", " ", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"t", ">", 
+        FractionBox["T", "4"]}], ",", "1", ",", "0"}], "]"}]}], "+", 
+    RowBox[{"\[Pi]", " ", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"t", ">", 
+        FractionBox[
+         RowBox[{"3", "T"}], "4"]}], ",", "1", ",", "0"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"analemmaData", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"\[Nu]", "[", "t", "]"}]}], "+", 
+          RowBox[{"m", "[", "t", "]"}]}], "Degree"], "*", "4"}], ",", 
+       FractionBox[
+        RowBox[{"\[Delta]", "[", "t", "]"}], "Degree"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T", ",", 
+       FractionBox["T", "100"]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"analemmaByMonthsData", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"\[Nu]", "[", "t", "]"}]}], "+", 
+          RowBox[{"m", "[", "t", "]"}]}], "Degree"], "*", "4"}], ",", 
+       FractionBox[
+        RowBox[{"\[Delta]", "[", "t", "]"}], "Degree"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "T", ",", "30.5"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.9134346741541243`*^9, 3.913434926833803*^9}, {
+   3.913435043747438*^9, 3.9134351047078247`*^9}, {3.913435162017049*^9, 
+   3.9134352069554033`*^9}, {3.913435279270178*^9, 3.9134354880311937`*^9}, {
+   3.9134357263134613`*^9, 3.9134357345991783`*^9}, {3.913435795468357*^9, 
+   3.9134358851858797`*^9}, {3.9134359238525667`*^9, 
+   3.9134360125165033`*^9}, {3.9134360481709747`*^9, 3.91343622645728*^9}, {
+   3.913436280496578*^9, 3.913436282745986*^9}, {3.913436340232429*^9, 
+   3.9134364067268476`*^9}, {3.9134364558243513`*^9, 3.913436478426363*^9}, {
+   3.9134365094549513`*^9, 3.9134365161648703`*^9}, {3.913438996737297*^9, 
+   3.9134390018749523`*^9}, {3.9134390813822527`*^9, 3.913439093075222*^9}, {
+   3.913439127950871*^9, 3.913439167758366*^9}, {3.913439200925511*^9, 
+   3.9134392691421747`*^9}, {3.913439419640748*^9, 3.9134394211110067`*^9}, {
+   3.913439492758553*^9, 3.9134396214698963`*^9}, {3.913439739059875*^9, 
+   3.9134397421426764`*^9}, {3.913439779312475*^9, 3.913439797782806*^9}, {
+   3.913439852168133*^9, 3.913439880950808*^9}, {3.913439998406852*^9, 
+   3.9134400148576097`*^9}, 3.913440099945627*^9, {3.913440156201077*^9, 
+   3.913440168216118*^9}, 3.913440210932675*^9, {3.9134402508356447`*^9, 
+   3.913440293417057*^9}, {3.913440667931383*^9, 3.913440676634305*^9}, {
+   3.913440925098589*^9, 3.913440925423703*^9}, {3.913441508245864*^9, 
+   3.9134415098841333`*^9}, {3.913442435172909*^9, 3.9134425367155247`*^9}, {
+   3.9134426177737494`*^9, 3.91344261948492*^9}, {3.913442685933009*^9, 
+   3.91344269685448*^9}, {3.913442733876906*^9, 3.913442871733096*^9}, {
+   3.913443564045473*^9, 3.9134435641176233`*^9}, {3.913444587838147*^9, 
+   3.913444588345091*^9}, {3.913527395272806*^9, 3.91352749898803*^9}, {
+   3.913530319431258*^9, 3.9135303206567917`*^9}},
+ CellLabel->
+  "In[1262]:=",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", "analemmaByMonthsData", "]"}]], "Input",
+ CellChangeTimes->{{3.913530324355253*^9, 3.913530338955241*^9}},
+ CellLabel->
+  "In[1272]:=",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"analemmaData", ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+         RowBox[{"analemmaByMonthsData", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
+         RowBox[{"Hue", "[", "0.1", "]"}], ",", 
+         RowBox[{"PointSize", "[", "0.02", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "dataMonths", "]"}]}], "}"}]}], "]"}]}], 
+    "}"}], ",", " ", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "20"}], ",", "20"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "25"}], ",", "25"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    RowBox[{"5", "/", "4"}]}]}], "]"}]], "Input",
+ CellLabel->
+  "In[1273]:=",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+      "\"\<data\>\"", ",", "\"\<analemma.txt\>\""}], "}"}], "]"}], ",", " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
+     "analemmaData"}], "]"}], ",", " ", "\"\<Table\>\""}], "]"}]], "Input",
+ CellLabel->
+  "In[1274]:=",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+      "\"\<data\>\"", ",", "\"\<analemma-months.txt\>\""}], "}"}], "]"}], ",",
+    " ", "\[IndentingNewLine]", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
+     "analemmaByMonthsData"}], "]"}], ",", " ", "\"\<Table\>\""}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[1275]:=",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
+}, Open  ]]
+},
+WindowSize->{992, 901},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fed8b684-1494-4f0c-9674-82fc353e7ce7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 153, 3, 98, "Title",ExpressionUUID->"b9afb94b-b095-4879-aafe-43a4838777da"],
+Cell[736, 27, 5274, 134, 314, "Input",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
+Cell[6013, 163, 231, 4, 30, "Input",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
+Cell[6247, 169, 993, 29, 52, "Input",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
+Cell[7243, 200, 602, 16, 52, "Input",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
+Cell[7848, 218, 620, 17, 52, "Input",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
+}, Open  ]]
+}
+]
+*)
+
