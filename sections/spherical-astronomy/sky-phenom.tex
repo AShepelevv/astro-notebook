@@ -1,15 +1,144 @@
 \subsection{Суточное вращение небесной сферы}
 Вследствие вращения Земли вокруг своей оси для наблюдателя на поверхности небесные объекты совершают суточное движение параллельно небесному экватору, плоскость которого совпадает с плоскостью экватора Земли. Очевидно, в ходе такого движения высота светил постоянно меняется и в некоторые моменты времени достигает своего максимального и минимального значения.
 
+\begin{figure}[h!]
+	\centering
+	\begin{subcaptionblock}{0.49\tw}
+		\tikzsetnextfilename{culmination-1}
+		\begin{tikzpicture}
+			\footnotesize
+			\tkzDefPoint(0,0){O}
+			\def\R{2.1}
+			\def\PHI{55}
+			\def\DELTA{17}
+
+			\tkzDefShiftPoint[O](\R,0){N}
+			\tkzInterLC[common=N](O,N)(O,N) \tkzGetFirstPoint{S}
+
+			\tkzDefPointBy[rotation=center O angle \PHI](N) \tkzGetPoint{P}
+			\tkzInterLC[common=P](O,P)(O,N) \tkzGetFirstPoint{P'}
+
+			\tkzDefPointBy[rotation=center O angle 90](N) \tkzGetPoint{Z}
+			\tkzInterLC[common=Z](O,Z)(O,N) \tkzGetFirstPoint{Z'}
+
+			\tkzDefPointBy[rotation=center O angle -90+\PHI](S) \tkzGetPoint{Q}
+			\tkzInterLC[common=Q](O,Q)(O,N) \tkzGetFirstPoint{Q'}
+
+			\tkzDefPointBy[rotation=center O angle \DELTA](Q') \tkzGetPoint{D'}
+			\tkzDefPointBy[rotation=center O angle -\DELTA](Q) \tkzGetPoint{D}
+
+			\tkzDrawCircle[black,semithick](O,N)
+
+			\tkzMarkAngles[arc=lll, size=1](Q',O,D' D,O,Q)
+			\tkzLabelAngles[pos=1.2](Q',O,D' D,O,Q){\footnotesize$\delta$}
+
+			\tkzMarkAngle[arc=ll, size=0.3](N,O,P)
+			\tkzLabelAngles[pos=0.5](N,O,P){\footnotesize$\varphi$}
+
+			\tkzMarkAngle[arc=ll, size=0.4, mark=|, mksize=2pt](Q,O,S)
+			\tkzLabelAngles[pos=0.4, left](Q,O,S){\raisebox{6pt}{\scalebox{0.7}{$90^\circ - \varphi$}}}
+
+			\tkzMarkAngle[arc=l, size=1.4, mark=x, mksize=1.5pt](D,O,S)
+			\tkzLabelAngles[pos=1.7](D,O,S){\footnotesize$h_\text{в}$}
+
+			\tkzMarkAngle[arc=l, size=0.9, mark=o, mksize=1pt](D',O,N)
+			\tkzLabelAngles[pos=1.2](D',O,N){\footnotesize$h_\text{н}$}
+
+			\tkzInterLL(D,D')(P,P') \tkzGetPoint{M}
+
+			\tkzMarkRightAngles[size=0.18](P',O,Q' Z,O,S D',M,P)
+
+			\tkzDrawSegments(N,S P,P' Z,Z' Q,Q' D,D' O,D O,D')
+			\tkzDrawPoints(O, N, S, P, P', Z, Z', Q, Q', D, D')
+
+			\tkzLabelPoints[below](Z')
+			\tkzLabelPoints[above](Z)
+			\tkzLabelPoints[left](S)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[above right](P)
+			\tkzLabelPoints[above left](Q)
+			\tkzLabelPoints[below left](P')
+			\tkzLabelPoints[below right](Q')
+		\end{tikzpicture}
+		\caption{$|\delta| < |\varphi|$}
+		\label{pic:culmination-less}
+	\end{subcaptionblock}
+	\hfill
+	\begin{subcaptionblock}{0.49\tw}
+		\tikzsetnextfilename{culminations-2}
+		\begin{tikzpicture}
+			\footnotesize
+			\tkzDefPoint(0,0){O}
+			\def\R{2.1}
+			\def\PHI{27}
+			\def\DELTA{40}
+
+			\tkzDefShiftPoint[O](\R,0){N}
+			\tkzInterLC[common=N](O,N)(O,N) \tkzGetFirstPoint{S}
+
+			\tkzDefPointBy[rotation=center O angle \PHI](N) \tkzGetPoint{P}
+			\tkzInterLC[common=P](O,P)(O,N) \tkzGetFirstPoint{P'}
+
+			\tkzDefPointBy[rotation=center O angle 90](N) \tkzGetPoint{Z}
+			\tkzInterLC[common=Z](O,Z)(O,N) \tkzGetFirstPoint{Z'}
+
+			\tkzDefPointBy[rotation=center O angle -90+\PHI](S) \tkzGetPoint{Q}
+			\tkzInterLC[common=Q](O,Q)(O,N) \tkzGetFirstPoint{Q'}
+
+			\tkzDefPointBy[rotation=center O angle \DELTA](Q') \tkzGetPoint{D'}
+			\tkzDefPointBy[rotation=center O angle -\DELTA](Q) \tkzGetPoint{D}
+
+			\tkzDrawSegments(N,S P,P' Z,Z' Q,Q' D,D' O,D O,D')
+
+			\tkzDrawCircle[black,semithick](O,N)
+
+			\tkzMarkAngles[arc=lll, size=1](Q',O,D' D,O,Q)
+			\tkzLabelAngles[pos=1.2](Q',O,D' D,O,Q){\footnotesize$\delta$}
+
+			\tkzMarkAngle[arc=ll, size=0.5](N,O,P)
+			\tkzLabelAngles[pos=0.7](N,O,P){\footnotesize$\varphi$}
+
+			\tkzMarkAngle[arc=ll, size=0.4, mark=|, mksize=2pt](Q,O,S)
+			\tkzLabelAngles[pos=0.4, left](Q,O,S){\raisebox{6pt}{\scalebox{0.7}{$90^\circ - \varphi$}}}
+
+			\tkzMarkAngle[arc=l, size=1.1, mark=x, mksize=1.5pt](N,O,D)
+			\tkzLabelAngles[pos=1.4, fill=white, inner sep=1pt](N,O,D){\footnotesize$h_\text{в}$}
+
+			\tkzMarkAngle[arc=l, size=0.9, mark=o, mksize=1pt](D',O,N)
+			\tkzLabelAngles[pos=1.2](D',O,N){\footnotesize$h_\text{н}$}
+
+			\tkzInterLL(D,D')(P,P') \tkzGetPoint{M}
+
+			\tkzMarkRightAngles[size=0.18](P',O,Q' Z,O,S D',M,P)
+
+
+			\tkzDrawPoints(O, N, S, P, P', Z, Z', Q, Q', D, D')
+
+			\tkzLabelPoints[below](Z')
+			\tkzLabelPoints[above](Z)
+			\tkzLabelPoints[left](S)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[above right](P)
+			\tkzLabelPoints[above left](Q)
+			\tkzLabelPoints[below left](P')
+			\tkzLabelPoints[below right](Q')
+		\end{tikzpicture}
+		\caption{$|\delta| > |\varphi|$}
+		\label{pic:culmination-greater}
+	\end{subcaptionblock}
+	\caption{Схемы кульминаций в проекции на плоскость небесного меридиана}
+	\label{}    
+\end{figure}
+
 \term[верхняя кульминация]{Верхняя} и \term{нижняя кульминация}~--- моменты пересечения светилом небесного меридиана, причём при верхней кульминации светило имеет наибольшую высоту, а при нижней~--- наименьшую.
 
-Высота светила в верхней и нижней кульминации со склонением $|\delta| < |\varphi|$, соответственно:
+Высота светила в верхней и нижней кульминации со склонением $|\delta| < |\varphi|$ (\picRef{pic:culmination-less}), соответственно:
 \begin{equation}
 	h_{\text{в}}= 90^\circ - \varphi + \delta, \quad\quad
 	h_{\text{н}}= - 90^\circ + \varphi  + \delta.
 \end{equation}
 
-Если же светило имеет склонение $|\delta| > |\varphi|$, то высота в верхней и нижней кульминации вычисляется так:
+Если же светило имеет склонение $|\delta| > |\varphi|$ (\picRef{pic:culmination-greater}), то высота в верхней и нижней кульминации вычисляется так:
 \begin{equation}
 	h_{\text{в}}= 90^\circ + \varphi - \delta, \quad\quad
 	h_{\text{н}}= - 90^\circ -\varphi - \delta.
