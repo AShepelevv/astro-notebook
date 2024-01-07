@@ -1,16 +1,71 @@
 \subsection{Круговое движение. Первая космическая скорость}
 
-Пусть тело движется по окружности радиуса~$R$ с~постоянной скоростью~$v$. Найдём, какой ускорение $\vec a$ оно испытывает в ходе такого движения. Рассмотрим для этого малый промежуток времени $dt$. За это время тело проходит по орбите $d\alpha = \omega \, dt$~радиан, где $\omega$~--- угловая скорость движения тела по окружности, определяемая выражением
+\begin{wrapfigure}[9]{r}{0.35\tw}
+    \vspace{-1pc}
+    \centering
+    \tikzsetnextfilename{circular-movement}
+    \begin{tikzpicture}
+        \footnotesize
+        \tkzDefPoint(0,0){C}
+	    \def\R{2.5}
+	    \def\V{1.5}
+	    \def\ALPHA{40}
+        
+        \tkzDefShiftPoint[C](0,\R){V1b}
+        \tkzDefShiftPoint[V1b](-\V,0){V1e}
+        \tkzDefPointBy[rotation=center C angle \ALPHA](V1b) \tkzGetPoint{V2b}
+        \tkzDefShiftPoint[V2b](-\V,0){V2e}
+        
+        \tkzDefPointBy[rotation=center V2b angle \ALPHA](V2e) \tkzGetPoint{V'}
+        
+%        \tkzDrawSegments[line width=2pt, lightgray](V2b,V2e V2b,V' V2e,V' C,V1b C,V2b)
+%        \tkzDrawArc[line width=2pt, lightgray](C,V1b)(V2b)
+        
+        \tkzDrawSegments[-latex, thick ](V1b,V1e V2b,V2e V2b,V' V2e,V')
+        \tkzDrawSegments(C,V1b C,V2b)
+        
+        \tkzLabelSegment[right](C,V1b){$R$}
+        \tkzLabelSegment[above, pos=0.6](V1b,V1e){$\vec{v}$}
+        \tkzLabelSegment[above](V2b,V2e){$\vec{v}$}
+        \tkzLabelSegment[below right=-2pt, pos=0.6](V2b,V'){$\vec{v}'$}
+        \tkzLabelSegment[left](V2e,V'){$d\vec{v}$}
+        
+        \tkzLabelAngle[pos=0.6](V1b,C,V2b){\footnotesize$\alpha$}
+        \tkzLabelAngle[pos=0.6](V2e,V2b,V'){\footnotesize$\alpha$}
+                
+        \tkzMarkAngles[size=0.4](V1b,C,V2b V2e,V2b,V')
+        \tkzMarkRightAngles[size=0.2](V',V2b,C V1e,V1b,C)
+        
+        \tkzDrawArc[angles, semithick](C,V1b)(80,145)
+        
+        
+        \tkzLabelPoint[right](C){$C$}
+        \tkzLabelPoint[above](V1b){$A$}
+        \tkzLabelPoint[above](V2b){$B$}
+        \tkzLabelPoint[above](V2e){$D$}
+        \tkzLabelPoint[below](V'){$E$}
+        
+        \tkzDrawPoints(C, V1b, V2b, V2e, V')
+	\end{tikzpicture}   
+	\caption{}
+	\label{pic:circular-motion}   
+\end{wrapfigure}
+
+Пусть тело движется по окружности радиуса~$R$ с~постоянной скоростью~$v$. Найдём, какое ускорение $\vec a$ оно испытывает в ходе такого движения. Рассмотрим для этого малый промежуток времени $dt$, за который оно перемещается из точки~$A$ в точку~$B$,~\lookPicRef{pic:circular-motion}. За это время тело проходит по орбите угол $\alpha = \omega \, dt$, где $\omega$~--- угловая скорость движения тела по окружности, определяемая выражением
 \begin{equation*}
     \omega = \frac{2 \pi}{T} = \frac{ 2\pi \cdot v}{2\pi R} = \frac{v}{R},
 \end{equation*}
 где за $T$ обозначен период движения тела по окружности.
 
-С другой стороны за время $dt$ вектор скорости $\vec{v}$ изменяется на~$d \vec{v}$, причем~$d \vec{v}$ направлен вдоль радиуса окружности в сторону центра. Из~\picRef{pic:circular-velocity} видно, что $d v = v \omega \, dt$, следовательно, модуль ускорения
+С другой стороны за время $dt$ вектор скорости $\vec{v}$ изменяется на~$d \vec{v}$ и становится равным $\vec{v}'$, причем $|\vec{v}| = |\vec{v}'| = v$.  Треугольники $\triangle ABC$ и $\triangle BDE$ подобны, следовательно,
 \begin{equation*}
-    a = \frac{dv}{dt} = \omega v = \frac{v^2}{R},
+    \frac{dv}{v} = \frac{|AB|}{R} \rightarrow \frac{v\,dt}{R}~\text{при}~dt \rightarrow 0
 \end{equation*}
-а вектор $\vec a$ направлен радиально к центру.
+ А значит, 
+\begin{equation*}
+    a = \frac{dv}{dt} = \frac{v^2}{R},
+\end{equation*}
+причём вектор $\vec{a}$ направлен вдоль радиуса окружности в сторону центра. 
 
 При круговом движении малого тела в гравитационном поле массивного тела массы $M$ первое испытывает силу всемирного тяготения со стороны второго. А значит, оно испытает ускорение свободного падения~$\vec{g}$~\eqref{eq:g}. Приравняв которое к центростремительному ускорению~$\vec{a}$, получим выражение для \term{первой космической} или \term{круговой скорости}.
 \begin{gather}
