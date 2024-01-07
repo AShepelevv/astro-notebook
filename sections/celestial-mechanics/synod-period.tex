@@ -24,6 +24,85 @@
 \end{equation}
 где $S$~--- синодический период, $T_\text{пл}$~--- сидерический период планеты, $T_\oplus$~--- сидерический период обращения Земли.
 
+\begin{figure}[h!]
+	\centering
+	\begin{subcaptionblock}[t]{0.32\tw}
+		\centering
+		\tikzsetnextfilename{synodic-period-same-direction-outer}
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\def\R{1.1}
+			\def\r{0.8}
+			\def\OMEGAIN{40}
+			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+			\tkzDefShiftPoint[S](0,\r){IN}
+			\tkzDefShiftPoint[S](0,\R){OUT}
+
+			\tkzDrawCircle[black,line width=0.4pt](S,IN)
+			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+
+			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+			\tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
+
+			\sun(S)
+			\earth(IN)
+			\tkzDrawPoint(OUT)
+		\end{tikzpicture}
+		\caption{Схема относительного движения Земли и объекта на внешней орбите, движущегося в том же направлении, что и Земля}
+	\end{subcaptionblock}
+	\hfill
+	\begin{subcaptionblock}[t]{0.32\tw}
+		\centering
+		\tikzsetnextfilename{synodic-period-same-direction-inner}
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\def\R{1.1}
+			\def\r{0.8}
+			\def\OMEGAIN{40}
+			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+			\tkzDefShiftPoint[S](0,\r){IN}
+			\tkzDefShiftPoint[S](0,\R){OUT}
+
+			\tkzDrawCircle[black,line width=0.4pt](S,IN)
+			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+
+			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+			\tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
+
+			\sun(S)
+			\tkzDrawPoint(IN)
+			\earth(OUT)
+		\end{tikzpicture}
+		\caption{Схема относительного движения Земли и объекта на внутренней орбите, движущегося в том же направлении, что и Земля}
+	\end{subcaptionblock}
+	\hfill
+	\begin{subcaptionblock}[t]{0.32\tw}
+	    \centering
+        \tikzsetnextfilename{synodic-period-opposite-direction}
+		\begin{tikzpicture}
+			\tkzDefPoint(0,0){S}
+			\def\R{1.1}
+			\def\r{0.8}
+			\def\OMEGAIN{40}
+			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+			\tkzDefShiftPoint[S](0,\r){IN}
+			\tkzDefShiftPoint[S](0,\R){OUT}
+
+			\tkzDrawCircle[black,line width=0.4pt](S,IN)
+			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+
+			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+			\tkzDrawArc[rotate, semithick, latex-](S,OUT)(-\OMEGAOUT)
+
+			\sun(S)
+			\earth(IN)
+			\tkzDrawPoint(OUT)
+		\end{tikzpicture}
+		\caption{Схема относительного движения Земли и объекта, движущегося в противоположном направлении, нежели Земля}
+	\end{subcaptionblock}
+	\caption{}
+\end{figure}
+
 В случае, если тела обращаются в противоположные стороны, связь
 их синодического периода с сидерическими очевидным образом принимает вид:
 \begin{equation}
@@ -74,22 +153,7 @@
 
 Горизонтальная асимптота является следствием стремления синодического периода к сидерическому периоду наблюдателя при стремлении сидерического периода объекта к бесконечности. При этом в случае сонаправленного движения синодический период приближается к сидерическому периоду наблюдателя сверху, а в случае встречного~--- снизу.
 
-{\footnotesize
-Рассмотрим подробнее описанные выше случаи на конкретных примерах.\newline
-{\bfseries (A) Относительное движение двух планет вокруг Солнца.} Для анализа возьмем пару Земля и Венера. Период Земли $T_\oplus = 1$~год, Венеры~--- $T_{\venus} = 0.62$~года. Следовательно, синодический период (период смены фаз) Венера для земного наблюдателя, также синодический период Земли для наблюдателя на Венера, определяется как
-\begin{equation*}
-    \frac{1}{S_{\oplus\venus}} = \left| \frac{1}{T_\oplus} - \frac{1}{T_{\venus}} \right| = \frac{1}{T_{\venus}} - \frac{1}{T_\oplus} = \frac{1}{0.62~\text{года}} - \frac{1}{1~\text{год}} = 0.61~\frac{1}{\text{год}}~~\Rightarrow~~S_{\oplus\venus} = 1.63~\text{года},
-\end{equation*}
-важно отметить, что здесь имеется в виду не календарный, а сидерический год Земли.\newline
-{\bfseries (Б) Период смены фаз спутника планеты.} Найдём период смены фаз естественного спутника Земли~--- Луны. Движения, рассматриваемые в данном примере, это обращение Луны вокруг Земли с сидерическим периодом Луны $T_{\rightmoon} = 27.3$~суток и обращение Земли вокруг Солнца с сидерическим периодом Земли $T_\oplus \simeq 365$~суток. Следовательно, период смены фаз Луны
-\begin{equation*}
-    S_{\rightmoon} = \left| \frac{1}{T_\oplus} - \frac{1}{T_{\rightmoon}}\right|^{-1} = \left(\frac{1}{T_{\rightmoon}} - \frac{1}{T_\oplus}\right)^{-1} = \left(\frac{1}{27.3} - \frac{1}{365}\right)^{-1} = 29.5~\text{суток}.
-\end{equation*}
-{\bfseries (В) Орбитальное движение и вращение вокруг своей оси.} Несколько переиначим пример описанный выше: рассмотрим движение Земли вокруг Солнца и суточное вращение Земли вокруг своей оси, найдём продолжительность солнечных суток на Земле. Сидерический период Земли $T_\text{орб} \simeq 365$~суток (солнечных), а звёздные сутки $T_\text{ос} = 23^\text{h}\,56^\text{m}\,4^\text{s}$. Отсюда,
-\begin{equation*}
-    T_\text{сут} = \left(\frac{1}{T_\text{ос}} - \frac{1}{T_\text{орб}}\right)^{-1} = 24~\text{часа}.
-\end{equation*}
-}
+{\footnotesize \input{sections/celestial-mechanics/synod-period-examples}}
 
 \subsubsection*{Либрация}
 
