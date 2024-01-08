@@ -90,24 +90,23 @@
     = \frac{A_0}{b} \int\limits_{-b/2}^{b/2} \cos ux \,d x =\\
     = \frac{A_0}{b} \left. \frac{\sin ux}{u} \right|_{-b/2}^{b/2}
     %    = \frac{A_0}{bu} \left( \sin \frac{ub}{2} - \sin \le- \frac{ub}{2} \right) = \\
-    = \frac{A_0}{bu} \cdot 2 \sin \frac{bu}{2} = A_0 \left[ \sin \left( \frac{bu}{2}\right) \middle/  \frac{bu}{2} \right] .
+    = \frac{A_0}{bu} \cdot 2 \sin \frac{bu}{2} = A_0 \left[ \sin \left( \frac{bu}{2}\right) \middle/  \frac{bu}{2} \right],
 \end{multline*}
-
-Следовательно интенсивность определяется выражением
+следовательно, интенсивность определяется выражением
 \begin{equation}
     I(\theta) = A^2(\theta) = A_0^2 \left[ \sin \left( \frac{bu}{2}\right) \middle/  \frac{bu}{2} \right]^2.
 \end{equation}
 
 
-\begin{wrapfigure}[7]{r}{0.6\tw}
+\begin{wrapfigure}[5]{r}{0.47\tw}
     \centering
     \vspace{-0.8pc}
     \tikzsetnextfilename{diffration-on-gap}
     \begin{tikzpicture}
         \begin{axis}[
-            height    =    5cm,
+            height    =    4.5cm,
             width    =    6cm,
-            xlabel    =    {$\frac{\lambda}{b}$, $\text{м}^2$},
+            xlabel    =    {$\frac{\lambda}{b}$},
             ylabel    =    {$I/A_0^2$},
             xmin    =   -3,
             xmax    =   3,
@@ -115,8 +114,8 @@
             \addplot[smooth, domain=-3:3, samples=200] {(sin(deg(x*pi))/(x*pi))^2};
         \end{axis}
     \end{tikzpicture}
-    \caption{}
-    \label{}
+    \caption{Профиль диффракционной картины от узкой щели}
+    \label{pic:diffration-on-gap}
 \end{wrapfigure}
 Минимум данной функции достигается в точках, где обнуляется синус, то есть
 \begin{gather*}
@@ -126,6 +125,12 @@
     \theta \simeq \sin \theta = \frac{m \lambda}{b}.
 \end{gather*}
 Значит первый минимум находится на $\theta = \lambda/b$.
+
+Аналогичные рассуждения можно провести для диффракции на круглом отверстии диаметра~$D$. В силу их сложности приведём лишь результат: интенсивность диффракционной картины описывается выражением 
+\begin{equation*}
+    I(\theta) = 4 A_0^2 \left( \frac{\lambda J_1 (\theta)}{\pi D \theta} \right)^2,
+\end{equation*}
+где $J_1$~--- функция Бесселя первого рода\footnote{$J_\alpha(x) = \sum\limits_{m=0}^\infty \frac{(-1)^m}{m! \Gamma(m + \alpha + 1)} \left( \frac{x}{2} \right)^{2m + \alpha}$}, и не зависит от направления в силу симметричности круглого отверстия. Первый минимум данной функции достигается при $\theta = 1.22\lambda / D$. Диффракционная картина от одного источника и её профиль приведены на~\picRef{pic:eiry-disk-0}. Данная картина получила название \term{диска Эйри} в честь Джорджа Бидделя Эйри, который первым провёл полных теоретический анализ диффракции на круглой апертуре\,\cite{eiry_circle}.
 
 \begin{figure}[p]
     \centering
@@ -201,6 +206,7 @@
         \label{}
     \end{subcaptionblock}
     \caption{}
+    \label{pic:eiry-disk-linear}
 \end{figure}
 
 \begin{figure}[p]
@@ -276,6 +282,7 @@
         \label{}
     \end{subcaptionblock}
     \caption{}
+    \label{pic:eiry-disk-logarifmic}
 \end{figure}
 
 \begin{figure}[p]
@@ -293,6 +300,7 @@
             \end{axis}
         \end{tikzpicture}
         \caption{Диффракционное изображение от одного источника}
+        \label{pic:eiry-disk-0}
     \end{subcaptionblock}\\
     \begin{subcaptionblock}[t]{\tw}
         \includegraphics[width=4.7cm]{eiry-disk-1}\hfill
@@ -340,5 +348,19 @@
         \caption{Диффракционное изображение от двух источников с разделением~$3 \cdot 1.22\lambda/D$}
     \end{subcaptionblock}
     \caption{}
+    \label{pic:eiry-disk}
 \end{figure}
 
+Отсюда следует, что у любого оптического прибора существует некий предел, и невозможно разрешить (увидеть раздельно) два точечных источника света, находящихся на угловом удалении меньше этого предела. 
+
+Британский физик и механик Рэлей показал, что если центральное световое пятно дифракционной картины одного источника света удалено от центрального светового пятна другого источника света на расстояние не менее радиуса первой темной дифракционной полосы, то мы начинаем воспринимать два источника света раздельно.
+
+Этот \term{критерий} получил имя \term{Релея} и в используемых терминах формулируется так: два точечных источника разрешимы, если находятся друг от друга на угловом расстоянии более
+\begin{equation}
+    \theta_\text{мин} = \frac{1.22 \lambda}{D}.
+\end{equation}
+Причем в случае удаления ровно на $\theta_\text{мин}$ интенсивность изображения  посередине между центрами диффракционных пятен составляет $I' = 2 I(\theta_\text{мин} / 2) \simeq 0.73 A_0^2$.
+
+На \picRef{pic:eiry-disk-linear} и \picRef{pic:eiry-disk-logarifmic} приведены диффракционные картины от двух точечных источников на угловом расстоянии $\theta_\text{мин}$ в разных шкалах отображения интенсивности и их профили. А на \picRef{pic:eiry-disk} изображены диффракционные картины от двух точечных источников на различных угловых расстояниях.
+
+Согласно критерию Релея разрешающая способность невооруженного человеческого глаза составляет около $30''$. Однако на практике даже очень зоркие люди не обладают разрешающей способностью меньше $1'$\,--\,$2'$. Это объясняется строением сетчатки,
