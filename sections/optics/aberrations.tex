@@ -295,91 +295,91 @@
     \tikzsetnextfilename{astigmatism}
     \begin{tikzpicture}
         \footnotesize
-        
+
         % def sizes
         \def\R{4}
         \def\h{0.7}
         \def\L{3.5}
         \def\S{0.3}
-        
+
         % def lens arc angles
         \def\a{-asin(\h/\R)}
         \def\b{asin(\h/\R)}
         \def\c{180-asin(\h/\R)}
         \def\d{180+asin(\h/\R)}
-        
+
         % lens center
         \tkzDefPoint(0,0){O}
-        
+
         % lens nodes
         \tkzDefShiftPoint[O](0,-\h){L1}
         \tkzDefShiftPoint[O](0,\h){L2}
-        
+
         % draw lens
         \fill[lightgray] (L1) arc(\a:\b:\R) arc(\c:\d:\R);
         \draw[semithick, line cap=round] (L1) arc(\a:\b:\R);
         \draw[semithick, line cap=round] (L2) arc(\c:\d:\R);
-        
+
         % image
         \tkzDefShiftPoint[O](\L, 0){O1}
         \tkzDefShiftPoint[O1](0,\S){I1}
         \tkzDefShiftPoint[O1](0,-\S){I2}
-        
+
         % light paths
         \tkzDrawLines[add = 0 and 0.1](L1,I1 L2,I2)
-        
+
         % light paths intersection
         \tkzInterLL(L1,I1)(L2,I2) \tkzGetPoint{I}
-        
+
         %%%%%%%
-        
+
         % lens center
         \tkzDefPoint(0,2){O'}
-        
+
         % lens nodes
         \tkzDefShiftPoint[O'](0,-\h){L1'}
         \tkzDefShiftPoint[O'](0,\h){L2'}
-        
+
         % draw lens
         \fill[lightgray] (L1') arc(\a:\b:\R) arc(\c:\d:\R);
         \draw[semithick, line cap=round] (L1') arc(\a:\b:\R);
         \draw[semithick, line cap=round] (L2') arc(\c:\d:\R);
-        
+
         % image
         \tkzDefShiftPoint[O'](\L, 0){O1'}
-            
+
         % light paths
         \tkzDrawLines[add = 0 and 0.1](L1',O1' L2',O1')
-        
+
         %%%%%%%%
-        
+
         % intersect line
         \tkzDefLine[parallel=through I](I1,I2) \tkzGetPoint{I'}
-            
+
         \tkzInterLL(I,I')(L1',O1') \tkzGetPoint{I1'}
         \tkzInterLL(I,I')(L2',O1') \tkzGetPoint{I2'}
-            
+
         % draw images
         \tkzDrawSegments[thick](I1,I2 I1',I2')
-        
+
         % draw parallels
-                
+
         \tkzDefLine[parallel=through I](I1,I2) \tkzGetPoint{I'}
-        
-        
+
+
         \tkzGetPointCoord(I){i}
         \tkzGetPointCoord(L1){l}
         \tkzGetPointCoord(L2'){ll}
-        
+
         \tkzDefPoint(\ix, \ly){Ii}
         \tkzDefPoint(\ix, \lly){Ii'}
-        
+
         \tkzGetPointCoord(O1){o}
         \tkzDefPoint(\ox, \ly){Oo}
         \tkzDefPoint(\ox, \lly){Oo'}
-        
+
         \tkzDrawSegments[dashed](L1',L2 Ii,Ii' Oo,Oo')
-        
+
         \tkzDrawLines[dash dot, add=0.1 and 0.1](O,O1 O',O1')
 	\end{tikzpicture}
     \caption{Схема формирования изображения при астигматизме, вид в двух перпендикулярных плоскостях. Пунктиром отмечено (слева направо): плоскость линзы, плоскости формирования изображения по двум разным осям}
@@ -417,18 +417,18 @@
         \def\h{2}
         \def\r{4.5}
         \def\d{2}
-        
+
         \def\earthR{0.25}
         \def\moonR{0.7}
         \def\sunR{1}
         
         \tkzDefPoint(0,0){O}
         \tkzDefPoint(-\d,0){C}
-    
+
         \tkzDefShiftPoint[O](0,\width){A}
         \tkzDefShiftPoint[O](0,-\width){B}
         \tkzDefShiftPoint[C](\r,0){R}
-        
+
         \tkzDefPointBy[rotation = center A angle -90 + \alph](O)
         \tkzGetPoint{A'}
         \tkzDefPointBy[rotation = center A angle 90 + \bet](O)
