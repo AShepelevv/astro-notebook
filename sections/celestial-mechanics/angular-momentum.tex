@@ -1,7 +1,7 @@
 \subsection{Закон сохранения момента импульса}
 \term{Момент импульса} ($\vec{L}$)~--- \imp{псевдовекторная} величина, определяющая момент количества движения (импульса). Согласно этому определению момент импульса $\vec{L}$ пробной массы зависит от её радиус-вектора и импульса следующий образом:
 \begin{equation}
-	\vec{L} = \cross{r}{p}.
+    \vec{L} = \cross{r}{p}.
 \end{equation}
 
 Из геометрического смысла векторного произведения ясно, что $\vec{L}$ ортогонален векторам $\vec{r}$ и $\vec{p}$. Отсюда же $|\vec{L}| \equiv L$ равен площади параллелограмма, построенного на векторах $\vec{r}$ и $\vec p$. Иными словами $L = rp_\perp$, что в свою очередь можно записать как $ L = r p \sin \alpha$, где $\alpha$~--- угол поворота от $\vec{r}$ к $\vec p$, учитывая направление. Согласно свойству векторного произведения, направление $\vec L$ определяется правилом правой руки~--- тройка векторов $\vec r$, $\vec p$ и $\vec L$ должна быть правой.
@@ -10,86 +10,86 @@
 
 Докажем его сначала в случае движения постоянной пробной массы~$m$ в гравитационном поле неподвижного массивного тела с массой~$M$. Рассмотрим для этого производную по времени момента импульса данной пробной массы:
 \begin{multline}
-	\frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_{\vec{0}} + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
-	= m \cross{r}{a} = m \cross{r}{g(r)} =  -\frac{G M m}{r^3} \underbrace{ \left[\vec{r} \times \vec{r}\right]}_{\vec{0}} = 0.
+    \frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_{\vec{0}} + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
+    = m \cross{r}{a} = m \cross{r}{g(r)} =  -\frac{G M m}{r^3} \underbrace{ \left[\vec{r} \times \vec{r}\right]}_{\vec{0}} = 0.
 \end{multline}
 Равенство нулю производной момента импульса доказывает его постоянство в рассматриваемом случае.
 
 Обобщим теперь на случай произвольного конечного числа $n$ пробных масс $m_1, \ldots, m_n$:
 \begin{multline*}
-	\frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{d[\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
-	= \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
-	= \sum\limits_{i=1}^n \left[ \vec{r}_i \times m_i \sum\limits_{j=1}^n \frac{G m_j}{|\vec{r}_j - \vec{r}_i|^3} (\vec{r}_j - \vec{r}_i) \right] = \\
-	= \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} \big[\vec{r}_i \times (\vec{r}_j - \vec{r}_i) \big] = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] \equiv \sum\limits_{i,j=1}^n \vec{x}_{ij}.
+    \frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{d[\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
+    = \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
+    = \sum\limits_{i=1}^n \left[ \vec{r}_i \times m_i \sum\limits_{j=1}^n \frac{G m_j}{|\vec{r}_j - \vec{r}_i|^3} (\vec{r}_j - \vec{r}_i) \right] = \\
+    = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} \big[\vec{r}_i \times (\vec{r}_j - \vec{r}_i) \big] = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] \equiv \sum\limits_{i,j=1}^n \vec{x}_{ij}.
 \end{multline*}
 Можно заметить, что $\vec{x}_{ij} = -\vec{x}_{ji}$, так как
 \begin{equation*}
-	\vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv -\vec{x}_{ji}.
+    \vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv -\vec{x}_{ji}.
 \end{equation*}
 Отсюда сразу следует равенство нулю производной по времени полного момента импульса, что завершает доказательство его сохранения.
 
 \begin{figure}[t]
-	\begin{subcaptionblock}[b]{0.47\tw}
-		\centering
-		\tikzsetnextfilename{ang-momentum1}
-		\begin{tikzpicture}[scale=1.3]
-			\footnotesize
-			
-			\draw [-latex] (0, 0) -- (-2, 0);
-			\draw [-latex] (-2, 0) -- (-3, -1);
-			
-			\draw [dashes, -latex] (-2, 0) -- (-2, -1);
-			\draw [dashes] (-2, 0) -- (-3, 0);
-			
-			\draw (-2.3, 0) arc(180:225:.3);
-			\draw (-1.8, 0) -- (-1.8, -.2) -- (-2, -.2);
-			
-			\draw (0, 0) node {$\odot$};
-			
-			\point (-2, 0)
-			
-			\draw (-1, 0) node[anchor=south west] {$\vec{r}$};
-			\draw (-2.95, -.9) node[anchor=south] {$\vec{p}$};
-			\draw (-2, -.75) node[anchor=west] {$\vec{p}_\perp$};
-			\draw (-2.25, -.17) node[anchor=east] {$\alpha$};
-			\draw (0, 0) node[anchor=south west] {$\vec{L}$};
-			
-		\end{tikzpicture}
-		\caption{}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}[b]{0.47\tw}
-		\centering
-		\tikzsetnextfilename{ang-momentum2}
-		\begin{tikzpicture}[scale=1]
-			\footnotesize
-			
-			\draw [-latex] (0, 0) -- (0, 2);
-			\draw [-latex] (0, 0) -- (2.2, -.6);
-			\draw [-latex] (2.2, -.6) -- (3.6, 0);
-			\draw [dashes, -latex] (0, 0) -- (1.4, 0.6);
-			
-			%	\draw [dashes, -latex] (-2, 0) -- (-2, -1);
-			\draw [dashes] (2.2, -.6) -- (3, -.82);
-			\draw (0, -1) .. controls (2, -1) and (3, -.25) .. (3.5, .4);
-			
-			\draw (0, .2) -- (.2, 0.15) -- (0.2, -.05);
-			\draw (0, .25) -- (.25, 0.35) -- (0.25, .1);
-			
-			\point (2.2, -.6);
-			
-			\draw (2.5, -.68) .. controls (2.65, -.6) and (2.65, -.5) .. (2.5, -.47);
-			
-			\draw (1.1, -.3) node[anchor=south] {$\vec{r}$};
-			\draw (3.4, -.1) node[anchor=north] {$\vec{p}$};
-			\draw (1.15, 0.55) node[anchor=south] {$\vec{p}$};
-			%	\draw (-2, -.75) node[anchor=west] {$\vec{p}_\perp$};
-			\draw (2.6, -.55) node[anchor=west] {$\alpha$};
-			\draw (0, 1) node[anchor=east] {$\vec{L}$};
-			
-		\end{tikzpicture}
-		\caption{}
-	\end{subcaptionblock}
-	\caption{}
+    \begin{subcaptionblock}[b]{0.47\tw}
+        \centering
+        \tikzsetnextfilename{ang-momentum1}
+        \begin{tikzpicture}[scale=1.3]
+            \footnotesize
+
+            \draw [-latex] (0, 0) -- (-2, 0);
+            \draw [-latex] (-2, 0) -- (-3, -1);
+
+            \draw [dashes, -latex] (-2, 0) -- (-2, -1);
+            \draw [dashes] (-2, 0) -- (-3, 0);
+
+            \draw (-2.3, 0) arc(180:225:.3);
+            \draw (-1.8, 0) -- (-1.8, -.2) -- (-2, -.2);
+
+            \draw (0, 0) node {$\odot$};
+
+            \point (-2, 0)
+
+            \draw (-1, 0) node[anchor=south west] {$\vec{r}$};
+            \draw (-2.95, -.9) node[anchor=south] {$\vec{p}$};
+            \draw (-2, -.75) node[anchor=west] {$\vec{p}_\perp$};
+            \draw (-2.25, -.17) node[anchor=east] {$\alpha$};
+            \draw (0, 0) node[anchor=south west] {$\vec{L}$};
+
+        \end{tikzpicture}
+        \caption{}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}[b]{0.47\tw}
+        \centering
+        \tikzsetnextfilename{ang-momentum2}
+        \begin{tikzpicture}[scale=1]
+            \footnotesize
+
+            \draw [-latex] (0, 0) -- (0, 2);
+            \draw [-latex] (0, 0) -- (2.2, -.6);
+            \draw [-latex] (2.2, -.6) -- (3.6, 0);
+            \draw [dashes, -latex] (0, 0) -- (1.4, 0.6);
+
+            %    \draw [dashes, -latex] (-2, 0) -- (-2, -1);
+            \draw [dashes] (2.2, -.6) -- (3, -.82);
+            \draw (0, -1) .. controls (2, -1) and (3, -.25) .. (3.5, .4);
+
+            \draw (0, .2) -- (.2, 0.15) -- (0.2, -.05);
+            \draw (0, .25) -- (.25, 0.35) -- (0.25, .1);
+
+            \point (2.2, -.6);
+
+            \draw (2.5, -.68) .. controls (2.65, -.6) and (2.65, -.5) .. (2.5, -.47);
+
+            \draw (1.1, -.3) node[anchor=south] {$\vec{r}$};
+            \draw (3.4, -.1) node[anchor=north] {$\vec{p}$};
+            \draw (1.15, 0.55) node[anchor=south] {$\vec{p}$};
+            %    \draw (-2, -.75) node[anchor=west] {$\vec{p}_\perp$};
+            \draw (2.6, -.55) node[anchor=west] {$\alpha$};
+            \draw (0, 1) node[anchor=east] {$\vec{L}$};
+
+        \end{tikzpicture}
+        \caption{}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}
 

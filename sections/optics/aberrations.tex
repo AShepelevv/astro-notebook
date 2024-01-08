@@ -3,106 +3,106 @@
 Пожалуй главным недостатком оптических схем, содержащий преломляющие оптические элементы (линзы; призмы, за исключением использования их для спектроскопии) является \imp{хроматические аберрации}. Дело в том, что показатель преломления материала линзы зависит от длины волны падающего излучения. Это приводит к тому, что положения фокуса оптической системы зависит от длины волны излучения. При наблюдениях это проявляется как радужный ореол вокруг объектов, ухудшающий качество изображения.
 
 \begin{wrapfigure}{r}{0.5\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			height	=	4.5cm,
-			width	=	6cm,
-			xlabel	=	{$\lambda$, мкм},
-			ylabel	=	{$n(\lambda)$},
-%			ylabel shift	= -1 cm,
-			xmin = 0.3,
-			xmax = 2.5,
-			ymin = 1.48,
-			ymax = 1.55,
-			]
-			
-			\addplot[smooth, domain=0.3:2.5] table[x=l, y=n] {data/crown-dispersion.txt};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:crown-dispersion}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{crown-dispersion}
+    \begin{tikzpicture}
+        \begin{axis} [
+            height  =   4.5cm,
+            width   =   6cm,
+            xlabel  =   {$\lambda$, мкм},
+            ylabel  =   {$n(\lambda)$},
+            xmin    =   0.3,
+            xmax    =   2.5,
+            ymin    =   1.48,
+            ymax    =   1.55,
+        ]
+            \addplot[smooth, domain=0.3:2.5] table[x=l, y=n] {data/crown-dispersion.txt};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:crown-dispersion}
 \end{wrapfigure}
 Найдем зависимость величины хроматической аберрации от величины дисперсии материала линзы. В качестве линзы рассмотрим плосковыпуклую линзу из оптического стекла~--- \imp{крона} (BK7). Зависимость $n(\lambda)$ её показателя преломления $n$ от длины волны $\lambda$ проходящего излучения представлена на графике (см.~Рис\,\ref{pic:crown-dispersion}). Важно отметить, здесь нельзя считать линзу тонкой, так как само по себе понятие тонкой линзы подразумевает отсутствие разного рода аберраций и условие фокусировки лучей в одной точке (фокусе), чего не происходит на практике.
 
 \begin{wrapfigure}[9]{r}{0.63\tw}
-	\centering
-	\vspace{-.8pc}
-	\begin{tikzpicture}
-		\footnotesize
-		
-		\draw [decoration={snake, segment length=.7mm, amplitude=0.2mm}, decorate] (1.35, 1) arc(-31:15:0.26);
-		\draw [double, line cap=butt] (.2, 1.135) arc(180:195:0.94);
-		\draw  (2.7, 0) arc(180:149:0.3);
-		
-		\fill [lightgray] (.5, -1.5) -- (.5, 1.5) -- (1, 1.5) arc(20:-20:4.386) -- (.5, -1.5);
-		
-		\draw [thick] (.5, -1.5) -- (.5, 1.5);
-		\draw [thick] (1, -1.5) arc(-20:20:4.386);
-		\draw [semithick, dash pattern={on 5pt off 2pt on .5pt off 2pt}] (-3.8, 0) -- (3.2, 0);
-		%		\draw (-3.12, 0) node{$\times$};
-		
-		\draw [dashes] (-3.12, 0) -- (1.71, 1.29);
-		
-		\draw [semithick] (-3.8, 1.135) -- (1.12, 1.135) -- (3, 0);
-		\draw [-latex] (-3.5, 1.135)-- (-1, 1.135);
-		\draw [-latex] (1.12, 1.135) -- (2.25, 0.45);
-		
-		\draw [latex-latex] (-3.5, 0) -- (-3.5, 1.135);
-		\draw [latex-latex] (1.27, -.5) -- (3, -.5);
-		\draw [latex-latex] (1.12, -1.4) -- (3, -1.4);
-		\draw [-latex] (0.5, -.5) -- (1.12, -.5);
-		
-		\draw (1.12, 1.135) -- (1.12, -1.5);
-		\draw (1.27, 0) -- (1.27, -.6);
-		\draw (3, 0) -- (3, -1.5);
-		
-		\draw (-3.5, 0.56) node[anchor=east] {$d$};
-		\draw (-3.12, 0) node[anchor=north] {$C$};
-		\draw (-.7, 0.6) node[anchor=north] {$R$};
-		\draw (2.14, -.5) node[anchor=south] {$x$};
-		\draw (2.14, -1.4) node[anchor=south] {$\frac{d}{\tg \gamma}$};
-		
-		\draw (.8, -1.5) node[anchor=south] {$n$};
-		
-		\draw (.2, 1) node[anchor=east] {$\alpha$};
-		\draw (1.4, 1.07) node[anchor=west] {$\beta$};
-		\draw (2.65, 0.15) node[anchor=east] {$\gamma$};
-		
-		\draw [fill=white] (3, 0) circle (.03);
-		\draw [fill=white] (-3.12, 0) circle (.03);
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:sphere-aberrations-lens}
+    \centering
+    \vspace{-.8pc}
+    \tikzsetnextfilename{sphere-aberrations-lens}
+    \begin{tikzpicture}
+        \footnotesize
+
+        \draw [decoration={snake, segment length=.7mm, amplitude=0.2mm}, decorate] (1.35, 1) arc(-31:15:0.26);
+        \draw [double, line cap=butt] (.2, 1.135) arc(180:195:0.94);
+        \draw  (2.7, 0) arc(180:149:0.3);
+
+        \fill [lightgray] (.5, -1.5) -- (.5, 1.5) -- (1, 1.5) arc(20:-20:4.386) -- (.5, -1.5);
+
+        \draw [thick] (.5, -1.5) -- (.5, 1.5);
+        \draw [thick] (1, -1.5) arc(-20:20:4.386);
+        \draw [semithick, dash pattern={on 5pt off 2pt on .5pt off 2pt}] (-3.8, 0) -- (3.2, 0);
+        %        \draw (-3.12, 0) node{$\times$};
+
+        \draw [dashes] (-3.12, 0) -- (1.71, 1.29);
+
+        \draw [semithick] (-3.8, 1.135) -- (1.12, 1.135) -- (3, 0);
+        \draw [-latex] (-3.5, 1.135)-- (-1, 1.135);
+        \draw [-latex] (1.12, 1.135) -- (2.25, 0.45);
+
+        \draw [latex-latex] (-3.5, 0) -- (-3.5, 1.135);
+        \draw [latex-latex] (1.27, -.5) -- (3, -.5);
+        \draw [latex-latex] (1.12, -1.4) -- (3, -1.4);
+        \draw [-latex] (0.5, -.5) -- (1.12, -.5);
+
+        \draw (1.12, 1.135) -- (1.12, -1.5);
+        \draw (1.27, 0) -- (1.27, -.6);
+        \draw (3, 0) -- (3, -1.5);
+
+        \draw (-3.5, 0.56) node[anchor=east] {$d$};
+        \draw (-3.12, 0) node[anchor=north] {$C$};
+        \draw (-.7, 0.6) node[anchor=north] {$R$};
+        \draw (2.14, -.5) node[anchor=south] {$x$};
+        \draw (2.14, -1.4) node[anchor=south] {$\frac{d}{\tg \gamma}$};
+
+        \draw (.8, -1.5) node[anchor=south] {$n$};
+
+        \draw (.2, 1) node[anchor=east] {$\alpha$};
+        \draw (1.4, 1.07) node[anchor=west] {$\beta$};
+        \draw (2.65, 0.15) node[anchor=east] {$\gamma$};
+
+        \draw [fill=white] (3, 0) circle (.03);
+        \draw [fill=white] (-3.12, 0) circle (.03);
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:sphere-aberrations-lens}
 \end{wrapfigure}
 Итак, пусть радиус кривизны выпуклой поверхности рассматриваемой плос\-ко-вы\-пук\-лой линзы равен $R$. Рассмотрим луч, параллельный оптической оси линзы, идущий на расстоянии~$d$ от неё (см.~Рис.\,\ref{pic:sphere-aberrations-lens}). Так как передняя поверхность линзы плоская, луч, попадая в линзу, не преломляется. Преломление происходит на выходе из линзы. Нетрудно показать, что для угла падения луча на заднюю поверхность линзы $\alpha$ справедливо равенство $\sin \alpha = d/R$. По закону Снеллиуса угол преломления $\beta$ рассматримоего луча  определяется соотношением $\sin \beta = n \sin \alpha$. Так как угол между нормалью к выпуклой поверхности линзы и её оптической осью равен $\alpha$, то угол $\gamma$ между преломленным лучем и оптической осью линзы равен $\beta - \alpha$.
 
 Расстояние до точки пересечения преломлённого луча с оптической осью линзы будем отсчитывать от вершины выпуклой поверхности линзы. Расстояние $h$ между проекцией точки преломления на оптическую ось и вершиной найдём из теоремы Пифагора:
 \begin{equation*}
-	h = R - \sqrt{R^2 - d^2}.
+    h = R - \sqrt{R^2 - d^2}.
 \end{equation*}
 Получим, координата фокуса для лучей на расстоянии $d$ от оптической оси равна
 \begin{equation}
-	x = \frac{d}{\tg \gamma} - h = \frac{d}{\tg \left( \arcsin \dfrac{n d}{R} - \arcsin \dfrac{d}{R} \right)} - \left( R - \sqrt{R^2 - d^2} \right).
-	\label{eq:optics-aberr-x(d)}
+    x = \frac{d}{\tg \gamma} - h = \frac{d}{\tg \left( \arcsin \dfrac{n d}{R} - \arcsin \dfrac{d}{R} \right)} - \left( R - \sqrt{R^2 - d^2} \right).
+    \label{eq:optics-aberr-x(d)}
 \end{equation}
 Введём обозначение $\delta \equiv d/R$ и разделим обе части полученного равенства на $R$, чтобы перейти к относительным единицам:
 \begin{equation}
-	\frac{x}{R}
-	= \frac{\delta}{\tg \left( \arcsin n\delta - \arcsin \delta \right)} -  1 + \sqrt{1 - \delta^2}
-	~\xrightarrow{\delta \ll 1}~  \frac{1}{n - 1} - \frac{\delta^2 n^2}{2(n-1)}.\footnote{\scriptsize Вывод приближения:
-	\begin{multline*}
-		\frac{\delta}{\tg \left( \arcsin n\delta - \arcsin \delta \right)} -  1 + \sqrt{1 - \delta^2} =\\
-		= \frac{\delta}{\tg \left[ n \delta + \dfrac{n^3 \delta^3}{6} - \delta - \dfrac{ \delta^3}{6} + o(\delta^3) \right]} -  1 + \left(1 - \frac{\delta^2}{2} + o(\delta^2) \right) =\\
-		= \frac{\delta}{\tg \left[ \delta(n-1) + \dfrac{(n^3-1) \delta^3}{6} + o(\delta^3) \right]} - \frac{\delta^2}{2} + o(\delta^2) =\\
-		= \frac{\delta}{\delta(n-1) + \dfrac{(n^3-1) \delta^3}{6} + \dfrac{\delta^3}{3}(n-1)^3 + o(\delta^3)} - \frac{\delta^2}{2} + o(\delta^2) =\\
-		= \frac{1/(n-1)}{1 + \dfrac{\delta^2}{6}(n^2 + n + 1) + \dfrac{\delta^2}{3}(n-1)^2 + o(\delta^2)} - \frac{\delta^2}{2} + o(\delta^2) =\\
-		=\frac{1}{n-1} \left[1 - \frac{\delta^2}{6} (3n^2 -3n + 3) \right] - \frac{\delta^2}{2} + o(\delta^2)
-		%	= \frac{1}{n-1} - \frac{\delta^2}{2(n-1)}(n^2 - n + 1 + n - 1) + o(\delta^2)
-		\simeq \frac{1}{n-1} - \frac{\delta^2 n^2}{2(n-1)}.
-	\end{multline*}
-	}
+    \frac{x}{R}
+    = \frac{\delta}{\tg \left( \arcsin n\delta - \arcsin \delta \right)} -  1 + \sqrt{1 - \delta^2}
+    ~\xrightarrow{\delta \ll 1}~  \frac{1}{n - 1} - \frac{\delta^2 n^2}{2(n-1)}.\footnote{\scriptsize Вывод приближения:
+    \begin{multline*}
+        \frac{\delta}{\tg \left( \arcsin n\delta - \arcsin \delta \right)} -  1 + \sqrt{1 - \delta^2} =\\
+        = \frac{\delta}{\tg \left[ n \delta + \dfrac{n^3 \delta^3}{6} - \delta - \dfrac{ \delta^3}{6} + o(\delta^3) \right]} -  1 + \left(1 - \frac{\delta^2}{2} + o(\delta^2) \right) =\\
+        = \frac{\delta}{\tg \left[ \delta(n-1) + \dfrac{(n^3-1) \delta^3}{6} + o(\delta^3) \right]} - \frac{\delta^2}{2} + o(\delta^2) =\\
+        = \frac{\delta}{\delta(n-1) + \dfrac{(n^3-1) \delta^3}{6} + \dfrac{\delta^3}{3}(n-1)^3 + o(\delta^3)} - \frac{\delta^2}{2} + o(\delta^2) =\\
+        = \frac{1/(n-1)}{1 + \dfrac{\delta^2}{6}(n^2 + n + 1) + \dfrac{\delta^2}{3}(n-1)^2 + o(\delta^2)} - \frac{\delta^2}{2} + o(\delta^2) =\\
+        =\frac{1}{n-1} \left[1 - \frac{\delta^2}{6} (3n^2 -3n + 3) \right] - \frac{\delta^2}{2} + o(\delta^2)
+        %    = \frac{1}{n-1} - \frac{\delta^2}{2(n-1)}(n^2 - n + 1 + n - 1) + o(\delta^2)
+        \simeq \frac{1}{n-1} - \frac{\delta^2 n^2}{2(n-1)}.
+    \end{multline*}
+    }
 \end{equation}
 
 Найдём область определения функции $x(\delta)$. Прежде всего учтём, что~$\delta \geqslant 0$, потому что $d$~--- это расстояние от оптической оси, которое не может быть отрицательным. С другой стороны, радиус линзы не может быть больше радиуса кривизны ее поверхности, следовательно, $\delta < 1$. 
@@ -110,30 +110,31 @@
 Однако есть ещё одно условие, ограничивающее $\delta$ сверху. Это эффект полного внутреннего отражения. Действительно, $\sin \beta$ не может быть больше единицы, следовательно, $\sin \alpha < \sfrac{1}{n}$, а значит, $\delta < \sfrac{1}{n}$. Для стекла, коэффициент преломления которого $n \approx 1.5$, имеем, $\delta \in [0, \sfrac{2}{3})$.
 
 \begin{wrapfigure}{r}{0.5\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			height	=	4.5cm,
-			width	=	6cm,
-			xlabel	=	{$\lambda$, мкм},
-			ylabel	=	{$x(\lambda)$},
-%			ylabel shift	= -1 cm,
-			xmin = 0.3,
-			xmax = 2.5,
-			ymin = 1.8,
-			ymax = 2.1,
-			]
-			
-			\addplot[smooth, domain=0.3:2.5] table[x=l, y=x] {data/crown-dispersion.txt};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:crown-dispersion-x}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{crown-dispersion-x}
+    \begin{tikzpicture}
+        \begin{axis}[
+            height    =    4.5cm,
+            width    =    6cm,
+            xlabel    =    {$\lambda$, мкм},
+            ylabel    =    {$x(\lambda)$},
+%            ylabel shift    = -1 cm,
+            xmin = 0.3,
+            xmax = 2.5,
+            ymin = 1.8,
+            ymax = 2.1,
+            ]
+
+            \addplot[smooth, domain=0.3:2.5] table[x=l, y=x] {data/crown-dispersion.txt};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:crown-dispersion-x}
 \end{wrapfigure}
 Как будет показано ниже, во избежании проявления \imp{сферической аберрации}, используют линзы с маленьким относительным отверстием ($\forall \ll 1$). Следовательно, и $\delta \ll 1$, возьмем для примера значение $\delta = 0.1$. Для него, очевидно, можно использовать приближение для $x$, поэтому выражение для $x$ принимает вид:
 \begin{equation*}
-	x(\lambda)|_{\delta = 0.1} = \frac{1}{n-1} - \frac{0.01 n^2}{2(n-1)}.
+    x(\lambda)|_{\delta = 0.1} = \frac{1}{n-1} - \frac{0.01 n^2}{2(n-1)}.
 \end{equation*}
 Как видно из графика данной зависимости (см.~Рис.\,\ref{pic:crown-dispersion-x}), для оптического диапазона $x(\lambda)$ принимает значения от примерно 1.85 для коротковолновой (фиолетовой) части до примерно 1.95 для красного цвета.
 
@@ -143,43 +144,44 @@
 В оптических системах, содержащих сферические поверхности (линзы, зеркала) может наблюдаться \imp{сферическая аберрация}. Суть такой аберрации состоит в том, что лучи, параллельные оптической оси, идущие на разном расстоянии от неё, собираются в разных её точках. Это приводит к размытию изображения точечных источников.
 
 \begin{wrapfigure}[12]{r}{0.55\tw}
-	\centering
-	\vspace{-.5pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			height	=	5cm,
-			width	=	6.5cm,
-			xlabel	=	{$\delta$},
-			ylabel	=	{$x(\delta)/R$},
-%			ylabel shift	= -1.1 cm,
-			extra x ticks ={0.667},
-			extra x tick labels={$\frac{1}{n}$},
-			xmin=-.05,
-			xmax=0.72,
-			ymin=-.25,
-			ymax=2.25,
-			legend cell align=left,
-			legend style={
-			     draw=none,
-			     fill=none,
-			     font=\scriptsize,
-			     at={(axis cs:0, 0.1)}, 
-			     anchor=south west,
-			     row sep=.5pc,
-			},
-		]
-			\addplot[smooth, gray] table[x=d, y=simple] {data/shere-aberrations-lens.txt};
-			\addplot[smooth] table[x=d, y=x] {data/shere-aberrations-lens.txt};
-			\addplot[dashes] coordinates { (0.667, -10) (0.667, 10)};
-			\legend{
-			     $\left. \dfrac{x(\delta)}{R} \right|_{\delta \ll 1}$,
-			     $\dfrac{x(\delta)}{R}$,
-			     $\delta = \left.\dfrac{1}{n}\right|_{n=3/2}$,
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:sphere-aberrations-lens-plot}
+    \centering
+    \vspace{-.5pc}
+    \tikzsetnextfilename{sphere-aberrations-lens-plot}
+    \begin{tikzpicture}
+        \begin{axis}[
+            height    =    5cm,
+            width    =    6.5cm,
+            xlabel    =    {$\delta$},
+            ylabel    =    {$x(\delta)/R$},
+%            ylabel shift    = -1.1 cm,
+            extra x ticks ={0.667},
+            extra x tick labels={$\frac{1}{n}$},
+            xmin=-.05,
+            xmax=0.72,
+            ymin=-.25,
+            ymax=2.25,
+            legend cell align=left,
+            legend style={
+                 draw=none,
+                 fill=none,
+                 font=\scriptsize,
+                 at={(axis cs:0, 0.1)},
+                 anchor=south west,
+                 row sep=.5pc,
+            },
+        ]
+            \addplot[smooth, gray] table[x=d, y=simple] {data/shere-aberrations-lens.txt};
+            \addplot[smooth] table[x=d, y=x] {data/shere-aberrations-lens.txt};
+            \addplot[dashes] coordinates { (0.667, -10) (0.667, 10)};
+            \legend{
+                 $\left. \dfrac{x(\delta)}{R} \right|_{\delta \ll 1}$,
+                 $\dfrac{x(\delta)}{R}$,
+                 $\delta = \left.\dfrac{1}{n}\right|_{n=3/2}$,
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:sphere-aberrations-lens-plot}
 \end{wrapfigure}
 Покажем наличие сферической аберрации для плосковыпуклой линзы. Для этого рассмотрим полученное выше выражение \eqref{eq:optics-aberr-x(d)} и его приближение при $\delta \ll 1$. Зафиксируем в них $n=3/2$~--- характерное значение показателя преломления для стекла. Графики получаемых при этом зависимостей представлены на Рис.\,\ref{pic:sphere-aberrations-lens-plot}. Как видно из данных графиков, сферические аберрации проявляются уже на малых расстояниях от оптической оси.
 
@@ -187,96 +189,97 @@
 
 При отсутствии сферической аберрации фокусное расстояние плосковыпуклового объектива $F = R/(n-1) = 2R$. Максимальное значение~$\delta$, для объектива, достигается для лучей, проходящих через край объектива. Следовательно, $\delta \leqslant D/(2R)$. Теперь, используя приближение, можно записать выражение для требуемого $\Delta x$, чтобы найти необходимое для этого относительное отверситие $\forall$:
 \begin{gather*}
-	\Delta x = F - x(\delta) = F - x\left( \frac{D}{2R} \right),\\
-	\Delta x = F - R\left( 2 - \frac{D^2}{4R^2} \cdot \frac{9}{4} \right),\\
-	\Delta x = \frac{9D^2}{16R} = \frac{9D^2}{8F} = \frac{9}{8} D \forall;\\
-	\therefore \forall = \frac{\Delta x \cdot 8}{9D} = 0.019 \approx \frac{1}{50}.
+    \Delta x = F - x(\delta) = F - x\left( \frac{D}{2R} \right),\\
+    \Delta x = F - R\left( 2 - \frac{D^2}{4R^2} \cdot \frac{9}{4} \right),\\
+    \Delta x = \frac{9D^2}{16R} = \frac{9D^2}{8F} = \frac{9}{8} D \forall;\\
+    \therefore \forall = \frac{\Delta x \cdot 8}{9D} = 0.019 \approx \frac{1}{50}.
 \end{gather*}
 
 \begin{wrapfigure}[9]{r}{0.5\tw}
-	\centering
-	\vspace{-.8pc}
-	\begin{tikzpicture}
-		\footnotesize
-		
-		\draw [decoration={snake, segment length=.7mm, amplitude=0.2mm}, decorate] (1.35, 1) arc(-31:15:0.26);
-		\draw (.2, 1.135) arc(180:209:0.94);
-		\draw (-2.18, 0) arc(0:15:0.94);
-		
-		\fill [lightgray] (1.5, -1.5) -- (1.5, 1.5) -- (1, 1.5) arc(20:-20:4.386) -- (1.5, -1.5);
-		
-		\draw [thick] (1, -1.5) arc(-20:20:4.386);
-		\draw [semithick, dash pattern={on 5pt off 2pt on .5pt off 2pt}] (-3.8, 0) -- (1.7, 0);
-		
-		\draw [dashes] (-3.12, 0) -- (1.71, 1.29);
-		
-		\draw [semithick] (-3.8, 1.135) -- (1.12, 1.135) -- (-.85, 0);
-		\draw [-latex] (-3.5, 1.135)-- (-1, 1.135);
-		\draw [-latex] (1.12, 1.135) -- (-.06, 0.45);
-		
-		\draw [latex-latex] (-3.5, 0) -- (-3.5, 1.135);
-		\draw [latex-latex] (-.85, -1.3) -- (1.27, -1.3);
-		
-		\draw (1.27, 0) -- (1.27, -1.5);
-		\draw (-.85, 0) -- (-.85, -1.5);
-		
-		\draw (-3.5, 0.56) node[anchor=east] {$d$};
-		\draw (-0.85, 0) node[anchor=north east] {$F$};
-		\draw (-3.12, 0) node[anchor=south] {$C$};
-		\draw (-1.2, 0.5) node[anchor=south] {$R$};
-		\draw (0.27, -1.3) node[anchor=south] {$x_F(d)$};
-		
-		\draw (.2, 1) node[anchor=east] {$\alpha$};
-		\draw (-2.2, .15) node[anchor=west] {$\alpha$};
-		\draw (.3, .7) node[anchor=east] {$\alpha$};
-		
-		\draw [fill=white] (-0.85, 0) circle (.03);
-		\draw [fill=white] (-3.12, 0) circle (.03);
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:sphere-aberrations-mirrow}
+    \centering
+    \vspace{-.8pc}
+    \tikzsetnextfilename{spherical-aberration-mirrow-scheme}
+    \begin{tikzpicture}
+        \footnotesize
+
+        \draw [decoration={snake, segment length=.7mm, amplitude=0.2mm}, decorate] (1.35, 1) arc(-31:15:0.26);
+        \draw (.2, 1.135) arc(180:209:0.94);
+        \draw (-2.18, 0) arc(0:15:0.94);
+
+        \fill [lightgray] (1.5, -1.5) -- (1.5, 1.5) -- (1, 1.5) arc(20:-20:4.386) -- (1.5, -1.5);
+
+        \draw [thick] (1, -1.5) arc(-20:20:4.386);
+        \draw [semithick, dash pattern={on 5pt off 2pt on .5pt off 2pt}] (-3.8, 0) -- (1.7, 0);
+
+        \draw [dashes] (-3.12, 0) -- (1.71, 1.29);
+
+        \draw [semithick] (-3.8, 1.135) -- (1.12, 1.135) -- (-.85, 0);
+        \draw [-latex] (-3.5, 1.135)-- (-1, 1.135);
+        \draw [-latex] (1.12, 1.135) -- (-.06, 0.45);
+
+        \draw [latex-latex] (-3.5, 0) -- (-3.5, 1.135);
+        \draw [latex-latex] (-.85, -1.3) -- (1.27, -1.3);
+
+        \draw (1.27, 0) -- (1.27, -1.5);
+        \draw (-.85, 0) -- (-.85, -1.5);
+
+        \draw (-3.5, 0.56) node[anchor=east] {$d$};
+        \draw (-0.85, 0) node[anchor=north east] {$F$};
+        \draw (-3.12, 0) node[anchor=south] {$C$};
+        \draw (-1.2, 0.5) node[anchor=south] {$R$};
+        \draw (0.27, -1.3) node[anchor=south] {$x_F(d)$};
+
+        \draw (.2, 1) node[anchor=east] {$\alpha$};
+        \draw (-2.2, .15) node[anchor=west] {$\alpha$};
+        \draw (.3, .7) node[anchor=east] {$\alpha$};
+
+        \draw [fill=white] (-0.85, 0) circle (.03);
+        \draw [fill=white] (-3.12, 0) circle (.03);
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:sphere-aberrations-mirrow}
 \end{wrapfigure}
 Найдем теперь величину аберрации сферического зеркала.\linebreak Пусть $R$~--- радиус кривизны зеркала. Рассмотрим луч, идущий параллельно оптической оси зеркала на расстоянии $d$ от неё. Он падает на зеркало под углом $\alpha$, где $\sin \alpha = d/R$. В силу закона отражения: угол падения равен углу отражения, то есть угол отражения также равен $\alpha$. Кроме того, угол между нормалью к зеркалу в точке отражения и оптической осью зеркала тоже равен $\alpha$, как вертикальный. Следовательно, треугольник {\slshape центр кривизны зеркала ($C$) -- точка отражения ($A$) -- точка пересечения отраженного луча с оптической осью (F)} является равнобедренным. Значит расстояние $x_F(d)$ от центра зеркала до <<фокуса>> $F$ можно найти как
 \begin{gather*}
-	x_F(d) = R - \frac{R}{2} \cdot \frac{1}{\cos\alpha} = R - \frac{R}{2\sqrt{1 - \sin^2 \alpha}}  = R  - \frac{R}{2\sqrt{1 - \dfrac{d^2}{R^2}}};\\
-	\left. \frac{x_F(d)}{R} \right|_{d \ll R} \simeq  1  - \frac{1}{2\left(1 - \dfrac{d^2}{2R^2} \right)} \simeq  1 - \frac{1}{2}\left(1 + \dfrac{d^2}{2R^2} \right)  = \frac{1}{2} -  \dfrac{d^2}{4R^2}.
+    x_F(d) = R - \frac{R}{2} \cdot \frac{1}{\cos\alpha} = R - \frac{R}{2\sqrt{1 - \sin^2 \alpha}}  = R  - \frac{R}{2\sqrt{1 - \dfrac{d^2}{R^2}}};\\
+    \left. \frac{x_F(d)}{R} \right|_{d \ll R} \simeq  1  - \frac{1}{2\left(1 - \dfrac{d^2}{2R^2} \right)} \simeq  1 - \frac{1}{2}\left(1 + \dfrac{d^2}{2R^2} \right)  = \frac{1}{2} -  \dfrac{d^2}{4R^2}.
 \end{gather*}
 \begin{wrapfigure}[12]{r}{0.55\tw}
-	\centering
-	\vspace{-.5pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			height	=	5cm,
-			width	=	6.5cm,
-			xlabel	=	{$d/R$},
-			ylabel	=	{$x(d)/R$},
-%			ylabel shift	= -1.1 cm,
-			extra x ticks ={sqrt(2)/2},
-			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-			xmin=-.05,
-			xmax=0.85,
-			ymin=.15,
-			ymax=0.55,
-			legend cell align=left,
-			legend style={
-			draw=none,
-			fill=none,
-			font=\scriptsize,
-			at={(axis cs:0, .2)}, anchor=south west,
-			row sep=.5pc,
-			},
-			]
-			\addplot[smooth, gray] table[x=d, y=simple] {data/sphere-aberrations-mirrow.txt};
-			\addplot[smooth] table[x=d, y=x] {data/sphere-aberrations-mirrow.txt};
-			\addplot[dashes] coordinates { (sqrt(2)/2, -10) (sqrt(2)/2, 10)};
-			\legend{
-			$\left. \dfrac{x_F(d)}{R} \right|_{d \ll R}$,
-			$\dfrac{x_F(d)}{R}$,
-			$ \dfrac{d}{R} = \dfrac{\sqrt{2}}{2}$,
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
+    \centering
+    \vspace{-.5pc}
+    \tikzsetnextfilename{spherical-aberration-mirrow-result}
+    \begin{tikzpicture}
+        \begin{axis}[
+            height  =   5cm,
+            width   =   6.5cm,
+            xlabel  =   {$d/R$},
+            ylabel  =   {$x(d)/R$},
+            extra x ticks = {sqrt(2)/2},
+            extra x tick labels = {$\frac{\sqrt{2}}{2}$},
+            xmin    =   -.05,
+            xmax    =   0.85,
+            ymin    =   .15,
+            ymax    =   0.55,
+            legend cell align = left,
+            legend style = {
+                draw    =   none,
+                fill    =   none,
+                font    =   \scriptsize,
+                at      =   {(axis cs:0, .2)}, anchor=south west,
+                row sep =   .5pc,
+            },
+        ]
+            \addplot[smooth, gray] table[x=d, y=simple] {data/sphere-aberrations-mirrow.txt};
+            \addplot[smooth] table[x=d, y=x] {data/sphere-aberrations-mirrow.txt};
+            \addplot[dashes] coordinates { (sqrt(2)/2, -10) (sqrt(2)/2, 10)};
+            \legend{
+                $\left. \dfrac{x_F(d)}{R} \right|_{d \ll R}$,
+                $\dfrac{x_F(d)}{R}$,
+                $ \dfrac{d}{R} = \dfrac{\sqrt{2}}{2}$,
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
 \end{wrapfigure}
 Отсюда получается, что фокус сферического зеркала находится ровно между центром зеркала и центром его кривизны. Однако в силу сферической аберрации возникает ошибка фокусировки порядка $d^2/R^2$, которая размывает изображение. Причём при $d > R/\sqrt{2}$ лучи не <<разворачиваются>>, следовательно, не вносят вклада в изображение, так как приходят на приемник с другой стороны.
 
@@ -287,32 +290,30 @@
 \paragraph{Астигматизм} Ещё один вид аберраций оптических систем состоящий в разности радиусов кривизны оптических элементов в двух перпендикулярных направлениях. Такое возможно, например, в случае большой массы линзы или зеркала. Когда такой оптический элемент долгое время находится в вертикальном положении (оптическая ось горизонтальна), он деформируется: вдоль горизонтали радиус кривизны сохраняется, а по вертикали из-за сжатия уменьшается.
 
 \begin{wrapfigure}[7]{r}{0.4\tw}
-	\centering
-	\vspace{-1pc}
-	\includegraphics[width=0.4\tw]{img/astigmatism.pdf}
-	\caption{}
-	\label{pic:astigmatism}
+    \tikzsetnextfilename{astigmatism}
+    \centering
+    \vspace{-1pc}
+    \includegraphics[width=0.4\tw]{img/astigmatism.pdf}
+    \caption{}
+    \label{pic:astigmatism}
 \end{wrapfigure}
 Астигматизм проявляется в том, что пучок лучей, исходящих из какой-либо точки, после прохождения через оптическую систему собирается не в одной точке, а на двух взаимно перпендикулярных отрезках, расположенных на некотором расстоянии друг от друга. Изображения промежуточных сечений имеют форму эллипсов.
 
 \paragraph{Кома}
 
 \begin{wrapfigure}[13]{l}{0.4\tw}
-	\centering
-	\vspace{-1pc}
-	\includegraphics[width=0.4\tw]{optical-aberrations-coma.jpg}
-	\caption{Изображение <<хвоста>> Большой Медведицы, полученное с помощью широкоугольного объектива, страдающего ярко выраженной комой.}
-	\label{pic:optics-aberrations-coma}
+    \centering
+    \vspace{-1pc}
+    \includegraphics[width=0.4\tw]{optical-aberrations-coma.jpg}
+    \caption{Изображение <<хвоста>> Большой Медведицы, полученное с помощью широкоугольного объектива, страдающего ярко выраженной комой.}
+    \label{pic:optics-aberrations-coma}
 \end{wrapfigure}
 Один из видов аберраций оптических систем~--- аберрация широкого пучка световых лучей, проходящий наклонно к оптической оси системы, как и \imp{сферическая аберрация}, обусловлена неодинаковым преломлением световых лучей различными участками линзовых компонент системы. Кома приводит к нарушению центрированности светового пучка. В результате такой аберрации изображение точки имеет вид несимметричного пятна (см.~Рис.\,\ref{pic:optics-aberrations-coma}), по форме напоминающего запятую (англ. {\itshape comma}).
 
 \begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-    
-    
-    
-            
+    \centering
+    \tikzsetnextfilename{thick-lens}
+    \begin{tikzpicture}
         \tkzInit[
             xmax=5,
             xmin=-2.7,
@@ -329,8 +330,6 @@
         \def\r{4.5}
         \def\d{2}
         
-        
-        
         \def\earthR{0.25}
         \def\moonR{0.7}
         \def\sunR{1}
@@ -338,12 +337,9 @@
         \tkzDefPoint(0,0){O}
         \tkzDefPoint(-\d,0){C}
     
-        
         \tkzDefShiftPoint[O](0,\width){A}
         \tkzDefShiftPoint[O](0,-\width){B}
         \tkzDefShiftPoint[C](\r,0){R}
-        
-        
         
         \tkzDefPointBy[rotation = center A angle -90 + \alph](O)
         \tkzGetPoint{A'}
@@ -355,7 +351,6 @@
         \def\aa{asin(\n * sin(\a - \bet))}
         \tkzDefPointBy[rotation = center A'' angle \bet - \a + 180 -\aa](A)
         \tkzGetPoint{A'''}
-        
 
         \tkzDefPointBy[rotation = center B angle 90 + \alph](O) 
         \tkzGetPoint{B'}
@@ -367,9 +362,7 @@
         \def\bb{asin(\n * sin(\b + \bet))}
         \tkzDefPointBy[rotation = center B'' angle -\bet - \b + 180 + \bb](B)
         \tkzGetPoint{B'''}
-        
-        
-%        
+
         \tkzInterLL(A'',A''')(B'',B''') \tkzGetPoint{I}
         \tkzDefPointBy[homothety=center A'' ratio 1.7](I) \tkzGetPoint{I'}
         \tkzDefPointBy[homothety=center C ratio 3](O) \tkzGetPoint{C'}
@@ -461,124 +454,119 @@
         \tkzLabelSegment[right](C',A'){$d$}
         
     \end{tikzpicture}
-	\caption{}
-	\label{pic:optical-aberrations-coma1}
+    \caption{}
+    \label{pic:optical-aberrations-coma1}
 \end{figure}
 
 Найдем положение фокуса светового пучка, идущего под углом $\alpha$ к оптической оси. Для этого рассмотрим два луча из него, вместе с оптической осью лежащих в одной плоскости, таких, что точки преломления их передней (плоской) поверхностью линзы $A_1$ и $A_2$ лежат на расстоянии $d$ от оптической оси линзы (см.~Рис.\,\ref{pic:optical-aberrations-coma1}).
 
 Пусть толщина линзы~--- расстояние вдоль оптической оси от вершины выпуклой поверхности, до центра плоской поверхности $O$, равна $h$. А радиус кривизны выпуклой поверхности равен $R$. Тогда расстояние $l$ от центра кривизны задней (выпуклой) поверхности линзы до точек $A_1$ и $A_2$ можно найти из теоремы Пифагора для треугольника $\triangle COA_{1,2}$:
 \begin{equation*}
-	l = \sqrt{(R - h)^2 + d^2}.
+    l = \sqrt{(R - h)^2 + d^2}.
 \end{equation*}
 Равные углы $\angle A_{1,2} C O$ обозначим за $\xi$, где
 \begin{equation*}
-	\xi = \arcsin \frac{d}{l}.
+    \xi = \arcsin \frac{d}{l}.
 \end{equation*}
 
 Угол падения рассматриваемых лучей на плоскую поверхность линзы равен $\alpha$, следовательно, по закону Снеллиуса угол преломления $\beta$ определяется выражением
 \begin{equation*}
-	\beta = \arcsin \frac{\sin \alpha}{n},
+    \beta = \arcsin \frac{\sin \alpha}{n},
 \end{equation*}
 где $n$~--- показатель преломления линзы. Обозначим углы падения верхнего и нижнего луча на заднюю поверхность линзы $\gamma_{1,2}$ соответственно. А точки преломления лучей задней поверхностью соответственно $B_{1,2}$. Запишем теорему синусов для треугольников $\triangle C A_{1,2} B_{1,2}$, чтобы найти углы $\gamma_{1,2}$ соответственно:
 \begin{gather*}
-	\frac{R}{\sin (180^\circ - (\xi \mp \beta))} = \frac{l}{\sin \gamma_{1,2}},\\
-	\therefore \gamma_1 = \arcsin \frac{l\sin (\xi \mp \beta)}{R}.
+    \frac{R}{\sin (180^\circ - (\xi \mp \beta))} = \frac{l}{\sin \gamma_{1,2}},\\
+    \therefore \gamma_1 = \arcsin \frac{l\sin (\xi \mp \beta)}{R}.
 \end{gather*}
 
 Чтобы найти координаты точек $B_{1,2}$, определим сначала углы $ \eta_{1,2} \equiv \angle B_{1,2} C O$:
 \begin{equation*}
-	\eta_{1,2} = \xi - \Big[180^\circ - \gamma_{1,2} - \big(180^\circ - \left(\xi \mp \beta\right)\big)\Big] = \gamma_{1,2} \pm \beta.
+    \eta_{1,2} = \xi - \Big[180^\circ - \gamma_{1,2} - \big(180^\circ - \left(\xi \mp \beta\right)\big)\Big] = \gamma_{1,2} \pm \beta.
 \end{equation*}
 
 Введем теперь декартову систему координат, за начало отсчета примем центр кривизны выпуклой поверхности линзы, ось $x$ направим вдоль оптической оси вправо, ось $y$ перпендикулярно вверх. В такой системе координаты точки $B_{1,2}$ задаются векторами
 \begin{equation*}
-	\begin{pmatrix}
-		x_{1,2}\\
-		y_{1,2}
-	\end{pmatrix}
-	= R
-	\begin{pmatrix}
-		\cos \eta_{1,2}\\
-		\pm \sin \eta_{1,2}
-	\end{pmatrix}.
+    \begin{pmatrix}
+        x_{1,2}\\
+        y_{1,2}
+    \end{pmatrix}
+    = R
+    \begin{pmatrix}
+        \cos \eta_{1,2}\\
+        \pm \sin \eta_{1,2}
+    \end{pmatrix}.
 \end{equation*}
 Остается воспользоваться законом Снеллиуса для определения углов $\delta_{1,2}$:
 \begin{equation*}
-	\delta_{1,2} = \arcsin \left( n \sin \gamma_{1,2} \right).
+    \delta_{1,2} = \arcsin \left( n \sin \gamma_{1,2} \right).
 \end{equation*}
 
 Поиск координат  $(x,y)$ точки пересечения лучей, вышедших из линзы начнём с поиска абсциссы. Можно заметить, что она должно удовлетворять уравнению
 \begin{gather*}
-	(x - x_1) \tg \omega_1 + (x - x_2) \tg \omega_2 = y_1 - y_2,\\
-	\therefore x = \frac{y_1 - y_2 + x_1\tg \omega_1 + x_2 \tg \omega_2}{\tg \omega_1 + \tg \omega_2};
+    (x - x_1) \tg \omega_1 + (x - x_2) \tg \omega_2 = y_1 - y_2,\\
+    \therefore x = \frac{y_1 - y_2 + x_1\tg \omega_1 + x_2 \tg \omega_2}{\tg \omega_1 + \tg \omega_2};
 \end{gather*}
 где $\omega_1 = \delta_1 - \eta_1$, а $\omega_2 = \delta_2 - \eta_2$. Теперь не сложно найти координату $y$ <<фокуса>>:
 \begin{equation*}
-	y = y_1 - (x - x_1) \tg \omega_1 = y_2 + (x - x_2) \tg \omega_2.
+    y = y_1 - (x - x_1) \tg \omega_1 = y_2 + (x - x_2) \tg \omega_2.
 \end{equation*}
 
 Продемонстрируем полученные зависимости (см.~Рис.\,\ref{pic:coma}), при следующих параметрах: $R = 1$, $h = 0.3$, $\alpha = 50^\circ$, $n=1.5$.
 
 \begin{figure}[h]
-	\begin{subcaptionblock}{0.49\tw}
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	5cm,
-				width	=	6cm,
-				xlabel	=	{$d$},
-				ylabel	=	{},
-				ylabel shift	= 2mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=0,
-				xmax=0.4,
-				ymin=.6,
-				ymax=2,
-				legend cell align=left,
-				legend style={
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:.4, 2)}, anchor=north east,
-%				row sep=.5pc,
-				},
-				]
-				\addplot[smooth, gray] table[x=d, y=x] {data/coma.txt};
-				\addplot[smooth] table[x=d, y=y] {data/coma.txt};
-				\addplot[dashes] coordinates { (0.359606, -10) (0.359606, 1.6)};
-				\legend{
-				$x(d)$,
-				$y(d)$,
-%				$d:~\gamma_2(d)=\arcsin\frac{1}{n}$ 
-				}
-			\end{axis}
-		\end{tikzpicture}
-%		\caption{}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.49\tw}
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	5cm,
-				width	=	6cm,
-				xlabel	=	{$x$},
-				ylabel	=	{$y$},
-%				ylabel shift	= 2mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=1.2,
-				xmax=2,
-				ymin=.6,
-				ymax=1.1,
-				]
-				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/coma.txt};
-			\end{axis}
-		\end{tikzpicture}
-%		\caption{}
-	\end{subcaptionblock}
-	\caption{}
-	\label{pic:coma}
+    \begin{subcaptionblock}{0.49\tw}
+    \tikzsetnextfilename{thick-lens-coma-1}
+        \begin{tikzpicture}
+            \begin{axis} [
+                height  =   5cm,
+                width   =   6cm,
+                xlabel  =   {$d$},
+                ylabel  =   {},
+                ylabel shift = 2mm,
+                xmin    =   0,
+                xmax    =   0.4,
+                ymin    =   .6,
+                ymax    =   2,
+                legend cell align = left,
+                legend style = {
+                    draw    =   none,
+                    fill    =   none,
+                    font    =   \scriptsize,
+                    at      =   {(axis cs:.4, 2)}, anchor=north east,
+                },
+            ]
+                \addplot[smooth, gray] table[x=d, y=x] {data/coma.txt};
+                \addplot[smooth] table[x=d, y=y] {data/coma.txt};
+                \addplot[dashes] coordinates { (0.359606, -10) (0.359606, 1.6)};
+                \legend{
+                    $x(d)$,
+                    $y(d)$,
+                }
+            \end{axis}
+        \end{tikzpicture}
+%        \caption{}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.49\tw}
+        \tikzsetnextfilename{thick-lens-coma-2}
+        \begin{tikzpicture}
+            \begin{axis} [
+                height  =   5cm,
+                width   =   6cm,
+                xlabel  =   {$x$},
+                ylabel  =   {$y$},
+                xmin    =   1.2,
+                xmax    =   2,
+                ymin    =   .6,
+                ymax    =   1.1,
+            ]
+                \addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/coma.txt};
+            \end{axis}
+        \end{tikzpicture}
+%        \caption{}
+    \end{subcaptionblock}
+    \caption{}
+    \label{pic:coma}
 \end{figure}
 
 Понятно, что смещение положение фокуса вдоль оси $x$ обусловлено \imp{сферической аберрацией}, однако смещение вдоль ось $y$ есть проявление \imp{аберрации кома}.
@@ -587,143 +575,127 @@
 Для тонкой линзы выполняется правило, что лучи, проходящие через оптический центр не преломляются. А световые пучки, идущие под различными углами фокусируются на фокальной плоскости, перпендикулярной оптической оси. Отсюда следует, что параллельные пучки, идущие под углом $\alpha$ к оптической оси и проходящие через оптический центр тонкой линзы, фокусируются на расстоянии $F \tg \alpha$ от оптической оси. 
 
 \begin{figure}[h]
-\begin{subcaptionblock}{0.49\tw}
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	5cm,
-				width	=	6cm,
-				xlabel	=	{$x$},
-				ylabel	=	{$y$},
-%				ylabel shift	= 3mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=1.25,
-				xmax=3.25,
-				ymin=-.2,
-				ymax=1.2,
-				]
-				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-xy.txt};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{}
-		\label{pic:pitzval}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.49\tw}
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	5cm,
-				width	=	6cm,
-				xlabel	=	{$\alpha$},
-				ylabel	=	{$y(\alpha)$},
-%				ylabel shift	= 1mm,
-				xmin=0,
-				xmax=90,
-				ymin=0,
-				ymax=10,
-				legend cell align=left,
-				legend style={
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:5, 9)}, anchor=north west,
-				},
-				]
-				\addplot[smooth, gray] table[x=alpha, y=tan] {data/distorsion-y.txt};
-				\addplot[smooth] table[x=alpha, y=y] {data/distorsion-y.txt};
-				\legend{
-				$2R\tg \alpha$,
-				$y(\alpha)$
-				}
-			\end{axis}
-		\end{tikzpicture}
-		\caption{}
-		\label{pic:distorsion-y}
-	\end{subcaptionblock}
-	\caption{}
-	
+    \begin{subcaptionblock}{0.49\tw}
+        \tikzsetnextfilename{distorsion-xy}
+        \begin{tikzpicture}
+            \begin{axis}
+                [
+                height    =    5cm,
+                width    =    6cm,
+                xlabel    =    {$x$},
+                ylabel    =    {$y$},
+                xmin=1.25,
+                xmax=3.25,
+                ymin=-.2,
+                ymax=1.2,
+                ]
+                \addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-xy.txt};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{}
+        \label{pic:pitzval}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.49\tw}
+        \tikzsetnextfilename{distorsion-y}
+        \begin{tikzpicture}
+            \begin{axis} [
+                height    =    5cm,
+                width    =    6cm,
+                xlabel    =    {$\alpha$},
+                ylabel    =    {$y(\alpha)$},
+                xmin    =    0,
+                xmax    =    90,
+                ymin    =    0,
+                ymax    =    10,
+                legend cell align = left,
+                legend style = {
+                    draw    =    none,
+                    fill    =    none,
+                    font    =    \scriptsize,
+                    at        =    {(axis cs:5, 9)}, anchor=north west,
+                },
+            ]
+                \addplot[smooth, gray] table[x=alpha, y=tan] {data/distorsion-y.txt};
+                \addplot[smooth] table[x=alpha, y=y] {data/distorsion-y.txt};
+                \legend{
+                    $2R\tg \alpha$,
+                    $y(\alpha)$
+                }
+            \end{axis}
+        \end{tikzpicture}
+        \caption{}
+        \label{pic:distorsion-y}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}
-
 
 Легко догадаться, что для толстой линзы это не выполняется. На рисунке Рис.\,\ref{pic:pitzval} показаны координаты точек фокусировки бесконечно узких пучков, падающих под углом $\alpha \in [0^\circ, 90^\circ]$ к оптической оси на центр передней поверхности рассмотренной выше плосковыпуклой линзы: ($R = 1$, $h = 0.3$, $n=1.5$, шаг составляет $1^\circ$). Отсюда ясно, что фокальная <<плоскость>> является таковой только в очень узком диапазоне направлений вокруг оптической оси. В остальной области фокальная поверхность является выпуклой в сторону от линзы.
 
-  А на рисунке Рис.\,\ref{pic:distorsion-y} показана зависимость $y$-координаты точки фокуса от угла падения на линзу в сравнение с функцией $F \tg \alpha = 2R \tg \alpha$. Нелинейность данной зависимости от $R \tg \alpha$ проявляется в неравномерности увеличения изображения по полю зрения: чем дальше от центра, тем меньше увеличение. Такой эффект называется \term{дисторсией}, в данном случае~--- \imp{бочкообразной}, от схожести с видом деревянных бочек. Также возможна ситуация, когда $y(\alpha)$ растет быстрее $F \tg \alpha$, тогда дисторсия имеет противоположный знак и называется \imp{подушкообразной} (достаточно вспомнить, как выглядит плотно набитая подушка).
-  
-  \begin{figure}[h]
-  \centering
-\begin{subcaptionblock}{0.31\tw}
-	\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	4cm,
-				width	=	4cm,
-%				xlabel	=	{$x$},
-%				ylabel	=	{$y$},
-%				ylabel shift	= 3mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=-1.25,
-				xmax=1.25,
-				ymin=-1.25,
-				ymax=1.25,
-				hide axis
-				]
-				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-types.txt};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Без дисторсии}
-%		\label{pic:pitzval}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.31\tw}
-	\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	4cm,
-				width	=	4cm,
-%				xlabel	=	{$x$},
-%				ylabel	=	{$y$},
-%				ylabel shift	= 3mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=-1.25,
-				xmax=1.25,
-				ymin=-1.25,
-				ymax=1.25,
-				hide axis
-				]
-				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_barrel, y=y_barrel] {data/distorsion-types.txt};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Дисторсия <<бочка>>}
-%		\label{pic:pitzval}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.31\tw}
-	\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				height	=	4cm,
-				width	=	4cm,
-%				xlabel	=	{$x$},
-%				ylabel	=	{$y$},
-%				ylabel shift	= 3mm,
-				%			extra x ticks ={sqrt(2)/2},
-				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
-				xmin=-1.25,
-				xmax=1.25,
-				ymin=-1.25,
-				ymax=1.25,
-				hide axis
-				]
-				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_pillow, y=y_pillow] {data/distorsion-types.txt};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Дисторсия <<подушка>>}
-%		\label{pic:pitzval}
-	\end{subcaptionblock}
-	\caption{Виды дисторсии}
-	
+А на рисунке Рис.\,\ref{pic:distorsion-y} показана зависимость $y$-координаты точки фокуса от угла падения на линзу в сравнение с функцией $F \tg \alpha = 2R \tg \alpha$. Нелинейность данной зависимости от $R \tg \alpha$ проявляется в неравномерности увеличения изображения по полю зрения: чем дальше от центра, тем меньше увеличение. Такой эффект называется \term{дисторсией}, в данном случае~--- \imp{бочкообразной}, от схожести с видом деревянных бочек. Также возможна ситуация, когда $y(\alpha)$ растет быстрее $F \tg \alpha$, тогда дисторсия имеет противоположный знак и называется \imp{подушкообразной} (достаточно вспомнить, как выглядит плотно набитая подушка).
+
+\begin{figure}[h]
+    \centering
+    \begin{subcaptionblock}{0.31\tw}
+        \centering
+        \tikzsetnextfilename{distorsion-flat}
+        \begin{tikzpicture}
+            \begin{axis}[
+                height  =    4cm,
+                width      =    4cm,
+                xmin    =    -1.25,
+                xmax    =    1.25,
+                ymin    =    -1.25,
+                ymax    =    1.25,
+                hide axis
+            ]
+                \addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-types.txt};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Без дисторсии}
+        \label{pic:distorsion-flat}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.31\tw}
+        \centering
+        \tikzsetnextfilename{distorsion-barrel}
+        \begin{tikzpicture}
+            \begin{axis}[
+                height  =    4cm,
+                width      =    4cm,
+                xmin    =    -1.25,
+                xmax    =    1.25,
+                ymin    =    -1.25,
+                ymax    =    1.25,
+                hide axis
+            ]
+                \addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_barrel, y=y_barrel] {data/distorsion-types.txt};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Дисторсия <<бочка>>}
+        \label{pic:distorsion-barrel}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.31\tw}
+        \centering
+        \tikzsetnextfilename{distorsion-pillow}
+        \begin{tikzpicture}
+            \begin{axis}[
+                height    =    4cm,
+                width    =    4cm,
+                xmin    =    -1.25,
+                xmax    =    1.25,
+                ymin    =    -1.25,
+                ymax    =    1.25,
+                hide axis
+            ]
+                \addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_pillow, y=y_pillow] {data/distorsion-types.txt};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Дисторсия <<подушка>>}
+        \label{pic:distorsion-pillow}
+    \end{subcaptionblock}
+    \caption{Виды дисторсии}
 \end{figure}
 
 

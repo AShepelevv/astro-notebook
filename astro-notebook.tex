@@ -15,47 +15,47 @@
 
 %%% main
 \begin{document}
-    \setboolean{useLightPlotVersion}{true}
+    \setboolean{useLightPlotVersion}{false}
     
 %\includepdf[pages=-]{sys/empty-page.pdf}
 
     \input{sys/cover}
-	\input{sys/authors}
-	\setcounter{tocdepth}{2}
-	{
-		\small
-		\tableofcontents
-		\label{toc}
-	}
-	\renewcommand {\baselinestretch}{ 1.02 }
-	\newpage
-	\input{sys/geometrical-astronomy.tex}
-	\input{sys/celestial-mechanics.tex}
-	\input{sys/conic-sections.tex}
-	\input{sys/astrophysics.tex}
-	\input{sys/cosmology.tex}
-	\input{sys/optics.tex}
-	\input{sys/spherical-astronomy.tex}
-	\input{sys/objects.tex}
-	\input{sys/maths.tex}
-	\input{sys/practical-astronomy.tex}
-	\input{sys/tables.tex}
-%	
-%	{
-%		\small
-%		\renewcommand{\baselinestretch}{ 0.9 }
-%		\printindex
-%		\label{index}
-%		\renewcommand {\baselinestretch}{ 1.02 }
-%	}
-	
-	\newpage
-	{
+    \input{sys/authors}
+    \setcounter{tocdepth}{2}
+    {
+        \small
+        \tableofcontents
+        \label{toc}
+    }
+    \renewcommand {\baselinestretch}{ 1.02 }
+    \newpage
+    \input{sys/geometrical-astronomy.tex}
+    \input{sys/celestial-mechanics.tex}
+    \input{sys/conic-sections.tex}
+    \input{sys/astrophysics.tex}
+    \input{sys/cosmology.tex}
+    \input{sys/optics.tex}
+    \input{sys/spherical-astronomy.tex}
+    \input{sys/objects.tex}
+    \input{sys/maths.tex}
+    \input{sys/practical-astronomy.tex}
+    \input{sys/tables.tex}
+%
+%    {
+%        \small
+%        \renewcommand{\baselinestretch}{ 0.9 }
+%        \printindex
+%        \label{index}
+%        \renewcommand {\baselinestretch}{ 1.02 }
+%    }
+
+    \newpage
+    {
         \footnotesize
         \printbibtabular
-	}
+    }
 
 
-	
-	\input{sys/notes.tex}
+
+    \input{sys/notes.tex}
 \end{document}

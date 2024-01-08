@@ -1,10 +1,10 @@
 \subsection{Точки Лагранжа}
 
 \begin{wrapfigure}[12]{r}{0.5\tw}
-	\centering
-	\vspace{-1pc}
-	\tikzsetnextfilename{larg-points}
-	\begin{tikzpicture}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{larg-points}
+    \begin{tikzpicture}
         \def\d{3.5}
         \def\m{1}
         \def\M{3.5}
@@ -40,8 +40,8 @@
         
         \tkzDrawPoints(M, m, C, L1, L2, L3, L4, L5)        
     \end{tikzpicture}
-	\caption{Точки Лагранжа}
-	\label{pic:larg-points}
+    \caption{Точки Лагранжа}
+    \label{pic:larg-points}
 \end{wrapfigure}
 \term{Точки Лагранжа}~--- точки во вращающейся системе из двух массивных тел, в которых третье тело с пренебрежимо малой массой, не испытывающее воздействие никаких других сил, кроме гравитационных со стороны двух первых тел, может оставаться неподвижным относительно этих тел. В данных точках гравитационные силы, действующие на малое тело, уравновешиваются силами инерции.
 
@@ -59,10 +59,10 @@
 %\end{equation}
 
 \begin{wrapfigure}[4]{r}{0.45\tw}
-	\centering
-	\vspace{-.5pc}
-	\tikzsetnextfilename{larg-points-1-2}
-	\begin{tikzpicture}
+    \centering
+    \vspace{-.5pc}
+    \tikzsetnextfilename{larg-points-1-2}
+    \begin{tikzpicture}
         \def\R{4}
         \def\m{1}
         \def\M{5}
@@ -91,8 +91,8 @@
         
         \tkzDrawPoints(M, m, C, L)
     \end{tikzpicture}
-	\caption{Расположение точки $L_1$}
-	\label{pic:larg-points-1-2}
+    \caption{Расположение точки $L_1$}
+    \label{pic:larg-points-1-2}
 \end{wrapfigure}
 Получим выражения для расстояний от центра масс системы до точек Лагранжа. Проще всего это сделать для точек $L_1$ и $L_2$. Пусть $R$~--- расстояние между телами, $M_1$ и $M_2$~--- их массы. Будем искать расстояние~$r$ до точки $L_1$ от тела $M_2$.
 
@@ -100,40 +100,40 @@
 
 Запишем уравнение баланса сил, действующих на пробное тело в точке~$L_1$:
 \begin{equation}
-	\frac{GM_1 m}{(R - r)^2} = \frac{G M_2 m}{r^2} + m \omega^2 \left(R \cdot \frac{M_1}{M_1 + M_2} - r \right),
-	\label{eq:lagrange-1}
+    \frac{GM_1 m}{(R - r)^2} = \frac{G M_2 m}{r^2} + m \omega^2 \left(R \cdot \frac{M_1}{M_1 + M_2} - r \right),
+    \label{eq:lagrange-1}
 \end{equation}
 где $\omega$~--- угловая скорость вращения системы вокруг центра масс. Выразим её из обобщенного третьего закона Кеплера:
 \begin{equation*}
-	\frac{G \left(M_1 + M_2 \right)}{R^3} = \frac{4 \pi^2}{T^2} = \omega^2.
+    \frac{G \left(M_1 + M_2 \right)}{R^3} = \frac{4 \pi^2}{T^2} = \omega^2.
 \end{equation*}
 Подставим угловую скорость в \eqref{eq:lagrange-1}:
 \begin{gather*}
-	\frac{GM_1 m}{(R - r)^2} = \frac{G M_2 m}{r^2} + m \frac{G \left(M_1 + M_2 \right)}{R^3} \left(R \cdot \frac{M_1}{M_1 + M_2} - r \right),\\
-	\frac{M_1}{(R - r)^2} = \frac{M_2}{r^2} + \frac{M_1 + M_2}{R^3} \left(R \cdot\frac{M_1}{M_1 + M_2} - r \right),\\
-	\frac{M_1}{(R - r)^2} = \frac{M_2}{r^2} + \frac{M_1}{R^2} - \frac{\left(M_1 + M_2 \right)}{R^2} \cdot \frac{r}{R}.
+    \frac{GM_1 m}{(R - r)^2} = \frac{G M_2 m}{r^2} + m \frac{G \left(M_1 + M_2 \right)}{R^3} \left(R \cdot \frac{M_1}{M_1 + M_2} - r \right),\\
+    \frac{M_1}{(R - r)^2} = \frac{M_2}{r^2} + \frac{M_1 + M_2}{R^3} \left(R \cdot\frac{M_1}{M_1 + M_2} - r \right),\\
+    \frac{M_1}{(R - r)^2} = \frac{M_2}{r^2} + \frac{M_1}{R^2} - \frac{\left(M_1 + M_2 \right)}{R^2} \cdot \frac{r}{R}.
 \end{gather*}
 Рассмотрим случай $M_2 \ll M_1$, тогда $r \ll R$, следовательно
 \begin{gather*}
-	\frac{M_1}{R^2} \left(1 + \frac{2r}{R} + o\left(\frac{r}{R}\right) \right) = \frac{M_2}{r^2} + \frac{M_1}{R^2} - \frac{\left(M_1 + M_2 \right)}{R^2} \cdot \frac{r}{R},\\
-	\frac{M_1}{R^2} \left( 1 + \frac{2r}{R} - 1 + \frac{r}{R}  + o\left(\frac{r}{R}\right) \right) = M_2 \left( \frac{1}{r^2} - \frac{r}{R^3} \right), \\
-	\frac{M_1}{R^2} \left( \frac{3r}{R} + o\left(\frac{r}{R}\right) \right) =
-	% \frac{M_2}{r^2} \left( 1 - \frac{r^3}{R^3} \right) =
-	\frac{M_2}{r^2} \left( 1 +  o\left(\frac{r}{R}\right)  \right),\\
-	\frac{M_1}{R^2} \cdot \frac{3r}{R} \simeq \frac{M_2}{r^2} \quad \Rightarrow \quad r \simeq R \sqrt[3]{\frac{M_2}{3M_1}}.
+    \frac{M_1}{R^2} \left(1 + \frac{2r}{R} + o\left(\frac{r}{R}\right) \right) = \frac{M_2}{r^2} + \frac{M_1}{R^2} - \frac{\left(M_1 + M_2 \right)}{R^2} \cdot \frac{r}{R},\\
+    \frac{M_1}{R^2} \left( 1 + \frac{2r}{R} - 1 + \frac{r}{R}  + o\left(\frac{r}{R}\right) \right) = M_2 \left( \frac{1}{r^2} - \frac{r}{R^3} \right), \\
+    \frac{M_1}{R^2} \left( \frac{3r}{R} + o\left(\frac{r}{R}\right) \right) =
+    % \frac{M_2}{r^2} \left( 1 - \frac{r^3}{R^3} \right) =
+    \frac{M_2}{r^2} \left( 1 +  o\left(\frac{r}{R}\right)  \right),\\
+    \frac{M_1}{R^2} \cdot \frac{3r}{R} \simeq \frac{M_2}{r^2} \quad \Rightarrow \quad r \simeq R \sqrt[3]{\frac{M_2}{3M_1}}.
 \end{gather*}
 Заметим, что уравнение для точки $L_2$ с точностью до знака перед $r$ совпадает с \eqref{eq:lagrange-1}. Следовательно, расстояние от центра масс системы до точек $L_1$ и $L_2$ определяется, как
 \begin{equation}
-	R_{1,2} = R \left( 1 \mp \sqrt[3]{\frac{M_2}{3M_1}} \right).
-	\label{eq:lagrange-12}
+    R_{1,2} = R \left( 1 \mp \sqrt[3]{\frac{M_2}{3M_1}} \right).
+    \label{eq:lagrange-12}
 \end{equation}
 
 
 \begin{wrapfigure}[4]{r}{0.4\tw}
-	\centering
-	\vspace{-1pc}
-	\tikzsetnextfilename{larg-points-3}
-	\begin{tikzpicture}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{larg-points-3}
+    \begin{tikzpicture}
         \def\d{4}
         \def\m{1}
         \def\M{2.7}
@@ -163,25 +163,25 @@
         
         \tkzDrawPoints(M, m, C, L)
     \end{tikzpicture}
-	\caption{Расположение точки $L_3$}
-	\label{pic:larg-points-3}
+    \caption{Расположение точки $L_3$}
+    \label{pic:larg-points-3}
 \end{wrapfigure}
 Найдем теперь расстояние $R_3$ от центра масс до точки $L_3$. Пусть точка $L_3$ находится на расстоянии $R - r$ от тела с массой $M_1$. Будем искать расстояние~$r$. Запишем баланс сил, предварительно сократив на $Gm$:
 \begin{equation}
-	\frac{M_1}{(R - r)^2} + \frac{M_2}{(2R - r)^2} =  \frac{M_1 + M_2}{R^3} \left(R - r + R \cdot \frac{M_2}{M_1 + M_2} \right).
-	\label{eq:lagrange-2}
+    \frac{M_1}{(R - r)^2} + \frac{M_2}{(2R - r)^2} =  \frac{M_1 + M_2}{R^3} \left(R - r + R \cdot \frac{M_2}{M_1 + M_2} \right).
+    \label{eq:lagrange-2}
 \end{equation}
 Снова рассмотрим случай $r \ll R$, когда $M_2 \ll M_1$, тогда \eqref{eq:lagrange-2} будет выглядеть, следующий образом:
 \begin{gather*}
-	\frac{M_1}{R^2} \left(1 + \frac{2r}{R} \right) + \frac{M_2}{4R^2} \left(1 + \frac{r}{R} \right) \simeq \frac{M_1}{R^2} + \frac{M_2}{R^2} - \frac{M_1}{R^2} \cdot \frac{r}{R} - \frac{M_2}{R^2} \cdot \frac{r}{R} + \frac{M_2}{R^2},\\
-	\frac{r}{R} \left( \frac{3M_1}{R^2} + \frac{5M_2}{4R^2} \right) \simeq \frac{7M_2}{4R^2} \quad \Rightarrow \quad r \simeq R \cdot \frac{7 M_2}{12 M_1}.
+    \frac{M_1}{R^2} \left(1 + \frac{2r}{R} \right) + \frac{M_2}{4R^2} \left(1 + \frac{r}{R} \right) \simeq \frac{M_1}{R^2} + \frac{M_2}{R^2} - \frac{M_1}{R^2} \cdot \frac{r}{R} - \frac{M_2}{R^2} \cdot \frac{r}{R} + \frac{M_2}{R^2},\\
+    \frac{r}{R} \left( \frac{3M_1}{R^2} + \frac{5M_2}{4R^2} \right) \simeq \frac{7M_2}{4R^2} \quad \Rightarrow \quad r \simeq R \cdot \frac{7 M_2}{12 M_1}.
 %    \frac{r}{R} \left( 3 + \frac{5M_2}{4M_1} \right) \simeq \frac{7M_2}{4M_1},\\[0.5pc]
 \end{gather*}
 Следовательно, расстояние до точки $L_3$ от центра масс системы равно
 \begin{equation}
-	R_3 \simeq R - r + R\alpha \simeq
-	% 	R \left(1 - \frac{7 M_2}{12 M_1} + \frac{M_2}{M_1} \right) =
-	R \left( 1 + \frac{ 5 M_2}{12 M_1} \right).
+    R_3 \simeq R - r + R\alpha \simeq
+    %     R \left(1 - \frac{7 M_2}{12 M_1} + \frac{M_2}{M_1} \right) =
+    R \left( 1 + \frac{ 5 M_2}{12 M_1} \right).
 \end{equation}
 
 
@@ -192,7 +192,7 @@
     \begin{subcaptionblock}{0.47\tw}
         \centering
         \tikzsetnextfilename{larg-points-4-5_1}
-		\begin{tikzpicture}
+        \begin{tikzpicture}
             \def\R{3.5}
             \def\m{1}
             \def\M{3}
@@ -229,14 +229,14 @@
         
             \tkzDrawPoints(M, m, C, L)
         \end{tikzpicture}
-		\caption{Основной способ поиска координат точек $L_4$ и $L_5$}
-		\label{pic:larg-points-4-5_1}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.47\tw}
-	    \centering
-	    \tikzsetnextfilename{larg-points-4-5_2}
-	    \begin{tikzpicture}
+        \caption{Основной способ поиска координат точек $L_4$ и $L_5$}
+        \label{pic:larg-points-4-5_1}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.47\tw}
+        \centering
+        \tikzsetnextfilename{larg-points-4-5_2}
+        \begin{tikzpicture}
             \def\R{3.5}
             \def\m{1}
             \def\M{3}
@@ -273,45 +273,45 @@
         
             \tkzDrawPoints(M, m, C, L)
         \end{tikzpicture}
-		\caption{Альтернативный способ поиска координат точек $L_4$ и $L_5$}
-		\label{pic:larg-points-4-5_2}
-	\end{subcaptionblock}
-	\hfill\!\!\!~
-	\caption{}
+        \caption{Альтернативный способ поиска координат точек $L_4$ и $L_5$}
+        \label{pic:larg-points-4-5_2}
+    \end{subcaptionblock}
+    \hfill\!\!\!~
+    \caption{}
 \end{figure}
 
 Будем действовать также, как с точками $L_1$, $L_2$ и $L_3$~--- запишем уравнение баланса сил, сократив на массу пробного тела $m$:
 \begin{equation}
-	\frac{G M_1}{\left|\vec{r}_1 \right|^3 } \vec{r}_1 + \frac{G M_2}{\left| \vec{r}_2 \right|^3} \vec{r}_2 - \omega^2 \vec{r}_3 = 0.
-	\label{eq:larg-point-3}
+    \frac{G M_1}{\left|\vec{r}_1 \right|^3 } \vec{r}_1 + \frac{G M_2}{\left| \vec{r}_2 \right|^3} \vec{r}_2 - \omega^2 \vec{r}_3 = 0.
+    \label{eq:larg-point-3}
 \end{equation}
 
 Из физического смысла радиус-вектора центра масс, что суммарная масса системы, помещенная в центр масс должна создавать такой же момент силы относительно произвольной точки, как вся система, справедливо следующее:
 \begin{equation*}
-	\vec{r}_3 = \frac{M_1 \vec{r}_1 + M_2 \vec{r}_2}{M_1 + M_2}.
-	\label{eq:larg-point-r_3}
+    \vec{r}_3 = \frac{M_1 \vec{r}_1 + M_2 \vec{r}_2}{M_1 + M_2}.
+    \label{eq:larg-point-r_3}
 \end{equation*}
 А так как $| \vec{r}_2 - \vec{r}_1| = R$, то выражение для силы инерции принимает вид
 \begin{equation}
-	\vec{F}_\text{ц.б.} = m \omega^2 \vec{r}_3 = \frac{ G m (M_1 \vec{r}_1 + M_2 \vec{r}_2)}{\left| \vec{r}_2 - \vec{r}_1 \right|^3}.
-	\label{eq:larg-point-omega}
+    \vec{F}_\text{ц.б.} = m \omega^2 \vec{r}_3 = \frac{ G m (M_1 \vec{r}_1 + M_2 \vec{r}_2)}{\left| \vec{r}_2 - \vec{r}_1 \right|^3}.
+    \label{eq:larg-point-omega}
 \end{equation}
 Подставляя \eqref{eq:larg-point-omega} в уравнение баланса сил \eqref{eq:larg-point-3}, получим:
 \begin{gather*}
-	\frac{G M_1}{\left|\vec{r}_1 \right|^3 } \vec{r}_1 + \frac{G M_2}{\left| \vec{r}_2 \right|^3} \vec{r}_2 - \frac{G M_1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3 } \vec{r}_1 - \frac{G M_2}{\left| \vec{r}_2 - \vec{r}_1 \right|^3} \vec{r}_2 = 0,\\
-	M_1 \left(\frac{1}{\left| \vec{r}_1 \right|^3} - \frac{1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3} \right) \vec{r}_1 + M_2 \left(\frac{1}{\left| \vec{r}_2 \right|^3} - \frac{1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3} \right) \vec{r}_2 = 0.
+    \frac{G M_1}{\left|\vec{r}_1 \right|^3 } \vec{r}_1 + \frac{G M_2}{\left| \vec{r}_2 \right|^3} \vec{r}_2 - \frac{G M_1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3 } \vec{r}_1 - \frac{G M_2}{\left| \vec{r}_2 - \vec{r}_1 \right|^3} \vec{r}_2 = 0,\\
+    M_1 \left(\frac{1}{\left| \vec{r}_1 \right|^3} - \frac{1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3} \right) \vec{r}_1 + M_2 \left(\frac{1}{\left| \vec{r}_2 \right|^3} - \frac{1}{\left|\vec{r}_2 - \vec{r}_1 \right|^3} \right) \vec{r}_2 = 0.
 \end{gather*}
 В силу неколлинеарности векторов $\vec{r}_1$ и $\vec{r}_2$ получаем, что
 \begin{equation}
-	|\vec{r}_1| = |\vec{r}_2 - \vec{r}_1 | = |\vec{r}_2|,
+    |\vec{r}_1| = |\vec{r}_2 - \vec{r}_1 | = |\vec{r}_2|,
 \end{equation}
 следовательно треугольник $\triangle M_1 L_4 M_2$ равносторонний. Значит в системе координат центра масс $y$-координата точек $L_4$ и $L_5$ равна $\pm R\sqrt{3}/2$. Найдем $x$-координату точки $L_4$ в системе координат центра масс:
 \begin{equation*}
-	x = -R\alpha + \frac{R}{2} = \frac{R}{2} \cdot \frac{-2 M_2 + M_1 + M_2}{M_1 + M_2} = \frac{R}{2} \cdot \frac{M_1 - M_2}{M_1 + M_2}.
+    x = -R\alpha + \frac{R}{2} = \frac{R}{2} \cdot \frac{-2 M_2 + M_1 + M_2}{M_1 + M_2} = \frac{R}{2} \cdot \frac{M_1 - M_2}{M_1 + M_2}.
 \end{equation*}
 Окончательно для координат точек Лагранжа в системе отсчета центра масс, с осью~$x$, направленной в сторону тела с массой $M_2$, имеем следующее:
 \begin{equation}
-	\begin{gathered}
+    \begin{gathered}
         \vec{r}_{1,2} = R \begin{pmatrix}
             1 \mp \sqrt[3]{\dfrac{M_2}{3M_1}}~~\\[1pc]
             0

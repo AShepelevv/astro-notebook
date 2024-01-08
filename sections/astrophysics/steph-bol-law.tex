@@ -2,43 +2,43 @@
 \label{subsec:stef-boltz-law}
 \term{Закон Стефана~--- Больцмана} определяет зависимость плотности мощности излучения абсолютно чёрного тела (АЧТ) $u$ от его температуры~$T$:
 \begin{equation}
-	u = a T^4,
+    u = a T^4,
 \end{equation}
 где $a$~--- некая универсальная константа.
 Отсюда полная светимость АЧТ с площадью поверхности $S$
 \begin{equation}
-	L = S \sigma T^4,
-	\label{eq:steff-bol-law}
+    L = S \sigma T^4,
+    \label{eq:steff-bol-law}
 \end{equation}
 константа $\sigma$ называется \term{постоянной Стефана-Больцмана}.
 
 Важно отметить, что \imp{закон Стефана-Больцмана}~--- прямое следствие формулы Планка (\ref{eq:plancks-law-nu} -- \ref{eq:plancks-law-lambda}), так как, исходя из физического смысла формулы Планка, справедливы равенства
 \begin{multline}
-	\sigma T^4 
-	= \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta 
-	= \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda =\\
-	= \int\limits^\infty_0 B(\nu, T) \,d \nu \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta 
-	= \pi \int\limits^\infty_0 B(\nu, T) \,d \nu.
+    \sigma T^4
+    = \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta
+    = \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda =\\
+    = \int\limits^\infty_0 B(\nu, T) \,d \nu \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta
+    = \pi \int\limits^\infty_0 B(\nu, T) \,d \nu.
 \end{multline}
 
 Здесь интегрирование ведется в сферических координатах $(\varphi, \theta)$ по телесному углу $d\Omega = d\varphi \cos \varphi d\theta$. А $\sin \varphi$ во втором интеграле отвечает за проекцию единичной площадки на направление излучения. Вычислим данный интеграл, чтобы получить значение постоянной Стефана-Больцмана:
 \begin{equation*}
-	\sigma T^4 = \pi \int\limits_0^{\infty} \frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-1} \,d \nu.
+    \sigma T^4 = \pi \int\limits_0^{\infty} \frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-1} \,d \nu.
 \end{equation*}
 Сделаем замену $x = \frac{h \nu}{k T}$, так как $dx = \frac{h}{k T} d\nu$, то
 \begin{equation*}
-	\sigma T^4 = \frac{2\pi}{c^2}  \int\limits_0^{\infty} \underbrace{\frac{k^3 T^3}{h^2} x^3}_{h\nu^3} \cdot \frac{1}{e^x - 1} \cdot \underbrace{\frac{kT}{h} \,d x}_{d\nu} = \frac{2 \pi k^4 T^4}{c^2 h^3} \int\limits_0^{\infty} \frac{x^3 \,d x}{e^x - 1}.
+    \sigma T^4 = \frac{2\pi}{c^2}  \int\limits_0^{\infty} \underbrace{\frac{k^3 T^3}{h^2} x^3}_{h\nu^3} \cdot \frac{1}{e^x - 1} \cdot \underbrace{\frac{kT}{h} \,d x}_{d\nu} = \frac{2 \pi k^4 T^4}{c^2 h^3} \int\limits_0^{\infty} \frac{x^3 \,d x}{e^x - 1}.
 \end{equation*}
 Значение табличного интеграла $\int\limits_0^{\infty} \frac{x^3 \,d x}{e^x - 1}$ равно $\frac{\pi^4}{15}$, откуда
 \begin{equation*}
-	\sigma = \frac{2 \pi^5 k^4}{15 c^2 h^3} = 5.67 \cdot 10^{-8}~\frac{\text{Вт}}{\text{м}^2 \cdot \text{К}^4}.
+    \sigma = \frac{2 \pi^5 k^4}{15 c^2 h^3} = 5.67 \cdot 10^{-8}~\frac{\text{Вт}}{\text{м}^2 \cdot \text{К}^4}.
 \end{equation*}
 
 Для звёзд главной последовательности выполняется соотношение $L \sim M^{\alpha}$, где~$\alpha$~--- коэффициент пропорциональности, который зависит от массы звезды следующим образом:
 \begin{align*}
-	\alpha &= 2.5,\quad M < 0.5 M_\odot; \\
-	\alpha &= 4, \quad 0.5 M_\odot < M < 8 M_\odot;\\
-	\alpha &= 2.5, \quad  M > 8 M_\odot.
-	%\alpha &= 1, \quad M > 20 M_\odot.
+    \alpha &= 2.5,\quad M < 0.5 M_\odot; \\
+    \alpha &= 4, \quad 0.5 M_\odot < M < 8 M_\odot;\\
+    \alpha &= 2.5, \quad  M > 8 M_\odot.
+    %\alpha &= 1, \quad M > 20 M_\odot.
 \end{align*}
 Также существует примерная зависимость светимости звёзды от её радиуса, имеющая вид  $L\sim R^{5.2}$.

@@ -3,59 +3,60 @@
 
 Для зенитного расстояния $z < 70^\circ$ величину рефракции можно определить по формуле
 \begin{equation}
-	\rho = 60.25'' \cdot \tg z' \cdot \frac{p}{760} \frac{273^{\circ}}{273^{\circ}+ t^{\circ}},
-	\label{eq:refrac}
+    \rho = 60.25'' \cdot \tg z' \cdot \frac{p}{760} \frac{273^{\circ}}{273^{\circ}+ t^{\circ}},
+    \label{eq:refrac}
 \end{equation}
 где $t^{\circ}$~--- температура воздуха в градусах Цельсия, $p$~--- атмосферное давление в мм~рт.\,ст., $z'$~--- видимое зенитное расстояние. При н.\,у.: $p = 760$ мм~рт.\,ст. и $t = 0^{\circ}$C, формула \eqref{eq:refrac} принимает вид
 \begin{equation}
-	\rho = 60.25'' \cdot \tg z'.
+    \rho = 60.25'' \cdot \tg z'.
 \end{equation}
 
 \begin{wrapfigure}{l}{0.35\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}[scale=1]
-		\footnotesize
-		\coordinate (O) at (0, 0) {};
-		
-		\draw (2, 0) arc(0:110:2);
-		\draw (3, 0) arc(0:105:3);
-		
-		\draw (0, .3) arc(90:41.8:.3);
-		\draw [double, line cap=butt](1.94, 2) arc(180:221.8:.3);
-		\draw [decoration={snake, segment length=1mm, amplitude=0.3mm}, decorate](2.52, 1.89) arc(-21.5:41.8:.3);
-		\draw (0, 1.8) -- (.2, 1.8) -- (.2, 2);
-		
-		\draw (O) -- (0, 3);
-		\draw (0,2) -- (2.24, 2) -- (3, 1.7);
-		\draw [-latex] (0, 2) -- (1.24, 2);
-		\draw [-latex] (2.24, 2) -- (2.848, 1.76);
-		\draw [dashes] (O) -- (2.98, 2.67);
-		
-		\draw (O) node[anchor=north east] {$C$};
-		\draw (0, 3) node[anchor=south east] {$Z$};
-		\draw (0, 2) node[anchor=south east] {$O$};
-		\draw (0, 1) node[anchor=east] {$R_\oplus$};
-		\draw (0.75, 0.72) node[anchor=north west] {$R_\oplus$};
-		\draw (1.85, 1.72) node[anchor=north west] {$h$};
-		
-		\draw (.17, .25) node[anchor=south] {$\alpha$};
-		\draw (1.95, 2.05) node[anchor=north east] {$\beta$};
-		\draw (2.55, 2.07) node[anchor= west] {$\beta'$};
-		
-		\draw [fill=white] (O) circle (.03);
-		\draw [fill=white] (0, 2) circle (.03);
-		\draw [fill=white] (0, 3) circle (.03);
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:refraction}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{refraction}
+    \begin{tikzpicture}[scale=1]
+        \footnotesize
+        \coordinate (O) at (0, 0) {};
+
+        \draw (2, 0) arc(0:110:2);
+        \draw (3, 0) arc(0:105:3);
+
+        \draw (0, .3) arc(90:41.8:.3);
+        \draw [double, line cap=butt](1.94, 2) arc(180:221.8:.3);
+        \draw [decoration={snake, segment length=1mm, amplitude=0.3mm}, decorate](2.52, 1.89) arc(-21.5:41.8:.3);
+        \draw (0, 1.8) -- (.2, 1.8) -- (.2, 2);
+
+        \draw (O) -- (0, 3);
+        \draw (0,2) -- (2.24, 2) -- (3, 1.7);
+        \draw [-latex] (0, 2) -- (1.24, 2);
+        \draw [-latex] (2.24, 2) -- (2.848, 1.76);
+        \draw [dashes] (O) -- (2.98, 2.67);
+
+        \draw (O) node[anchor=north east] {$C$};
+        \draw (0, 3) node[anchor=south east] {$Z$};
+        \draw (0, 2) node[anchor=south east] {$O$};
+        \draw (0, 1) node[anchor=east] {$R_\oplus$};
+        \draw (0.75, 0.72) node[anchor=north west] {$R_\oplus$};
+        \draw (1.85, 1.72) node[anchor=north west] {$h$};
+
+        \draw (.17, .25) node[anchor=south] {$\alpha$};
+        \draw (1.95, 2.05) node[anchor=north east] {$\beta$};
+        \draw (2.55, 2.07) node[anchor= west] {$\beta'$};
+
+        \draw [fill=white] (O) circle (.03);
+        \draw [fill=white] (0, 2) circle (.03);
+        \draw [fill=white] (0, 3) circle (.03);
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:refraction}
 \end{wrapfigure}
 
 Однако для расчета рефракции у горизонта данная формула не подходит. Получим оценку на величину рефракции у горизонта, считая атмосферу Земли однородной, положив её высоту $h$ равной 8~км. 
 
 Рассмотрим луч зрения, лежащий в плоскости математического горизонта наблюдателя. Найдём угол между лучом и нормалью к верхней границе атмосферы в точке выхода луча из атмосферы (см.~Рис.\,\ref{pic:refraction}):
 \begin{equation*}
-	\beta = 90^\circ - \alpha = 90^\circ - \arccos \frac{R_\oplus}{R_\oplus + h} = 87.13^\circ.
+    \beta = 90^\circ - \alpha = 90^\circ - \arccos \frac{R_\oplus}{R_\oplus + h} = 87.13^\circ.
 \end{equation*}
 Для любой другой высоты атмосферы и радиуса планеты расчёт производится ровно также с соответствующими параметрами.
 

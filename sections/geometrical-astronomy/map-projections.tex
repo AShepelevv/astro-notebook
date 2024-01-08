@@ -243,44 +243,44 @@
     \centering
     \tikzsetnextfilename{robinson}
     \begin{tikzpicture}
-		\begin{axis}[
-			height	=	4.4cm,
-			width	=	5.5cm,
-			xlabel	=	{$\varphi,~^\circ$},
-			ylabel	=	{$l(\varphi) / l(0)$},
-			xmin = 0,
-			xmax = 90,
-			ymin = 0.5,
-			ymax = 1
-		]
-			\addplot[smooth, domain=0:90, black] table[x=lat, y=length] {data/robinson.txt}; \label{plot:robinson-length}
-		\end{axis}
-		
         \begin{axis}[
-		    height	=	4.4cm,
-            width	=	5.5cm,
+            height    =    4.4cm,
+            width    =    5.5cm,
+            xlabel    =    {$\varphi,~^\circ$},
+            ylabel    =    {$l(\varphi) / l(0)$},
+            xmin = 0,
+            xmax = 90,
+            ymin = 0.5,
+            ymax = 1
+        ]
+            \addplot[smooth, domain=0:90, black] table[x=lat, y=length] {data/robinson.txt}; \label{plot:robinson-length}
+        \end{axis}
+
+        \begin{axis}[
+            height    =    4.4cm,
+            width    =    5.5cm,
             ylabel=$d(\varphi) / l(0)$,
             axis y line*=right,
             axis x line=none,
             xmin = 0,
-			xmax = 90,
+            xmax = 90,
             ymin=0, 
             ymax=0.25,
             legend cell align=left,
-			legend style={
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:28, 0.09)}, 
-				anchor=north west,
-			},
+            legend style={
+                draw=none,
+                fill=none,
+                font=\scriptsize,
+                at={(axis cs:28, 0.09)},
+                anchor=north west,
+            },
         ]
             \addlegendimage{/pgfplots/refstyle=plot:robinson-length}
             \addlegendentry{$l(\varphi) / l(0)$}
             \addplot[smooth, domain=0:90, dashed] table[x=lat, y=distance] {data/robinson.txt}; \label{plot:robinson-distance};
             \addlegendentry{$d(\varphi) / l(0)$}
         \end{axis}
-	\end{tikzpicture}
+    \end{tikzpicture}
     \caption{График зависимости длины параллели $l(\varphi)$ и её расстояния от экватора $d(\varphi)$ от широты $\varphi$}
     \label{pic:robinson}
 \end{wrapfigure}

@@ -15,11 +15,11 @@
 \def\earth(#1){% (center)
     \tkzDefShiftPoint[#1](0,-0.08cm){B}%
     \tkzDefShiftPoint[#1](0,0.08cm){U}%
-	\tkzDefShiftPoint[#1](0.08cm,0){R}%
-	\tkzDefShiftPoint[#1](-0.08cm,0){L}%
+    \tkzDefShiftPoint[#1](0.08cm,0){R}%
+    \tkzDefShiftPoint[#1](-0.08cm,0){L}%
     \tkzDrawCircle[color=black, fill=white, line width=.5pt](#1, L)%
-	\tkzDrawSegment[line width=.5pt](L,R)%
-	\tkzDrawSegment[line width=.5pt](U,B)%
+    \tkzDrawSegment[line width=.5pt](L,R)%
+    \tkzDrawSegment[line width=.5pt](U,B)%
 }
 
 

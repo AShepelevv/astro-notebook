@@ -3,17 +3,17 @@
 
 Аналогично поиску высоты атмосферы рассмотрим тонкий слой вещества высоты $dr$ с площадью сечения $dS$ на расстоянии $r$ от центра звезды. Пусть его масса  равна $dm$. На слой действуют три силы: сила давления газа снизу $F_\uparrow = p(r)\,d S$, сила давления газа сверху $F_\downarrow = -p(r + \,d r)\,d S$ и сила гравитационного притяжения $F_g = -GM(r)/r^2\,d m$ от массы, находящейся внутри сферы радиуса $r$, так как суммарное воздействие от внешней оболочка равно нулю. Стационарность звезды обеспечивается балансом этих сил, значит
 \begin{gather*}
-	F_\uparrow + F_\downarrow + F_g = 0,\\
-	p(r)\,d S - p(r + \,d r)\,d S - \frac{GM(r)}{r^2}\,d m = 0,\\
-	p\,d S - (p + dp)\,d S - \frac{4\pi G \rho r^3}{3r^2} \cdot \rho \,d r \,d S = 0,\\
-%	-dp = \frac{4\pi G \rho^2}{3} \cdot r\,d r,\\  
-	\int\limits_{p_0}^0 -dp = \int\limits_{0}^R \frac{4\pi G \rho^2}{3} \cdot r\,d r,\\
- 	p_0 = \frac{4\pi G \rho^2 R^2}{6} = \frac{GM\rho}{R}.
+    F_\uparrow + F_\downarrow + F_g = 0,\\
+    p(r)\,d S - p(r + \,d r)\,d S - \frac{GM(r)}{r^2}\,d m = 0,\\
+    p\,d S - (p + dp)\,d S - \frac{4\pi G \rho r^3}{3r^2} \cdot \rho \,d r \,d S = 0,\\
+%    -dp = \frac{4\pi G \rho^2}{3} \cdot r\,d r,\\
+    \int\limits_{p_0}^0 -dp = \int\limits_{0}^R \frac{4\pi G \rho^2}{3} \cdot r\,d r,\\
+     p_0 = \frac{4\pi G \rho^2 R^2}{6} = \frac{GM\rho}{R}.
 \end{gather*}
 
 Приняв вещество звезды за идеальный газ, получим:
 \begin{gather*}
-	p_0 = \frac{G M \rho}{R} = n k T_0,\\
-	T_0 = \frac{G M \rho}{n k R} = \frac{G M \rho m}{\rho k R} = \frac{G M m_p}{2k R}.
+    p_0 = \frac{G M \rho}{R} = n k T_0,\\
+    T_0 = \frac{G M \rho}{n k R} = \frac{G M \rho m}{\rho k R} = \frac{G M m_p}{2k R}.
 \end{gather*}
 Для Солнца имеем $p_0 \sim 10^{14}$~Па, $T_0 \sim 10^7$. В действительности же давление в центре Солнца оценивается на два порядка большим значением, однако температуры рассмотренная модель дает похожий на действительность результат.

@@ -1,142 +1,144 @@
-\subsection{Годограф} 
-\begin{wrapfigure}[11]{r}{0.55\tw}
+\subsection{Годограф}
+\begin{wrapfigure}[10]{r}{0.4\tw}
     \centering
-    \vspace{-3pc}
+    \vspace{-1.2pc}
     \tikzsetnextfilename{hodograph1}
-	\begin{tikzpicture}
-            \def\r{2.5}
-            \def\bByA{0.7}
+    \begin{tikzpicture}
+        \footnotesize
+        \def\r{1.8}
+        \def\bByA{0.7}
+        
+        \def\c{\r * sqrt(1 - \bByA^2)}
+        \tkzDefPoint(0,0){O};
+        \tkzDefPoint(\c,0){F};
 
-            \begin{scope}[yscale=\bByA]
+        \begin{scope}[yscale=\bByA]
+            \tkzDefPoint(0:\r){A_1};
+            \tkzDefPoint(12.5:\r){A_2};
+            \tkzDefPoint(26.5:\r){A_3};
+            \tkzDefPoint(44.4:\r){A_4};
+            \tkzDefPoint(70.6:\r){A_5};
+            \tkzDefPoint(113.5:\r){A_6};
+            \tkzDefPoint(180:\r){A_7};
+            \tkzDefPoint(-113.5:\r){A_8};
+            \tkzDefPoint(-70.6:\r){A_9};
+            \tkzDefPoint(-44.4:\r){A_10};
+            \tkzDefPoint(-26.5:\r){A_11};
+            \tkzDefPoint(-12.5:\r){A_12};
 
-                \def\c{\r * sqrt(1 - \bByA^2)}
-                \tkzDefPoint(0,0){O};
-                \tkzDefPoint(\c,0){F};
-                \tkzDefPointBy[symmetry=center O](F) \tkzGetPoint{F'}
-                \tkzDefPoint(0:\r){A_1};
-                \tkzDefPoint(12.5:\r){A_2};
-                \tkzDefPoint(26.5:\r){A_3};
-                \tkzDefPoint(44.4:\r){A_4};
-                \tkzDefPoint(70.6:\r){A_5};
-                \tkzDefPoint(113.5:\r){A_6};
-                \tkzDefPoint(180:\r){A_7};
-                \tkzDefPoint(-113.5:\r){A_8};
-                \tkzDefPoint(-70.6:\r){A_9};
-                \tkzDefPoint(-44.4:\r){A_10};
-                \tkzDefPoint(-26.5:\r){A_11};
-                \tkzDefPoint(-12.5:\r){A_12};
-                
-                
-                \tkzDefLine[perpendicular=through A_1](O,A_1)\tkzGetPoint{A_1'}
-                \tkzDefBarycentricPoint(A_1=1,A_1'=2.5)\tkzGetPoint{1}
-				\tkzDefLine[perpendicular=through A_2](O,A_2)\tkzGetPoint{A_2'}
-				\tkzDefBarycentricPoint(A_2=1,A_2'=2.2)\tkzGetPoint{2}
-				\tkzDefLine[perpendicular=through A_3](O,A_3)\tkzGetPoint{A_3'}
-				\tkzDefBarycentricPoint(A_3=1,A_3'=1.9)\tkzGetPoint{3}
-				\tkzDefLine[perpendicular=through A_4](O,A_4)\tkzGetPoint{A_4'}
-				\tkzDefBarycentricPoint(A_4=1,A_4'=1.6)\tkzGetPoint{4}
-				\tkzDefLine[perpendicular=through A_5](O,A_5)\tkzGetPoint{A_5'}
-				\tkzDefBarycentricPoint(A_5=1,A_5'=1.3)\tkzGetPoint{5}
-				\tkzDefLine[perpendicular=through A_6](O,A_6)\tkzGetPoint{A_6'}
-				\tkzDefBarycentricPoint(A_6=1,A_6'=1)\tkzGetPoint{6}
-				\tkzDefLine[perpendicular=through A_7](O,A_7)\tkzGetPoint{A_7'}
-				\tkzDefBarycentricPoint(A_7=1,A_7'=0.7)\tkzGetPoint{7}
-				\tkzDefLine[perpendicular=through A_12](O,A_12)\tkzGetPoint{A_12'}
-				\tkzDefBarycentricPoint(A_12=1,A_12'=2.2)\tkzGetPoint{12}
-				\tkzDefLine[perpendicular=through A_11](O,A_11)\tkzGetPoint{A_11'}
-				\tkzDefBarycentricPoint(A_11=1,A_11'=1.9)\tkzGetPoint{11}
-				\tkzDefLine[perpendicular=through A_10](O,A_10)\tkzGetPoint{A_10'}
-				\tkzDefBarycentricPoint(A_10=1,A_10'=1.6)\tkzGetPoint{10}
-				\tkzDefLine[perpendicular=through A_9](O,A_9)\tkzGetPoint{A_9'}
-				\tkzDefBarycentricPoint(A_9=1,A_9'=1.3)\tkzGetPoint{9}
-				\tkzDefLine[perpendicular=through A_8](O,A_8)\tkzGetPoint{A_8'}
-				\tkzDefBarycentricPoint(A_8=1,A_8'=1)\tkzGetPoint{8}
-				
-				\tkzDrawSegments[line width=.4pt,-latex](A_1,1 A_2,2 A_3,3 A_4,4 A_5,5 A_6,6 A_7,7 A_8,8 A_9,9 A_10,10 A_11,11 A_12,12)
-				\tkzDrawSegments[line width=.4pt](F,A_1 F,A_2 F,A_3 F,A_4 F,A_5 F,A_6 F,A_8 F,A_9 F,A_10 F,A_11 F,A_12)
-				
-				\tkzLabelPoints[above](2,3,4,5,6);
-				\tkzLabelPoints[below](7,8,9);
-				\tkzLabelPoints[above right](1,12);
-				\tkzLabelPoints[below right](11,10);
 
-                \draw [line width=.4pt] (F) -- (A_7) node[midway,above]{$R$};
-                
-                \draw [fill=lightgray, line width=.4pt] (F) -- (A_1) arc(0:12.5:2.5) -- cycle;
-                \draw [fill=lightgray, line width=.4pt] (F) -- (A_7) arc(180:246.5:2.5) -- cycle;
-                
-                \draw [line width=.4pt] ($(F)+({0.4*cos(0)},{0.4*sin(0)})$) arc (0:30:0.5);
-                \draw [line width=.4pt] ($(F)+({0.4*cos(180)},{0.4*sin(180)})$) arc (180:210:0.5);
-                \draw[thick] (O) circle (\r cm);
-            \end{scope}
-            \sun(F)
-        \end{tikzpicture}
-        \caption{Разбиение на секторы}
-    	\label{pic:hodograph1}    
+            \tkzDefLine[perpendicular=through A_1](O,A_1)\tkzGetPoint{A_1'}
+            \tkzDefBarycentricPoint(A_1=1,A_1'=2.5)\tkzGetPoint{1}
+            \tkzDefLine[perpendicular=through A_2](O,A_2)\tkzGetPoint{A_2'}
+            \tkzDefBarycentricPoint(A_2=1,A_2'=2.2)\tkzGetPoint{2}
+            \tkzDefLine[perpendicular=through A_3](O,A_3)\tkzGetPoint{A_3'}
+            \tkzDefBarycentricPoint(A_3=1,A_3'=1.9)\tkzGetPoint{3}
+            \tkzDefLine[perpendicular=through A_4](O,A_4)\tkzGetPoint{A_4'}
+            \tkzDefBarycentricPoint(A_4=1,A_4'=1.6)\tkzGetPoint{4}
+            \tkzDefLine[perpendicular=through A_5](O,A_5)\tkzGetPoint{A_5'}
+            \tkzDefBarycentricPoint(A_5=1,A_5'=1.3)\tkzGetPoint{5}
+            \tkzDefLine[perpendicular=through A_6](O,A_6)\tkzGetPoint{A_6'}
+            \tkzDefBarycentricPoint(A_6=1,A_6'=1)\tkzGetPoint{6}
+            \tkzDefLine[perpendicular=through A_7](O,A_7)\tkzGetPoint{A_7'}
+            \tkzDefBarycentricPoint(A_7=1,A_7'=0.7)\tkzGetPoint{7}
+            \tkzDefLine[perpendicular=through A_12](O,A_12)\tkzGetPoint{A_12'}
+            \tkzDefBarycentricPoint(A_12=1,A_12'=2.2)\tkzGetPoint{12}
+            \tkzDefLine[perpendicular=through A_11](O,A_11)\tkzGetPoint{A_11'}
+            \tkzDefBarycentricPoint(A_11=1,A_11'=1.9)\tkzGetPoint{11}
+            \tkzDefLine[perpendicular=through A_10](O,A_10)\tkzGetPoint{A_10'}
+            \tkzDefBarycentricPoint(A_10=1,A_10'=1.6)\tkzGetPoint{10}
+            \tkzDefLine[perpendicular=through A_9](O,A_9)\tkzGetPoint{A_9'}
+            \tkzDefBarycentricPoint(A_9=1,A_9'=1.3)\tkzGetPoint{9}
+            \tkzDefLine[perpendicular=through A_8](O,A_8)\tkzGetPoint{A_8'}
+            \tkzDefBarycentricPoint(A_8=1,A_8'=1)\tkzGetPoint{8}
+
+            \tkzDrawSegments[-latex](A_1,1 A_2,2 A_3,3 A_4,4 A_5,5 A_6,6 A_7,7 A_8,8 A_9,9 A_10,10 A_11,11 A_12,12)
+            \tkzDrawSegments(F,A_1 F,A_2 F,A_3 F,A_4 F,A_5 F,A_6 F,A_8 F,A_9 F,A_10 F,A_11 F,A_12)
+
+            \tkzLabelPoints[above](2,3,4,5,6);
+            \tkzLabelPoints[below](7,8,9);
+            \tkzLabelPoints[above right](1,12);
+            \tkzLabelPoints[below right](11,10);
+
+            \draw [line width=.4pt] (F) -- (A_7) node[midway,above]{$R$};
+
+            \draw [fill=lightgray] (F) -- (A_1) arc(0:12.5:1.8) -- cycle;
+            \draw [fill=lightgray] (F) -- (A_7) arc(180:246.5:1.8) -- cycle;
+
+            \tkzMarkAngles[size=0.3](A_1,F,A_2 A_7,F,A_8)
+           
+            \draw[thick] (O) circle (\r cm);
+        \end{scope}
+        \sun(F)
+    \end{tikzpicture}
+    \caption{Разбиение на секторы}
+    \label{pic:hodograph1}
 \end{wrapfigure}
 Рассмотрим разбиение эллипса на секторы равной инстинной аномалии. Можно заметить, что из второго закона Кеплера время прохождения одного сектора пропорционально квадрату расстояния до фокуса, обозначим это время за $\Delta t$:
 \begin{equation*}
-	\Delta t \sim S \sim R^2.
+    \Delta t \sim S \sim R^2.
 \end{equation*}
 Также из второго закона Ньютона известно соотношение:
 \begin{equation*}
-	\frac{\Delta v}{\Delta t} \sim R^{-2}.
+    \frac{\Delta v}{\Delta t} \sim R^{-2}.
 \end{equation*}
 Отсюда можем заключить, что:
 \begin{equation*}
-	\Delta v \sim \Delta t \cdot R^{-2} \sim  R^2 \cdot R^{-2} \sim \text{const}.
+    \Delta v \sim \Delta t \cdot R^{-2} \sim  R^2 \cdot R^{-2} \sim \text{const}.
 \end{equation*}
 Значит при прохождении каждого сектора вектор скорости изменяется на некоторую постоянную величину, а также из-за того, что векторы силы и, соответственно, ускорения всегда направлены в сторону Солнца, при прохождении каждого сектора вектор скорости поворачивается на постоянный угол.
 
-\begin{wrapfigure}[15]{l}{0.5\tw}
+\begin{wrapfigure}[10]{l}{0.33\tw}
     \centering
     \vspace{-1pc}
     \tikzsetnextfilename{hodograph2}
-	\begin{tikzpicture}
-            \def\r{2.5}
-            \def\bByA{0.7}
+    \begin{tikzpicture}
+        \footnotesize
+        \def\r{1.5}
+        \def\bByA{0.7}
 
-                \def\c{\r * sqrt(1 - \bByA^2)}
-                \tkzDefPoint(0,0){O};
-                \tkzDefPoint(0,-\c){F};
-                \tkzDefPoint(0:\r){10};
-                \tkzDefPoint(30:\r){11};
-                \tkzDefPoint(60:\r){12};
-                \tkzDefPoint(90:\r){1};
-                \tkzDefPoint(120:\r){2};
-                \tkzDefPoint(150:\r){3};
-                \tkzDefPoint(180:\r){4};
-                \tkzDefPoint(210:\r){5};
-                \tkzDefPoint(240:\r){6};
-                \tkzDefPoint(270:\r){7};
-                \tkzDefPoint(300:\r){8};
-                \tkzDefPoint(330:\r){9};
-                
-                \tkzDrawSegments[line width=.4pt,-latex](F,1 F,2 F,3 F,4 F,5 F,6 F,7 F,8 F,9 F,10 F,11 12,1 1,2 2,3 3,4 4,5 5,6 6,7 7,8 9,10 10,11 11,12)
-                \draw [line width=.4pt,-latex] (F) -- (12) node[pos=0.7, right]{$v$};
-                \draw [line width=.4pt,-latex] (8) -- (9) node[midway,below right]{$\Delta v$};
-                
-                \draw [line width=.4pt] (O) -- (3);
-                
-                \draw [line width=.4pt] ($(O)+({0.5*cos(90)},{0.5*sin(90)})$) arc (90:150:0.5) node[midway,above]{$\nu$};
-               
-                \tkzDrawPoints(1,2,3,4,5,6,7,8,9,10,11,12,O,F);
-                \tkzLabelPoints[above](1,2,12);
-                \tkzLabelPoints[left](3,4,5);
-                \tkzLabelPoints[below](6,7,8);
-                \tkzLabelPoints[right](9,10,11);
-        \end{tikzpicture}
-        \caption{Годограф}
-    	\label{pic:hodograph2}    
+        \def\c{\r * sqrt(1 - \bByA^2)}
+        \tkzDefPoint(0,0){O};
+        \tkzDefPoint(0,-\c){F};
+        \tkzDefPoint(0:\r){10};
+        \tkzDefPoint(30:\r){11};
+        \tkzDefPoint(60:\r){12};
+        \tkzDefPoint(90:\r){1};
+        \tkzDefPoint(120:\r){2};
+        \tkzDefPoint(150:\r){3};
+        \tkzDefPoint(180:\r){4};
+        \tkzDefPoint(210:\r){5};
+        \tkzDefPoint(240:\r){6};
+        \tkzDefPoint(270:\r){7};
+        \tkzDefPoint(300:\r){8};
+        \tkzDefPoint(330:\r){9};
+
+        \tkzDrawSegments[line width=.4pt,-latex](F,1 F,2 F,3 F,4 F,5 F,6 F,7 F,8 F,9 F,10 F,11 12,1 1,2 2,3 3,4 4,5 5,6 6,7 7,8 9,10 10,11 11,12)
+        \draw [line width=.4pt,-latex] (F) -- (12) node[pos=0.7, right]{$v$};
+        \draw [line width=.4pt,-latex] (8) -- (9) node[midway,below right]{$\Delta v$};
+
+        \draw [line width=.4pt] (O) -- (3);
+
+        \tkzMarkAngle[size=0.4](1,O,3)
+        \tkzLabelAngle[pos=0.6](1,O,3){\footnotesize$\nu$}
+
+        \tkzDrawPoints(1,2,3,4,5,6,7,8,9,10,11,12,O,F);
+        \tkzLabelPoints[above](1,2,12);
+        \tkzLabelPoints[left](3,4,5);
+        \tkzLabelPoints[below](6,7,8);
+        \tkzLabelPoints[right](9,10,11);
+    \end{tikzpicture}
+    \caption{Годограф}
+    \label{pic:hodograph2}
 \end{wrapfigure}
 \noindent Геометрически это означает, что вектор скорости будет описывать многоугольник у которого все стороны равны, а также между собой равны все внешние углы, значит этот многоугольник правильный. При устремлении количества секторов на бесконечность фигура будет сходиться к \imp{окружности}. Годограф позволяет решать задачи в пространстве скоростей. Из факта центральности силы гравитации следует, что центральный угол на годографе напрямую соотносится с истинной аномалией, а также нетрудно показать, что при единичной нормировке размера годографа, расстояние между центром окружности и точкой начала отсчета векторов есть эксцентриситет орбиты для которой был построен годограф.
 
 Рассмотрим краткий вывод геометрических свойств годографа. Радиус может быть оценен как полусумма перицентрической и апоцентрической скорости:
 \begin{equation*}
-	v_{R} = \frac{v_{\pi}+v_{\alpha}}{2}=\frac{1}{2}\sqrt{\frac{GM}{a}}\left[\sqrt{\frac{1+e}{1-e}}+\sqrt{\frac{1-e}{1+e}}\right]=\frac{v_I}{\sqrt{1-e^2}}.
+    v_{R} = \frac{v_{\pi}+v_{\alpha}}{2}=\frac{1}{2}\sqrt{\frac{GM}{a}}\left[\sqrt{\frac{1+e}{1-e}}+\sqrt{\frac{1-e}{1+e}}\right]=\frac{v_I}{\sqrt{1-e^2}}.
 \end{equation*}
 А центральное смещение как полуразность:
 \begin{equation*}
-	v_{c} = \frac{v_{\pi}-v_{\alpha}}{2}=\frac{1}{2}\sqrt{\frac{GM}{a}}\left[\sqrt{\frac{1+e}{1-e}}-\sqrt{\frac{1-e}{1+e}}\right]=v_{I}\frac{e}{\sqrt{1-e^2}}=e v_{R}.
+    v_{c} = \frac{v_{\pi}-v_{\alpha}}{2}=\frac{1}{2}\sqrt{\frac{GM}{a}}\left[\sqrt{\frac{1+e}{1-e}}-\sqrt{\frac{1-e}{1+e}}\right]=v_{I}\frac{e}{\sqrt{1-e^2}}=e v_{R}.
 \end{equation*}
 

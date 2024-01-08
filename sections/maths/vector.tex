@@ -1,41 +1,41 @@
 \subsection{Вектор}
 \imp{Вектором} называется \imp{направленный отрезок} или упорядоченная пара точек. Уточним это понятие: \term{вектором} будем называть класс эквивалентности направленных отрезков, то есть все такие направленные отрезки, коллинеарные и равные по длине друг другу.
-	
-	Векторы $\vec{x}_1, \ldots, \vec{x}_n$ называются \term{линейно зависимыми}, если найдётся такой набор констант $\alpha_1, \ldots, \alpha_n$, что $|\alpha_1| + \ldots + |\alpha_n| \not= 0$ и $\alpha_1 \vec{x}_1 + \ldots + \alpha_n \vec{x}_n = \vec{0}$. Иными словами векторы линейно зависимы, когда существует их нетривиальная линейная комбинация, равная нулевому вектору.
-	
-	С другой стороны, векторы $\vec{x}_1, \ldots, \vec{x}_n$ называются \term{линейно независимыми}, если из условия $\alpha_1 \vec{x}_1 + \ldots + \alpha_n \vec{x}_n = \vec{0}$ следует, что $\forall i : \alpha_i = 0$.
-	
-	Нетрудно догадаться, что размер линейно независимой системы векторов, ограничен. \imp{Максимальной линейно независимой системой векторов} $\{\vec{x}_1, \ldots, \vec{x}_n\}$ принято называть такую линейно независимую систему векторов $\LL$, что любой вектор $\vec{v} \not\in \LL$ можно представить в виде $\vec{v} = \alpha_1 \vec{x_1} + \ldots + \alpha_n \vec{x}_n$, а сами векторы $\vec{x}_1, \ldots, \vec{x}_n$, очевидно, линейно независимы. 
-	
-	Здесь важно, что такое разложение единственно. Действительно, предположим, что также верно представление $\vec{v} = \beta_1 \vec{x_1} + \ldots + \beta_n \vec{x}_n$, но тогда $\vec{0} = (\alpha_1 - \beta_1) \vec{x}_1 + \ldots + (\alpha_n - \beta_n) \vec{x}_n$, а так как векторы $\vec{x}_1, \ldots, \vec{x}_n$ линейно независимы, то $\forall i: a_i = b_i$, следовательно разложение единственно.
-	
-	Упорядоченную максимальную линейно независимую комбинацию векторов $\{\vec{e}_1, \ldots, \vec{e}_n \}$ называют \term{базисом} или, что очевидно тоже самое, упорядоченная система линейно независимых векторов, что любой другой вектор пространства есть их линейная комбинация. 
-	
-	Так как разложение вектора по линейно независимой системе единственно, а базисные векторы $\vec{e}_1, \ldots, \vec{e}_n$ упорядочены, то коэффициенты разложения $\alpha_1, \ldots, \alpha_n$ однозначно определяют вектор и называются его \imp{компонентами} или \imp{координатами}.
-	
-	Углубимся в математику. \term{Полем} $F$ называется такое множество с введенными на нем операциями сложения $+:F \times F  \rightarrow F$ и умножения $\cdot: F \times F \rightarrow F$, что выполнены следующие свойства:
-	\begin{enumerate}
-		\item  $\forall a, b \in F: a+ b = b + a$;
-		\item $\forall a, b, c \in F : (a + b) + c = a + ( b + c)$;
-		\item  $\exists 0 \in F~~\forall a \in F: a  + 0 = 0 + a = a$;
-		\item  $\forall a \in F ~~ \exists (-a) \in F: a + (-a) = 0$;
-		\item  $\forall a, b \in F: a \cdot b = b \cdot a$;
-		\item  $\forall a, b, c \in F : (a \cdot b) \cdot c = a \cdot ( b \cdot c)$;
-		\item $\exists 1 \in F~~\forall a \in F: a \cdot 1 = 1 \cdot a = a$;
-		\item  $\forall a \in F, a \not = 0 \quad \exists a^{-1} \in F: a \cdot a^{-1} = a^{-1} \cdot a = 1$;
-		\item $\forall a, b, c \in F: (a + b) \cdot c = a \cdot c + b \cdot c$.
-	\end{enumerate}
-	
-	\term{Векторное (линейное) пространство} $V(F)$ над полем $F$~--- упорядоченная четверка $(V, F, + , \cdot)$, где определены операции сложения векторов $+ : V \times V \rightarrow V$ и умножения на скаляр $F \times V \rightarrow V$ такие, что
-	\begin{enumerate}
-		\item $\forall \vec{x}, \vec{y} \in V: \vec{x} + \vec{y} = \vec{y} + \vec{x}$;
-		\item $ \forall \vec{x}, \vec{y}, \vec{z} \in V: (\vec{x} + \vec{y}) + \vec{z} =  \vec{x} + (\vec{y} + \vec{z})$;
-		\item $\exists \vec{0} \in V~~\forall \vec{x} \in F: \vec{x} + \vec{0} = \vec{x}$;
-		\item $\forall \vec{x} \in V~~\exists (-\vec{x}) \in V: \vec{x} + (-\vec{x}) = \vec{0}$;
-		\item $\forall \alpha, \beta \in F~~\forall \vec{x} \in V: \alpha(\beta \vec{x}) =  (\alpha \beta) \vec{x}$;
-		\item $\forall \vec{x} \in V: 1 \cdot \vec{x} = \vec{x}$;
-		\item $\forall \alpha, \beta \in F~~\forall \vec{x} \in V: (\alpha + \beta) \vec{x} = \alpha \vec{x} + \beta \vec{x}$;
-		\item $\forall \alpha \in F~~\forall \vec{x}, \vec{y} \in V: \alpha \vec{x} + \alpha \vec{y} = \alpha ( \vec{x} + \vec{y})$.
-	\end{enumerate}
-	
-	\term{Размерность} векторного пространства $\dim V$ равна размеру базиса в нем. Важно, что нет различия в том, размер какого именно базиса принять за размерность пространства. Действительно, если размер базиса $\LL_1$ строго меньше размера базиса $\LL_2$, значит базис $\LL_1$ не является максимальной линейно независимой системой векторов, либо векторы из $\LL_2$ линейно зависимы, так как размер $\LL_2$ больше размера базиса $\LL_1$. Полученное противоречие доказывает, что размеры всех базисов векторного пространства равны между собой, а значит, определение корректно.
+
+    Векторы $\vec{x}_1, \ldots, \vec{x}_n$ называются \term{линейно зависимыми}, если найдётся такой набор констант $\alpha_1, \ldots, \alpha_n$, что $|\alpha_1| + \ldots + |\alpha_n| \not= 0$ и $\alpha_1 \vec{x}_1 + \ldots + \alpha_n \vec{x}_n = \vec{0}$. Иными словами векторы линейно зависимы, когда существует их нетривиальная линейная комбинация, равная нулевому вектору.
+
+    С другой стороны, векторы $\vec{x}_1, \ldots, \vec{x}_n$ называются \term{линейно независимыми}, если из условия $\alpha_1 \vec{x}_1 + \ldots + \alpha_n \vec{x}_n = \vec{0}$ следует, что $\forall i : \alpha_i = 0$.
+
+    Нетрудно догадаться, что размер линейно независимой системы векторов, ограничен. \imp{Максимальной линейно независимой системой векторов} $\{\vec{x}_1, \ldots, \vec{x}_n\}$ принято называть такую линейно независимую систему векторов $\LL$, что любой вектор $\vec{v} \not\in \LL$ можно представить в виде $\vec{v} = \alpha_1 \vec{x_1} + \ldots + \alpha_n \vec{x}_n$, а сами векторы $\vec{x}_1, \ldots, \vec{x}_n$, очевидно, линейно независимы.
+
+    Здесь важно, что такое разложение единственно. Действительно, предположим, что также верно представление $\vec{v} = \beta_1 \vec{x_1} + \ldots + \beta_n \vec{x}_n$, но тогда $\vec{0} = (\alpha_1 - \beta_1) \vec{x}_1 + \ldots + (\alpha_n - \beta_n) \vec{x}_n$, а так как векторы $\vec{x}_1, \ldots, \vec{x}_n$ линейно независимы, то $\forall i: a_i = b_i$, следовательно разложение единственно.
+
+    Упорядоченную максимальную линейно независимую комбинацию векторов $\{\vec{e}_1, \ldots, \vec{e}_n \}$ называют \term{базисом} или, что очевидно тоже самое, упорядоченная система линейно независимых векторов, что любой другой вектор пространства есть их линейная комбинация.
+
+    Так как разложение вектора по линейно независимой системе единственно, а базисные векторы $\vec{e}_1, \ldots, \vec{e}_n$ упорядочены, то коэффициенты разложения $\alpha_1, \ldots, \alpha_n$ однозначно определяют вектор и называются его \imp{компонентами} или \imp{координатами}.
+
+    Углубимся в математику. \term{Полем} $F$ называется такое множество с введенными на нем операциями сложения $+:F \times F  \rightarrow F$ и умножения $\cdot: F \times F \rightarrow F$, что выполнены следующие свойства:
+    \begin{enumerate}
+        \item  $\forall a, b \in F: a+ b = b + a$;
+        \item $\forall a, b, c \in F : (a + b) + c = a + ( b + c)$;
+        \item  $\exists 0 \in F~~\forall a \in F: a  + 0 = 0 + a = a$;
+        \item  $\forall a \in F ~~ \exists (-a) \in F: a + (-a) = 0$;
+        \item  $\forall a, b \in F: a \cdot b = b \cdot a$;
+        \item  $\forall a, b, c \in F : (a \cdot b) \cdot c = a \cdot ( b \cdot c)$;
+        \item $\exists 1 \in F~~\forall a \in F: a \cdot 1 = 1 \cdot a = a$;
+        \item  $\forall a \in F, a \not = 0 \quad \exists a^{-1} \in F: a \cdot a^{-1} = a^{-1} \cdot a = 1$;
+        \item $\forall a, b, c \in F: (a + b) \cdot c = a \cdot c + b \cdot c$.
+    \end{enumerate}
+
+    \term{Векторное (линейное) пространство} $V(F)$ над полем $F$~--- упорядоченная четверка $(V, F, + , \cdot)$, где определены операции сложения векторов $+ : V \times V \rightarrow V$ и умножения на скаляр $F \times V \rightarrow V$ такие, что
+    \begin{enumerate}
+        \item $\forall \vec{x}, \vec{y} \in V: \vec{x} + \vec{y} = \vec{y} + \vec{x}$;
+        \item $ \forall \vec{x}, \vec{y}, \vec{z} \in V: (\vec{x} + \vec{y}) + \vec{z} =  \vec{x} + (\vec{y} + \vec{z})$;
+        \item $\exists \vec{0} \in V~~\forall \vec{x} \in F: \vec{x} + \vec{0} = \vec{x}$;
+        \item $\forall \vec{x} \in V~~\exists (-\vec{x}) \in V: \vec{x} + (-\vec{x}) = \vec{0}$;
+        \item $\forall \alpha, \beta \in F~~\forall \vec{x} \in V: \alpha(\beta \vec{x}) =  (\alpha \beta) \vec{x}$;
+        \item $\forall \vec{x} \in V: 1 \cdot \vec{x} = \vec{x}$;
+        \item $\forall \alpha, \beta \in F~~\forall \vec{x} \in V: (\alpha + \beta) \vec{x} = \alpha \vec{x} + \beta \vec{x}$;
+        \item $\forall \alpha \in F~~\forall \vec{x}, \vec{y} \in V: \alpha \vec{x} + \alpha \vec{y} = \alpha ( \vec{x} + \vec{y})$.
+    \end{enumerate}
+
+    \term{Размерность} векторного пространства $\dim V$ равна размеру базиса в нем. Важно, что нет различия в том, размер какого именно базиса принять за размерность пространства. Действительно, если размер базиса $\LL_1$ строго меньше размера базиса $\LL_2$, значит базис $\LL_1$ не является максимальной линейно независимой системой векторов, либо векторы из $\LL_2$ линейно зависимы, так как размер $\LL_2$ больше размера базиса $\LL_1$. Полученное противоречие доказывает, что размеры всех базисов векторного пространства равны между собой, а значит, определение корректно.

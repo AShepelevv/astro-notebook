@@ -4,26 +4,26 @@
 Внутренняя планета находится в \term[верхнее соединение]{верхнем соединении}, когда Земля, Солнце и планета лежат на одной прямой, при этом планета и Земля располагаются по разные стороны от Солнца. Если пренебречь наклоном орбит планет к плоскости эклиптики, для наблюдателя на Земле планета находится точно за Солнцем.
 
 \begin{wrapfigure}[18]{r}{0.55\tw}
-	\centering
-	\vspace{-1pc}
-	\tikzsetnextfilename{configurations-of-planets}
-	\begin{tikzpicture}
-	    \tkzDefPoint(0,0){S}
-	    \tkzDefPoint(0,-2){E}
-	    
-	    
-	    \tkzDefPointBy[homothety=center S ratio .72](E) \tkzGetPoint{LC}
-	    \tkzDefPointBy[homothety=center S ratio -1](LC) \tkzGetPoint{UC}
-	    \tkzDefLine[tangent from = E](S,LC) \tkzGetPoints{EE}{WE}
-	    
-	    \tkzDefPointBy[homothety=center S ratio 1.52](E) \tkzGetPoint{OP}
-	    \tkzDefPointBy[homothety=center S ratio -1](OP) \tkzGetPoint{C}
-	    
-	    \tkzDefPointBy[homothety=center S ratio 0.4](E) \tkzGetPoint{Mer}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{configurations-of-planets}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){S}
+        \tkzDefPoint(0,-2){E}
+
+
+        \tkzDefPointBy[homothety=center S ratio .72](E) \tkzGetPoint{LC}
+        \tkzDefPointBy[homothety=center S ratio -1](LC) \tkzGetPoint{UC}
+        \tkzDefLine[tangent from = E](S,LC) \tkzGetPoints{EE}{WE}
+
+        \tkzDefPointBy[homothety=center S ratio 1.52](E) \tkzGetPoint{OP}
+        \tkzDefPointBy[homothety=center S ratio -1](OP) \tkzGetPoint{C}
+
+        \tkzDefPointBy[homothety=center S ratio 0.4](E) \tkzGetPoint{Mer}
         \tkzDrawCircle[line width=.4pt, black](S,Mer)
-	    
-	    \tkzDefLine[tangent at=E](S) \tkzGetPoint{q}
-	    \tkzInterLC(E,q)(S,OP) \tkzGetPoints{EQ}{WQ}
+
+        \tkzDefLine[tangent at=E](S) \tkzGetPoint{q}
+        \tkzInterLC(E,q)(S,OP) \tkzGetPoints{EQ}{WQ}
         
         \tkzDrawSegments[dashed](WQ,EQ OP,C E,WE E,EE EE,S WE,S)
         \tkzDrawCircles[line width=0.4pt, black](S,E S,LC S,OP)
@@ -57,9 +57,9 @@
         
         \tkzDefPointBy[rotation=center S angle -121](Mer) \tkzGetPoint{Mer}
         \tkzLabelPoint[fill=white, inner sep=0](Mer){$\mercury$}
-	           
-	\end{tikzpicture}
-	\caption{Конфигурации Венеры и Марса для земного наблюдателя}
+
+    \end{tikzpicture}
+    \caption{Конфигурации Венеры и Марса для земного наблюдателя}
 \end{wrapfigure}
 \term[нижнее сооединие]{Нижнее соединение} внутренней планеты происходит когда Земля, Солнце и планета, также как и в случае верхнего соединения, располагаются на одной прямой, но для нижнего соединения планета должна находиться между Солнцем и Землей. Если бы орбиты всех планет лежали в одной плоскости, тогда в момент каждого нижнего соединения внутренней планеты наблюдалось бы её прохождение по диску Солнца для наблюдателя на внешней планете.
 

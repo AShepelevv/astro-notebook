@@ -12,10 +12,10 @@
 Проекция окружности всегда эллипс, кроме вырожденного случая~--- отрезка, когда угол проекции составляет $90^\circ$. Так как проецирование с углом $\eta$ между плоскостями~--- тоже самое, что сжатие с коэффициентом $1/\cos\eta$.
 
 \begin{wrapfigure}[10]{r}{0.47\tw}
-	\centering
-	\vspace{-0.5pc}
-	\pgfmathsetmacro\viewL{3} %3
-	\pgfmathsetmacro\viewB{65} %65
+    \centering
+    \vspace{-0.5pc}
+    \pgfmathsetmacro\viewL{3} %3
+    \pgfmathsetmacro\viewB{65} %65
     \tdplotsetmaincoords{\viewB}{-\viewL}
     \tikzsetnextfilename{parallax-ellipse}
     \begin{tikzpicture}[tdplot_main_coords]
@@ -89,20 +89,20 @@
         \tkzDefPoint(\x,\y){E}
         \earth(E)
     \end{tikzpicture}
-	\caption{Схема построения параллактического эллипса}
-	\label{pic:parallax-ellipse}
+    \caption{Схема построения параллактического эллипса}
+    \label{pic:parallax-ellipse}
 \end{wrapfigure}
 Траектория Земли для наблюдателя, находящегося в окрестности объекта~--- эллипс. Тогда понятно, что траектория объекта для наблюдателя на Земле также является эллипсом. Причем большая полуось этого эллипса равна параллаксу объекта $\pi = a_\oplus / r \equiv \pi_\lambda$, где $r$~--- гелиоцентрическое расстояние до объекта, а малая полуось
 \begin{equation*}
-	\pi_\beta = \frac{a_\oplus \cos \eta}{r}.
+    \pi_\beta = \frac{a_\oplus \cos \eta}{r}.
 \end{equation*}
 
 Траектория (эллипс) видимого годичного движения объектов называется \term{параллактическим эллипсом}, эксцентриситет которого
 \begin{equation*}
-	e
-	= \sqrt{1 - \left(\frac{\pi_\beta}{\pi_\lambda} \right)^2}
-	= \sqrt{1 - \left( \frac{r \cdot a_\oplus \cos \eta}{a_\oplus \cdot r}\right)^2}
-	= \sqrt{1 - \cos^2 \eta} = \sin \eta = \cos \beta,
+    e
+    = \sqrt{1 - \left(\frac{\pi_\beta}{\pi_\lambda} \right)^2}
+    = \sqrt{1 - \left( \frac{r \cdot a_\oplus \cos \eta}{a_\oplus \cdot r}\right)^2}
+    = \sqrt{1 - \cos^2 \eta} = \sin \eta = \cos \beta,
 \end{equation*}
 где $\beta$~--- эклиптическая широта объекта.
 

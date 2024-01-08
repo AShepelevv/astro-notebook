@@ -2,110 +2,111 @@
 
 \term{Производная} $f'(x_0)$ функции $f$ в точке~$x_0$~--- предел отношения приращения функции $f(x_0 + \Delta x) - f(x_0)$ к приращению её аргумента $\Delta x$ при $\Delta x \rightarrow 0$, если такой предел существует. Иначе, 
 \begin{equation}
-	f'(x_0) = \lim_{\Delta x \to 0}\frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+    f'(x_0) = \lim_{\Delta x \to 0}\frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
 \end{equation}
 
 \begin{wrapfigure}[10]{r}{0.45\tw}
-	\centering
-	\vspace{-1.3pc}
-	\centering
-	\begin{tikzpicture}[yscale=0.97]
-		\def\MIN{0.3}
-		\def\MAX{3}
-		
-		\def\xo{1.4}
-		\def\dx{2.3}
-		
-		\def\yo{1.2}
-		\def\dy{2.5}
-		
+    \centering
+    \vspace{-1.3pc}
+    \centering
+    \tikzsetnextfilename{math-div}
+    \begin{tikzpicture}[yscale=0.97]
+        \def\MIN{0.3}
+        \def\MAX{3}
+
+        \def\xo{1.4}
+        \def\dx{2.3}
+
+        \def\yo{1.2}
+        \def\dy{2.5}
+
         \def\al{45}
-		
-		\tkzDefPoint(0,0){O}
-		
-		\tkzDefPoint(-\MIN,0){X'}
-		\tkzDefPoint(\MAX,0){X}
-		\tkzDefPoint(\xo,0){X0}
-		\tkzDefPoint(\dx,0){DX}
-		
-		\tkzDefPoint(0,-\MIN){Y'}
-		\tkzDefPoint(0,\MAX){Y}
-		\tkzDefPoint(0,\yo){Y0}
-		\tkzDefPoint(0,\dy){DY}
-		
-		\tkzDefPointBy[translation=from O to Y0](X0) \tkzGetPoint{X0Y0}
-		\tkzDefPointBy[translation=from O to Y0](DX) \tkzGetPoint{DXY0}
-		\tkzDefPointBy[translation=from O to DY](X0) \tkzGetPoint{X0DY}
-		\tkzDefPointBy[translation=from O to DY](DX) \tkzGetPoint{DXDY}
-		
-		
-		\tkzDefPointBy[rotation=center X0Y0 angle \al](DXY0) \tkzGetPoint{x}
-		\tkzInterLL(DX,DXDY)(X0Y0,x) \tkzGetPoint{Df}
-		
-		\tkzDrawSegments[semithick, -latex](X',X Y',Y)	
-		
-		\draw [thick] (-0.3, 0.5) .. controls (2, 0.5) and (2, 3) .. (\MAX, \MAX);
-		
-		\tkzDrawLines(X0Y0,Df)
-		\draw [dashes] (Y0) -- (DXY0) coordinate[pos=1.2](x) -- (x);
-		\draw [dashes] (DY) -- (DXDY) coordinate[pos=1.2](x) -- (x);
-		\draw [dashes] (X0) -- (X0DY) coordinate[pos=1.15](x) -- (x);
-		\draw [dashes] (DX) -- (DXDY) coordinate[pos=1.15](x) -- (x);
-		
-		\tkzDrawSegment[latex-latex](DXY0,Df)
-		
-		\tkzMarkAngle[size=0.3](DXY0,X0Y0,Df)
-		\tkzLabelAngle[pos=0.5](DXY0,X0Y0,Df){\footnotesize$\alpha$}
-		
-		\tkzLabelPoint[above](X){$f(x)$};
-		\tkzLabelPoint[right](Y){$f(x)$};
-		\tkzLabelPoint[below](X0){$x_0$};
-		\tkzLabelPoint[below](DX){$x + \Delta x$};
-		\tkzLabelPoint[left](Y0){$f(x_0)$};
-		\tkzLabelPoint[left](DY){$f(x + \Delta x)$};
-		
-		\tkzLabelSegment[right](DXY0,Df){$df(x_0)$};
-		
-		\tkzDrawPoints(X0, DX, Y0, DY, X0Y0, DXDY, DXY0, Df)
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:math-div}
+
+        \tkzDefPoint(0,0){O}
+
+        \tkzDefPoint(-\MIN,0){X'}
+        \tkzDefPoint(\MAX,0){X}
+        \tkzDefPoint(\xo,0){X0}
+        \tkzDefPoint(\dx,0){DX}
+
+        \tkzDefPoint(0,-\MIN){Y'}
+        \tkzDefPoint(0,\MAX){Y}
+        \tkzDefPoint(0,\yo){Y0}
+        \tkzDefPoint(0,\dy){DY}
+
+        \tkzDefPointBy[translation=from O to Y0](X0) \tkzGetPoint{X0Y0}
+        \tkzDefPointBy[translation=from O to Y0](DX) \tkzGetPoint{DXY0}
+        \tkzDefPointBy[translation=from O to DY](X0) \tkzGetPoint{X0DY}
+        \tkzDefPointBy[translation=from O to DY](DX) \tkzGetPoint{DXDY}
+
+
+        \tkzDefPointBy[rotation=center X0Y0 angle \al](DXY0) \tkzGetPoint{x}
+        \tkzInterLL(DX,DXDY)(X0Y0,x) \tkzGetPoint{Df}
+
+        \tkzDrawSegments[semithick, -latex](X',X Y',Y)
+
+        \draw [thick] (-0.3, 0.5) .. controls (2, 0.5) and (2, 3) .. (\MAX, \MAX);
+
+        \tkzDrawLines(X0Y0,Df)
+        \draw [dashes] (Y0) -- (DXY0) coordinate[pos=1.2](x) -- (x);
+        \draw [dashes] (DY) -- (DXDY) coordinate[pos=1.2](x) -- (x);
+        \draw [dashes] (X0) -- (X0DY) coordinate[pos=1.15](x) -- (x);
+        \draw [dashes] (DX) -- (DXDY) coordinate[pos=1.15](x) -- (x);
+
+        \tkzDrawSegment[latex-latex](DXY0,Df)
+
+        \tkzMarkAngle[size=0.3](DXY0,X0Y0,Df)
+        \tkzLabelAngle[pos=0.5](DXY0,X0Y0,Df){\footnotesize$\alpha$}
+
+        \tkzLabelPoint[above](X){$f(x)$};
+        \tkzLabelPoint[right](Y){$f(x)$};
+        \tkzLabelPoint[below](X0){$x_0$};
+        \tkzLabelPoint[below](DX){$x + \Delta x$};
+        \tkzLabelPoint[left](Y0){$f(x_0)$};
+        \tkzLabelPoint[left](DY){$f(x + \Delta x)$};
+
+        \tkzLabelSegment[right](DXY0,Df){$df(x_0)$};
+
+        \tkzDrawPoints(X0, DX, Y0, DY, X0Y0, DXDY, DXY0, Df)
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:math-div}
 \end{wrapfigure}
 Значение производной в точке равно тангенсу угла наклона касательной к графику функции в этой точке. Следовательно, точки, где производная обнуляется, являются локальными минимумами и максимумами функции.
 
 Общепринятые обозначения для производной функции $f$ в точке $x_0$:
 \begin{equation}
-	f'(x_0) = f'_x(x_0) = D f(x_0) = \frac{d f}{d x}(x_0) = \dot{f} (x_0).
+    f'(x_0) = f'_x(x_0) = D f(x_0) = \frac{d f}{d x}(x_0) = \dot{f} (x_0).
 \end{equation}
 
 Используя определение и операции с пределами, несложно получить следующие правила дифференцирования:\\[-0.5pc]
 \begin{minipage}{0.5\textwidth}
-	\begin{align*}
-		(f+g)' &= f' + g';\\
-		(Cf)' &= Cf';\\
-		(fg)' &= f' g + f g';
-	\end{align*}
+    \begin{align*}
+        (f+g)' &= f' + g';\\
+        (Cf)' &= Cf';\\
+        (fg)' &= f' g + f g';
+    \end{align*}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
-	\begin{align*}
-		\left(\dfrac{f}{g}\right)' &= \dfrac{f' g - f g'}{g^2};\\
-		\dfrac{d}{dx}f\bigl(g(x)\bigr) &= \dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}.
-	\end{align*}
+    \begin{align*}
+        \left(\dfrac{f}{g}\right)' &= \dfrac{f' g - f g'}{g^2};\\
+        \dfrac{d}{dx}f\bigl(g(x)\bigr) &= \dfrac{df(g)}{dg}\dfrac{dg(x)}{dx}.
+    \end{align*}
 \end{minipage}\\[0.5pc]
 И таблицу производных наиболее распространенных функций:
 \begin{gather*}
     \begin{aligned}
-	   (x^a)' &= a x^{a-1};
-	   & (\cos x)' &= - \sin x;
-	   & (\arccos x)' &= - \dfrac{1}{\sqrt{1 - x^2}};\\
-	   (a^x)' &= a^x \ln a;
-	   & (\log_a x)' &= \dfrac{1}{x \ln a};
-	   & (\arctg x)' &= \dfrac{1}{1 + x^2};\\
-	   (\sin x)' &= \cos x;
-	   & (\arcsin x)' &= \dfrac{1}{\sqrt{1 - x^2}};
-	   &  (\arcctg x)' &= - \dfrac{1}{1 + x^2};\\
+       (x^a)' &= a x^{a-1};
+       & (\cos x)' &= - \sin x;
+       & (\arccos x)' &= - \dfrac{1}{\sqrt{1 - x^2}};\\
+       (a^x)' &= a^x \ln a;
+       & (\log_a x)' &= \dfrac{1}{x \ln a};
+       & (\arctg x)' &= \dfrac{1}{1 + x^2};\\
+       (\sin x)' &= \cos x;
+       & (\arcsin x)' &= \dfrac{1}{\sqrt{1 - x^2}};
+       &  (\arcctg x)' &= - \dfrac{1}{1 + x^2};\\
     \end{aligned}\\
     \scalar{a}{b}' = \scalar{a'}{b} + \scalar{a}{b'};\qquad
-	\cross{a}{b}' = \cross{a'}{b} + \cross{a}{b'}; \\
-	\triple{a}{b}{c}' = \triple{a'}{b}{c} + \triple{a}{b'}{c} + \triple{a}{b}{c'}.
+    \cross{a}{b}' = \cross{a'}{b} + \cross{a}{b'}; \\
+    \triple{a}{b}{c}' = \triple{a'}{b}{c} + \triple{a}{b'}{c} + \triple{a}{b}{c'}.
 \end{gather*}

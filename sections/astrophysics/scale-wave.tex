@@ -5,8 +5,9 @@
 \term{Рентгеновские лучи} излучаются при большом ускорении электронов, например при их торможении в металлах. Получают их при помощи рентгеновской трубки: электроны в вакуумной трубке ускоряются электрическим полем при высоком напряжении, достигая анода, при со­ударении резко тормозятся. При торможении электроны движут­ся с ускорением и излучают электромагнитные волны с малой длиной.
 
 \begin{figure}[!h]
-	\centering
-	\begin{tikzpicture}
+    \centering
+    \tikzsetnextfilename{scale-electromagnet-waves} 
+    \begin{tikzpicture}
         \newcommand{\freqX}[1]{-0.8 - (#1 - 3)/2}
     
         \foreach \f in {3,5,...,19} {
@@ -95,8 +96,7 @@
        \draw [decorate, decoration = {brace, raise=15pt,  amplitude=5pt}] (G2) --  (G1);
        \tkzLabelPoint[below=19pt](G){Гамма}
     \end{tikzpicture}
-%	\includegraphics[width = 1\textwidth]{scale-wave.pdf}
-	\caption{Шкала электромагнитных волн}
+    \caption{Шкала электромагнитных волн}
 \end{figure}
 \term{Ультрафиолетовые лучи}~--- излучение Солнца, ртутных ламп и т.\,п. Используются в ультрафиолетовой микроскопии, в медицине.
 

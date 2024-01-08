@@ -5,58 +5,59 @@
 
 Рассмотрим еще одну операцию над векторами~--- \term{векторное произведение} $\cross{a}{b}: \R^3 \times \R^3 \rightarrow \R^3$~--- антисимметричную и билинейную, задаваемую по правилу:
 \begin{equation}
-	\cross{a}{b} = |\vec{a}||\vec{b}| \sin \widehat{\vec{a}\vec{b}} \cdot \vec{n},
+    \cross{a}{b} = |\vec{a}||\vec{b}| \sin \widehat{\vec{a}\vec{b}} \cdot \vec{n},
 \end{equation}
 \begin{wrapfigure}{r}{0.25\tw}
-	\centering
-	\vspace{.1pc}
-	\begin{tikzpicture}[scale=1]
-		\footnotesize
-		\coordinate (O) at (0, 0);
-		\coordinate (A) at (1.5, 0);
-		\coordinate (B) at (1, 0.5);
-		\coordinate (AB) at (2.5, 0.5);
-		\coordinate (N) at (0, 1.5);
-		
-		\draw[thick, -latex] (O) -- (A);
-		\draw[thick, -latex] (O) -- (B);
-		\draw[semithick, -latex] (O) -- (N);
-		
-		\draw[dashes] (A) -- (AB);
-		\draw[dashes] (B) -- (AB);
-		
-		\draw (0.75, 0) node[anchor=north]{$\vec{a}$};
-		\draw (0.5, 0.25) node[anchor=south]{$\vec{b}$};
-		\draw (0, 0.75) node[anchor=east]{$\vec{n}$};
-	\end{tikzpicture}
-	\caption{}
-	\vspace{-1pc}
-	\label{pic:math-cross}
+    \centering
+    \vspace{.1pc}
+    \tikzsetnextfilename{math-cross}
+    \begin{tikzpicture}[scale=1]
+        \footnotesize
+        \coordinate (O) at (0, 0);
+        \coordinate (A) at (1.5, 0);
+        \coordinate (B) at (1, 0.5);
+        \coordinate (AB) at (2.5, 0.5);
+        \coordinate (N) at (0, 1.5);
+
+        \draw[thick, -latex] (O) -- (A);
+        \draw[thick, -latex] (O) -- (B);
+        \draw[semithick, -latex] (O) -- (N);
+
+        \draw[dashes] (A) -- (AB);
+        \draw[dashes] (B) -- (AB);
+
+        \draw (0.75, 0) node[anchor=north]{$\vec{a}$};
+        \draw (0.5, 0.25) node[anchor=south]{$\vec{b}$};
+        \draw (0, 0.75) node[anchor=east]{$\vec{n}$};
+    \end{tikzpicture}
+    \caption{}
+    \vspace{-1pc}
+    \label{pic:math-cross}
 \end{wrapfigure}
 где $\vec{n}$~--- вектор нормали к плоскости, построенной на векторах $\vec{a}$ и $\vec{b}$, направление которой определяется таким образом, чтобы тройка векторов $\{\vec{a}, \vec{b}, \vec{n} \}$ была правой. Из определения понятно, что модуль векторного произведения равен площади параллелограмма, построенного на векторах $\vec{a}$~и~$\vec{b}$.
 
 Так как площадь параллелограмма, построенного на векторах $\vec{a}$~и~$\vec{b}$ равна удвоенной площади треугольнока, построенного на этих же векторах, то
 \begin{equation}
-	|\cross{a}{b}| = |\cross{a}{(a - b)} | = |\cross{b}{(a-b)}|
+    |\cross{a}{b}| = |\cross{a}{(a - b)} | = |\cross{b}{(a-b)}|
 \end{equation}
 \begin{equation}
-	a b \sin C = a c \sin B = b c \sin A \quad \Rightarrow \quad \frac{\sin C}{c} = \frac{\sin B}{b} = \frac{\sin A}{a}.
+    a b \sin C = a c \sin B = b c \sin A \quad \Rightarrow \quad \frac{\sin C}{c} = \frac{\sin B}{b} = \frac{\sin A}{a}.
 \end{equation}
 Последнее двойное равенство называется теоремой синусов.
 
 Рассмотрим выражение для векторного произведения в координатной форме:
 \begin{multline}
-	\cross{a}{b} =
-	\cross{
-	\begin{pmatrix}
-		a_1\\
-		a_2\\
-		a_3
-	\end{pmatrix}}
-	{\begin{pmatrix}
-	b_1\\
-	b_2\\
-	b_3
+    \cross{a}{b} =
+    \cross{
+    \begin{pmatrix}
+        a_1\\
+        a_2\\
+        a_3
+    \end{pmatrix}}
+    {\begin{pmatrix}
+    b_1\\
+    b_2\\
+    b_3
 \end{pmatrix}}
 = \\ =
 [( a_1 \vec{e}_1 + a_2 \vec{e_2} + a_3 \vec{e_3}) \times ( b_1 \vec{e}_1 + b_2 \vec{e_2} + b_3 \vec{e_3})] = \\

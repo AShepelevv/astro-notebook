@@ -3,6 +3,7 @@
 \begin{wrapfigure}[10]{r}{0.3\tw}
     \vspace{-0.8pc}
     \centering
+    \tikzsetnextfilename{circumhorizon-arc}
     \begin{tikzpicture}
         \def\a{1.2}
         \def\al{27}
@@ -28,8 +29,8 @@
         \tkzInterLL(I,I1)(O,O1) \tkzGetPoint{X}
 
         \tkzDrawSegment[arrow={latex}{0.3}](In,I)
-	    \tkzDrawSegment[arrow={latex}{0.52}](I,O)
-	    \tkzDrawSegment[arrow={latex}{0.2}](O,Out)
+        \tkzDrawSegment[arrow={latex}{0.52}](I,O)
+        \tkzDrawSegment[arrow={latex}{0.2}](O,Out)
         \tkzDrawSegments[thick](I',C O',C)
         \tkzDrawLines[dashed](O,X I,X)
    
@@ -48,9 +49,9 @@
    
         \tkzMarkAngle[arc=lll, size=0.85](O',O,Out)
         \tkzLabelAngle[pos=1.05](O',O,Out){\footnotesize{$h$}}
-	\end{tikzpicture}
-	\caption{Схема хода лучей, формирующих окологоризонтальную дугу}
-	\label{pic:circumhorizon-arc}    
+    \end{tikzpicture}
+    \caption{Схема хода лучей, формирующих окологоризонтальную дугу}
+    \label{pic:circumhorizon-arc}
 \end{wrapfigure}
 
 Относительно редко наблюдаемое явление преломления солнечного света в пластинчатых кристаллах льда. Схожее по физике формирования с зенитной дугой явление, однако здесь свет попадает в кристалл через боковую грань, а выходит через основание. Отсюда не сложно понять, что для наблюдения данного явления Солнце должно располагаться на зенитном расстоянии $z_\odot < z_\odot^\text{макс} = h_\odot^\text{макс} = 32.2^2$, значение $h_\odot^\text{макс}$ было получено в \eqref{eq:h-max-circumzenithal-arc}. 

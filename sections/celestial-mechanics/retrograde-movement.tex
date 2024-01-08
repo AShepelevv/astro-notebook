@@ -13,7 +13,7 @@
 \begin{wrapfigure}[13]{r}{0.6\tw}
     \centering
     \vspace{-1pc}
-	\tikzsetnextfilename{retrograde-movement-schema}
+    \tikzsetnextfilename{retrograde-movement-schema}
     \begin{tikzpicture}
         \footnotesize
         
@@ -30,12 +30,12 @@
         \def\R{\r * \b}
         
         \tkzInit[
-	       xmin={-0.5},
-	       xmax={\R + 1},
-	       ymin={-0.6},
-	       ymax={\R + 0.1},
-	    ]
-	    \tkzClip
+           xmin={-0.5},
+           xmax={\R + 1},
+           ymin={-0.6},
+           ymax={\R + 0.1},
+        ]
+        \tkzClip
         
         % Angle alpha from derivation (Base - Exteranal - Sun)
         \pgfmathsetmacro\ALPHA{acos((\b + sqrt(\b)) / (\b * sqrt(\b) + 1))}
@@ -208,38 +208,38 @@
 \end{equation}
 
 \begin{wrapfigure}[9]{r}{0.47\tw}
-	\centering
-	\vspace{-1pc}
-	\tikzsetnextfilename{retrograde-movement-loop-size-plot}
-	\begin{tikzpicture}
-		\begin{axis}[
-			width	=	.5\tw,
-			height	=	4.5cm,
-			xlabel	=	{$b$},
-			ylabel	=	{$\Delta \lambda, ~^\circ$},
-%			ymax	=	1,
-			ymin	=	0,
-			xmax	=	10,
-			xmin	=	0,
-			legend cell align=left,
-			legend style={
-				row sep = 1mm,
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:1.2, 2.5)}, anchor=south west,
-			},
-		]
-			\addplot [domain=0:10, samples=37, smooth] {acos((x^2 + x - 1)/(x^2 + x + 1)) - 2 / abs(x*sqrt(x) - 1) * acos((x + sqrt(x))/(x * sqrt(x) + 1))};
-			\addplot[mark=o, only marks, black, mark options={
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{retrograde-movement-loop-size-plot}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width    =    .5\tw,
+            height    =    4.5cm,
+            xlabel    =    {$b$},
+            ylabel    =    {$\Delta \lambda, ~^\circ$},
+%            ymax    =    1,
+            ymin    =    0,
+            xmax    =    10,
+            xmin    =    0,
+            legend cell align=left,
+            legend style={
+                row sep = 1mm,
+                draw=none,
+                fill=none,
+                font=\scriptsize,
+                at={(axis cs:1.2, 2.5)}, anchor=south west,
+            },
+        ]
+            \addplot [domain=0:10, samples=37, smooth] {acos((x^2 + x - 1)/(x^2 + x + 1)) - 2 / abs(x*sqrt(x) - 1) * acos((x + sqrt(x))/(x * sqrt(x) + 1))};
+            \addplot[mark=o, only marks, black, mark options={
         scale=0.75, fill=white}]  coordinates {(0.42, 14.2) (0.72,16.15) (1.52,15.93) (5.2,9.95) (9.6,6.76)};
-			\legend{
-				$\Delta \lambda(b)$,
-				Планеты Сол.\,сист.
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
+            \legend{
+                $\Delta \lambda(b)$,
+                Планеты Сол.\,сист.
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
 \end{wrapfigure}
 Легко заметить, что для внутренней планеты результат будет тот же, стоит только поменять местами индексы наблюдателя и планеты в выкладках выше. 
 

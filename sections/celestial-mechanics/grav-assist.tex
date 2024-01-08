@@ -188,24 +188,24 @@
     \vspace{-1.2pc}
     \tikzsetnextfilename{dependence-delta-v-from-parameters}
     \begin{tikzpicture}
-		\begin{axis} [
-			width    = 4cm,
-			height   = 4cm,
-			colormap = {GS}{rgb(0cm)=(0.3, 0.3, 0.3) rgb(1cm)=(1, 1, 1)},
-			xlabel 	 = {$\rho$},
-			ylabel 	 = {$\nu$},
-			zlabel 	 = {$I/I_0$},
-			view	 = {0}{90},
-			ytick    = {0,1,2,3,4},
-			xtick	 = {1,2,3,4,5},
-			colorbar,
-			colorbar style = {ytick = {0, .2, .4, .6, .8, 1.}}
-		]
-				
-			\addplot3[surf,shader=interp] table[x=r, y=v, z=D] {data/grav-assist.txt};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{Зависимость величины приращения скорости $\frac{\Delta v}{v_1}$ от параметров $\rho$ и $\nu$}
+        \begin{axis} [
+            width    = 4cm,
+            height   = 4cm,
+            colormap = {GS}{rgb(0cm)=(0.3, 0.3, 0.3) rgb(1cm)=(1, 1, 1)},
+            xlabel      = {$\rho$},
+            ylabel      = {$\nu$},
+            zlabel      = {$I/I_0$},
+            view     = {0}{90},
+            ytick    = {0,1,2,3,4},
+            xtick     = {1,2,3,4,5},
+            colorbar,
+            colorbar style = {ytick = {0, .2, .4, .6, .8, 1.}}
+        ]
+
+            \addplot3[surf,shader=interp] table[x=r, y=v, z=D] {data/grav-assist.txt};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Зависимость величины приращения скорости $\frac{\Delta v}{v_1}$ от параметров $\rho$ и $\nu$}
 \end{wrapfigure}
 Важно понимать, полученная величина достигается только при определенной скорости входа в зону гравитационного влияния тела, а также при сверхблизком по меркам современной космонавтики пролёте. Поэтому в действительности гравитационные маневры добавляют лишь некоторую часть этой скорости, которая используется для ускорения, торможения или поворота.
 

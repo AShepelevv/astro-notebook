@@ -1,30 +1,30 @@
 \subsection{Закон смещения Вина}
 \term{Закон смещения Вина} --- закон, устанавливающий зависимость длины волны~$\lambda_\text{макс}$, на которой спектральная плотность излучения $B_\lambda(\lambda, T)$ абсолютно чёрного тела достигает своего максимума, от температуры $T$ этого тела:
 \begin{equation}
-	\lambda_\text{макс} \approx \frac{b}{T} \equiv \frac{0.0029~\text{м} \cdot \text{К}}{T}.
+    \lambda_\text{макс} \approx \frac{b}{T} \equiv \frac{0.0029~\text{м} \cdot \text{К}}{T}.
 \end{equation}
 Закон следует из определения максимума функции Планка \eqref{sec:planck-law}.
 Проведем исследование: найдем максимум. Для этого зафиксируем температуру черного тела и введем обозначения: $\alpha \equiv 2 h c^2$ и $\beta \equiv h c / k T$. Тогда задача сводится к поиску экстремума функции
 \begin{equation*}
-	B(\lambda) = \frac{\alpha \lambda^{-5}}{\exp \left(\beta \lambda^{-1} \right) - 1}.
+    B(\lambda) = \frac{\alpha \lambda^{-5}}{\exp \left(\beta \lambda^{-1} \right) - 1}.
 \end{equation*}
 Для её решения продифференцируем $B(\lambda)$:
 \begin{align*}
-	B'(\lambda) &= \frac{-5 \alpha \lambda^{-6}}{\exp \left(\beta \lambda^{-1} \right) - 1} + \frac{-\alpha \lambda^{-5}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \cdot \exp \left( \beta \lambda^{-1} \right) \cdot \left(-\beta \lambda^{-2}\right) = \\
-	&= \frac{\alpha \lambda^{-7}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \left[ -5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) + \beta \exp \frac{\beta}{\lambda} \right].
+    B'(\lambda) &= \frac{-5 \alpha \lambda^{-6}}{\exp \left(\beta \lambda^{-1} \right) - 1} + \frac{-\alpha \lambda^{-5}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \cdot \exp \left( \beta \lambda^{-1} \right) \cdot \left(-\beta \lambda^{-2}\right) = \\
+    &= \frac{\alpha \lambda^{-7}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \left[ -5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) + \beta \exp \frac{\beta}{\lambda} \right].
 \end{align*}
 Остается приравнять выражения в квадратных скобках к нулю, и найти корни получившегося уравнения.
 \begin{gather*}
-	\beta \exp \frac{\beta}{\lambda} - 5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) = 0;\\
-	\frac{\beta}{\lambda} \exp \frac{\beta}{\lambda} = 5 \left( \exp \frac{\beta}{\lambda} - 1 \right),\quad\text{пусть}~x = \frac{\beta}{\lambda};\\
-	\frac{x e^x}{e^x - 1} = 5.
+    \beta \exp \frac{\beta}{\lambda} - 5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) = 0;\\
+    \frac{\beta}{\lambda} \exp \frac{\beta}{\lambda} = 5 \left( \exp \frac{\beta}{\lambda} - 1 \right),\quad\text{пусть}~x = \frac{\beta}{\lambda};\\
+    \frac{x e^x}{e^x - 1} = 5.
 \end{gather*}
 К сожалению решение полученного уравнения не выражается в элементарных функциях. Численные методы дают ответ: $x = 4.9651\ldots$ Возвращаясь к исходным переменным, приходим к
 \begin{equation*}
-	\frac{h c}{k T \lambda} = x \approx 4.9651.
+    \frac{h c}{k T \lambda} = x \approx 4.9651.
 \end{equation*}
 Выражая отсюда $\lambda$, окончательно получаем следующее:
 \begin{equation*}
-	\lambda \approx \frac{h c}{4.9651 k T} = \frac{2.898... \times 10^{-3}~\text{м}\cdot\text{К}}{T} \approx  \frac{0.0029~\text{м} \cdot \text{К}}{T}.
+    \lambda \approx \frac{h c}{4.9651 k T} = \frac{2.898... \times 10^{-3}~\text{м}\cdot\text{К}}{T} \approx  \frac{0.0029~\text{м} \cdot \text{К}}{T}.
 \end{equation*}
 

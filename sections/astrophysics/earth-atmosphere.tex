@@ -2,7 +2,7 @@
 \label{sec:earth-atmosphere}
 Применим знания о МКТ для поиска характерной высоты атмосферы Земли в двух её моделях: изотермической и адиабатической атмосферах. Прежде, чем приступим к поиску, несколько фактов об атмосфере Земли. Давление у поверхности Земли в среднем составляет 
 \begin{equation*}
-	p_0 = 1~\text{атм} = 101325~\text{Па} = 760~\text{мм рт. ст}.
+    p_0 = 1~\text{атм} = 101325~\text{Па} = 760~\text{мм рт. ст}.
 \end{equation*}
 Наблюдаемые отклонения от среднего значения незначительны для последующих выкладок, так как составляют не более $5\%$. 
 
@@ -10,32 +10,32 @@
 
 \paragraph{Изотермическая атмосфера} Падение давления воздуха с увеличением высоты можно описать математически~\cite{barometric-formula-isotermal}. Для этого рассмотрим тонкий слой воздуха толщиной $dh$, выделим в нём фрагмент с площадью $dS$. Пусть масса воздуха в этом фрагменте равна $dm$.  Представим, что воздух в выделенном фрагменте окружен невесомой тонкой оболочкой~--- не перемешивается с окружающим воздухом и находится в равновесии. Которое достигается благодаря равенству нулю равдействующей трёх сил: силы давления воздуха снизу $F_\uparrow = p\,d S$, силы давления воздуха сверху $F_\downarrow = -(p + dp)\,d S$ и силы тяжести $F_g = -g\,d m$, действующей на выделенный слой. Здесь $dp < 0$, так как с высотой давления, очевидно, уменьшается, потому что все меньший столб воздуха оказывает давление на рассматриваемый слой. Итак,
 \begin{gather}
-	F_\uparrow + F_\downarrow + F_g = 0,\nonumber\\
-	p \,d S - (p + dp) \,d S - g \,d m = 0,\nonumber\\
-	- dp\,d S = g \rho \,d V = g \rho \,d h \,d S,\nonumber\\
-	dp = - g \rho \,d h. 
-	\label{eq:isotherm-atm-dp}
+    F_\uparrow + F_\downarrow + F_g = 0,\nonumber\\
+    p \,d S - (p + dp) \,d S - g \,d m = 0,\nonumber\\
+    - dp\,d S = g \rho \,d V = g \rho \,d h \,d S,\nonumber\\
+    dp = - g \rho \,d h.
+    \label{eq:isotherm-atm-dp}
 \end{gather}
 
 Из уравнения состояния идеального газа \eqref{eq:mkt-p}, считая воздух таковым, выразим плотность воздуха $\rho$:
 \begin{equation*}
-	\rho = \frac{p \mu}{RT}.
+    \rho = \frac{p \mu}{RT}.
 \end{equation*}
 Подставив полученное выражение в~\eqref{eq:isotherm-atm-dp}, получим,
 \begin{equation}
-	dp = - \frac{\mu g}{RT} p \,d h.
-	\label{eq:earth-atm-dp}
+    dp = - \frac{\mu g}{RT} p \,d h.
+    \label{eq:earth-atm-dp}
 \end{equation}
 
 Разделим переменные и проинтегрируем левую и правую часть от нуля до высоты $h$:
 \begin{gather}
-	\int\limits_{p_0}^{p(h)} \frac{dp}{p} = -\int\limits_0^h \frac{\mu g}{RT} dh,\nonumber\\
-	\ln p(h) - \ln p_0 = -\frac{\mu g h}{RT},\nonumber\\
-	p(h) = p_0 \exp \left[ -\frac{\mu g h}{RT} \right]. \label{eq:earth-atm-isot}
+    \int\limits_{p_0}^{p(h)} \frac{dp}{p} = -\int\limits_0^h \frac{\mu g}{RT} dh,\nonumber\\
+    \ln p(h) - \ln p_0 = -\frac{\mu g h}{RT},\nonumber\\
+    p(h) = p_0 \exp \left[ -\frac{\mu g h}{RT} \right]. \label{eq:earth-atm-isot}
 \end{gather}
 Полученное равенство называется \imp{барометрической формулой для изотермической атмосферы}. Из нее следует, что характерная (давление уменьшилось в $e$ раз) высота изотермической атмосферы
 \begin{equation*}
-	H_{T=\const} = \frac{RT}{\mu g} \simeq 8~\text{км}.
+    H_{T=\const} = \frac{RT}{\mu g} \simeq 8~\text{км}.
 \end{equation*}
 
 \paragraph{Адиабатическая атмосфера}
@@ -45,77 +45,78 @@
 
 Приступим к выводу барометрической формулы для адиабатической атмосферы. Начнем с выражений для работы газа и изменения его потенциальной энергии:
 \begin{gather*}
-	\delta A = p \,d V,\\
-	dU = C_V \nu \,d T.
+    \delta A = p \,d V,\\
+    dU = C_V \nu \,d T.
 \end{gather*}
 Запишем первое начало термодинамики для тонкого слоя воздуха:
 \begin{gather}
-	dQ = 0 = dU + \delta A = p \,d V + C_V \nu \,d T,\notag\\
-	dT = - \frac{p}{C_V \nu} dV.
-	\label{eq:earth-atm-dt}
+    dQ = 0 = dU + \delta A = p \,d V + C_V \nu \,d T,\notag\\
+    dT = - \frac{p}{C_V \nu} dV.
+    \label{eq:earth-atm-dt}
 \end{gather}
 Выразим объем из уравнения состояния идеального газа \eqref{eq:mkt-idial-gas} и перейдем к дифференциалам:
 \begin{equation}
-	dV = d \left(\frac{\nu R T}{p} \right) = \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p.
-	\label{eq:earth-atm-dv}
+    dV = d \left(\frac{\nu R T}{p} \right) = \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p.
+    \label{eq:earth-atm-dv}
 \end{equation}
 Подставив \eqref{eq:earth-atm-dv} в уравнение \eqref{eq:earth-atm-dt}, получим
 \begin{gather*}
-	dT = - \frac{p}{C_V \nu} \left( \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p \right),\\
-%	\left( 1 + \frac{R}{C_V} \right)\frac{dT}{T} = \frac{R}{C_V} \frac{dp}{p},\\
-	\therefore \frac{dT}{T} = \frac{R}{C_V + R} \frac{dp}{p} = \frac{R}{C_p} \frac{dp}{p}.
+    dT = - \frac{p}{C_V \nu} \left( \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p \right),\\
+%    \left( 1 + \frac{R}{C_V} \right)\frac{dT}{T} = \frac{R}{C_V} \frac{dp}{p},\\
+    \therefore \frac{dT}{T} = \frac{R}{C_V + R} \frac{dp}{p} = \frac{R}{C_p} \frac{dp}{p}.
 \end{gather*}
 Воспользуемся выражением~\eqref{eq:earth-atm-dp} для $dp$:
 \begin{gather}
-	\frac{d T}{T} = -\frac{\mu g}{C_P T} \,d h,\\
-	\frac{dT}{dh} =  -\frac{\mu g}{C_P} \equiv \Gamma.\label{eq:ad-therm-grad}
+    \frac{d T}{T} = -\frac{\mu g}{C_P T} \,d h,\\
+    \frac{dT}{dh} =  -\frac{\mu g}{C_P} \equiv \Gamma.\label{eq:ad-therm-grad}
 \end{gather}
 
 Выражение~\eqref{eq:ad-therm-grad} показывает, что в случае адиабатической атмосферы градиент температуры $\Gamma$ является постоянной величиной. Поэтому справедливо, температура воздуха $T(h) = T_0 + \Gamma h$, где $T_0$~--- температура у поверхности. Молярная теплоёмкость воздуха при постоянном давлении $C_p = 29.15$~Дж/моль, поэтому градиент температуры~$\Gamma$ составляет~$-0.83$~К на 100~м. 
 
 Вернемся к уравнению \eqref{eq:earth-atm-dp} и подставим в него полученное выражение для температуры, чтобы получить барометрическую формулу:
 \begin{gather*}
-	dp = - \frac{p \mu g}{RT(h)} dh,\\
-	\int\limits_{p_0}^{p(H)} \frac{dp}{p} = - \frac{\mu g}{R} \int\limits_0^H \frac{dh}{T_0 + \Gamma h}= - \frac{\mu g}{R\Gamma} \int\limits_0^H \frac{d(T_0 + \Gamma h)}{T_0 + \Gamma h},\\
-	\ln \frac{p(H)}{p_0} = - \frac{\mu g}{R\Gamma} \ln \frac{T_0 + \Gamma H}{T_0},\\
-	p(H) = p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - \mu g /R\Gamma} =  p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - C_p/R}.
+    dp = - \frac{p \mu g}{RT(h)} dh,\\
+    \int\limits_{p_0}^{p(H)} \frac{dp}{p} = - \frac{\mu g}{R} \int\limits_0^H \frac{dh}{T_0 + \Gamma h}= - \frac{\mu g}{R\Gamma} \int\limits_0^H \frac{d(T_0 + \Gamma h)}{T_0 + \Gamma h},\\
+    \ln \frac{p(H)}{p_0} = - \frac{\mu g}{R\Gamma} \ln \frac{T_0 + \Gamma H}{T_0},\\
+    p(H) = p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - \mu g /R\Gamma} =  p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - C_p/R}.
 \end{gather*}
 
 Отсюда получаем, что характерная высота адиабатической атмосферы
 \begin{equation*}
-	H_{dQ=0} = \left(\exp \left[ \frac{R}{C_p} \right] - 1 \right) \cdot  \frac{T_0}{\Gamma} = 9.6~\text{км}.
+    H_{dQ=0} = \left(\exp \left[ \frac{R}{C_p} \right] - 1 \right) \cdot  \frac{T_0}{\Gamma} = 9.6~\text{км}.
 \end{equation*}
 
 \begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[
-		height	=	6cm,
-		width	=	8cm,
-		xlabel	=	{$H$, км},
-		ylabel	=	{$p(H)/p_0$},
-%		ylabel shift	= -1 cm,
-		ymax=1,
-		ymin=0,
-		xmin=0,
-		xmax=10,
-		legend cell align=left,
-			legend style={
-			draw=none,
-			fill=none,
-			font=\scriptsize,
-			at={(axis cs:1, 0.1)}, anchor=south west,
-			row sep=.5pc,
-			},
-		]
-		
-		\addplot[smooth, domain=0:10, samples=200] {1 * exp(-0.029*9.81*x*1000/8.31/285) };
-		\addplot[smooth, domain=0:10, samples=200, gray] {1 * (1 + 10*x/285)^(-0.029*9.81/8.31/0.00975)};
-		\legend{
-			$T=\const$,
-			$dQ = 0$
-		};
-	\end{axis}
+    \centering
+    \tikzsetnextfilename{atmosphere-height}
+    \begin{tikzpicture}
+    \begin{axis}[
+        height    =    6cm,
+        width    =    8cm,
+        xlabel    =    {$H$, км},
+        ylabel    =    {$p(H)/p_0$},
+%        ylabel shift    = -1 cm,
+        ymax=1,
+        ymin=0,
+        xmin=0,
+        xmax=10,
+        legend cell align=left,
+            legend style={
+            draw=none,
+            fill=none,
+            font=\scriptsize,
+            at={(axis cs:1, 0.1)}, anchor=south west,
+            row sep=.5pc,
+            },
+        ]
+
+        \addplot[smooth, domain=0:10, samples=200] {1 * exp(-0.029*9.81*x*1000/8.31/285) };
+        \addplot[smooth, domain=0:10, samples=200, gray] {1 * (1 + 10*x/285)^(-0.029*9.81/8.31/0.00975)};
+        \legend{
+            $T=\const$,
+            $dQ = 0$
+        };
+    \end{axis}
 \end{tikzpicture}
 \end{figure}
 

@@ -1,18 +1,18 @@
 \subsection{Собственное движение звёзд}
 \term{Собственным движением} $(\mu)$ называется изменение координат звёзд на небесной сфере, вызванное относительным движением звёзд и Солнца в пространстве, измеряется обычно в mas/год. Пусть $v_\tau$~--- гелиоцентрическая (относительно Солнца) тангенциальная скорость звезды, $d$~---~расстояние до неё от Солнца, тогда её собственное движение
 \begin{equation}
-	\mu = \frac{v_\tau}{d}.
+    \mu = \frac{v_\tau}{d}.
 \end{equation}
 
 Разделяют собственное движение по склонению~--- $\mu_\delta$ и собственное движение по прямому восхождению~--- $\mu_\alpha$, для которых справедливы следующие выражения:
 \begin{gather}
-	\mu_\delta(t) = \lim_{\Delta t \rightarrow 0} \frac{\delta(t + \Delta t) - \delta(t)}{\Delta t} = \delta'(t),\\
-	\mu_\alpha(t) = \lim_{\Delta t \rightarrow 0} \frac{\alpha(t + \Delta t) - \alpha(t)}{\Delta t} = \alpha'(t).
+    \mu_\delta(t) = \lim_{\Delta t \rightarrow 0} \frac{\delta(t + \Delta t) - \delta(t)}{\Delta t} = \delta'(t),\\
+    \mu_\alpha(t) = \lim_{\Delta t \rightarrow 0} \frac{\alpha(t + \Delta t) - \alpha(t)}{\Delta t} = \alpha'(t).
 \end{gather}
 
 Из определения видно, что $\mu_\alpha$ является угловой скоростью по малому кругу, а значит, зависит от $\delta$. Следовательно, полное собственное движение $\mu$ можно найти из такой формулы:
 \begin{equation}
-	\mu = \sqrt{\mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta},
+    \mu = \sqrt{\mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta},
 \end{equation}
 потому что радиус малого круга, состоящего из точек со склонением~$\delta$, равен $R \cos \delta$, где $R$~--- радиус сферы, содержащей этот круг.
 
@@ -81,54 +81,54 @@
             \tdplotCsLabelPoint{\r}{\l-3}{90 - \d + 7}{$\alpha(t\!+\!\Delta t)$}{below}
             \tdplotCsLabelPoint{\r}{\ll+3}{90 - \d + 15.5}{$\alpha(t)$}{below}
         \end{tikzpicture}
-		\caption{}
-		\label{pic:proper-motion-components} 
+        \caption{}
+        \label{pic:proper-motion-components}
     \end{subcaptionblock}
     \hfill
-	\begin{subcaptionblock}[b]{0.21\tw}
+    \begin{subcaptionblock}[b]{0.21\tw}
         \centering
         \tikzsetnextfilename{proper-motion-1}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){Sun}
-			\tkzDefPoint(-0.5,2.5){Star}
-			\tkzDefPoint(0.8,1.3){P}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){Sun}
+            \tkzDefPoint(-0.5,2.5){Star}
+            \tkzDefPoint(0.8,1.3){P}
 
-			\tkzCalcLength(Sun,Star)\tkzGetLength{ss}
+            \tkzCalcLength(Sun,Star)\tkzGetLength{ss}
 
-			\tkzDefPointBy[homothety=center Star ratio {0.7 / \ss}](Sun) \tkzGetPoint{Vr}
+            \tkzDefPointBy[homothety=center Star ratio {0.7 / \ss}](Sun) \tkzGetPoint{Vr}
 
-			\tkzDefPointBy[homothety=center Star ratio {0.5 / \ss}](Sun) \tkzGetPoint{x}
-			\tkzDefPointBy[rotation=center Star angle 90](x) \tkzGetPoint{Vt}
+            \tkzDefPointBy[homothety=center Star ratio {0.5 / \ss}](Sun) \tkzGetPoint{x}
+            \tkzDefPointBy[rotation=center Star angle 90](x) \tkzGetPoint{Vt}
 
-			\tkzDrawSegments(Sun,Star Sun,P)
-			\tkzDrawLine[add=0 and 0.2](Star,P)
+            \tkzDrawSegments(Sun,Star Sun,P)
+            \tkzDrawLine[add=0 and 0.2](Star,P)
 
-			\tkzMarkAngle[line width = .3pt, size=0](P,Sun,Star)
-			\tkzMarkAngle[arc=ll, size=0.3](P,Sun,Star)
-			\tkzMarkAngle[size=0.3](Sun,Star,P)
+            \tkzMarkAngle[line width = .3pt, size=0](P,Sun,Star)
+            \tkzMarkAngle[arc=ll, size=0.3](P,Sun,Star)
+            \tkzMarkAngle[size=0.3](Sun,Star,P)
 
-			\tkzLabelAngle[pos=0.6](P,Sun,Star){\footnotesize$\xi$}
-			\tkzLabelAngle[pos=0.5](Sun,Star,P){\footnotesize$\gamma$}
+            \tkzLabelAngle[pos=0.6](P,Sun,Star){\footnotesize$\xi$}
+            \tkzLabelAngle[pos=0.5](Sun,Star,P){\footnotesize$\gamma$}
 
-			\tkzDrawSegments[semithick, -latex](Star,Vr Star,Vt)
-			\tkzLabelSegment[left](Star,Vr){$\vec{v}_r$}
-			\tkzLabelSegment[above](Star,Vt){$\vec{v}_\tau$}
-			\tkzLabelSegment[left](Star,Sun){$r_0$}
-			\tkzLabelSegment[below right=-2pt](P,Sun){$r$}
-			\tkzLabelSegment[above right=-2pt](Star,P){$v_0 \Delta t$}
+            \tkzDrawSegments[semithick, -latex](Star,Vr Star,Vt)
+            \tkzLabelSegment[left](Star,Vr){$\vec{v}_r$}
+            \tkzLabelSegment[above](Star,Vt){$\vec{v}_\tau$}
+            \tkzLabelSegment[left](Star,Sun){$r_0$}
+            \tkzLabelSegment[below right=-2pt](P,Sun){$r$}
+            \tkzLabelSegment[above right=-2pt](Star,P){$v_0 \Delta t$}
 
-			\sun(Sun)
-			\pointStar(Star)
-			\tkzDrawPoint(P)
-	    \end{tikzpicture}
-		\caption{}
-		\label{pic:proper-motion-1}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}[b]{0.42\tw}
-	    \centering
-		\tdplotsetmaincoords{70}{179}
-		\tikzsetnextfilename{proper-motion-2}
+            \sun(Sun)
+            \pointStar(Star)
+            \tkzDrawPoint(P)
+        \end{tikzpicture}
+        \caption{}
+        \label{pic:proper-motion-1}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}[b]{0.42\tw}
+        \centering
+        \tdplotsetmaincoords{70}{179}
+        \tikzsetnextfilename{proper-motion-2}
         \begin{tikzpicture}[tdplot_main_coords]
             \footnotesize
         
@@ -214,42 +214,42 @@
             \tdplotCsDrawPoint{\r}{\ll}{90 - \dd}
             \tdplotCsDrawPoint{\r}{\l}{90 - \d}
         \end{tikzpicture}
-		\caption{}
-		\label{pic:proper-motion-2}
-	\end{subcaptionblock}
-	\caption{}
+        \caption{}
+        \label{pic:proper-motion-2}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}
 
 Получим выражение для координат звезды через достаточно большой промежуток времени $\Delta t$. Пусть в начальный момент времени звезда имеет собственное движение $\mu = (\mu_\alpha, \mu_\delta)$, лучевую скорость $v_r$, параллакс $\pi_0$ и координаты $(\alpha, \delta)$. Найдем сначала тангенциальную скорость:
 \begin{equation*}
-	v_\tau =  \mu r_0 = r_0 \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta} = \frac{a_\oplus \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta}}{\pi_0},
+    v_\tau =  \mu r_0 = r_0 \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta} = \frac{a_\oplus \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta}}{\pi_0},
 \end{equation*}
 где $r_0 = a_\oplus / \pi_0$~--- расстояние до звезды в начальный момент.
 Определим угол между лучом зрения и полной скоростью звезды, исходя из Рис.\,\ref{pic:proper-motion-1}, имеем:
 \begin{equation*}
-	\tg \gamma = \frac{v_\tau}{v_r},
+    \tg \gamma = \frac{v_\tau}{v_r},
 \end{equation*}
 при этом полная скорость $v_0 = \sqrt{v_\tau^2 + v_r^2}$.
 
 Снова обратимся к Рис.\,\ref{pic:proper-motion-1}. Из теоремы косинусов найдём расстояние от Солнца до звезды через время $\Delta t$:
 \begin{equation*}
-	r = \sqrt{r_0^2 + (v_0 \Delta t)^2 - 2 r_0 r_0 \Delta t \cos \gamma}.
+    r = \sqrt{r_0^2 + (v_0 \Delta t)^2 - 2 r_0 r_0 \Delta t \cos \gamma}.
 \end{equation*}
 Далее из теоремы синусов получим угловое перемещения звезды:
 \begin{equation*}
-	\sin \xi = \frac{v_0 \Delta t \sin \gamma}{r}.
+    \sin \xi = \frac{v_0 \Delta t \sin \gamma}{r}.
 \end{equation*}
 Через компоненты собственного движения нетрудно получить угол между направлением на полюс и вектором полного собственного движения в начальный момент (см.~Рис.\,\ref{pic:proper-motion-2}):
 \begin{equation*}
-	\tg \psi =  \frac{\mu_a \cos \delta}{\mu_\delta}.
+    \tg \psi =  \frac{\mu_a \cos \delta}{\mu_\delta}.
 \end{equation*}
 Теперь с помощью сферической теоремы косинусов можно определить склонение звезды через время $\Delta t$:
 \begin{equation*}
-	\sin (\delta + \Delta \delta) = \cos \xi \sin \delta + \sin \xi \cos \delta \cos \psi.
+    \sin (\delta + \Delta \delta) = \cos \xi \sin \delta + \sin \xi \cos \delta \cos \psi.
 \end{equation*}
 Остается из сферической теоремы синусов получить выражение для изменения прямого восхождения за время $\Delta t$:
 \begin{equation*}
-	\sin \Delta \alpha = \frac{\sin \psi \sin \xi}{\cos (\delta + \Delta \delta)}.
+    \sin \Delta \alpha = \frac{\sin \psi \sin \xi}{\cos (\delta + \Delta \delta)}.
 \end{equation*}
 
 

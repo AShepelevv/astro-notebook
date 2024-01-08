@@ -244,10 +244,10 @@
 Для системы Солнце\,--\,Земля\,--\,Луна в приближении круговых орбит этот угол составляет около $1.21^\circ$.
 
 \begin{figure}[h!]
-	\centering
-	\vspace{-.5pc}
-	\tikzsetnextfilename{eclipses-full-solar-eslipse}
-	\begin{tikzpicture}  
+    \centering
+    \vspace{-.5pc}
+    \tikzsetnextfilename{eclipses-full-solar-eslipse}
+    \begin{tikzpicture}
         \def\e{0}
         \def\m{-1.6}
         \def\s{-7.2}
@@ -312,15 +312,15 @@
         \tkzLabelPoint(E){\tikz{\earth(E)}}
         \tkzLabelPoint(M){$\rightmoon$}
     \end{tikzpicture}
-	\caption{Полное солнечное затмение со стороны северного полюса эклиптики}
-	\label{fig:eclipses-full-solar-eslipse}
+    \caption{Полное солнечное затмение со стороны северного полюса эклиптики}
+    \label{fig:eclipses-full-solar-eslipse}
 \end{figure}
 При \term[кольцеобразное солнечное затмение]{кольцеобразном солнечном затмении} Луна так расположена относительно Земли, что конус её тени не достаёт до поверхности планеты, и вокруг Луны можно наблюдать яркое кольцо незакрытой части солнечного диска.
 
 \begin{figure}[h!]
-	\centering
-	\tikzsetnextfilename{eclipses-circle-solar-eslipse}
-	\begin{tikzpicture}      
+    \centering
+    \tikzsetnextfilename{eclipses-circle-solar-eslipse}
+    \begin{tikzpicture}
         \def\e{0}
         \def\m{-2.2}
         \def\s{-7.2}
@@ -389,16 +389,16 @@
         \tkzLabelPoint(E){\tikz{\earth(E)}}
         \tkzLabelPoint(M){$\rightmoon$}
     \end{tikzpicture}
-	\caption{Кольцеобразное солнечное затмение со стороны северного полюса эклиптики}
-	\label{fig:eclipses-circle-solar-eslipse}
+    \caption{Кольцеобразное солнечное затмение со стороны северного полюса эклиптики}
+    \label{fig:eclipses-circle-solar-eslipse}
 \end{figure}
 При особом расположении Луны и Земли возможны \term{гибридные} затмения, когда в разных пунктах Земли наблюдаются либо \imp{кольцеобразное}, либо \imp{полное} затмение. Причиной такого явления является шарообразность Земли.
 
 \vspace{-1pc}
 \begin{figure}[h!]
-	\centering
-	\tikzsetnextfilename{moon-eclipse-scheme}
-	\begin{tikzpicture}
+    \centering
+    \tikzsetnextfilename{moon-eclipse-scheme}
+    \begin{tikzpicture}
         \def\e{2.2}
         \def\m{0}
         \def\s{-7.2}
@@ -460,8 +460,8 @@
         \tkzLabelPoint(M){\tikz{\earth(E)}}
         \tkzLabelPoint(E){$\rightmoon$}
     \end{tikzpicture}
-	\caption{Схема лунного затмения со стороны северного полюса эклиптики}
-	\label{fig:moon-eclipse-scheme}
+    \caption{Схема лунного затмения со стороны северного полюса эклиптики}
+    \label{fig:moon-eclipse-scheme}
 \end{figure}
 \term{Лунное затмение}, в отличие от солнечного, видно со всего ночного полушария Земли. Диаметр земной тени на расстоянии Луны превышает размер последней примерно в 2.5\,--\,3 раза. Бывают \term[частное затмение]{частные}, когда лишь часть Луны попадает в земную тень, \term[полное затмение]{полные}~--- Луна полностью погружается в тень Земли, и \term[полутеневое затмение]{полутеневые}~--- Луна проходит через полутень Земли, не затрагивая конус тени.
 
@@ -545,11 +545,11 @@
 
         \tkzDrawPoints(C1, C2)
     \end{tikzpicture}
-	\caption{Частное и полное затмение}
-	\label{fig:part-eclipses-scheme}
+    \caption{Частное и полное затмение}
+    \label{fig:part-eclipses-scheme}
 \end{wrapfigure}
 Важной характеристикой любого затмения является его \term{фаза}~--- для \imp{частных} и \imp{кольцеобразных} затмений: отношение закрытой части $x$ диаметра\footnote{Здесь имеется в виду \imp{угловой} диаметр} затмеваемого тела, проходящего через центр затмевающего тела, ко всему диаметру затмеваемого тела $D$; для \imp{полного}: единица плюс отношение расстояния\footnote{Расстояние между окружностями $l_1$ и $l_2$~--- это $\min |L_1L_2|$ по всем $L_1 \in l_1$ и $L_2 \in l_2$.} между краями дисков затмеваемого и затмевающего тел к диаметру затмеваемого тела $D$.
 \begin{equation}
-	\Phi_{\text{част}} = \frac{x}{D} < 1, \quad \quad \quad \Phi_{\text{полн}} =  1 + \frac{\min\{d_1, d_2\}}{D} > 1.
+    \Phi_{\text{част}} = \frac{x}{D} < 1, \quad \quad \quad \Phi_{\text{полн}} =  1 + \frac{\min\{d_1, d_2\}}{D} > 1.
 \end{equation}
 Иногда вводят такое понятие, как \term{площадная фаза затмения}, т.\,е. отношение площади закрытой части диска затмеваемого тела к полной площади его диска. Чаще всего  площадную фазу используют применительно к двойным звёздам, когда считают падение блеска при затмении одной звезды другой.

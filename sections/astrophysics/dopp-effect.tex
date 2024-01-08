@@ -1,15 +1,16 @@
 \subsection{Эффект Доплера. Красное смещение}
 \term{Эффект Доплера}~--- эффект изменения частоты и длины волны электромагнитного излучения, регистрируемого приёмником, вызванный относительным движением источника и приёмника (см.~Рис.\,\ref{doppler-ef}).
 
-При $\Delta \lambda \ll \lambda_0$ с большой точностью выполняется следующее важное соотношение:\begin{equation}
-\beta \equiv \dfrac{v}{c} = \dfrac{\lambda - \lambda_0}{\lambda_0} \equiv \dfrac{\Delta \lambda}{\lambda_0},
-\label{eq:dopler-ef-simple}
+При $\Delta \lambda \ll \lambda_0$ с большой точностью выполняется следующее важное соотношение:
+\begin{equation}
+    \beta \equiv \dfrac{v}{c} = \dfrac{\lambda - \lambda_0}{\lambda_0} \equiv \dfrac{\Delta \lambda}{\lambda_0},
+    \label{eq:dopler-ef-simple}
 \end{equation}
 \begin{wrapfigure}[6]{r}{0.5\tw}
-\centering
-\vspace{-.5pc}
-%\includegraphics[width=.5\tw]{doppler-ef}
-\begin{tikzpicture}
+    \centering
+    \vspace{-.5pc}
+    \tikzsetnextfilename{doppler-effect}
+    \begin{tikzpicture}
         \clip (-1.5,-0.8) rectangle + (5.5, 1.6);
         \foreach \i in {12,...,0} {
             \pgfmathsetmacro\m{int(mod(\i * 5, 2))};
@@ -22,28 +23,25 @@
         \filldraw (0, 0) circle (0.05);
         \draw [-latex, line width=1pt] (-1.1, 0) -- (-1.5, 0);
         \begin{axis}[
-%			ylabel shift	= -1 cm,
-			xmin = -1,
-			xmax = 4,
-			ymin=-1,
-			ymax=1,
-			width=6.6cm,
-			height=3.6cm,
-			xshift=-1cm,
-			yshift=-1cm,
-			grid=none,
-			axis line style={draw=none},
-			tick style={draw=none},
-			ticks=none
-			]
-			
-			\addplot+[domain=-1:0, samples=1000, smooth, black, line width = 1pt]{0.6*sin(deg(37.7*x))};
-			\addplot+[domain=0:4, samples=200, black, line width = 1pt]{0.6*sin(deg(37.7/4*x))};
-		\end{axis}
+            xmin    =   -1,
+            xmax    =   4,
+            ymin    =   -1,
+            ymax    =   1,
+            width   =   6.6cm,
+            height  =   3.6cm,
+            xshift  =   -1cm,
+            yshift  =   -1cm,
+            grid    =   none,
+            ticks   =   none,
+            axis line style = {draw=none},
+            tick style = {draw=none},
+        ]
+            \addplot+[domain=-1:0, samples=1000, smooth, black, line width = 1pt]{0.6*sin(deg(37.7*x))};
+            \addplot+[domain=0:4, samples=200, black, line width = 1pt]{0.6*sin(deg(37.7/4*x))};
+        \end{axis}
     \end{tikzpicture}
-
-\caption{Эффект Доплера}
-\label{doppler-ef}
+    \caption{Эффект Доплера}
+    \label{doppler-ef}
 \end{wrapfigure}
 где $\lambda_0$~--- лабораторная длина волны излучения источника, а $\lambda$~--- наблюдаемая. В действительности же имеет место более общий случай: \imp{релятивистский эффект Доплера}, обусловленный проявлением СТО при $v \simeq c$, для которого формула~\eqref{eq:dopler-ef-simple} усложняется и принимает вид
 \begin{equation}

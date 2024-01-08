@@ -26,52 +26,54 @@
 
 В реальных задачах астрономии и физики редко возникает необходимость в использовании ряда Тейлора~\eqref{eq:taylor-series}. Наиболее применима формула Тейлора~\eqref{eq:taylor-formula} при $x_0 = 0$. Откуда можно получить следующие формулы приближенного вычисления при $x \ll 1$:
 \begin{align*}
-	\sin x &\simeq x - \frac{x^3}{6} \simeq x, & 
-	\cos x &\simeq 1 - \frac{x^2}{2} + \frac{x^4}{4!} \simeq 1 - \frac{x^2}{2}, \\
-	\tg x &\simeq x + \frac{x^3}{3} \simeq x, & 
-	\ln(1+x) &\simeq x - \frac{x^2}{2} + \frac{x^3}{3} \simeq x, \\
-	(1 + x)^\alpha &\simeq 1 + \alpha x, & 
-	e^x &\simeq 1 + x + \frac{x^2}{2} \simeq 1 + x, \\
-	\sin (\theta + x) &\simeq \sin \theta + x \cos \theta, & 
-	\cos(\theta + x) &\simeq \cos \theta - x \sin \theta.
+    \sin x &\simeq x - \frac{x^3}{6} \simeq x, &
+    \cos x &\simeq 1 - \frac{x^2}{2} + \frac{x^4}{4!} \simeq 1 - \frac{x^2}{2}, \\
+    \tg x &\simeq x + \frac{x^3}{3} \simeq x, &
+    \ln(1+x) &\simeq x - \frac{x^2}{2} + \frac{x^3}{3} \simeq x, \\
+    (1 + x)^\alpha &\simeq 1 + \alpha x, &
+    e^x &\simeq 1 + x + \frac{x^2}{2} \simeq 1 + x, \\
+    \sin (\theta + x) &\simeq \sin \theta + x \cos \theta, &
+    \cos(\theta + x) &\simeq \cos \theta - x \sin \theta.
 \end{align*}
 \begin{wrapfigure}{r}{0.47\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			width	=	.5\tw,
-			height	=	4.5cm,
-			xlabel	=	{$x$},
-			ylabel	=	{$y$},
-			ymax	=	1,
-			ymin	=	0,
-			xmax	=	1.571,
-			xmin	=	0,
-			legend cell align=left,
-			legend style={
-				row sep = 1mm,
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:1.5, 0.1)}, anchor=south east,
-			},
-		]
-			\addplot [domain=0:2, samples=100] {sin(deg(x))};
-			\addplot [domain=0:2, samples=100, dashed] {x};
-			\addplot [domain=0:2, samples=100, dotted] {x - (x^3)/6};
-			\legend{
-				$\sin(x)$,
-				$x$,
-				$x - x^3\!/6$
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{math-approx}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width    =    .5\tw,
+            height    =    4.5cm,
+            xlabel    =    {$x$},
+            ylabel    =    {$y$},
+            ymax    =    1,
+            ymin    =    0,
+            xmax    =    1.571,
+            xmin    =    0,
+            legend cell align=left,
+            legend style={
+                row sep = 1mm,
+                draw=none,
+                fill=none,
+                font=\scriptsize,
+                at={(axis cs:1.5, 0.1)}, anchor=south east,
+            },
+        ]
+            \addplot [domain=0:2, samples=100] {sin(deg(x))};
+            \addplot [domain=0:2, samples=100, dashed] {x};
+            \addplot [domain=0:2, samples=100, dotted] {x - (x^3)/6};
+            \legend{
+                $\sin(x)$,
+                $x$,
+                $x - x^3\!/6$
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:math-approx}
 \end{wrapfigure}
 При необходимости более точного приближения всегда можно выписать следующие несколько членов многочлена Тейлора. 
 
 По аналогии, последовательно применяя формулу Тейлора и принимая различные переменные за аргумент функции, можно получить формулу для нескольких малых переменных:
 \begin{equation*}
-	(1 + a)^\alpha (1 + b)^\beta \ldots \simeq 1 + \alpha a + \beta b + \ldots
+    (1 + a)^\alpha (1 + b)^\beta \ldots \simeq 1 + \alpha a + \beta b + \ldots
 \end{equation*}

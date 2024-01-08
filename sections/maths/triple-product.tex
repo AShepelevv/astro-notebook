@@ -1,46 +1,47 @@
 \subsection{Смешанное произведение}
 \begin{wrapfigure}{r}{0.35\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}[scale=1]
-		\footnotesize
-		\coordinate (O) at (0, 0);
-		\coordinate (A) at (1.5, 0);
-		\coordinate (B) at (1, 0.5);
-		\coordinate (C) at (0.5, 1.5);
-		\coordinate (AB) at (2.5, 0.5);
-		\coordinate (AC) at (2, 1.5);
-		\coordinate (BC) at (1.5, 2);
-		\coordinate (ABC) at (3, 2);
-		\coordinate (N) at (0, 2);
-				
-		\draw[thick, -latex] (O) -- (A);
-		\draw[thick, -latex] (O) -- (B);
-		\draw[thick, -latex] (O) -- (C);
-		\draw[semithick, -latex] (O) -- (N);
-		
-		\draw[dashes] (A) -- (AB);
-		\draw[dashes] (A) -- (AC);
-		\draw[dashes] (B) -- (AB);
-		\draw[dashes] (B) -- (BC);
-		\draw[dashes] (C) -- (AC);
-		\draw[dashes] (C) -- (BC);
-		\draw[dashes] (AB) -- (ABC);
-		\draw[dashes] (AC) -- (ABC);
-		\draw[dashes] (BC) -- (ABC);
-		
-		\draw (0.75, 0) node[anchor=north]{$\vec{b}$};
-		\draw (0.5, 0.25) node[anchor=south]{$\vec{c}$};
-		\draw (0.25, 0.82) node[anchor=west]{$\vec{a}$}; 
-		\draw (0, 1) node[anchor=east]{$\vec{n}$};
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:math-triple}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{math-triple}
+    \begin{tikzpicture}[scale=1]
+        \footnotesize
+        \coordinate (O) at (0, 0);
+        \coordinate (A) at (1.5, 0);
+        \coordinate (B) at (1, 0.5);
+        \coordinate (C) at (0.5, 1.5);
+        \coordinate (AB) at (2.5, 0.5);
+        \coordinate (AC) at (2, 1.5);
+        \coordinate (BC) at (1.5, 2);
+        \coordinate (ABC) at (3, 2);
+        \coordinate (N) at (0, 2);
+
+        \draw[thick, -latex] (O) -- (A);
+        \draw[thick, -latex] (O) -- (B);
+        \draw[thick, -latex] (O) -- (C);
+        \draw[semithick, -latex] (O) -- (N);
+
+        \draw[dashes] (A) -- (AB);
+        \draw[dashes] (A) -- (AC);
+        \draw[dashes] (B) -- (AB);
+        \draw[dashes] (B) -- (BC);
+        \draw[dashes] (C) -- (AC);
+        \draw[dashes] (C) -- (BC);
+        \draw[dashes] (AB) -- (ABC);
+        \draw[dashes] (AC) -- (ABC);
+        \draw[dashes] (BC) -- (ABC);
+
+        \draw (0.75, 0) node[anchor=north]{$\vec{b}$};
+        \draw (0.5, 0.25) node[anchor=south]{$\vec{c}$};
+        \draw (0.25, 0.82) node[anchor=west]{$\vec{a}$};
+        \draw (0, 1) node[anchor=east]{$\vec{n}$};
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:math-triple}
 \end{wrapfigure}
 
 Векторное произведение определяет вектор площади параллелограмма, построенного на двух векторах, а скалярное произведение~--- величину проекции одного вектора на другой. Рассмотрим такую операцию:
 \begin{equation}
-	\triple{a}{b}{c} = \scalar{a}{\cross{b}{c}}.
+    \triple{a}{b}{c} = \scalar{a}{\cross{b}{c}}.
 \end{equation}
 
 Разберем, что является результатом данной операции: $\cross{b}{c} = \vec{n}$~--- вектор нормали к плоскости векторов $\vec{b}$ и $\vec{c}$ такой, что $|\vec{n}| = |b||c| \sin \widehat{\vec{b}\vec{c}} \equiv S$~--- площадь параллелограмма.
@@ -49,17 +50,17 @@
 
 В матричной форме смешанное произведение можно записать, как
 \begin{equation}
-	\triple{a}{b}{c} = \det
-	\begin{pmatrix}
-		\vec{a}^{\T}\\
-		\vec{b}^{\T}\\
-		\vec{c}^{\T}
-	\end{pmatrix} =
-	\begin{vmatrix}
-		a_1 & a_2 & a_3\\
-		b_1 & b_2 & b_3\\
-		c_1 & c_2 & c_3
-	\end{vmatrix},
+    \triple{a}{b}{c} = \det
+    \begin{pmatrix}
+        \vec{a}^{\T}\\
+        \vec{b}^{\T}\\
+        \vec{c}^{\T}
+    \end{pmatrix} =
+    \begin{vmatrix}
+        a_1 & a_2 & a_3\\
+        b_1 & b_2 & b_3\\
+        c_1 & c_2 & c_3
+    \end{vmatrix},
 \end{equation}
 то есть определитель матрицы $n \times n$~--- ориентированные объем $n$-мерного параллелепипеда, построенного на $n$ векторах.
 

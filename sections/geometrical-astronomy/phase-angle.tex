@@ -7,84 +7,84 @@
 
 Теперь легко получить выражения для величины фазы через величину фазового угла:
 \begin{equation}
-	\Phi = \frac{S_\text{освещ}}{S} = \frac{l}{D} = \frac{R ( 1 + \cos \phi )}{2R} = \frac{1 + \cos \phi}{2} =  \cos^2 \frac{\phi}{2}.
+    \Phi = \frac{S_\text{освещ}}{S} = \frac{l}{D} = \frac{R ( 1 + \cos \phi )}{2R} = \frac{1 + \cos \phi}{2} =  \cos^2 \frac{\phi}{2}.
 \end{equation}
 
 \begin{figure}[h!]
-	\begin{subcaptionblock}[b]{0.47\tw}
-		\centering
-		\tikzsetnextfilename{phase-angle-1}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){C}
+    \begin{subcaptionblock}[b]{0.47\tw}
+        \centering
+        \tikzsetnextfilename{phase-angle-1}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){C}
 
-			\def\R{1}
-			\def\f{55}
+            \def\R{1}
+            \def\f{55}
 
-			\tkzDefShiftPoint[C](0,\R){L1}
-			\tkzDefPointBy[homothety=center C ratio -1](L1) \tkzGetPoint{L2}
+            \tkzDefShiftPoint[C](0,\R){L1}
+            \tkzDefPointBy[homothety=center C ratio -1](L1) \tkzGetPoint{L2}
 
-			\tkzFillSector[fill=black!30](C,L2)(L1)
-			\tkzDrawCircle[semithick, black](C,L1)
-			\tkzDrawSegment(L1,L2)
+            \tkzFillSector[fill=black!30](C,L2)(L1)
+            \tkzDrawCircle[semithick, black](C,L1)
+            \tkzDrawSegment(L1,L2)
 
-			\tkzDefPointBy[rotation=center C angle -\f](L1) \tkzGetPoint{O1}
-			\tkzDefPointBy[homothety=center C ratio -1](O1) \tkzGetPoint{O2}
+            \tkzDefPointBy[rotation=center C angle -\f](L1) \tkzGetPoint{O1}
+            \tkzDefPointBy[homothety=center C ratio -1](O1) \tkzGetPoint{O2}
 
-			\tkzDrawSegment[dashed](O1,O2)
+            \tkzDrawSegment[dashed](O1,O2)
 
-			\tkzDefPointWith[orthogonal,K=1.3](C,O1) \tkzGetPoint{O}
-			\tkzDefPointWith[orthogonal,K=1.7](C,L1) \tkzGetPoint{L}
-			\tkzDrawSegments[-latex](C,O C,L)
+            \tkzDefPointWith[orthogonal,K=1.3](C,O1) \tkzGetPoint{O}
+            \tkzDefPointWith[orthogonal,K=1.7](C,L1) \tkzGetPoint{L}
+            \tkzDrawSegments[-latex](C,O C,L)
 
-			\tkzMarkAngles[arc=l, size=0.4](O,C,L O1,C,L1)
-			\tkzLabelAngles[pos=0.6](O,C,L O1,C,L1){\footnotesize$\phi$}
+            \tkzMarkAngles[arc=l, size=0.4](O,C,L O1,C,L1)
+            \tkzLabelAngles[pos=0.6](O,C,L O1,C,L1){\footnotesize$\phi$}
 
-			\tkzMarkRightAngles[size=0.2](O1,C,O L,C,L2)
+            \tkzMarkRightAngles[size=0.2](O1,C,O L,C,L2)
 
-			\tkzLabelPoint[above](L){Источник}
-			\tkzLabelPoint[above=-1pt](O){Наблюдатель}
+            \tkzLabelPoint[above](L){Источник}
+            \tkzLabelPoint[above=-1pt](O){Наблюдатель}
 
-			\tkzDrawPoints(C)
-		\end{tikzpicture}
-		\caption{Проекция объекта на плосткость {\slshape Источник\,--\,Объект\,--\,Наблюдатель}}
-		\label{pic:phase-angle-1}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}[b]{0.47\tw}
+            \tkzDrawPoints(C)
+        \end{tikzpicture}
+        \caption{Проекция объекта на плосткость {\slshape Источник\,--\,Объект\,--\,Наблюдатель}}
+        \label{pic:phase-angle-1}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}[b]{0.47\tw}
         \centering
         \tikzsetnextfilename{phase-angle-2}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){C}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){C}
 
-			\def\R{1}
-			\def\f{55}
+            \def\R{1}
+            \def\f{55}
 
-			\def\s{\R *(1 - cos(\f / 180 * pi))}
+            \def\s{\R *(1 - cos(\f / 180 * pi))}
 
-			\tkzDefShiftPoint[C](0,\R){P1}
-			\tkzDefPointBy[homothety=center C ratio -1](P1) \tkzGetPoint{P2}
+            \tkzDefShiftPoint[C](0,\R){P1}
+            \tkzDefPointBy[homothety=center C ratio -1](P1) \tkzGetPoint{P2}
 
-			\tkzFillCircle[fill=black!30](C,P1)
-			\begin{scope}[xscale=\fpeval{1 - \s/\R}]
-				\tkzGetPointCoord(C){c}
-				\draw[fill=white,draw=none] (\cx,\cy) circle (\R);
-				\tkzGetPointCoord(P2){p}
-				\draw[dashed] (\px,\py) arc(270:90:\R);
-			\end{scope}
-			\tkzFillSector[fill=white](C,P2)(P1)
+            \tkzFillCircle[fill=black!30](C,P1)
+            \begin{scope}[xscale=\fpeval{1 - \s/\R}]
+                \tkzGetPointCoord(C){c}
+                \draw[fill=white,draw=none] (\cx,\cy) circle (\R);
+                \tkzGetPointCoord(P2){p}
+                \draw[dashed] (\px,\py) arc(270:90:\R);
+            \end{scope}
+            \tkzFillSector[fill=white](C,P2)(P1)
 
-			\tkzDrawCircle[semithick, black](C,P1)
+            \tkzDrawCircle[semithick, black](C,P1)
 
-			\tkzDefPointWith[orthogonal,K=1](C,P1) \tkzGetPoint{E1}
-			\tkzDefPointWith[orthogonal,K=1](C,P2) \tkzGetPoint{E2}
-			\tkzDefPointWith[orthogonal,K={1 - \s/\R}](C,P1) \tkzGetPoint{T}
+            \tkzDefPointWith[orthogonal,K=1](C,P1) \tkzGetPoint{E1}
+            \tkzDefPointWith[orthogonal,K=1](C,P2) \tkzGetPoint{E2}
+            \tkzDefPointWith[orthogonal,K={1 - \s/\R}](C,P1) \tkzGetPoint{T}
 
-			\tkzDrawSegments[latex-latex](E1,T T,E2)
-			\tkzLabelSegment[above](E1,T){$s$}
-			\tkzLabelSegment[above](T,E2){$l$}
-		\end{tikzpicture}
-		\caption{Проекция объекта на картинную плоскость наблюдателя}
-		\label{pic:phase-angle-2}
-	\end{subcaptionblock}
-	\caption{}
+            \tkzDrawSegments[latex-latex](E1,T T,E2)
+            \tkzLabelSegment[above](E1,T){$s$}
+            \tkzLabelSegment[above](T,E2){$l$}
+        \end{tikzpicture}
+        \caption{Проекция объекта на картинную плоскость наблюдателя}
+        \label{pic:phase-angle-2}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}

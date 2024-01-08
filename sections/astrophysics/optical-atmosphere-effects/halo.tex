@@ -9,48 +9,50 @@
     \vspace{-0.7pc}
     \newcommand{\drawPrizm}[2]{
         \tkzDefPoint(0,0){C}
-	    \def\R{#1}
-	    \def\h{#2}
-	    \def\f{0}
-	    
-	    \tkzDefShiftPoint[C](\R,0){x}
-	    \tkzDefPointBy[rotation=center C angle \f](x)  \tkzGetPoint{R1}
-	    \tkzDefPointBy[rotation=center C angle 60](R1) \tkzGetPoint{R2}
-	    \tkzDefPointBy[rotation=center C angle 60](R2) \tkzGetPoint{R3}
-	    \tkzDefPointBy[rotation=center C angle 60](R3) \tkzGetPoint{R4}
-	    \tkzDefPointBy[rotation=center C angle 60](R4) \tkzGetPoint{R5}
-	    \tkzDefPointBy[rotation=center C angle 60](R5) \tkzGetPoint{R6}
-	    
-	    \tkzGetPointCoord(R1){r}
-	    \tkzGetPointCoord(R2){R}
-	    \tkzGetPointCoord(R3){rr}
-	    \tkzGetPointCoord(R4){rR}
-	    \tkzGetPointCoord(R5){Rr}
-	    \tkzGetPointCoord(R6){RR}
-	    
-	    \draw[dashed] (\rx,\ry,0) -- (\Rx,\Ry,0) -- (\rrx,\rry,0) -- (\rRx,\rRy,0);
-	    \draw (\rRx,\rRy,0) -- (\Rrx,\Rry,0) -- (\RRx,\RRy,0) -- (\rx,\ry,0);
-	    
-	    \draw (\rx,\ry,\h) -- (\Rx,\Ry,\h) -- (\rrx,\rry,\h) -- (\rRx,\rRy,\h) -- (\Rrx,\Rry,\h) -- (\RRx,\RRy,\h) -- cycle; 
-	    
-	    \draw (\rx,\ry,0) -- (\rx,\ry,\h);
-	    \draw[dashed] (\Rx,\Ry,0) -- (\Rx,\Ry,\h);
-	    \draw[dashed] (\rrx,\rry,0) -- (\rrx,\rry,\h);
-	    \draw (\rRx,\rRy,0) -- (\rRx,\rRy,\h);
-	    \draw (\Rrx,\Rry,0) -- (\Rrx,\Rry,\h);
-	    \draw (\RRx,\RRy,0) -- (\RRx,\RRy,\h);
+        \def\R{#1}
+        \def\h{#2}
+        \def\f{0}
+
+        \tkzDefShiftPoint[C](\R,0){x}
+        \tkzDefPointBy[rotation=center C angle \f](x)  \tkzGetPoint{R1}
+        \tkzDefPointBy[rotation=center C angle 60](R1) \tkzGetPoint{R2}
+        \tkzDefPointBy[rotation=center C angle 60](R2) \tkzGetPoint{R3}
+        \tkzDefPointBy[rotation=center C angle 60](R3) \tkzGetPoint{R4}
+        \tkzDefPointBy[rotation=center C angle 60](R4) \tkzGetPoint{R5}
+        \tkzDefPointBy[rotation=center C angle 60](R5) \tkzGetPoint{R6}
+
+        \tkzGetPointCoord(R1){r}
+        \tkzGetPointCoord(R2){R}
+        \tkzGetPointCoord(R3){rr}
+        \tkzGetPointCoord(R4){rR}
+        \tkzGetPointCoord(R5){Rr}
+        \tkzGetPointCoord(R6){RR}
+
+        \draw[dashed] (\rx,\ry,0) -- (\Rx,\Ry,0) -- (\rrx,\rry,0) -- (\rRx,\rRy,0);
+        \draw (\rRx,\rRy,0) -- (\Rrx,\Rry,0) -- (\RRx,\RRy,0) -- (\rx,\ry,0);
+
+        \draw (\rx,\ry,\h) -- (\Rx,\Ry,\h) -- (\rrx,\rry,\h) -- (\rRx,\rRy,\h) -- (\Rrx,\Rry,\h) -- (\RRx,\RRy,\h) -- cycle;
+
+        \draw (\rx,\ry,0) -- (\rx,\ry,\h);
+        \draw[dashed] (\Rx,\Ry,0) -- (\Rx,\Ry,\h);
+        \draw[dashed] (\rrx,\rry,0) -- (\rrx,\rry,\h);
+        \draw (\rRx,\rRy,0) -- (\rRx,\rRy,\h);
+        \draw (\Rrx,\Rry,0) -- (\Rrx,\Rry,\h);
+        \draw (\RRx,\RRy,0) -- (\RRx,\RRy,\h);
     }
 
+    \tikzsetnextfilename{column-cristal}
     \tdplotsetmaincoords{70}{165}
     \begin{tikzpicture}[tdplot_main_coords]
         \drawPrizm{0.4}{1.5}
-	\end{tikzpicture}
-	\tdplotsetmaincoords{70}{185}
+    \end{tikzpicture}
+    \tikzsetnextfilename{plate-cristal}
+    \tdplotsetmaincoords{70}{185}
     \begin{tikzpicture}[tdplot_main_coords]
         \drawPrizm{0.9}{0.3}
-	\end{tikzpicture}
-	\caption{}
-	\label{}    
+    \end{tikzpicture}
+    \caption{}
+    \label{}
 \end{wrapfigure}
 
 В условия формирования перистых облаков кристаллы льда имеют шестиугольную симметрию и являются прямоугольными шестиугольными призмами. Их боковые грани могут иметь разные пропорции, но угол между соседними всегда составляет $60^\circ$. В дальнейшем будем разделять кристаллы на два вида: пластинчатые~--- размер оснований много больше высоты призмы, и колончатые~--- наоборот, высота призмы существенно больше размеров основания.~\cite{Champion_1981}

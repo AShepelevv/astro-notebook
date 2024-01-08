@@ -6,82 +6,83 @@
     \tikzsetnextfilename{analemma}
     \begin{tikzpicture}
         \footnotesize
-		\begin{axis}[
-			width	=	7.27cm,
-			height	=	10cm,
-			xmax 	=	20,
-			xmin	=	-20,
-			ymax	=	27.5,
-			ymin 	= 	-27.5,
-			xlabel	=	{$\eta$, мин},
-			ylabel 	= 	{$\delta_\odot$, $~^\circ$}
-		]
-			\addplot[smooth] table[x=eta, y=delta] {data/analemma.txt};
-			\addplot[only marks, mark = o,mark options={scale=0.4, black}] table[x=eta, y=delta] {data/analemma-months.txt}; %
-			\draw (axis cs:-4.31549,-22.7642) node[anchor=south west] {01.01};
-			\draw (axis cs:-13.7937,-15.9581) node[anchor=north east] {01.02};
-			\draw (axis cs:-12.2946,-5.49806) node[anchor=south east] {01.03};
-			\draw (axis cs:-3.41919,5.51223) node[anchor=south east] {01.04};
-			\draw (axis cs:3.16321,15.5839) node[anchor=west] {01.05};
-			\draw (axis cs:1.62501,22.3907) node[anchor=south west] {01.06};
-			\draw (axis cs:-4.38004,22.7234) node[anchor=south east] {01.07};
-			\draw (axis cs:-5.9518,16.4302) node[anchor=east] {01.08};
-			\draw (axis cs:1.35013,6.67371) node[anchor=south west] {01.09};
-			\draw (axis cs:12.2793,-4.12177) node[anchor=south west] {01.10};
-			\draw (axis cs:16.6081,-14.6495) node[anchor=east] {01.11};
-			\draw (axis cs:9.1938,-22.1884) node[anchor=south east] {01.12};
-%			\draw [-latex, gray] (axis cs:5,-5) .. controls (axis cs:18,-20) and (axis cs:-15,-20) .. (axis cs:-5,-5);
-%			\draw [-latex, gray] (axis cs:1,15) .. controls (axis cs:5,24) and (axis cs:-8,23) .. (axis cs:-3,15);
-		\end{axis}
-	\end{tikzpicture}
-	\caption{Аналемма}
-	\label{fig:analemma}
+        \begin{axis}[
+            width    =    7.27cm,
+            height    =    10cm,
+            xmax     =    20,
+            xmin    =    -20,
+            ymax    =    27.5,
+            ymin     =     -27.5,
+            xlabel    =    {$\eta$, мин},
+            ylabel     =     {$\delta_\odot$, $~^\circ$}
+        ]
+            \addplot[smooth] table[x=eta, y=delta] {data/analemma.txt};
+            \addplot[only marks, mark = o,mark options={scale=0.4, black}] table[x=eta, y=delta] {data/analemma-months.txt}; %
+            \draw (axis cs:-4.31549,-22.7642) node[anchor=south west] {01.01};
+            \draw (axis cs:-13.7937,-15.9581) node[anchor=north east] {01.02};
+            \draw (axis cs:-12.2946,-5.49806) node[anchor=south east] {01.03};
+            \draw (axis cs:-3.41919,5.51223) node[anchor=south east] {01.04};
+            \draw (axis cs:3.16321,15.5839) node[anchor=west] {01.05};
+            \draw (axis cs:1.62501,22.3907) node[anchor=south west] {01.06};
+            \draw (axis cs:-4.38004,22.7234) node[anchor=south east] {01.07};
+            \draw (axis cs:-5.9518,16.4302) node[anchor=east] {01.08};
+            \draw (axis cs:1.35013,6.67371) node[anchor=south west] {01.09};
+            \draw (axis cs:12.2793,-4.12177) node[anchor=south west] {01.10};
+            \draw (axis cs:16.6081,-14.6495) node[anchor=east] {01.11};
+            \draw (axis cs:9.1938,-22.1884) node[anchor=south east] {01.12};
+%            \draw [-latex, gray] (axis cs:5,-5) .. controls (axis cs:18,-20) and (axis cs:-15,-20) .. (axis cs:-5,-5);
+%            \draw [-latex, gray] (axis cs:1,15) .. controls (axis cs:5,24) and (axis cs:-8,23) .. (axis cs:-3,15);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Аналемма}
+    \label{fig:analemma}
 \end{wrapfigure}
 В течение сидерического года Земля совершает полный оборот вокруг Солнца. Вследствие этого Солнце движется относительно далёких звёзд для наблюдателя на Земле. Это движение совершается по большому кругу небесной сферы, называемому \term{эклиптикой} и совпадающему с плоскостью орбиты Земли. Однако, в силу прецессии земной оси с периодом около 25765~лет, период такого движения равен \imp{тропическому году}, который длиннее сидерического года примерно на 20~мин~25~сек.
 
 \begin{wrapfigure}[12]{r}{0.5\tw}
-	\centering
-	\vspace{-.9pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			width	=	.5\tw,
-			height	=	4.5cm,
-			xlabel	=	{Прямое восхождение $\alpha^h$},
-			ylabel	=	{Склонение $\delta^{\circ}$},
-			extra y ticks	=	{23.44, -23.44},
-			ytick = {-20, -10, 0, 10, 20},
-			ymax	=	25,
-			ymin	=	-25,
-			xmax	=	24,
-			xmin	=	0,
-			xtick	=	{0, 4, 8, 12, 16, 20, 24},
-			x dir = reverse
-			]
-			\addplot [domain=0:24, samples=100] {atan(sin(x*15)*tan(23.44))};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{График зависимости склонения Солнца от его прямого восхождения}
+    \centering
+    \vspace{-.9pc}
+    \tikzsetnextfilename{sun-path}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width    =    .5\tw,
+            height    =    4.5cm,
+            xlabel    =    {Прямое восхождение $\alpha^h$},
+            ylabel    =    {Склонение $\delta^{\circ}$},
+            extra y ticks    =    {23.44, -23.44},
+            ytick = {-20, -10, 0, 10, 20},
+            ymax    =    25,
+            ymin    =    -25,
+            xmax    =    24,
+            xmin    =    0,
+            xtick    =    {0, 4, 8, 12, 16, 20, 24},
+            x dir = reverse
+            ]
+            \addplot [domain=0:24, samples=100] {atan(sin(x*15)*tan(23.44))};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{График зависимости склонения Солнца от его прямого восхождения}
 \end{wrapfigure}
 В моменты, когда Солнце находится в \imp{точке весеннего равноденствия}~$\aries$  (20~марта, реже~21) его координаты: $\alpha=0^h$, $\delta=0^{\circ}$. Во время прохождения этой точки обе координаты Солнца растут. Так происходит до момента, пока Солнце не пройдет \imp{точку летнего солнцестояния} (21~июня, реже~20), координаты которой~--- $\alpha=6^h$ и $\delta=\varepsilon$. После этого склонение Солнца начинает убывать. В момент прохождения \imp{точки осеннего равноденствия}~$\libra$ (22~или 23~сентября), координаты Солнца составляют $\alpha=12^h$, $\delta=0^{\circ}$. После прохождения \imp{точки зимнего солнцестояния} с координатами $\alpha=18^h$, $\delta=-\varepsilon$ (22~или 21~декабря) склонение Солнца начинает увеличиваться.
 
 Пренебрегая сферическими искажениями, годичный путь Солнца по небесной сфере можно считать синусоидой, откуда
 \begin{equation}
-	\delta=\varepsilon\cdot\sin \frac{2 \pi t}{T},
+    \delta=\varepsilon\cdot\sin \frac{2 \pi t}{T},
 \end{equation}
 где $t$~--- время, прошедшее с момента весеннего равноденствия, $T$~--- тропический год.
 
 Более точная формула следует из сферической тригонометрии и имеет вид
 \begin{equation}
-	\delta=\arcsin\left(\sin\varepsilon\cdot\sin \frac{2 \pi t}{T}\right).
-	\label{eq:delta-sun}
+    \delta=\arcsin\left(\sin\varepsilon\cdot\sin \frac{2 \pi t}{T}\right).
+    \label{eq:delta-sun}
 \end{equation}
 
 Известно, что движение Солнца по эклиптике происходит неравномерно, поэтому данные формулы не являются абсолютно точными.
 
 Прямое восхождение Солнца связано со склонением формулой
 \begin{equation}
-	\sin\alpha=\frac{\tg\delta}{\tg\varepsilon}.
-	\label{eq:sin-alpha}
+    \sin\alpha=\frac{\tg\delta}{\tg\varepsilon}.
+    \label{eq:sin-alpha}
 \end{equation}
 
 Выражения \eqref{eq:delta-sun} и \eqref{eq:sin-alpha} следуют из формул перехода между экваториальной и эклиптической системами координат, получаемых из сферической тригонометрии.

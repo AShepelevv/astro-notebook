@@ -3,68 +3,66 @@
 
 Оптически прозрачная среда характеризуется скоростью распространения электромагнитного излучения (скоростью света) в ней. Скорость света в прозрачной среде определяется как
 \begin{equation}
-	c = \frac{c_0}{n},
+    c = \frac{c_0}{n},
 \end{equation}
 где $c_0$~--- скорость света в вакууме, а $n$~--- коэффициент преломления среды.
 
 \term{Преломление}~--- изменение направления распространения волн (лучей) электромагнитного излучения, возникающее на границе раздела двух прозрачных для этих волн сред. Преломление света на границе двух сред даёт парадоксальный зрительный эффект: пересекающие границу раздела прямые предметы в более плотной среде ($n_1 >  n_2$) выглядят образующими больший угол с нормалью к границе раздела (то есть преломлёнными <<вверх»>>); в то время как луч, входящий в более плотную среду, распространяется в ней под меньшим углом к нормали (то есть преломляется <<вниз>>). Этот же оптический эффект приводит к ошибкам в визуальном определении глубины водоёма, которая всегда кажется меньше, чем есть на самом деле.
 
 \begin{wrapfigure}[11]{r}{0.45\tw}
-	\centering
-	\vspace{-1pc}
-	\begin{tikzpicture}
-		\footnotesize
-		
-		\coordinate (0) at (0, 0) {};
-		\coordinate (A) at (1.5, 0.87) {};
-		\coordinate (2) at (2, 0) {};
-		\coordinate (B) at (.13, -.5) {};
-		
-		%		\tkzMarkRightAngle[size=.4](0, A, 2);
-		%		\tkzMarkRightAngle[size=.4](0, B, 2);
-		
-		\draw [double, line cap = butt] (0, -.7) arc(-90:-75:.7);
-		\draw [double, line cap = butt] (1.3, 0) arc(180:195:.7);
-		\draw [line cap = butt] (.5, 0) arc(0:30:.5);
-		\draw [line cap = butt] (0, .5) arc(90:120:.5);
-		
-		\draw [line width = .5pt] (-1.5, 0) -- (3, 0);
-		
-		\draw [dashes] (0, -2) -- (0, 2);
-		
-		\draw [line width = 1pt] (-1.15, 2) -- (0, 0);
-		\draw [line width = 1pt] (0.85, 2) -- (2, 0);
-		\draw [line width = 1pt] (0.54, -2) -- (0, 0);
-		\draw [line width = 1pt] (2.54, -2) -- (2, 0);
-		\draw [line width = 1pt, -latex] (-1.15, 2) -- (-0.57, 1);
-		\draw [line width = 1pt, -latex] (0.85, 2) -- (1.43, 1);
-		\draw [line width = 1pt, -latex] (0, 0) -- (0.27, -1);
-		\draw [line width = 1pt, -latex] (2, 0) -- (2.27, -1) ;
-		
-		\draw (0) -- (A);
-		\draw (B) -- (2);
-		
-		\draw (3, 0) node [anchor=south east] {$n_1$};
-		\draw (3, 0) node [anchor=north east] {$n_2$};
-		\draw (0, .5) node [anchor=south east] {$\alpha$};
-		\draw (.5, 0) node [anchor=south west] {$\alpha$};
-		\draw (-.05, -.9) node [anchor=north west] {$\beta$};
-		\draw (1, .06) node [anchor=north east] {$\beta$};
-		
-	\end{tikzpicture}
-	\caption{Ход лучей при прохождении границы раздела двух сред в направлении из оптически менее плотной в оптически более плотную среду}
-	\label{}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{snellius-law-scheme}
+    \begin{tikzpicture}
+        \footnotesize
+
+        \coordinate (0) at (0, 0) {};
+        \coordinate (A) at (1.5, 0.87) {};
+        \coordinate (2) at (2, 0) {};
+        \coordinate (B) at (.13, -.5) {};
+
+        \draw [double, line cap = butt] (0, -.7) arc(-90:-75:.7);
+        \draw [double, line cap = butt] (1.3, 0) arc(180:195:.7);
+        \draw [line cap = butt] (.5, 0) arc(0:30:.5);
+        \draw [line cap = butt] (0, .5) arc(90:120:.5);
+
+        \draw [line width = .5pt] (-1.5, 0) -- (3, 0);
+
+        \draw [dashes] (0, -2) -- (0, 2);
+
+        \draw [line width = 1pt] (-1.15, 2) -- (0, 0);
+        \draw [line width = 1pt] (0.85, 2) -- (2, 0);
+        \draw [line width = 1pt] (0.54, -2) -- (0, 0);
+        \draw [line width = 1pt] (2.54, -2) -- (2, 0);
+        \draw [line width = 1pt, -latex] (-1.15, 2) -- (-0.57, 1);
+        \draw [line width = 1pt, -latex] (0.85, 2) -- (1.43, 1);
+        \draw [line width = 1pt, -latex] (0, 0) -- (0.27, -1);
+        \draw [line width = 1pt, -latex] (2, 0) -- (2.27, -1) ;
+
+        \draw (0) -- (A);
+        \draw (B) -- (2);
+
+        \draw (3, 0) node [anchor=south east] {$n_1$};
+        \draw (3, 0) node [anchor=north east] {$n_2$};
+        \draw (0, .5) node [anchor=south east] {$\alpha$};
+        \draw (.5, 0) node [anchor=south west] {$\alpha$};
+        \draw (-.05, -.9) node [anchor=north west] {$\beta$};
+        \draw (1, .06) node [anchor=north east] {$\beta$};
+
+    \end{tikzpicture}
+    \caption{Ход лучей при прохождении границы раздела двух сред в направлении из оптически менее плотной в оптически более плотную среду}
+    \label{}
 \end{wrapfigure}
 Преломление света в атмосфере Земли приводит к тому, что мы наблюдаем восход Солнца несколько раньше, а закат несколько позже, чем это имело бы место при отсутствии атмосферы. По той же причине вблизи горизонта диск Солнца выглядит заметно сплющенным вдоль вертикали.
-	
+
 Закон преломления называется \term{законом Снеллиуса}. Оставим его без доказательства в силу необходимой для этого теории, выходящей за рамки данного книги. Формулируется закон Снеллиуса так:
 \begin{equation}
-	n_1 \sin \alpha = n_2 \sin \beta,
-	\label{eq:snell-law}
+    n_1 \sin \alpha = n_2 \sin \beta,
+    \label{eq:snell-law}
 \end{equation}
 где $\alpha$~--- угол между лучем и нормалью в среде 1, $\beta$~--- в среде 2.
-	
+
 Из \eqref{eq:snell-law} видно, что для некоторых $n_1$ и $n_2$ таких, что, например $n_2 > n_1$, и достаточно большом угле $\beta$ должно выполняться неравенство $\sin \alpha > 1$, что, очевидно, невозможно. Данная ситуация называется \imp{полным внутренним отражением}~--- всё излучение, падающее из более оптически более плотной среды, отразится от границы раздела. \term{Углом полного внутреннего отражения} называется такой минимальный угол $\beta$, при котором наблюдается полное внутреннее отражение. Положив $\sin \alpha = 1$, получаем, что
 \begin{equation}
-	\sin \beta_\text{min} = \frac{n_1}{n_2}, \quad n_1 < n_2.
+    \sin \beta_\text{min} = \frac{n_1}{n_2}, \quad n_1 < n_2.
 \end{equation}

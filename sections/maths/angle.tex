@@ -2,79 +2,62 @@
 \label{subsec:solid-angle}
 
 \begin{wrapfigure}{r}{0.46\tw}
-	\centering
-	\vspace{-1.1pc}
-	\centering
-	\begin{tikzpicture}[scale=1.1]
-		\footnotesize
-%		\clip(-2.1, -2.1) rectangle (2.1, 2.1);
-%		
-%		\foreach \x in {-5, -4.9,...,5} {
-%			\draw [line width=.1pt] (\x, -5) -- (\x, 5);
-%		};
-%		
-%		\foreach \x in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (\x , -5) -- (\x , 5);
-%		};
-%		
-%		\foreach \y in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (-5, \y) -- (5, \y);
-%		};
-%		
-%		\foreach \y in {-5, -4.9,..., 5} {
-%			\draw [line width=.1pt] (-5, \y) -- (5, \y);
-%		};
+    \centering
+    \vspace{-1.1pc}
+    \centering
+    \tikzsetnextfilename{math-solid-angle}
+    \begin{tikzpicture}[scale=1.1]
+        \footnotesize
 
-		
-		\draw [semithick] (0, 0) circle (2);
-		\draw [semithick] (-2, 0) arc(-180:0:2 and 0.5);
-		\draw [semithick, dashes] (-2, 0) arc(180:0:2 and 0.5);
-		
-		\draw [top color=white!80!black, bottom color=white!50!black] (0, 0.8) .. controls +(270:0.1) 
-		and ++(0:-0.1) .. (0.2, 0.6) .. controls ++(0:0.2) 
-		and ++(0:-0.2) .. (0.6, 0.8) .. controls ++(0:0.1) 
-		and ++(0:-0.1) .. (0.9, 0.6) .. controls +(0:0.1) 
-		and ++(270:0.2) .. (1.1, 0.8) .. controls +(90:0.2) 
-		and ++(0:0.1) .. (0.9, 1.2) .. controls +(180:0.1) 
-		and ++(0:0.1) .. (0.6, 1.1) .. controls +(180:0.1) 
-		and ++(0:0.1) .. (0.3, 1.4) .. controls +(180:0.2) 
-		and ++(90:0.2) .. (0, 0.8) -- cycle;
+        \draw [semithick] (0, 0) circle (2);
+        \draw [semithick] (-2, 0) arc(-180:0:2 and 0.5);
+        \draw [semithick, dashes] (-2, 0) arc(180:0:2 and 0.5);
 
-		
-		\draw [-latex] (0, 0) -- (-2, 0);
-		\draw [top color=white!80!black, bottom color=white!50!black] (0, 0.8) .. controls +(270:0.1) 
-		and ++(0:-0.1) .. (0.2, 0.6) .. controls ++(0:0.2) 
-		and ++(0:-0.2) .. (0.6, 0.8) .. controls ++(0:0.1) 
-		and ++(0:-0.1) .. (0.9, 0.6) .. controls ++(0:0.1)
-		and ++(225:0.01) ..(1.03, 0.62) -- (0, 0) -- cycle;
+        \draw [top color=white!80!black, bottom color=white!50!black] (0, 0.8) .. controls +(270:0.1)
+        and ++(0:-0.1) .. (0.2, 0.6) .. controls ++(0:0.2)
+        and ++(0:-0.2) .. (0.6, 0.8) .. controls ++(0:0.1)
+        and ++(0:-0.1) .. (0.9, 0.6) .. controls +(0:0.1)
+        and ++(270:0.2) .. (1.1, 0.8) .. controls +(90:0.2)
+        and ++(0:0.1) .. (0.9, 1.2) .. controls +(180:0.1)
+        and ++(0:0.1) .. (0.6, 1.1) .. controls +(180:0.1)
+        and ++(0:0.1) .. (0.3, 1.4) .. controls +(180:0.2)
+        and ++(90:0.2) .. (0, 0.8) -- cycle;
 
-		
-		\draw (0.7, 0.95) node{$S$};
-		\draw (-1, 0) node[anchor=south]{$R$};
-		\draw (0, 0) node[anchor=north west]{$O$};
-		\point (0, 0);
-		
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:math-solid-angle}
+
+        \draw [-latex] (0, 0) -- (-2, 0);
+        \draw [top color=white!80!black, bottom color=white!50!black] (0, 0.8) .. controls +(270:0.1)
+        and ++(0:-0.1) .. (0.2, 0.6) .. controls ++(0:0.2)
+        and ++(0:-0.2) .. (0.6, 0.8) .. controls ++(0:0.1)
+        and ++(0:-0.1) .. (0.9, 0.6) .. controls ++(0:0.1)
+        and ++(225:0.01) ..(1.03, 0.62) -- (0, 0) -- cycle;
+
+
+        \draw (0.7, 0.95) node{$S$};
+        \draw (-1, 0) node[anchor=south]{$R$};
+        \draw (0, 0) node[anchor=north west]{$O$};
+        \point (0, 0);
+
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:math-solid-angle}
 \end{wrapfigure}
 \term{Телесный угол}~--- часть пространства, которая является объединением всех лучей, выходящих из данной точки (вершины угла) и пересекающих некоторую поверхность (которая называется поверхностью, стягивающей данный телесный угол). Телесный угол измеряется в стерадианах и равен отношению площади сферы, которую вырезает данный угол, к квадрату радиуса данной сферы.
 \begin{equation}
-	\Omega = \frac{S}{R^2}
+    \Omega = \frac{S}{R^2}
 \end{equation}
 Телесный угол полной сферы равен $4\pi$. Величину телесного угла, образованного конусом с углом раствора $\alpha$ можно определить по формуле
 \begin{equation}
-	\Omega = 2 \pi \left(1 - \cos \frac{\alpha}{2}\right).
+    \Omega = 2 \pi \left(1 - \cos \frac{\alpha}{2}\right).
 \end{equation}
 
 Телесный угол, соответствующий сегменту высоты~$h$ сферы радиуса~$R$, равен
 \begin{equation}
-	\Omega = 2 \pi \left(1 - \dfrac{h}{\sqrt{R^2 + h^2}}\right).
+    \Omega = 2 \pi \left(1 - \dfrac{h}{\sqrt{R^2 + h^2}}\right).
 \end{equation}
 
 Для сферического треугольника с углами $\alpha$, $\beta$ и $\gamma$ справедливо соотношение
 \begin{equation}
-	\Omega = \alpha + \beta + \gamma - \pi. \label{eq:solid-angle-sphere-tri}
+    \Omega = \alpha + \beta + \gamma - \pi. \label{eq:solid-angle-sphere-tri}
 \end{equation}
 
 Докажем формулу~\eqref{eq:solid-angle-sphere-tri}. Для этого сначала определим формулу для телесного угла \imp{двуугольника}~--- одной из четырёх частей сферы, образованных делением последней двумя различными большими кругами. Как легко догадаться из названия, у двуугольника два угла, равных между собой в силу свойств больших кругов сферы, также отсюда следует, что углы двуугольника лежат в противоположных точках сферы. Иначе, двуугольник~--- это <<долька>> сферы. 

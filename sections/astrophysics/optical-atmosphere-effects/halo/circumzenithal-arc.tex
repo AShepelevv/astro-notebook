@@ -3,6 +3,7 @@
 \begin{wrapfigure}[9]{r}{0.3\tw}
     \vspace{-0.8pc}
     \centering
+    \tikzsetnextfilename{circumzenithal-arc}
     \begin{tikzpicture}
         \def\a{-1.2}
         \def\al{23}
@@ -28,8 +29,8 @@
         \tkzInterLL(I,I1)(O,O1) \tkzGetPoint{X}
 
         \tkzDrawSegment[arrow={latex}{0.3}](In,I)
-	    \tkzDrawSegment[arrow={latex}{0.52}](I,O)
-	    \tkzDrawSegment[arrow={latex}{0.9}](O,Out)
+        \tkzDrawSegment[arrow={latex}{0.52}](I,O)
+        \tkzDrawSegment[arrow={latex}{0.9}](O,Out)
         \tkzDrawSegments[thick](I',C O',C)
         \tkzDrawLines[dashed](O,X I,X)
    
@@ -48,9 +49,9 @@
    
         \tkzMarkAngle[arc=lll, size=0.6](O',O,Out)
         \tkzLabelAngle[pos=0.8](O',O,Out){\footnotesize{$z$}}
-	\end{tikzpicture}
-	\caption{Схема хода лучей при формировании зенитной дуги}
-	\label{pic:circumzenithal-arc}    
+    \end{tikzpicture}
+    \caption{Схема хода лучей при формировании зенитной дуги}
+    \label{pic:circumzenithal-arc}
 \end{wrapfigure}
 
 Радужная дуга недалеко от зенита~--- результат рефракции солнечного света в пластинчатых кристаллах льда, расположенных над наблюдателем. 

@@ -2,19 +2,19 @@
 \label{sec:gravity-law}
 Согласно \imp{закону всемирного тяготения}, опубликованному в 1687 году Ньютоном в его книге <<Математические начала натуральной философии>>\,\cite{newton1687philosophiae}\cite{newton1846philosophiaeEnglish}, сила притяжения между двумя точечными телами с массами $M$ и $m$, находящимися на расстоянии $r$, равна
 \begin{equation}
-	F=\frac{GMm}{r^2}, 
-	\label{eq:grav-law-1}
+    F=\frac{GMm}{r^2},
+    \label{eq:grav-law-1}
 \end{equation}\nopagebreak где $G\simeq 6.67\cdot 10^{-11}~\text{м}^3 /\left( \text{кг} \cdot \text{с}^2 \right)$~---  \term{гравитационная постоянная}, действует вдоль прямой, соединяющей тела, и направлена в сторону гравитирующего тела.
 
 Пусть радиус-вектор $\vec r$ одного тела откладывается от второго, тогда в векторной форме сила, действующая на первое тело,
 \begin{equation}
-	\vec F (\vec r) = -\frac{GMm}{r^3} \vec r. 
-	\label{eq:grav-law-2}
+    \vec F (\vec r) = -\frac{GMm}{r^3} \vec r.
+    \label{eq:grav-law-2}
 \end{equation}
 
 Векторное поле $\vec V (\vec r)$ называется \term{потенциальным}, если существует такая функция $\varphi(\vec r)$, что $\vec V (\vec r) = - \nabla \varphi(\vec r)$. Рассмотрим векторное поле гравитационых сил~\eqref{eq:grav-law-2}, оно является сферически симметричным, так как зависит только от расстояния до гравитирующего тела, следовательно
 \begin{equation*}
-	\vec F (\vec r) = -m \frac{d\varphi(r)}{dr} \, \frac{\vec{r}}{r}
+    \vec F (\vec r) = -m \frac{d\varphi(r)}{dr} \, \frac{\vec{r}}{r}
 \end{equation*} 
 %\begin{multline*}
 %    \vec F(\vec r) = - m \nabla \varphi(\vec r) = - m \left( \frac{\partial \varphi(\vec r)}{\partial x} \vec e_x + \frac{\partial \varphi(\vec r)}{\partial y} \vec e_y + \frac{\partial \varphi(\vec r)}{\partial z} \vec e_z \right) = \\
@@ -24,15 +24,15 @@
 Перейдём к скалярным величинам, разделим переменные и проинтегрируем левую и правую часть полученного равенства.
 %При интегрировании на интервале $(0, r]$ интеграл расходится, поэтому интегрирование будем вести на интервале $(+\infty, r]$, на котором интеграл сходится.
 \begin{gather*}
-	\int\limits_{+\infty}^{r} \frac{ F(r) }{m} \,d r = \int\limits_{+\infty}^{r} d\varphi(r),\\
-%	\int\limits_{+\infty}^{r} \frac{GM }{r^2} \,d r = \int\limits_{+\infty}^{r} d\varphi(r),\\
-	-\left.\frac{GM}{r}\right|_{+\infty}^r = \varphi(r)|_{+\infty}^r,\\
-	-\frac{GM}{r} + 0 = \varphi(r) - \varphi(+\infty),\\
-	\varphi(r) = -\frac{GM}{r} + \varphi(+\infty).
+    \int\limits_{+\infty}^{r} \frac{ F(r) }{m} \,d r = \int\limits_{+\infty}^{r} d\varphi(r),\\
+%    \int\limits_{+\infty}^{r} \frac{GM }{r^2} \,d r = \int\limits_{+\infty}^{r} d\varphi(r),\\
+    -\left.\frac{GM}{r}\right|_{+\infty}^r = \varphi(r)|_{+\infty}^r,\\
+    -\frac{GM}{r} + 0 = \varphi(r) - \varphi(+\infty),\\
+    \varphi(r) = -\frac{GM}{r} + \varphi(+\infty).
 \end{gather*} 
 Видно, что потенциал гравитационного поля определен с точностью до постоянной величины $\varphi(+\infty)$, которую для удобства полагают равной нулю. Окончательно, \term{потенциал} гравитационного поля
 \begin{equation}
-	\varphi(r) = -\frac{GM}{r}.
+    \varphi(r) = -\frac{GM}{r}.
 \end{equation}
 
 \begin{wrapfigure}[12]{r}{0.47\tw}
@@ -88,12 +88,12 @@
 
 Напряженность гравитационного поля~--- отношение силы, действующей на точную пробное тело к массе этого тела, также называют \term[ускорение свободного падения]{ускорением свободного падения} и обозначают за $g$. Ускорение свободного падения вычисляется по формуле
 \begin{equation}
-	\vec g(\vec r) = -\nabla \varphi(\vec r) = \frac{\vec F( \vec r)}{m} = - \frac{GM}{r^3} \vec r.
-	\label{eq:g}
+    \vec g(\vec r) = -\nabla \varphi(\vec r) = \frac{\vec F( \vec r)}{m} = - \frac{GM}{r^3} \vec r.
+    \label{eq:g}
 \end{equation} 
 Следовательно, (\ref{eq:grav-law-1}) можно записать как
 \begin{equation}
-	\vec F (\vec r) = m \vec g(\vec r).
+    \vec F (\vec r) = m \vec g(\vec r).
 \end{equation}
 
 Найдём потенциальную энергию однородного шара массы~$M$ и радиуса~$R$. Для этого разобьем его на концентрические сферы радиуса~$r$, толщины~$dr$ и, следовательно, массы $dm = 4 \pi r^2 \rho \, dr$, где $\rho$~--- плотность шара. На каждую такую сферу действует сила гравитации только от внутреннего шара, действие внешних слоев компенсируется в силу симметрии, см.~Раздел~\ref{sec:gauss}. Проинтегрируем потенциальную энергию сфер по $r$ от 0 до $R$, это и будет потенциальная энергия всего шара:

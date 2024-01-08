@@ -3,11 +3,11 @@
 
 \term{Абсолютная погрешность}~--- разность между найденным на опыте и истинным значением физической величины:
 \begin{equation}
-	\Delta x = x_\text{изм} - x_\text{ист}.
+    \Delta x = x_\text{изм} - x_\text{ист}.
 \end{equation}
 \term{Относительная погрешность}~--- отношение абсолютной погрешности к значению измеряемой величины:
 \begin{equation}
-	\varepsilon = \frac{\Delta x}{x_\text{ист}} = \frac{x_\text{изм} - x_\text{ист}}{x_\text{ист}}.
+    \varepsilon = \frac{\Delta x}{x_\text{ист}} = \frac{x_\text{изм} - x_\text{ист}}{x_\text{ист}}.
 \end{equation}
 Качество измерений обычно определяется относительной, а не абсолютной погрешностью, потому что одна и та же абсолютная погрешность может составлять как тысячные доли, так и несколько процентов от измеряемой величины.\,\cite{lab_practicum_physics_mechanics}
 
@@ -17,55 +17,55 @@
 
 \term{Случайные ошибки}~--- ошибки, которые меняют знак и значение от опыта к опыту. Случайные ошибки подчиняются теории вероятности, а также обладают определенными закономерностями:
 \begin{enumerate}
-	\item
-	{При большом числе измерений ошибки одинаковых величин, но разного знака встречаются одинаково часто.}
-	\item
-	{Частота появления ошибок уменьшается с ростом величины ошибки. Иначе говоря, большие ошибки наблюдаются реже, чем малые.}
-	\item
-	{Ошибки измерений могут принимать непрерывный ряд значений.}
+    \item
+    {При большом числе измерений ошибки одинаковых величин, но разного знака встречаются одинаково часто.}
+    \item
+    {Частота появления ошибок уменьшается с ростом величины ошибки. Иначе говоря, большие ошибки наблюдаются реже, чем малые.}
+    \item
+    {Ошибки измерений могут принимать непрерывный ряд значений.}
 \end{enumerate}
 В качестве наилучшего значения для измеряемой величины обычно принимают среднее арифметическое из всех полученных результатов:
 \begin{equation}
-	x_\text{ср} = \frac{1}{n}\sum\limits_{i=1}^n x_i = \frac{x_1 + x_2+\ldots + x_n}{n}
+    x_\text{ср} = \frac{1}{n}\sum\limits_{i=1}^n x_i = \frac{x_1 + x_2+\ldots + x_n}{n}
 \end{equation}
 Величина $\sigma$ характеризует точность измерений. Значение $x = x_0 \pm \sigma$ означает, что величина $x$ с вероятностью $0.68$ лежит в данном интервале. $x = x_0 \pm 2\sigma$ с вероятностью $0.95$ лежит в данном промежутке. При $x=x_0 \pm 3\sigma$ данная вероятность равна $0.997$.
 \begin{equation}
-	\sigma_\text{отд} = \sqrt{\frac{1}{n-1}\sum\limits_{i=1}^n (x_i - x_\text{ср})^2}
+    \sigma_\text{отд} = \sqrt{\frac{1}{n-1}\sum\limits_{i=1}^n (x_i - x_\text{ср})^2}
 \end{equation}
 величина $\sigma_\text{отд}$ называется \imp{среднеквадратичным отклонением}.\\
 В действительности, погрешность одного вычисления не так интересна, как погрешность $\sigma_\text{ср}$ среднего результата
 \begin{equation}
-	x = x_\text{ср} \pm \sigma_\text{ср},~~~~\text{где}~~\sigma_\text{ср} = \frac{\sigma_\text{отд}}{\sqrt{n}}.
+    x = x_\text{ср} \pm \sigma_\text{ср},~~~~\text{где}~~\sigma_\text{ср} = \frac{\sigma_\text{отд}}{\sqrt{n}}.
 \end{equation}
 Случайные и систематические погрешности складываются по формуле
 \begin{equation}
-	\sigma_\text{полн}^2 = \sigma_\text{сист}^2 + \sigma_\text{случ}^2
+    \sigma_\text{полн}^2 = \sigma_\text{сист}^2 + \sigma_\text{случ}^2
 \end{equation}
 
 \term{Ошибки при косвенных измерениях}.~~~Если исследуемая\index{исследуемая} величина представляет собой сумму или разность двух измеренных величин, иначе, $a = b \pm c$, то наилучшее значение величины $a$ равно сумме (или разности) наилучших значений слагаемых:
 \begin{equation}
-	a_\text{наил} = b_\text{наил} \pm c_\text{наил} = \langle b \rangle \pm \langle c \rangle,
+    a_\text{наил} = b_\text{наил} \pm c_\text{наил} = \langle b \rangle \pm \langle c \rangle,
 \end{equation}
 погрешность в этом случае определяется по формуле
 \begin{equation}
-	\sigma_a = \sqrt{\sigma_b^2 + \sigma_c^2}.
+    \sigma_a = \sqrt{\sigma_b^2 + \sigma_c^2}.
 \end{equation}
 
 Если искомая величина равна произведению или частному двух других, то есть $a = b c^{\pm 1}$, тогда
 \begin{equation}
-	a_\text{наил} = \langle b \rangle \langle c \rangle^{\pm 1}
+    a_\text{наил} = \langle b \rangle \langle c \rangle^{\pm 1}
 \end{equation}
 \begin{equation}
-	\frac{\sigma_a}{a} = \sqrt{\left(\frac{\sigma_b}{b}\right)^2 + \left(\frac{\sigma_c}{c}\right)^2}
+    \frac{\sigma_a}{a} = \sqrt{\left(\frac{\sigma_b}{b}\right)^2 + \left(\frac{\sigma_c}{c}\right)^2}
 \end{equation}
 В случае $a = b^\beta c^\gamma e^\varepsilon\!\!\ldots$ для погрешности справедлива формула
 \begin{equation}
-	\left(\frac{\sigma_a}{a}\right)^2 = \beta^2 \left(\frac{\sigma_b}{b}\right)^2 + \gamma^2 \left(\frac{\sigma_c}{c}\right)^2 + \varepsilon^2 \left(\frac{\sigma_e}{e}\right)^2 + \ldots
+    \left(\frac{\sigma_a}{a}\right)^2 = \beta^2 \left(\frac{\sigma_b}{b}\right)^2 + \gamma^2 \left(\frac{\sigma_c}{c}\right)^2 + \varepsilon^2 \left(\frac{\sigma_e}{e}\right)^2 + \ldots
 \end{equation}
 И наконец, формула для общего случая $a = f(b, c, e, \ldots)$:
 \begin{equation}
-	a_\text{наил} = f(b_\text{наил}, c_\text{наил}, e_\text{наил} \ldots)
+    a_\text{наил} = f(b_\text{наил}, c_\text{наил}, e_\text{наил} \ldots)
 \end{equation}
 \begin{equation}
-	\sigma_a^2 = \left(\frac{\partial f}{\partial b}\right)^2 \sigma_b^2 + \left(\frac{\partial f}{\partial c}\right)^2 \sigma_c^2 +\left(\frac{\partial f}{\partial e}\right)^2 \sigma_e^2 + \ldots
+    \sigma_a^2 = \left(\frac{\partial f}{\partial b}\right)^2 \sigma_b^2 + \left(\frac{\partial f}{\partial c}\right)^2 \sigma_c^2 +\left(\frac{\partial f}{\partial e}\right)^2 \sigma_e^2 + \ldots
 \end{equation}

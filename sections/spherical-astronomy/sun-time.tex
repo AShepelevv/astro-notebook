@@ -6,7 +6,7 @@
 
 \term{Истинное солнечное время}~--- промежуток времени между нижней кульминацией Солнца и его текущим положением. Рассчитывается по формуле
 \begin{equation}
-	T_{\text{ист}} = t_{\text{сол}}+12^h,
+    T_{\text{ист}} = t_{\text{сол}}+12^h,
 \end{equation}
 где $t_{\text{сол}}$~--- часовой угол Солнца.
 
@@ -14,31 +14,32 @@
 
 \term{Среднее солнечное время} ($T_\text{ср}$)~--- промежуток времени между нижней кульминацией \imp{среднего Солнца} и текущим его положением.  Зная долготу наблюдателя, нетрудно вычислить среднее солнечное время:
 \begin{equation*}
-	T_\text{ср} = \text{UTC} + \frac{\lambda}{15^\circ/\text{час}},
+    T_\text{ср} = \text{UTC} + \frac{\lambda}{15^\circ/\text{час}},
 \end{equation*}
 где UTC~--- \imp{всемирное время}~--- среднее (или, что тоже самое, истинное) солнечное время на Гринвиче (меридиан с долготой $\lambda = 0^\circ$).
 
 \term{Поясное} или \term{гражданское время}~--- среднее солнечное время на срединном меридиане географического часового пояса. В России также установлено декретное время, которое на 1 час больше поясного.
 
 \begin{wrapfigure}[12]{r}{0.55\tw}
-	\centering
-	\vspace{-0.7pc}
-	\begin{tikzpicture}
-		\begin{axis}[
-			width	=	6.5cm,
-			height	=	4.7cm,
-			xmax 	=	365,
-			xmin	=	0,
-			ymax	=	20,
-			ymin 	= 	-20,
-			ylabel	=	{$\eta$, мин},
-			xlabel 	= 	{$d$, сут}
-		]
-			\addplot [domain=0:365.25, samples = 100, black, smooth]{-7.65 * sin(360*x/365.25) + 9.86 * sin(2 * ( 102.9 + 360*x/365.25 ))};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{График уравнения времени}
-	\label{pic:time-eq}
+    \centering
+    \vspace{-0.7pc}
+    \tikzsetnextfilename{time-eq}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width    =    6.5cm,
+            height    =    4.7cm,
+            xmax     =    365,
+            xmin    =    0,
+            ymax    =    20,
+            ymin     =     -20,
+            ylabel    =    {$\eta$, мин},
+            xlabel     =     {$d$, сут}
+        ]
+            \addplot [domain=0:365.25, samples = 100, black, smooth]{-7.65 * sin(360*x/365.25) + 9.86 * sin(2 * ( 102.9 + 360*x/365.25 ))};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{График уравнения времени}
+    \label{pic:time-eq}
 \end{wrapfigure}
 \term{Уравнение времени}~--- разница между истинным солнечным временем и средним солнечным временем, возникающая по причине неравномерности движения Земли по орбите и наклона земного экватора к плоскости эклиптики (см.~Рис.\,\ref{pic:time-eq}). Получим приближенное выражение для него. Для это этого вспомним уравнение Кеплера~\eqref{eq:kepler-eq} и величину эксцентриситета орбиты Земли $e_\oplus = 0.017 \ll 1$, откуда следует, что можно применять формулы приближенного вычисления, см.~Раздел~\ref{sec:form}. Рассмотрим выражение
 \begin{multline*}
@@ -121,10 +122,10 @@
         \tdplotCsLabelPoint{\R}{6}{88.3}{$\varepsilon$}{left}
     \end{tikzpicture}
     \caption{}
-    \label{pic:sun-lamdda-alpha}
+    \label{pic:sun-lambda-alpha}
 \end{wrapfigure}
 
-Далее найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов для прямоугольного сферического треугольника, представленного на рисунке~\picRef{pic:sun-lamdda-alpha}:
+Далее найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов для прямоугольного сферического треугольника, представленного на рисунке~\picRef{pic:sun-lambda-alpha}:
 \begin{gather}
     \sin \delta \cos 90^\circ = \cos \lambda \sin \alpha - \sin \lambda \cos \alpha \cos \varepsilon,\notag\\
     \cos \lambda \sin \alpha = \sin \lambda \cos \alpha \cos \varepsilon,\notag\\

@@ -25,88 +25,88 @@
 где $S$~--- синодический период, $T_\text{пл}$~--- сидерический период планеты, $T_\oplus$~--- сидерический период обращения Земли.
 
 \begin{figure}[h!]
-	\centering
-	\begin{subcaptionblock}[t]{0.32\tw}
-		\centering
-		\tikzsetnextfilename{synodic-period-same-direction-outer}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){S}
-			\def\R{1.1}
-			\def\r{0.8}
-			\def\OMEGAIN{40}
-			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
-			\tkzDefShiftPoint[S](0,\r){IN}
-			\tkzDefShiftPoint[S](0,\R){OUT}
+    \centering
+    \begin{subcaptionblock}[t]{0.32\tw}
+        \centering
+        \tikzsetnextfilename{synodic-period-same-direction-outer}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){S}
+            \def\R{1.1}
+            \def\r{0.8}
+            \def\OMEGAIN{40}
+            \def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+            \tkzDefShiftPoint[S](0,\r){IN}
+            \tkzDefShiftPoint[S](0,\R){OUT}
 
-			\tkzDrawCircle[black,line width=0.4pt](S,IN)
-			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+            \tkzDrawCircle[black,line width=0.4pt](S,IN)
+            \tkzDrawCircle[black,line width=0.4pt](S,OUT)
 
-			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
-			\tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
+            \tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+            \tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
 
-			\sun(S)
-			\earth(IN)
-			\tkzDrawPoint(OUT)
-		\end{tikzpicture}
-		\caption{Схема относительного движения Земли и объекта на внешней орбите, движущегося в том же направлении, что и Земля}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}[t]{0.32\tw}
-		\centering
-		\tikzsetnextfilename{synodic-period-same-direction-inner}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){S}
-			\def\R{1.1}
-			\def\r{0.8}
-			\def\OMEGAIN{40}
-			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
-			\tkzDefShiftPoint[S](0,\r){IN}
-			\tkzDefShiftPoint[S](0,\R){OUT}
+            \sun(S)
+            \earth(IN)
+            \tkzDrawPoint(OUT)
+        \end{tikzpicture}
+        \caption{Схема относительного движения Земли и объекта на внешней орбите, движущегося в том же направлении, что и Земля}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}[t]{0.32\tw}
+        \centering
+        \tikzsetnextfilename{synodic-period-same-direction-inner}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){S}
+            \def\R{1.1}
+            \def\r{0.8}
+            \def\OMEGAIN{40}
+            \def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+            \tkzDefShiftPoint[S](0,\r){IN}
+            \tkzDefShiftPoint[S](0,\R){OUT}
 
-			\tkzDrawCircle[black,line width=0.4pt](S,IN)
-			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+            \tkzDrawCircle[black,line width=0.4pt](S,IN)
+            \tkzDrawCircle[black,line width=0.4pt](S,OUT)
 
-			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
-			\tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
+            \tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+            \tkzDrawArc[rotate, semithick, -latex](S,OUT)(\OMEGAOUT)
 
-			\sun(S)
-			\tkzDrawPoint(IN)
-			\earth(OUT)
-		\end{tikzpicture}
-		\caption{Схема относительного движения Земли и объекта на внутренней орбите, движущегося в том же направлении, что и Земля}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}[t]{0.32\tw}
-	    \centering
+            \sun(S)
+            \tkzDrawPoint(IN)
+            \earth(OUT)
+        \end{tikzpicture}
+        \caption{Схема относительного движения Земли и объекта на внутренней орбите, движущегося в том же направлении, что и Земля}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}[t]{0.32\tw}
+        \centering
         \tikzsetnextfilename{synodic-period-opposite-direction}
-		\begin{tikzpicture}
-			\tkzDefPoint(0,0){S}
-			\def\R{1.1}
-			\def\r{0.8}
-			\def\OMEGAIN{40}
-			\def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
-			\tkzDefShiftPoint[S](0,\r){IN}
-			\tkzDefShiftPoint[S](0,\R){OUT}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){S}
+            \def\R{1.1}
+            \def\r{0.8}
+            \def\OMEGAIN{40}
+            \def\OMEGAOUT{\OMEGAIN * (\R/\r) ^ (-3/2)}
+            \tkzDefShiftPoint[S](0,\r){IN}
+            \tkzDefShiftPoint[S](0,\R){OUT}
 
-			\tkzDrawCircle[black,line width=0.4pt](S,IN)
-			\tkzDrawCircle[black,line width=0.4pt](S,OUT)
+            \tkzDrawCircle[black,line width=0.4pt](S,IN)
+            \tkzDrawCircle[black,line width=0.4pt](S,OUT)
 
-			\tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
-			\tkzDrawArc[rotate, semithick, latex-](S,OUT)(-\OMEGAOUT)
+            \tkzDrawArc[rotate, semithick, -latex](S,IN)(\OMEGAIN)
+            \tkzDrawArc[rotate, semithick, latex-](S,OUT)(-\OMEGAOUT)
 
-			\sun(S)
-			\earth(IN)
-			\tkzDrawPoint(OUT)
-		\end{tikzpicture}
-		\caption{Схема относительного движения Земли и объекта, движущегося в противоположном направлении, нежели Земля}
-	\end{subcaptionblock}
-	\caption{}
+            \sun(S)
+            \earth(IN)
+            \tkzDrawPoint(OUT)
+        \end{tikzpicture}
+        \caption{Схема относительного движения Земли и объекта, движущегося в противоположном направлении, нежели Земля}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}
 
 В случае, если тела обращаются в противоположные стороны, связь
 их синодического периода с сидерическими очевидным образом принимает вид:
 \begin{equation}
-	\frac{1}{S} = \frac{1}{T_1} + \frac{1}{T_2}.
+    \frac{1}{S} = \frac{1}{T_1} + \frac{1}{T_2}.
 \end{equation}
 
 \begin{wrapfigure}[14]{r}{0.47\tw}
@@ -114,40 +114,40 @@
     \vspace{-1pc}
     \tikzsetnextfilename{sinodic-period-plot}
     \begin{tikzpicture}
-		\begin{axis}[
-			width	=	6cm,
-			height	=	6cm,
-			xlabel	=	{$T_2 / T_1$},
-			ylabel	=	{$S / T_1$},
-			ymax	=	6,
-			ymin	=	0,
-			xmax	=	6,
-			xmin	=	0,
-			legend cell align=left,
-			legend style={
-				row sep = 0.8pc,
-				draw=none,
-				fill=none,
-				font=\scriptsize,
-				at={(axis cs:2.5, 5.5)}, anchor=north west,
-			},
-		]
-			\addplot [domain=0:1, samples=100, black] {-1 / (1 - 1 / x)};
-			\addplot [domain=1:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt] {1 / (1 - 1 / x)};
-			\addplot [domain=0:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] {1 / (1 + 1 / x)};
-			
-			\addplot [dashed, line width=0.5pt] coordinates { (1,0) (1,6) };
-			\addplot [dashed, line width=0.5pt] coordinates { (0,1) (6,1) };
-			
-			\legend{
-			    $\dfrac{1}{T_1/T_2 - 1}$,
-				$\dfrac{1}{1 - T_1/T_2}$,
-				$\dfrac{1}{1 + T_1/T_2}$
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:sinodic-period-plot}    
+        \begin{axis}[
+            width    =    6cm,
+            height    =    6cm,
+            xlabel    =    {$T_2 / T_1$},
+            ylabel    =    {$S / T_1$},
+            ymax    =    6,
+            ymin    =    0,
+            xmax    =    6,
+            xmin    =    0,
+            legend cell align=left,
+            legend style={
+                row sep = 0.8pc,
+                draw=none,
+                fill=none,
+                font=\scriptsize,
+                at={(axis cs:2.5, 5.5)}, anchor=north west,
+            },
+        ]
+            \addplot [domain=0:1, samples=100, black] {-1 / (1 - 1 / x)};
+            \addplot [domain=1:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt] {1 / (1 - 1 / x)};
+            \addplot [domain=0:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] {1 / (1 + 1 / x)};
+
+            \addplot [dashed, line width=0.5pt] coordinates { (1,0) (1,6) };
+            \addplot [dashed, line width=0.5pt] coordinates { (0,1) (6,1) };
+
+            \legend{
+                $\dfrac{1}{T_1/T_2 - 1}$,
+                $\dfrac{1}{1 - T_1/T_2}$,
+                $\dfrac{1}{1 + T_1/T_2}$
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:sinodic-period-plot}
 \end{wrapfigure} 
 На~\picRef{pic:sinodic-period-plot} изображены зависимости продолжительности синодического периода от отношения периодов планет. Важно обратить внимание на вертикальную асимптоту, к которой стремится график в случае движения планет в одну сторону вокруг Солнца. Она отражает отсутствие смены фаз в случае движения объектов по одной круговой орбите.
 
@@ -162,23 +162,23 @@
     \vspace{-1pc}
     \tikzsetnextfilename{libration-plot}
      \begin{tikzpicture}
-		\begin{axis}[
-			width 	=	6cm,
-			height	=	6cm,
-			ymax	=	3.142,
-			xmax	=	6.284,
-			xmin	=	0,
-			ymin	=   -3.142,
-			xlabel	=	{$M$},
-			ylabel 	= 	{$\nu - M$},
-			legend cell align=left,
-			legend style={
-				draw=none,
-				fill=white,
-				font=\scriptsize,
-				at={(axis cs:3.5, 3)}, anchor=north west,
-			},
-			legend image post style={
+        \begin{axis}[
+            width     =    6cm,
+            height    =    6cm,
+            ymax    =    3.142,
+            xmax    =    6.284,
+            xmin    =    0,
+            ymin    =   -3.142,
+            xlabel    =    {$M$},
+            ylabel     =     {$\nu - M$},
+            legend cell align=left,
+            legend style={
+                draw=none,
+                fill=white,
+                font=\scriptsize,
+                at={(axis cs:3.5, 3)}, anchor=north west,
+            },
+            legend image post style={
                 minimum height=0.75em,
                 minimum width=3.5em,
             },
@@ -186,24 +186,24 @@
             xticklabels={$0$, $\pi / 2$, $\pi$, $3\pi / 2$, $2\pi$},
             ytick={-pi, -pi / 2, 0, pi / 2, pi}, 
             yticklabels={$-\pi$, $-\dfrac{\pi}{2}$, $0$, $\dfrac{\pi}{2}$, $\pi$},
-		]
-			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e01] {data/libration.txt};
-			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e03] {data/libration.txt};
-			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt] table[x=m, y=e05] {data/libration.txt};
-			\addplot[smooth,dash pattern=on 6pt off 2pt] table[x=m, y=e07] {data/libration.txt};
-			\addplot[smooth] table[x=m, y=e09] {data/libration.txt};
-			
-			\legend{
-			    $e=0.1$,
-				$e=0.3$,
-				$e=0.5$,
-				$e=0.7$,
-				$e=0.9$,
-			}
-		\end{axis}
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:libration-plot}
+        ]
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e01] {data/libration.txt};
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e03] {data/libration.txt};
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt] table[x=m, y=e05] {data/libration.txt};
+            \addplot[smooth,dash pattern=on 6pt off 2pt] table[x=m, y=e07] {data/libration.txt};
+            \addplot[smooth] table[x=m, y=e09] {data/libration.txt};
+
+            \legend{
+                $e=0.1$,
+                $e=0.3$,
+                $e=0.5$,
+                $e=0.7$,
+                $e=0.9$,
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:libration-plot}
 \end{wrapfigure}
 Tермин \term{либрация} в астрономии используется для описания влияния неравномерности орбитального движения спутника его на видимое вращение, которое происходит в постоянной угловой скоростью. В случае сихрнонизации орбитального движения спутника и его вращения вокруг оси, например, Луна, либрация позволяет наблюдателю на Земле видеть более половины поверхности спутника. 
 

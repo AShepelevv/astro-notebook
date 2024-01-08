@@ -1,51 +1,51 @@
 \subsection{Скалярное произведение}
 \term{Скалярным произведением} двух векторов называется билинейная операция над ними, зависящая только от длин этих векторов и угла между ними, результатом которой является скаляр. Скалярное произведение векторов $\vec{a}$ и  $\vec{b}$ выражается следующим образом:
 \begin{equation}
-	\scalar{a}{b} = |\vec{a}||\vec{b}| \cos \widehat{\vec{a}\vec{b}}. \label{eq:scalar-prod1}
+    \scalar{a}{b} = |\vec{a}||\vec{b}| \cos \widehat{\vec{a}\vec{b}}. \label{eq:scalar-prod1}
 \end{equation}
 \begin{equation}
-	\scalar{a}{b} = \vec{a}^{\T} \vec{b} =
-	\begin{pmatrix}
-		a_1 & \cdots & a_n
-	\end{pmatrix}
-	\begin{pmatrix}
-		b_1\\
-		\vdots\\
-		b_n
-	\end{pmatrix}
-	= a_1 b_1 + \ldots + a_n b_n.
-	\label{eq:scalar-prod2}
+    \scalar{a}{b} = \vec{a}^{\T} \vec{b} =
+    \begin{pmatrix}
+        a_1 & \cdots & a_n
+    \end{pmatrix}
+    \begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+    \end{pmatrix}
+    = a_1 b_1 + \ldots + a_n b_n.
+    \label{eq:scalar-prod2}
 \end{equation}
 
 Докажем эквивалентность \eqref{eq:scalar-prod1} и \eqref{eq:scalar-prod2}. Пусть в ортонормированном базисе $\{\vec{e}_1, \ldots, \vec{e}_2\}$ векторы имеют следующие представления:
 \begin{equation}
-	\vec{a} = \sum\limits_{i = 1}^n a_i \vec{e}_i, \qquad \vec{b} = \sum\limits_{i = 1}^n b_i \vec{e}_i.
+    \vec{a} = \sum\limits_{i = 1}^n a_i \vec{e}_i, \qquad \vec{b} = \sum\limits_{i = 1}^n b_i \vec{e}_i.
 \end{equation}
 Заметим, что $(\vec{a} \cdot \vec{e}_i) = |\vec{a}||\vec{e}_i| \cos \theta_i = |\vec{a}| \cos \theta_i = a_i$, где $\theta_i$~--- угол вектора $\vec{a}$ с $i$-м базисным вектором $\vec{e}_i$. Тогда
 \begin{equation}
-	\scalar{a}{b} = \left( \vec{a} \cdot \sum\limits_{i=1}^n b_i\vec{e}_i \right) = \sum\limits_{i=1}^n b_i(\vec{a} \cdot \vec{e}_i) = \sum\limits_{i=1}^n a_i b_i = a^{\T}b.
+    \scalar{a}{b} = \left( \vec{a} \cdot \sum\limits_{i=1}^n b_i\vec{e}_i \right) = \sum\limits_{i=1}^n b_i(\vec{a} \cdot \vec{e}_i) = \sum\limits_{i=1}^n a_i b_i = a^{\T}b.
 \end{equation}
 
 Из \eqref{eq:scalar-prod1} и \eqref{eq:scalar-prod2} очевидна билинейность и симметричность скалярного произведение, то есть
 \begin{equation}
-	\scalar{(a + b)}{(c + d)} = \scalar{(c + d)}{(a + b)} = \scalar{a}{c} + \scalar{a}{d} + \scalar{b}{c} + \scalar{b}{d}.
+    \scalar{(a + b)}{(c + d)} = \scalar{(c + d)}{(a + b)} = \scalar{a}{c} + \scalar{a}{d} + \scalar{b}{c} + \scalar{b}{d}.
 \end{equation}
 
 Практическое пременение скалярное произведение находит в вопросах проверки ортогональности векторов (как частный случай нахождения угла между векторами), потому что $\vec{a} \perp \vec{b}$ тогда и только тогда, когда $\scalar{a}{b} = 0$, так как
 \begin{equation}
-	\cos \widehat{\vec{a}\vec{b}} = \frac{\scalar{a}{b}}{|\vec{a}||\vec{b}|}.
+    \cos \widehat{\vec{a}\vec{b}} = \frac{\scalar{a}{b}}{|\vec{a}||\vec{b}|}.
 \end{equation}
 
 Отсюда также получается выражение для проекции вектора $\vec{a}$ на прямую с направляющим вектором $\vec{l}$:
 \begin{equation}
-	\pr_\vec{l} \vec{a} = \frac{\scalar{a}{l}}{|\vec{l}|^2} \vec{l}.
+    \pr_\vec{l} \vec{a} = \frac{\scalar{a}{l}}{|\vec{l}|^2} \vec{l}.
 \end{equation}
 
 Используя скалярное произведение, получим важную утверждение теоремы косинусов из планиметрии: пусть $\vec{c} = \vec{b} - \vec{a}$, то есть имеем треугольник со сторонами $|\vec{a}|$, $|\vec{b}|$ и $|\vec{c}|$. Рассмотрим скалярное произведение вектора $\vec{c}$ самого на себя:
 \begin{multline}
-	\scalar{c}{c} = \scalar{(b - a)}{(b - a)} = \scalar{b}{(b-a)} - \scalar{a}{(b - a)} = \\
-	= \scalar{b}{b} - 2\scalar{b}{a} + \scalar{a}{a}
+    \scalar{c}{c} = \scalar{(b - a)}{(b - a)} = \scalar{b}{(b-a)} - \scalar{a}{(b - a)} = \\
+    = \scalar{b}{b} - 2\scalar{b}{a} + \scalar{a}{a}
 \end{multline}
 \begin{equation}
-	c^2 = b^2 + a^2 - 2ab\cos \widehat{\vec{a}\vec{b}}
+    c^2 = b^2 + a^2 - 2ab\cos \widehat{\vec{a}\vec{b}}
 \end{equation}

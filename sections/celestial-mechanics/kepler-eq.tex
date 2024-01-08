@@ -1,26 +1,26 @@
 \subsection{Уравнение Кеплера}
 
 \begin{wrapfigure}[11]{r}{0.48\tw}
-	\centering
-	\vspace{-0.3pc}
-	\tikzsetnextfilename{kepler-eq}
-	\begin{tikzpicture}
-		\footnotesize
+    \centering
+    \vspace{-0.3pc}
+    \tikzsetnextfilename{kepler-eq}
+    \begin{tikzpicture}
+        \footnotesize
 
-		\def\a{4}
-		\def\e{0.63}
-		\def\E{43}
-		\def\M{\E - \e * sin(\E) * 180 / pi}
-		\def\ellipseAngle{90}
-		\def\circleAngle{55}
+        \def\a{4}
+        \def\e{0.63}
+        \def\E{43}
+        \def\M{\E - \e * sin(\E) * 180 / pi}
+        \def\ellipseAngle{90}
+        \def\circleAngle{55}
 
-		\def\b{sqrt(1 - \e * \e)}
+        \def\b{sqrt(1 - \e * \e)}
 
-		\tkzDefPoint(0,0){C}
-		\tkzDefShiftPoint[C](\a,0){P}
-		\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
-		\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
-		\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+        \tkzDefPoint(0,0){C}
+        \tkzDefShiftPoint[C](\a,0){P}
+        \tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+        \tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+        \tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
         \tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
         \tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
         
@@ -30,34 +30,34 @@
         \tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
         
         
-		\begin{scope}[yscale=\b]
-		     \draw[thick] (P) arc (0:\ellipseAngle:\a);
-		\end{scope}
-		
-		\draw[semithick] (P) arc (0:\circleAngle:\a);
-		
-		\tkzDrawSegments(C,A A,H C,D)
-		\tkzDrawSegments[semithick](C,P F,B)
-		\tkzDrawSegments[dashed](F,A)
-		
-		\tkzDrawPoints(C, P, F, A, D, H, B)
-		
-		\tkzLabelPoints[below](C, P, F, H)
-		\tkzLabelPoints[above right=-1pt](A, D)
-		\tkzLabelPoints[below](o, c)
-		\tkzLabelPoints[above right=-2pt](B)
+        \begin{scope}[yscale=\b]
+             \draw[thick] (P) arc (0:\ellipseAngle:\a);
+        \end{scope}
 
-		\tkzMarkAngle[arc=l, size=0.2](H,F,B)
-		\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+        \draw[semithick] (P) arc (0:\circleAngle:\a);
 
-		\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
-		\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
-		
-		\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
-		\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
-	\end{tikzpicture}
-	\caption{К выводу уравнения Кеплера}
-	\label{pic:kepler-eq}
+        \tkzDrawSegments(C,A A,H C,D)
+        \tkzDrawSegments[semithick](C,P F,B)
+        \tkzDrawSegments[dashed](F,A)
+
+        \tkzDrawPoints(C, P, F, A, D, H, B)
+
+        \tkzLabelPoints[below](C, P, F, H)
+        \tkzLabelPoints[above right=-1pt](A, D)
+        \tkzLabelPoints[below](o, c)
+        \tkzLabelPoints[above right=-2pt](B)
+
+        \tkzMarkAngle[arc=l, size=0.2](H,F,B)
+        \tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+
+        \tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+        \tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
+
+        \tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+        \tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
+    \end{tikzpicture}
+    \caption{К выводу уравнения Кеплера}
+    \label{pic:kepler-eq}
 \end{wrapfigure}
 Рассмотрим эллиптическую орбиту $o$ с центром в точке $C$, центральным телом в фокусе $F$ и большой полуосью $a$. Обозначим за $P$ перицентр данной орбиты, тогда $|CP| = a$. Рассмотрим также окружность $c$, с центром в точке в точке $C$ и радиусом $a$, очевидно, эта окружность будет касаться эллипса внешним образом в точке~$P$. Выберем на эллипсе произвольную точку $B$. Проведем через нее прямую, параллельную малой оси эллипса. Точку пересечения полученной прямой с окружностью $c$ назовем $A$. Угол $E = \angle ACP$ называется \term[эксцентрическая аномалия]{эксцентрической аномалией} точки $B$.
 
@@ -66,192 +66,192 @@
 
 \begin{figure}[h!]
 
-	\begin{subcaptionblock}{0.47\tw}
-		\tikzsetnextfilename{kepler-eq-BFP-AFP}
-		\begin{tikzpicture}
-			\footnotesize
+    \begin{subcaptionblock}{0.47\tw}
+        \tikzsetnextfilename{kepler-eq-BFP-AFP}
+        \begin{tikzpicture}
+            \footnotesize
 
-			\def\a{4}
-			\def\e{0.63}
-			\def\E{43}
-			\def\M{\E - \e * sin(\E) * 180 / pi}
-			\def\ellipseAngle{90}
-			\def\circleAngle{55}
+            \def\a{4}
+            \def\e{0.63}
+            \def\E{43}
+            \def\M{\E - \e * sin(\E) * 180 / pi}
+            \def\ellipseAngle{90}
+            \def\circleAngle{55}
 
-			\def\b{sqrt(1 - \e * \e)}
+            \def\b{sqrt(1 - \e * \e)}
 
-			\tkzDefPoint(0,0){C}
-			\tkzDefShiftPoint[C](\a,0){P}
-			\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
-			\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
-			\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
-			\tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
-			\tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
+            \tkzDefPoint(0,0){C}
+            \tkzDefShiftPoint[C](\a,0){P}
+            \tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+            \tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+            \tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+            \tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
+            \tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
 
-			\tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
-			\tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
+            \tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
+            \tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
 
-			\tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
+            \tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
 
-			\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+            \draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
 
-			\begin{scope}[yscale=\b]
-				\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
-				\draw[thick] (P) arc (0:\ellipseAngle:\a);
-			\end{scope}
+            \begin{scope}[yscale=\b]
+                \draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+                \draw[thick] (P) arc (0:\ellipseAngle:\a);
+            \end{scope}
 
-			\draw[semithick] (P) arc (0:\circleAngle:\a);
+            \draw[semithick] (P) arc (0:\circleAngle:\a);
 
-			\tkzDrawSegments(C,A A,H C,D)
-			\tkzDrawSegments[semithick](C,P F,B)
-			\tkzDrawSegments[dashed](F,A)
+            \tkzDrawSegments(C,A A,H C,D)
+            \tkzDrawSegments[semithick](C,P F,B)
+            \tkzDrawSegments[dashed](F,A)
 
-			\tkzDrawPoints(C, P, F, A, D, H, B)
+            \tkzDrawPoints(C, P, F, A, D, H, B)
 
-			\tkzLabelPoints[below](C, P, F, H)
-			\tkzLabelPoints[above right=-1pt](A, D)
-			\tkzLabelPoints[below](o, c)
-			\tkzLabelPoints[above right=-2pt](B)
+            \tkzLabelPoints[below](C, P, F, H)
+            \tkzLabelPoints[above right=-1pt](A, D)
+            \tkzLabelPoints[below](o, c)
+            \tkzLabelPoints[above right=-2pt](B)
 
-			\tkzMarkAngle[arc=l, size=0.2](H,F,B)
-			\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+            \tkzMarkAngle[arc=l, size=0.2](H,F,B)
+            \tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
 
-			\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
-			\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
+            \tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+            \tkzLabelAngle[pos=0.75, fill=white, inner sep=0.5](P,C,A){\footnotesize$E$}
 
-			\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
-			\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
-		\end{tikzpicture}
-		\caption{Секторы $\sector BFP$ и $\sector AFP$}
-		\label{pic:kepler-eq-BFP-AFP}
-	\end{subcaptionblock}
-	\hfill
-	\begin{subcaptionblock}{0.47\tw}
-		\tikzsetnextfilename{kepler-eq-BFP-DCP}
-		\begin{tikzpicture}
-			\footnotesize
+            \tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+            \tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
+        \end{tikzpicture}
+        \caption{Секторы $\sector BFP$ и $\sector AFP$}
+        \label{pic:kepler-eq-BFP-AFP}
+    \end{subcaptionblock}
+    \hfill
+    \begin{subcaptionblock}{0.47\tw}
+        \tikzsetnextfilename{kepler-eq-BFP-DCP}
+        \begin{tikzpicture}
+            \footnotesize
 
-			\def\a{4}
-			\def\e{0.63}
-			\def\E{43}
-			\def\M{\E - \e * sin(\E) * 180 / pi}
-			\def\ellipseAngle{90}
-			\def\circleAngle{55}
+            \def\a{4}
+            \def\e{0.63}
+            \def\E{43}
+            \def\M{\E - \e * sin(\E) * 180 / pi}
+            \def\ellipseAngle{90}
+            \def\circleAngle{55}
 
-			\def\b{sqrt(1 - \e * \e)}
+            \def\b{sqrt(1 - \e * \e)}
 
-			\tkzDefPoint(0,0){C}
-			\tkzDefShiftPoint[C](\a,0){P}
-			\tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
-			\tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
-			\tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
-			\tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
-			\tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
+            \tkzDefPoint(0,0){C}
+            \tkzDefShiftPoint[C](\a,0){P}
+            \tkzDefPointBy[homothety=center C ratio \e](P) \tkzGetPoint{F}
+            \tkzDefPointBy[rotation=center C angle \E](P) \tkzGetPoint{A}
+            \tkzDefPointBy[rotation=center C angle \M](P) \tkzGetPoint{D}
+            \tkzDefPointBy[projection = onto C--P](A) \tkzGetPoint{H}
+            \tkzDefPointBy[homothety=center H ratio \b](A) \tkzGetPoint{B}
 
-			\tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
-			\tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
+            \tkzDefPointBy[homothety=center C ratio \b](P) \tkzGetPoint{x}
+            \tkzDefPointBy[rotation=center C angle \ellipseAngle](x) \tkzGetPoint{o}
 
-			\tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
+            \tkzDefPointBy[rotation=center C angle \circleAngle](P) \tkzGetPoint{c}
 
-			\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\M:\a) -- (C) -- cycle;
+            \draw[line width=2pt, lightgray, line join = round] (P) arc(0:\M:\a) -- (C) -- cycle;
 
-			\begin{scope}[yscale=\b]
-				\draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
-				\draw[thick] (P) arc (0:\ellipseAngle:\a);
-			\end{scope}
+            \begin{scope}[yscale=\b]
+                \draw[line width=2pt, lightgray, line join = round] (P) arc(0:\E:\a) -- (F) -- cycle;
+                \draw[thick] (P) arc (0:\ellipseAngle:\a);
+            \end{scope}
 
-			\draw[semithick] (P) arc (0:\circleAngle:\a);
+            \draw[semithick] (P) arc (0:\circleAngle:\a);
 
-			\tkzDrawSegments(C,A A,H C,D)
-			\tkzDrawSegments[semithick](C,P F,B)
-			\tkzDrawSegments[dashed](F,A)
+            \tkzDrawSegments(C,A A,H C,D)
+            \tkzDrawSegments[semithick](C,P F,B)
+            \tkzDrawSegments[dashed](F,A)
 
-			\tkzDrawPoints(C, P, F, A, D, H, B)
+            \tkzDrawPoints(C, P, F, A, D, H, B)
 
-			\tkzLabelPoints[below](C, P, F, H)
-			\tkzLabelPoints[above right=-1pt](A, D)
-			\tkzLabelPoints[below](o, c)
-			\tkzLabelPoints[above right=-2pt](B)
+            \tkzLabelPoints[below](C, P, F, H)
+            \tkzLabelPoints[above right=-1pt](A, D)
+            \tkzLabelPoints[below](o, c)
+            \tkzLabelPoints[above right=-2pt](B)
 
-			\tkzMarkAngle[arc=l, size=0.2](H,F,B)
-			\tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
+            \tkzMarkAngle[arc=l, size=0.2](H,F,B)
+            \tkzLabelAngle[pos=0.35](H,F,B){\footnotesize$\nu$}
 
-			\tkzMarkAngle[arc=ll, size=0.5](P,C,A)
-			\tkzLabelAngle[pos=0.75, fill=white, inner sep=0.9](P,C,A){\footnotesize$E$}
+            \tkzMarkAngle[arc=ll, size=0.5](P,C,A)
+            \tkzLabelAngle[pos=0.75, fill=white, inner sep=0.9](P,C,A){\footnotesize$E$}
 
-			\tkzMarkAngle[arc=lll, size=1.2](P,C,D)
-			\tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
-		\end{tikzpicture}
-		\caption{Секторы $\sector DCP$ и $\sector BFP$}
-		\label{pic:kepler-eq-BFP-DCP}
-	\end{subcaptionblock}
-	\caption{}
+            \tkzMarkAngle[arc=lll, size=1.2](P,C,D)
+            \tkzLabelAngle[pos=1.47](P,C,D){\footnotesize$M$}
+        \end{tikzpicture}
+        \caption{Секторы $\sector DCP$ и $\sector BFP$}
+        \label{pic:kepler-eq-BFP-DCP}
+    \end{subcaptionblock}
+    \caption{}
 \end{figure}
 
 Найдем связь площадей секторов $\sector AFP$ и $\sector BFP$. Нетрудно заметить, что первый переходит во второй под действием $\xi$. Из свойств аффинного преобразования получаем:
 \begin{equation*}
-	\frac{\area \sector BFP}{\area \sector AFP} = \frac{b}{a}.
+    \frac{\area \sector BFP}{\area \sector AFP} = \frac{b}{a}.
 \end{equation*}
 
 
 Как известно, площадь эллипса $S = \pi ab$, а круга с той же большой полуосью~---  $S' = \pi a^2$. По второму закону Кеплера радиус-вектор тела $\overrightarrow{FB}$ за равные промежутки времени заметает равные площади, то есть скорость заметания постоянна и равна $\sigma = \pi a b / T$. A из определения средней аномалии следует, что угловая скорость вектора $\overrightarrow{CD}$ также постоянна и равна $\sigma' = \pi a^2 / T$. Отсюда можно сделать вывод о соотношении между площадями секторов $\sector BFP$ и $ \sector DCP$:
 \begin{equation*}
-	\frac{\area \sector BFP}{\area \sector DCP} = \frac{b}{a}.
+    \frac{\area \sector BFP}{\area \sector DCP} = \frac{b}{a}.
 \end{equation*}
 Следовательно, $\area \sector DCP = \area \sector AFP$.
 
 Как для площади центрального сектора, для $\area \sector DCP$ верно
 \begin{equation*}
-	\area \sector DCP = \frac{a^2}{2} M,
+    \area \sector DCP = \frac{a^2}{2} M,
 \end{equation*}
 здесь угол $M$, конечно, в радианной мере. Аналогично для $\area \sector ACP$:
 \begin{equation*}
-	\area \sector ACP = \frac{a^2}{2} E.
+    \area \sector ACP = \frac{a^2}{2} E.
 \end{equation*}
 С другой стороны $\sector ACP = \sector AFP + \triangle ACF$, а, значит,
 \begin{equation}
-	\area \sector ACP = \area\sector AFP + \area\triangle ACF.
-	\label{eq:kepler-eq-acp}
+    \area \sector ACP = \area\sector AFP + \area\triangle ACF.
+    \label{eq:kepler-eq-acp}
 \end{equation}
 Найдем площадь треугольника $\triangle ACF$:
 \begin{equation*}
-	\area \triangle ACF = \frac{1}{2} |CF| \cdot |AC| \sin E = \frac{1}{2} a e \cdot a \sin E =  \frac{a^2 e\sin E}{2}
+    \area \triangle ACF = \frac{1}{2} |CF| \cdot |AC| \sin E = \frac{1}{2} a e \cdot a \sin E =  \frac{a^2 e\sin E}{2}
 \end{equation*}
 Тогда из равенства $\area \sector DCP = \area \sector AFP$ и \eqref{eq:kepler-eq-acp} получаем:
 \begin{equation*}
-	\frac{a^2}{2} E = \frac{a^2 e\sin E}{2} + \frac{a^2}{2} M.
+    \frac{a^2}{2} E = \frac{a^2 e\sin E}{2} + \frac{a^2}{2} M.
 \end{equation*}
 Отсюда получаем так называемое \term{уравнение Кеплера}, оно связывает среднюю и эксцентрическую аномалии
 \begin{equation}\label{eq:kepler-eq}
-	M = E - e \sin E.
+    M = E - e \sin E.
 \end{equation}
 Найдем теперь зависимость эксцентрической аномалии $E$ от истинной, чтобы связать все три аномалии. Вспомним, что точка $B$ принадлежит эллипсу $o$, следовательно, она удовлетворяет уравнению эллипса в декартовых координатах, значит
 \begin{equation}
-	\frac{|CH|^2}{a^2} + \frac{|BH|^2}{b^2} = 1.
-	\label{eq:kepler-eq-dec-eq}
+    \frac{|CH|^2}{a^2} + \frac{|BH|^2}{b^2} = 1.
+    \label{eq:kepler-eq-dec-eq}
 \end{equation}
 Далее, $|CH| = |AC| \cos E = a \cos E$, как прилежащий к углу $\angle E$ катет в прямоугольном треугольнике $\triangle AHC$. Выразим теперь $|BH|$ из \eqref{eq:kepler-eq-dec-eq}:
 \begin{equation*}
-	|BH| = b\sqrt{1 - \frac{|CH|^2}{a^2}} = a \sqrt{1 - e^2} \sqrt{1 - \frac{a^2 \cos^2 E}{a^2}} = a \sqrt{1 - e^2} \sin E .
+    |BH| = b\sqrt{1 - \frac{|CH|^2}{a^2}} = a \sqrt{1 - e^2} \sqrt{1 - \frac{a^2 \cos^2 E}{a^2}} = a \sqrt{1 - e^2} \sin E .
 \end{equation*}
 Найдем $|FH|$:
 \begin{equation*}
-	|FH| = |CH| - |CF| = a \cos E - a e = a (\cos E - e).
+    |FH| = |CH| - |CF| = a \cos E - a e = a (\cos E - e).
 \end{equation*}
 Запишем теорему Пифагора для прямоугольного треугольника $\triangle BHF$:
 \begin{align*}
-	|FB|^2 &= |FH|^2 + |BH|^2 = \\
-	&= a^2 (\cos E - e)^2 + a^2 \left( 1 - e^2 \right) \sin^2 E = \\
-	&= a^2 \left( \cos^2 E + e^2 - 2 e \cos E + \sin^2 E - e^2 \sin^2 E \right) = \\
-	&= a^2 \Big( 1 - 2 e \cos E + e^2 \left( 1 - \sin^2 E \right) \Big) =  a^2 \left( 1 - e \cos E \right)^2
+    |FB|^2 &= |FH|^2 + |BH|^2 = \\
+    &= a^2 (\cos E - e)^2 + a^2 \left( 1 - e^2 \right) \sin^2 E = \\
+    &= a^2 \left( \cos^2 E + e^2 - 2 e \cos E + \sin^2 E - e^2 \sin^2 E \right) = \\
+    &= a^2 \Big( 1 - 2 e \cos E + e^2 \left( 1 - \sin^2 E \right) \Big) =  a^2 \left( 1 - e \cos E \right)^2
 \end{align*}
 Приравняем полученное выражение для $|FB|$ и выражение через уравнение эллипса в полярных координатах:
 \begin{equation*}
-	|FB| = r = \frac{a \left(1 - e^2 \right)}{ 1 + e \cos \nu},
+    |FB| = r = \frac{a \left(1 - e^2 \right)}{ 1 + e \cos \nu},
 \end{equation*}
 \begin{equation}
-	1 - e \cos E  = \frac{1 - e^2}{ 1 + e \cos \nu}.
-	\label{eq:kepler-eq-E-nu-1}
+    1 - e \cos E  = \frac{1 - e^2}{ 1 + e \cos \nu}.
+    \label{eq:kepler-eq-E-nu-1}
 \end{equation}
 
 \newcommand{\sqTgHalf}[1]{#1'}

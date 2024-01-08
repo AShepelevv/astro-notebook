@@ -1,81 +1,81 @@
 \subsection{Интеграл}
 \term{Первообразной} функции $f(x)$ называется такая функция $F(x)$, что $F'(x) = f(x)$ на всей области определения $f(x)$. Из определения легко понять, что первообразные функции $f(x)$ образуют целое семейство первообразных $G(x) = F(x) + C$, где $C$~--- константа, определяющая конкретную первообразную. Это семейство называется \term{неопределенным интегралом} функции $f(x)$,
 \begin{equation}
-	F(x) = \int f(x)\,dx + C,\quad F'(x)=f(x).
+    F(x) = \int f(x)\,dx + C,\quad F'(x)=f(x).
 \end{equation}
 
 \begin{wrapfigure}{r}{0.4\tw}
-	\centering
-	\vspace{-1pc}
-	\tikzsetnextfilename{intergal}
-	\begin{tikzpicture}
-		\footnotesize
-		\tkzDefPoint(0,0){O};
-		\tkzDefShiftPoint[O](3.5,0){X};
-		\tkzDefShiftPoint[O](0,1.7){Y};
-		
-		\tkzInit[
-		  ymin    =   -0.7,
-		  ymax    =   1.8,
-		  xmin    =   -0.4,
-		  xmax    =   3.7
-		]
-		\tkzClip
-		
-		\tkzDrawLine[add = 0.1 and 0, semithick, -latex](O,X);
-		\tkzDrawLines[add = 0.2 and 0, semithick, -latex](O,Y);
-		
-		\tkzDefPoint(3, 0.8){F};
-		
-		\begin{scope}[yscale=0.7]
-            \fill [lightgray] (0.4, 0) -- (0.4, 1.7) .. controls (0.9, 1.65) and (1.1, 0.85) .. (1.55, 0) -- cycle;	
-            \fill [lightgray] (1.55, 0) .. controls (1.9, -0.9) and (2.3, -1.2) .. (2.5, -0.8) -- (2.5, 0) -- cycle;	
-            \draw [thick] (-0.3, 0.5) .. controls (1, 5) and (2, -5) .. (3, 1);	
-		\end{scope}
-		
-		\tkzDefPoint(0.4,0){A};
-		\tkzDefPoint(0.4,1.19){A'};
-		\tkzDefPoint(2.5,0){B};
-		\tkzDefPoint(2.5,-0.56){B'};
-		
-		\tkzDrawSegments[dashes](A,A' B,B');
-		
-		\tkzLabelSegment[pos=0.43,right=4pt](A,A'){$S_+$};
-		\tkzLabelSegment[pos=0.55,left](B,B'){$S_-$};
-		
-		\tkzLabelPoint[above](X){$x$};
-		\tkzLabelPoint[right](Y){$y$};
-		\tkzLabelPoint[below](A){$a$};
-		\tkzLabelPoint[above](B){$b$};
-	
-		\tkzLabelPoint[right](F){$f(x)$};
-		
-		\tkzDrawPoints(A,A',B,B');		
-	\end{tikzpicture}
-	\caption{}
-	\label{pic:math-int}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{math-int}
+    \begin{tikzpicture}
+        \footnotesize
+        \tkzDefPoint(0,0){O};
+        \tkzDefShiftPoint[O](3.5,0){X};
+        \tkzDefShiftPoint[O](0,1.7){Y};
+
+        \tkzInit[
+          ymin    =   -0.7,
+          ymax    =   1.8,
+          xmin    =   -0.4,
+          xmax    =   3.7
+        ]
+        \tkzClip
+
+        \tkzDrawLine[add = 0.1 and 0, semithick, -latex](O,X);
+        \tkzDrawLines[add = 0.2 and 0, semithick, -latex](O,Y);
+
+        \tkzDefPoint(3, 0.8){F};
+
+        \begin{scope}[yscale=0.7]
+            \fill [lightgray] (0.4, 0) -- (0.4, 1.7) .. controls (0.9, 1.65) and (1.1, 0.85) .. (1.55, 0) -- cycle;
+            \fill [lightgray] (1.55, 0) .. controls (1.9, -0.9) and (2.3, -1.2) .. (2.5, -0.8) -- (2.5, 0) -- cycle;
+            \draw [thick] (-0.3, 0.5) .. controls (1, 5) and (2, -5) .. (3, 1);
+        \end{scope}
+
+        \tkzDefPoint(0.4,0){A};
+        \tkzDefPoint(0.4,1.19){A'};
+        \tkzDefPoint(2.5,0){B};
+        \tkzDefPoint(2.5,-0.56){B'};
+
+        \tkzDrawSegments[dashes](A,A' B,B');
+
+        \tkzLabelSegment[pos=0.43,right=4pt](A,A'){$S_+$};
+        \tkzLabelSegment[pos=0.55,left](B,B'){$S_-$};
+
+        \tkzLabelPoint[above](X){$x$};
+        \tkzLabelPoint[right](Y){$y$};
+        \tkzLabelPoint[below](A){$a$};
+        \tkzLabelPoint[above](B){$b$};
+
+        \tkzLabelPoint[right](F){$f(x)$};
+
+        \tkzDrawPoints(A,A',B,B');
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:math-int}
 \end{wrapfigure}
 \term{Определенный интеграл} характеризуется верхним и нижним пределом интегрирования. Значение определенного интеграла численно равно площади под графиком функции на данном промежутке и вычисляется по формуле \imp{Ньютона--Лейбница}:
 \begin{equation}
-	\int\limits^b_a f(x) \,d x = F(x) \biggr|^b_a = F(b) - F(a)
+    \int\limits^b_a f(x) \,d x = F(x) \biggr|^b_a = F(b) - F(a)
 \end{equation}
 Правила интегрирования:
 \begin{align*}
-	&\int c f(x) \,d x = c \int f(x) \,d x;\quad &&  \int f(ax + b) \,d x = \dfrac{1}{a}F(ax + b) + C;\\
-	&\int f \,d g = fg - \int g \,d f; && \int \bigl[f(x) + g(x)\bigr] \,d x = \int f(x) \,d x + \int g(x) \,d x;
+    &\int c f(x) \,d x = c \int f(x) \,d x;\quad &&  \int f(ax + b) \,d x = \dfrac{1}{a}F(ax + b) + C;\\
+    &\int f \,d g = fg - \int g \,d f; && \int \bigl[f(x) + g(x)\bigr] \,d x = \int f(x) \,d x + \int g(x) \,d x;
 \end{align*}
 Таблица интегралов:
 \begin{align*}
-	&\int  x^a \,d x = \dfrac{x^{a+1}}{a+1} + C,\quad a \neq -1; \quad
-	&&\int \dfrac{dx}{\sqrt{a^2 - x^2}} = \arcsin\dfrac{x}{a} + C;\\
-	&\int \frac{dx}{x} = \ln x + C;
-	&&\int \dfrac{dx}{-\sqrt{a^2 - x^2}} = \arccos\dfrac{x}{a} + C;\\
-	&\int a^x \,d x = \dfrac{a^x}{\ln a} + C;
-	&&\int \dfrac{dx}{x^2 + a^2} = \dfrac{1}{a} \arctg \dfrac{x}{a} + C; \\
-	&\int \cos x \,d x = \sin x + C;
-	&&\int \dfrac{dx}{x^2 - a^2} = \dfrac{1}{2a} \ln \dfrac{|x - a|}{|x + a|} + C;\\
-	&\int \sin x \,d x = -\cos x + C;
-	&&\int \dfrac{dx}{\sqrt{x^2 + a}} = \ln \left| x + \sqrt{x^2 + a} \right| + C.
+    &\int  x^a \,d x = \dfrac{x^{a+1}}{a+1} + C,\quad a \neq -1; \quad
+    &&\int \dfrac{dx}{\sqrt{a^2 - x^2}} = \arcsin\dfrac{x}{a} + C;\\
+    &\int \frac{dx}{x} = \ln x + C;
+    &&\int \dfrac{dx}{-\sqrt{a^2 - x^2}} = \arccos\dfrac{x}{a} + C;\\
+    &\int a^x \,d x = \dfrac{a^x}{\ln a} + C;
+    &&\int \dfrac{dx}{x^2 + a^2} = \dfrac{1}{a} \arctg \dfrac{x}{a} + C; \\
+    &\int \cos x \,d x = \sin x + C;
+    &&\int \dfrac{dx}{x^2 - a^2} = \dfrac{1}{2a} \ln \dfrac{|x - a|}{|x + a|} + C;\\
+    &\int \sin x \,d x = -\cos x + C;
+    &&\int \dfrac{dx}{\sqrt{x^2 + a}} = \ln \left| x + \sqrt{x^2 + a} \right| + C.
 \end{align*}
 
 Рассмотрим пример использования интеграла~--- получим формулу для нахождения объема шара с радиусом~$R$. Сначала получим вспомогательную формулу площади круга радиуса~$R$. Для этого рассмотрим тонкое кольцо радиуса~$r$~и ширины~$dr$, его площадь составляет~$2\pi r \,d r$. Следовательно, интегрируя площадь таких колец по радиусу~$r$ от~$0$ до~$R$, получим площадь круга
