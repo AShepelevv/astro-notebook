@@ -1,5 +1,5 @@
 \subsection{Матрица}
-На практике часто оказывается полезным матричное исчисление. \term{Матрицей} размера $m \times n$ над полем $F$ называется $nm$ элементов из $F$, которые удобно представлять в виде 
+На практике часто оказывается полезным матричное исчисление. \term{Матри\-цей} размера $m \times n$ над полем $F$ называется $nm$ элементов из $F$, которые удобно представлять в виде 
     \begin{equation}
         \underset{m \times n}{A} =
         \begin{pmatrix}
@@ -7,9 +7,9 @@
             a_{21} & a_{22} & \cdots & a_{2n}\\
             \vdots & \vdots & \ddots & \vdots\\
             a_{m1} & a_{m2} & \cdots & a_{mn}
-        \end{pmatrix}.
+        \end{pmatrix} \equiv (a_{ij}).
     \end{equation}
-    К матрицам применимы следующие простейшие операции:
+    К матрицам применимы следующие простейшие операции при условии подходящих размеров:
     \begin{equation}
     \underset{m \times n}{A} + \underset{m \times n}{B} =
     \begin{pmatrix}
@@ -19,83 +19,333 @@
         a_{m1} + b_{m1} & a_{m2} + b_{m2} & \cdots & a_{mn} +  b_{mn}
     \end{pmatrix};
     \end{equation}
-    \begin{multline}
-        \underset{m \times n}{A} \cdot \underset{n \times m}{B} =
-        \begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n}\\
-            a_{21} & a_{22} & \cdots & a_{2n}\\
-            \vdots & \vdots & \ddots & \vdots\\
-            a_{m1} & a_{m2} & \cdots & a_{mn}
-        \end{pmatrix}
-        \begin{pmatrix}
-            b_{11} & b_{12} & \cdots & b_{1m}\\
-            b_{21} & b_{22} & \cdots & b_{2m}\\
-            \vdots & \vdots & \ddots & \vdots\\
-            b_{n1} & b_{n2} & \cdots & b_{nm}
-        \end{pmatrix} = \\
+    \begin{equation}
+        \underset{m \times n}{A} \cdot \underset{n \times l}{B}
+%        = \begin{pmatrix}
+%            a_{11} & a_{12} & \cdots & a_{1n}\\
+%            a_{21} & a_{22} & \cdots & a_{2n}\\
+%            \vdots & \vdots & \ddots & \vdots\\
+%            a_{m1} & a_{m2} & \cdots & a_{mn}
+%        \end{pmatrix}
+%        \begin{pmatrix}
+%            b_{11} & b_{12} & \cdots & b_{1m}\\
+%            b_{21} & b_{22} & \cdots & b_{2m}\\
+%            \vdots & \vdots & \ddots & \vdots\\
+%            b_{n1} & b_{n2} & \cdots & b_{nm}
+%        \end{pmatrix} = \\
         = \begin{pmatrix}
-            \sum\limits_{i=1}^{n} a_{1i} b_{i1} & \sum\limits_{i=1}^{n} a_{1i} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{1i} b_{im}\\
-            \sum\limits_{i=1}^{n} a_{2i} b_{i1} & \sum\limits_{i=1}^{n} a_{2i} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{2i} b_{im}\\
+            \sum\limits_{i=1}^{n} a_{1i} b_{i1} & \sum\limits_{i=1}^{n} a_{1i} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{1i} b_{il}\\
+            \sum\limits_{i=1}^{n} a_{2i} b_{i1} & \sum\limits_{i=1}^{n} a_{2i} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{2i} b_{il}\\
             \vdots & \vdots & \ddots & \vdots\\
-            \sum\limits_{i=1}^{n} a_{mi} b_{i1} & \sum\limits_{i=1}^{n} a_{mi} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{m    i} b_{im}\\
+            \sum\limits_{i=1}^{n} a_{mi} b_{i1} & \sum\limits_{i=1}^{n} a_{mi} b_{i2} & \cdots & \sum\limits_{i=1}^{n} a_{m    i} b_{il}\\
+        \end{pmatrix} = \underset{m \times l}{C},
+    \end{equation}
+    легко видеть, что в общем случае $A B \not = B A$. Кроме этого определена операция умножения матрицы на число: $\alpha A = (\alpha a_{ij})$.
+    
+    \subsubsection{Линейные отображения}
+    
+    Пусть $V$ и $W$~-- два пространства над полем $F$, тогда отображение $f: V \rightarrow W$ называется \term{линейным}, если $\forall \vec{x}, \vec{y} \in V: f(\vec{x} + \vec{y}) = f(\vec{x}) + f(\vec{y})$ и $\forall \alpha \in F ~\forall \vec{x} \in V: f(\alpha\vec{x}) = \alpha f(\vec{x})$. В случае $V = W$ отображение линейное отображение $f$ называется \term{линейным преобразованием} или \term{линейным оператором}.\cite{vinberg}
+    
+    Рассмотрим умножение вектор-столбца размерности $l$ на матрицу слева: $\vec{v}' = \underset{n \times l}{B}\vec{v}$, его можно записать, как
+    \begin{equation*}
+        v'_i = \sum\limits_{j=1}^{l} b_{ij} v_j.
+    \end{equation*}
+    Отсюда видно, что умножение вектора на матрицу суть действие некоторого \imp{линейного отображения}, а матрица~--- лишь одно из его представлений.
+    Домножим полученный вектор $\vec{v'}$ слева на матрицу $\underset{m \times n}{A}$, получим,
+    \begin{multline*}
+        v''_k 
+            = \sum\limits_{i=1}^{n} a_{ki} v'_i 
+            = \sum\limits_{i=1}^{n} a_{ki} \sum\limits_{j=1}^{l} b_{ij} v_j
+            = \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{l} a_{ki} b_{ij} v_j = \\
+            = \sum\limits_{j=1}^{l} \sum\limits_{i=1}^{n} a_{ki} b_{ij} v_j
+            = \sum\limits_{j=1}^{l} (AB)_{kj} v_j.
+    \end{multline*}
+    Откуда следует, что композиция действия линейных отображений на вектор есть произведение матриц, представляющих эти отображения.
+
+    \subsubsection{Матрица перехода}
+    При работе с векторными пространствами, бывает удобно использовать несколько базисов. Для этого необходимо иметь удобный инструмент для перевода координат векторов из одного базиса в другой~--- \term{матрицу перехода}. Так как преобразование осуществляется между \imp{базисами} одного и того же пространства, то размерность векторов не меняется. Следовательно \imp{матрица перехода}~--- квадратная. 
+    
+    Рассмотрим логику построения матрицы перехода на примере двумерного пространства, для других пространств механизм аналогичен. Пусть $\vec{x}$ и $\vec{y}$~--- векторы первого базиса, а $\vec{x}'$ и $\vec{y}'$~--- другого. Зафиксируем произвольный вектор $\vec{v}$ в первом базисе, обозначим как $\vec{v}'$ его представление во втором базисе. Найдем матрицу перехода от первого базиса к второму, то есть такую матрицу $A$, что $\vec{v'} = A \vec{v}$.
+    
+    Пусть $\vec{v} = \alpha \vec{x} + \beta \vec{y}$, а направляющие векторы первого базиса раскладываются по векторам второго следующиим образом:
+    \begin{equation*}
+        \begin{aligned}
+            \vec{x} &= a_{xx} \vec{x}' + a_{xy} \vec{y}',\\
+            \vec{y} &= a_{yx} \vec{x}' + a_{yy} \vec{y}'.
+        \end{aligned}
+    \end{equation*}
+    Тогда можно записать
+    \begin{equation*}
+        \vec{v} = \alpha (a_{xx} \vec{x}' + a_{xy} \vec{y}') + \beta (a_{yx} \vec{x}' + a_{yy} \vec{y}') = \vec{x}' (\alpha a_{xx} + \beta a_{yx}) + \vec{y}' (\alpha a_{xy} + \beta a_{yy}),
+    \end{equation*}
+    что в матричном виде записывается как
+    \begin{equation*}
+        \vec{v}' = \begin{pmatrix}
+            a_{xx} & a_{yx} \\
+            a_{xy} & a_{yy}
+        \end{pmatrix} \begin{pmatrix}
+            \alpha \\
+            \beta
+        \end{pmatrix} \equiv A \begin{pmatrix}
+            \alpha \\
+            \beta
+        \end{pmatrix}.
+    \end{equation*}
+    Можно заметить, что столбцы матрицы перехода $A$ являются координатными представления направляющих векторов первого базиса во втором. 
+    
+    Однако не всегда бывает удобно искать координаты старого базиса в новом. Рассмотрим переход от второго базиса к первому (обратный переход). Пусть он задается матрицей $B$, то есть $\vec{v} = B \vec{v}'$. Найдём связь между матрицами переходов $A$ и $B$.
+    
+    Для этого определим \term{обратную матрицу} $A^{-1}$ к квадратной матрице $A$ так, что $AA^{-1}$ = $A^{-1} A = I$, где $I$~--- единичная матрица. Вернемся к равенству $\vec{v}' = A \vec{v}$ и домножим обе его части на $A^{-1}$ слева. Получим, что $A^{-1}\vec{v}' = A^{-1} A \vec{v} = I \vec{v} = \vec{v}$, значит $A^{-1} \equiv B$~--- матрица обратного перехода. Получается, поиск матрицы обратного преобразования сводится к поиску обратной матрицы.
+    
+    Рассмотрим вспомогательные матрицы
+    \begin{gather*}
+        \mu(m_1, \ldots, m_n) = \begin{pmatrix}
+            m_1 & 0 & \cdots & 0 \\
+            0 & m_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots m_n
+        \end{pmatrix}, \\
+        \sigma(s_1, \ldots, s_{k-1}, 1, s_{k+1}, \ldots , s_n) = \begin{pmatrix}
+            1 & \cdots & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots &  & \vdots \\
+            s_1 & \cdots & 1 & \cdots & s_n \\
+            \vdots &  & \vdots & \ddots & \vdots \\
+            0 & \cdots & 0 & \cdots & 1 
         \end{pmatrix},
+    \end{gather*}
+    матрица $\mu$ при умножении на неё слева умножает $i$-ую строку на $m_i$, а $\sigma$~--- прибавляет к $k$-ой строке остальные строки с соответствующими коэффициентами. Данными операциями не сложно привести исходную произвольную матрицу $A$ к верхнетреугольному виду, затем к диагонольному и к единичной матрице, получив композицию преобразований $\mu(\ldots)\sigma(\ldots)\cdot \ldots \cdot \mu(\ldots) \equiv \Lambda$. Причем $\Lambda A = I$. Домножим справа на $A^{-1}$, тогда слева получим $\Lambda$, а справа~--- $I A^{-1} = A^{-1} = A^{-1} I$. Отсюда получаем, что при выполнении операций, описываемых матрицами $\mu$ и $\sigma$, для приведения $A$ к $I$ параллельно над матрицами $A$ и $I$, матрица $I$ приводится к искомой матрице $A^{-1}$.   
+    
+    Заключительно, пусть $A$ матрица, столбцы которой являются координатными представлениями направляющих векторов нового базиса в старом, тогда $A^{-1}$ матрица перехода из старого базиса в новый. 
+    
+    В качестве иллюстрации найдём матрицу перехода $R_\alpha$ из ортонормированного базиса на плоскости, в такой же ортонормированный базис, повёрнутый на угол $\alpha$. В этом случае направляющие ветокры нового базиса имеют координаты
+    \begin{equation*}
+        \vec{x}' = \begin{pmatrix}
+            \cos \alpha \\ 
+            \sin \alpha
+        \end{pmatrix} 
+        \quad  \text{и} \quad
+        \vec{y}' = \begin{pmatrix}
+            -\sin \alpha \\
+            \cos \alpha
+        \end{pmatrix},
+    \end{equation*}
+    значит матрица обратного перехода или обратная матрица 
+    \begin{equation*}
+        R_\alpha^{-1} = \begin{pmatrix}
+            \cos \alpha & -\sin \alpha \\ 
+            \sin \alpha & \cos \alpha
+        \end{pmatrix}.
+    \end{equation*} 
+    Приведём её к единичной параллельно с $I$:
+    \begin{multline*}
+        \hspace{-1pc}\left(\begin{matrix}
+            \cos \alpha & -\sin \alpha \\ 
+            \sin \alpha & \cos \alpha
+        \end{matrix}\right|\left.\begin{matrix}
+            1 & 0 \\
+            0 & 1
+        \end{matrix}\right)
+         %
+         \overset{\mu\left( \frac{1}{\cos \alpha}, \frac{1}{\cos \alpha} \right)}{\xrightarrow{\hspace*{3.3pc}}}
+         %
+%        \left(\begin{matrix}
+%            1 & -\frac{\sin \alpha}{\cos \alpha} \\[3pt] 
+%            \frac{\sin \alpha}{\cos \alpha} & 1
+%        \end{matrix}\right|\left.\begin{matrix}
+%            \frac{1}{\cos \alpha} & 0 \\[3pt]
+%            0 & \frac{1}{\cos \alpha}
+%        \end{matrix}\right)
+        \setlength\arraycolsep{3pt}
+        \left(\begin{matrix}
+            1 & -\tg\alpha \\[3pt] 
+            \tg \alpha & 1
+        \end{matrix}\right|\left.\begin{matrix}
+            \frac{1}{\cos \alpha} & 0 \\[3pt]
+            0 & \frac{1}{\cos \alpha}
+        \end{matrix}\right)
+        %
+        \overset{\sigma\left(1, -\frac{\sin \alpha}{\cos \alpha}\right)}{\xrightarrow{\hspace*{3pc}}} \\
+        \rightarrow
+        %
+        \left(\begin{matrix}
+            1 & -\frac{\sin \alpha}{\cos \alpha} \\[3pt]
+            0 & \frac{1}{\cos^2 \alpha}
+        \end{matrix}\right|\left.\begin{matrix}
+            \frac{1}{\cos \alpha} & 0 \\[3pt]
+            -\frac{\sin \alpha}{\cos^2 \alpha} & \frac{1}{\cos \alpha}
+        \end{matrix}\right) 
+        %
+        \overset{\sigma\left(\sin \alpha \cos \alpha, \cos^2 \alpha \right)}{\xrightarrow{\hspace*{5.1pc}}} 
+        %
+        \left(\begin{matrix}
+            1 & 0 \\ 
+            0 & 1
+        \end{matrix}\right|\left.\begin{matrix}
+            \cos \alpha & \sin \alpha \\
+            -\sin \alpha & \cos \alpha
+        \end{matrix}\right),
+    \end{multline*}
+    интересно заметить, что $R_\alpha^{-1} = R_{-\alpha}$.
+    
+    \subsubsection{Определитель}
+    
+    Возвращаясь к вопросу линейной (не)зависимости набора из векторов $\{ \vec{v}_1, \ldots, \vec{v}_n \}$ в пространстве размерности $n$, было бы удобно иметь некоторую функцию $D$~--- индикатор линейной зависимости векторов. На аргументы этой функции удобно смотреть как на строки матрицы
+    \begin{equation*}
+        A = \begin{pmatrix}
+            \vec{v}_1 \\ \vdots \\ \vec{v}_2
+        \end{pmatrix} = \begin{pmatrix}
+            a_{11} & \cdots & a_{1n} \\
+            \vdots & \ddots & \vdots \\
+            a_{n1} & \cdots & a_{nn}
+        \end{pmatrix}.
+    \end{equation*}
+    Предъявим к искомой функции следующие требования:
+    \begin{enumerate}
+        \item {
+            Полилинейность, то есть 
+            \begin{gather*}
+                D(\vec{v}_1, \ldots, \vec{v}_i + \vec{v}_j, \ldots, \vec{v}_n) 
+                    = D(\vec{v}_1, \ldots, \vec{v}_i, \ldots, \vec{v}_n) 
+                        + D(\vec{v}_1, \ldots,\vec{v}_j, \ldots, \vec{v}_n)\\
+                D(\vec{v}_1, \ldots, \lambda\vec{v}_i, \ldots, \vec{v}_n) 
+                    = \lambda D(\vec{v}_1, \ldots, \vec{v}_i, \ldots, \vec{v}_n)
+            \end{gather*}
+        }
+        \item {
+            $D(\vec{v}_1, \ldots, \vec{v}_n)$, если $\{ \vec{v}_1, \ldots, \vec{v}_n \}$ линейно зависимы.
+        }
+        \item {
+            $D(\vec{e}_1, \ldots, \vec{e}_n) = D(I) = 1$.
+        }
+    \end{enumerate}
+    
+    Отсюда получаем, что $D(\vec{v}_1, \ldots, \vec{v}_i, \ldots, \vec{v}_i, \ldots, \vec{v}_n) = 0$, так как векторы, среди которых два равных,  линейно зависимы. 
+    
+    Из этого свойства и полилинейности вытекает \imp{косо\-сим\-мет\-рич\-ность}\footnote{
+        Функция $f(x_1,\ldots, x_n)$ \term{кососимметрична}, если $\forall 1 \leqslant i,j \leqslant n: f(\ldots, x_i, \ldots, x_j, \ldots) = -f(\ldots, x_j, \ldots, x_i, \ldots)$.
+    }. Действительно, легко заметить, что к аргументам $D$ можно прибавлять другие аргументы к некоторыми ненулевыми коэффициентами, при этом значение $D$ не изменится. А этого и второй части полилинейности достаточно, чтобы поменять два аргумента местами. Внимательно проследив цепочку преобразований, можно увидеть что значение $D$ в этом случае поменяло знак:
+    
+    \begin{multline*}
+        D(\ldots, \vec{v}_i, \ldots, \vec{v}_j, \ldots) 
+            = D( \ldots, \vec{v}_i, \ldots, \vec{v}_i + \vec{v}_j, \ldots) = \\
+            = - D( \ldots, -\vec{v}_i, \ldots, \vec{v}_i + \vec{v}_j, \ldots)
+            = -D(\ldots, \vec{v}_j, \ldots, \vec{v}_i + \vec{v}_j, \ldots) = \\
+            = -D( \ldots, \vec{v}_j, \ldots, \vec{v}_i, \ldots).
+    \end{multline*}
+    
+    Обозначим множество как $S_n$ всех перестановок длины $n$. \imp{Четностью перестановки} $\sigma$ называется чётность числа инверсий $\pi(\sigma)$ в этой перестановке. \imp{Знак перестановки} $\sgn(\sigma) = (-1)^{\pi(\sigma)}$. 
+    
+    Рассмотрим, чему равна $D$ на некотором наборе $\{ \vec{v}_1, \ldots, \vec{v}_n \}$:
+    \begin{multline}
+        D(\vec{v}_1, \ldots, \vec{v}_n) 
+            = D(a_{11} \vec{e}_1 + \ldots + a_{1n} \vec{e}_n, \ldots, a_{n1} \vec{e}_1 + \ldots + a_{nn} \vec{e}_n) = \\
+            = \sum\limits_{\sigma \in S_n} a_{1\sigma(1)} \cdot \ldots \cdot a_{n\sigma(n)} D(\vec{e}_{\sigma(1)}, \ldots, \vec{e}_{\sigma(n)}) = \\
+            = \sum\limits_{\sigma \in S_n} \sgn(\sigma) \cdot a_{1\sigma(1)} \cdot \ldots \cdot a_{n\sigma(n)} D (\vec{e}_1, \ldots, \vec{e}_n) = \\
+            = \sum\limits_{\sigma \in S_n} \sgn(\sigma) \prod\limits_{i = 1}^n a_{i\sigma(i)}.
+            \label{eq:det-Leibniz}
     \end{multline}
-    легко видеть, $A B \not = B A$.
+    
+    Полученная функция называется \term{определителем} квадратной матрицы $\det(X):\underset{n \times n}{\text{Mat}} \rightarrow \R$. Обозначается как $\det(A)$, $\det A$ или $|A|$. 
+    
+    Преобразуем \eqref{eq:det-Leibniz}. Для этого рассмотрим перестановку $\xi \in S_{n-1}$ множества $\{1, \ldots, j - 1, j + 1, \ldots, n \}$, результат применения $\xi$ данному множеству назовем \imp{подстановкой}. Добавим число $j$ в начало подстановки. В результате получим перестановку $\sigma \in S_n$, причем $\sgn \sigma = (-1)^{j-1} \sgn \xi$. Так как в подстановке ровно~$j - 1$ элементов меньше~$j$, следовательно, число инверсий в $\sigma$ ровно на~$j-1$ больше числа инверсий в $\xi$. Применим полученный результат: 
+    \begin{multline}
+        \sum\limits_{\sigma \in S_n} \sgn(\sigma) \prod\limits_{i = 1}^n a_{i\sigma(i)} = \\
+            = \sum\limits_{j=1}^n \sum\limits_{\xi \in S_{n-1}} (-1)^{j-1}\sgn(\xi) \cdot a_{1j} \cdot a_{2\xi(1)} \cdot \ldots  \cdot a_{n\xi(n-1)} = \\
+            = \sum\limits_{j=1}^n (-1)^{j-1} a_{1j} M_{1j},
+            \label{eq:det-minor}
+    \end{multline}
+    где $\xi(i)$~--- i-ый элемент \imp{подстановки}, а $M_{hk}$~--- \imp{дополнительный минор}~--- определитель матрицы, полученной из~$A$ вычеркиванием $h$-й~строки и $k$-го~столбца.
+    
+    %% TODO: геометрический смысл определителя (какой-то переход)
+    
+    \begin{wrapfigure}[7]{r}{0.25\tw}
+        \vspace{-1pc}
+        \centering
+        \tikzsetnextfilename{det-2-dim}
+        \begin{tikzpicture}
+            \footnotesize
 
-    \term{Определитель}~--- функция $\det(X):\underset{n \times n}{\text{Mat}} \rightarrow \R$, вычисляемая по формуле:
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(1.3,0.5){A}
+            \tkzDefPoint(0.4,1.2){B}
+            \tkzDefParallelogram(A,O,B) \tkzGetPoint{C}
+
+            \tkzGetVectxy(O,A){a}
+            \tkzGetVectxy(O,B){b}
+            \tkzGetVectxy(O,C){c}
+
+            \tkzDefPoint(\ax,0){Ax}
+            \tkzDefPoint(\cx,0){Cx}
+            \tkzDefPoint(0,\by){By}
+            \tkzDefPoint(0,\cy){Cy}
+
+            \tkzDefPoint(\cx,\ay){Ac}
+            \tkzDefPoint(\bx,\cy){Bc}
+
+            \tkzDrawPolygons[fill=gray](By,B,Bc,Cy Ax,A,Ac,Cx)
+            \tkzDrawPolygons[fill=lightgray](O,B,By O,A,A,Ax B,Bc,C A,Ac,C)
+
+            \tkzDrawSegments[thick, -latex](O,A O,B A,C B,C)
+            \tkzDrawLines[semithick, add=0 and 0.2, -latex](O,Cy O,Cx)
+
+            \tkzLabelSegment[below](O,Ax){$a$}
+            \tkzLabelSegment[below](Ax,Cx){$c$}
+            \tkzLabelSegment[left](O,By){$d$}
+            \tkzLabelSegment[left](By,Cy){$b$}
+
+            \tkzLabelSegment[above](C,Bc){$a$}
+            \tkzLabelSegment[above](Bc,Cy){$c$}
+            \tkzLabelSegment[right](Cx,Ac){$b$}
+            \tkzLabelSegment[right](Ac,C){$d$}
+
+            \tkzDrawPoints(O, A, B, C)
+        \end{tikzpicture}
+        \caption{Параллелограмм на векторах $(a~b)^{\T}$ и $(c~d)^{\T}$}
+        \label{pic:det-2-dim}  
+    \end{wrapfigure}
+    Определитель двумерной матрицы
+    \begin{equation*}
+        \begin{vmatrix}
+            a & b \\
+            c & d
+        \end{vmatrix} = ad - bc
+    \end{equation*}
+    выражает ориентированную площадь параллелограмма, построенного на векторах, составляющих матрицу, \lookPicRef{pic:det-2-dim}. Действительно, $(a + c)(b + d) - 2bc - ab - cd = ad - bc$.
+    
+    \begin{wrapfigure}[8]{r}{0.25\tw}
+        \vspace{-0.2pc}
+        \centering
+        \tikzsetnextfilename{det-3-dim}
+        \begin{tikzpicture}
+            \def\s{0.7}
+            \tkzDefPoint({0 * \s}, {-0 * \s}){a}
+            \tkzDefPoint({1 * \s}, {-0 * \s}){b}
+            \tkzDefPoint({2 * \s}, {-0 * \s}){c}
+            \tkzDefPoint({0 * \s}, {-1 * \s}){d}
+            \tkzDefPoint({1 * \s}, {-1 * \s}){e}
+            \tkzDefPoint({2 * \s}, {-1 * \s}){f}
+            \tkzDefPoint({0 * \s}, {-2 * \s}){g}
+            \tkzDefPoint({1 * \s}, {-2 * \s}){h}
+            \tkzDefPoint({2 * \s}, {-2 * \s}){i}
+        
+            \tkzDrawPolygons[semithick](a,e,i b,f,g c,d,h)
+            \tkzDrawPolygons[semithick, lightgray](b,d,i a,f,h c,e,g)
+
+            \tkzDrawPoints(a, b, c, d, e, f, g, h, i)
+        \end{tikzpicture}
+        \caption{Мнемоническое правило для вычисления определителя матрицы третьего порядка}
+        \label{pic:det-3-dim}
+    \end{wrapfigure}
+    Определитель матрицы третьего порядка
     \begin{equation}
-        \det A = \det
-        \begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n}\\
-            a_{21} & a_{22} & \cdots & a_{2n}\\
-            \vdots & \vdots & \ddots & \vdots\\
-            a_{m1} & a_{m2} & \cdots & a_{mn}
-        \end{pmatrix} =
-        \sum\limits_{k = 1}^n (-1)^{k+1} a_{hk} \det M_{hk},
-        \label{eq:det-def1}
+        \begin{vmatrix}
+            a & b & c \\
+            d & e & f \\
+            g & h & i
+        \end{vmatrix} = aei - bdi - afh + bfg + cdh - ceg
+        \label{eq:det-3}
     \end{equation}
-    где $M_{hk}$~--- дополнительный минор~--- матрица, полученная из $A$ вычеркиванием $h$-й строки и $k$-го столбца. Данное рекурсивное выражение для определителя матрица $A$ называется разложением по $h$-й строке, аналогично определяется разложение по столбцу. Для формальной полноты определения скажем, что определитель матрицы порядка единицы равен единственному элементу матрицы.
-
-    Раскрывая выражение \eqref{eq:det-def1}, получим эквивалентное ему:
-    \begin{equation}
-        \det A = \sum\limits_{(\alpha_1, \ldots, \alpha_n)} (-1)^{\pi(\alpha_1, \ldots, \alpha_n)} a_{1\alpha_1} a_{2\alpha_2} \ldots a_{(n-1)\alpha_{n-1}} a_{n\alpha_n},
-        \label{eq:det_def2}
-    \end{equation}
-    где суммирование производится по всевозможным перестановкам индексов $(\alpha_1, \ldots, \alpha_n)$, а $\pi(\alpha_1, \ldots, \alpha_n)$~--- число инверсий в перестановке. Отсюда следует полилинейность определителя. Перегруппировкой членов получим, что суммирование может производиться не только по перестановкам строк, но и по перестановкам столбцов.
-
-    Матрицу можно представить, как
-    \begin{equation}
-        A = \begin{pmatrix}
-            \vec{a}_1 & \cdots & \vec{a}_n
-        \end{pmatrix},
-    \end{equation}
-    где $\vec{a}_1, \ldots, \vec{a}_n$~--- вектора размерности $m$. А также можно считать, что
-    \begin{equation}
-        A = \begin{pmatrix}
-            \vec{a}_1^{\T}\\
-            \vdots\\
-            \vec{a}_m^{\T}
-        \end{pmatrix}
-    \end{equation}
-    где $\vec{a}_1, \ldots, \vec{a}_n$~--- вектора размерности $n$.
-
-    Из выражения \eqref{eq:det_def2} для определителя следует, что
-    \begin{equation}
-        \det \begin{pmatrix}
-            \vec{a}_1 & \cdots & \vec{a}_i & \vec{a}_{i+1} & \cdots & \vec{a}_n
-        \end{pmatrix} =
-    -\det \begin{pmatrix}
-            \vec{a}_1 & \cdots & \vec{a}_{i+1} & \vec{a}_i & \cdots & \vec{a}_n
-        \end{pmatrix},
-    \end{equation}
-    так как число инверсий для соответствующей перестановки изменяется на единицу изменяется на единицу. Если же поменять местами не соседние строки, а две произвольные, то знак определителя также изменится на противоположны, так как <<перетаскиваение>> $i$-ой строки по $i+1, \ldots, j - 1$ строчкам дает столько же инверсий, сколько <<перетаскивание>> $j$-ой по этим же строчкам, плюс еще одна инверсия при смене порядка $i$-ой и $j$-ой строк.
-
-    Отсюда вытекает еще одно свойство: если две строки (столбца) матрицы равны, то определитель равен нулю. Проверим это, при перестановке равных строк местами матрица не изменяется, но про предыдущему свойству изменяется знак определителя, то есть $\det A = - \det A$, значит, $\det A = 0$.
-
-    Из линейности по каждой строке и каждому столбцу вытекает, что общий множитель элементов какой-либо строки (столбца) определителя можно вынести за знак определителя. Следовательно, если хотя бы одна строка (столбец) матрицы нулевая, то определитель равен нулю.
-
-    Если две (или несколько) строки (столбца) матрицы линейно зависимы, то её определитель равен нулю. Достаточно разложить одну из строк (столбцов) по остальным, воспользоваться линейность, а потом вынести множитель, получим две одинаковые строки, то есть определитель каждой такой матрицы будет равен нулю.
-
-    Из последнего вытекает утверждение, что при добавлении к любой строке (столбцу) линейной комбинации других строк (столбцов) определитель не изменится.
-
-    Встает вопрос, как можно применить полученные знания об определителе квадратной матрицы? Очень просто! Составив матрицу из $n$ векторов в пространстве с размерностью $n$ и посчитав ее определитель, можно выяснить, является ли система из данных векторов линейно зависимой.
+    равен ориентированному объему параллелепипеда, построенного на векторах, составляющих матрицу. Доказательство это факта изложено в Разделе~\ref{sec:triple}, а мнемоническое правило для формулы~\eqref{eq:det-3} приведено на \picRef{pic:det-3-dim}: произведения троек, выделенных чёрным, берутся со знаком~$+$, а серым~--- со знаком~$-$.
+    
+    Определители матриц более высокого порядка также выражают <<объемный>> коэффициент преобразования в пространстве соответствующей размерности.
+    
