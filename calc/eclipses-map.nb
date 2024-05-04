@@ -1,0 +1,152 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5367,        144]
+NotebookOptionsPosition[      4618,        124]
+NotebookOutlinePosition[      5010,        140]
+CellTagsIndexPosition[      4967,        137]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Eclipses map", "Title",
+ CellChangeTimes->{{3.914851638619878*^9, 
+  3.914851662253729*^9}},ExpressionUUID->"f7d45056-1979-42fd-94f5-\
+e63b95c3438c"],
+
+Cell[BoxData[
+ RowBox[{"map", "=", " ", 
+  RowBox[{"GeoGraphics", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"GeoStyling", "[", "None", "]"}], ",", 
+      RowBox[{"Opacity", "[", ".3", "]"}], ",", "Red", ",", 
+      RowBox[{"SolarEclipse", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"DateObject", "[", 
+           RowBox[{"{", 
+            RowBox[{"1901", ",", "1", ",", "1", ",", "0", ",", "0"}], "}"}], 
+           "]"}], ",", 
+          RowBox[{"DateObject", "[", 
+           RowBox[{"{", 
+            RowBox[{"2001", ",", "1", ",", "1", ",", "0", ",", "0"}], "}"}], 
+           "]"}], ",", "All"}], "}"}], ",", "\"\<TotalPhasePolygon\>\"", ",", 
+        
+        RowBox[{"EclipseType", "\[Rule]", "\"\<Total\>\""}]}], "]"}]}], "}"}],
+     ",", 
+    RowBox[{"GeoProjection", "\[Rule]", "\"\<PlateCarree\>\""}], ",", " ", 
+    RowBox[{"GeoCenter", "\[Rule]", 
+     RowBox[{"GeoPosition", "[", 
+      RowBox[{"{", 
+       RowBox[{"90", ",", "0"}], "}"}], "]"}]}], ",", 
+    RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}], ",", " ", 
+    RowBox[{"GeoRange", "\[Rule]", "\"\<World\>\""}], ",", 
+    RowBox[{"GeoGridLines", "\[Rule]", "Automatic"}], ",", 
+    RowBox[{"GeoGridLinesStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{
+       RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+       RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "]"}]}]}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.914849407795369*^9, 3.914849491582266*^9}, {
+   3.914849813033779*^9, 3.9148498487333183`*^9}, 3.9148505670919657`*^9, {
+   3.914851378592115*^9, 3.914851460364491*^9}, {3.914851518568166*^9, 
+   3.914851541713567*^9}, 3.915428363009172*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"69fef74a-ca50-4952-8929-e582fc608e3a"],
+
+Cell[BoxData[
+ RowBox[{"grayMap", " ", "=", " ", 
+  RowBox[{"ImageAdjust", "[", 
+   RowBox[{
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{"map", ",", " ", "\"\<Grayscale\>\""}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"45ca8e68-e99c-4b5d-954c-6d2e4b01f301"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+       "\"\<img\>\"", ",", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"\"\<eclipses-map-20\>\"", ",", "\"\<.png\>\""}], "]"}]}], 
+      "}"}], "]"}], ",", "grayMap"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.914851610402912*^9, 3.914851619325665*^9}, {
+  3.914851785604684*^9, 3.914851806831203*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"e0f5cc86-9f15-424b-9b1d-ab1aed59f302"],
+
+Cell[BoxData[
+ RowBox[{"oneEclipse", " ", "=", " ", 
+  RowBox[{"GeoGraphics", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"GeoStyling", "[", "None", "]"}], ",", 
+      RowBox[{"SolarEclipse", "[", 
+       RowBox[{
+        RowBox[{"DateObject", "[", 
+         RowBox[{"{", 
+          RowBox[{"1999", ",", "8", ",", "11", ",", "0", ",", "0"}], "}"}], 
+         "]"}], ",", "\"\<GraphicsData\>\"", ",", 
+        RowBox[{"EclipseType", "\[Rule]", "\"\<Total\>\""}]}], "]"}]}], "}"}],
+     ",", 
+    RowBox[{"GeoProjection", "\[Rule]", "\"\<Orthographic\>\""}], ",", 
+    RowBox[{"GeoRange", "\[Rule]", "\"\<World\>\""}], ",", 
+    RowBox[{"GeoCenter", "->", 
+     RowBox[{"{", 
+      RowBox[{"45", ",", "25"}], "}"}]}], ",", 
+    RowBox[{"\"\<GeoZoomLevel\>\"", "\[Rule]", "3"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9154285162591543`*^9, 3.915428540668619*^9}, {
+  3.915428637360941*^9, 3.915428694998066*^9}, {3.9154287531197*^9, 
+  3.915428757618977*^9}, {3.91542879146073*^9, 3.9154287918107357`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"e2872cb0-f91a-4e56-b69b-07c84cc492d2"]
+}, Open  ]]
+},
+WindowSize->{808, 897},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"51d83266-a537-4ff5-885c-4170faf1d7c2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 155, 3, 98, "Title",ExpressionUUID->"f7d45056-1979-42fd-94f5-e63b95c3438c"],
+Cell[738, 27, 1783, 41, 157, "Input",ExpressionUUID->"69fef74a-ca50-4952-8929-e582fc608e3a"],
+Cell[2524, 70, 370, 9, 30, "Input",ExpressionUUID->"45ca8e68-e99c-4b5d-954c-6d2e4b01f301"],
+Cell[2897, 81, 596, 14, 52, "Input",ExpressionUUID->"e0f5cc86-9f15-424b-9b1d-ab1aed59f302"],
+Cell[3496, 97, 1106, 24, 115, "Input",ExpressionUUID->"e2872cb0-f91a-4e56-b69b-07c84cc492d2"]
+}, Open  ]]
+}
+]
+*)
+

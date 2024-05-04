@@ -37,52 +37,104 @@
     \caption{Аналемма}
     \label{fig:analemma}
 \end{wrapfigure}
-В течение сидерического года Земля совершает полный оборот вокруг Солнца. Вследствие этого Солнце движется относительно далёких звёзд для наблюдателя на Земле. Это движение совершается по большому кругу небесной сферы, называемому \term{эклиптикой} и совпадающему с плоскостью орбиты Земли. Однако, в силу прецессии земной оси с периодом около 25765~лет, период такого движения равен \imp{тропическому году}, который длиннее сидерического года примерно на 20~мин~25~сек.
+В течение сидерического года Земля совершает полный оборот вокруг Солнца. Вследствие этого Солнце движется относительно далёких звёзд для наблюдателя на Земле. Это движение совершается по большому кругу небесной сферы~---  \term{эклиптике}~--- проекции орбиты Земли на небесную сферу. 
 
-\begin{wrapfigure}[12]{r}{0.5\tw}
-    \centering
-    \vspace{-.9pc}
-    \tikzsetnextfilename{sun-path}
-    \begin{tikzpicture}
-        \begin{axis}[
-            width    =    .5\tw,
-            height    =    4.5cm,
-            xlabel    =    {Прямое восхождение $\alpha^h$},
-            ylabel    =    {Склонение $\delta^{\circ}$},
-            extra y ticks    =    {23.44, -23.44},
-            ytick = {-20, -10, 0, 10, 20},
-            ymax    =    25,
-            ymin    =    -25,
-            xmax    =    24,
-            xmin    =    0,
-            xtick    =    {0, 4, 8, 12, 16, 20, 24},
-            x dir = reverse
-            ]
-            \addplot [domain=0:24, samples=100] {atan(sin(x*15)*tan(23.44))};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{График зависимости склонения Солнца от его прямого восхождения}
-\end{wrapfigure}
+Однако, в силу прецессии земной оси, период такого движения равен \term{тропическому году}, который короче сидерического года примерно на 20~мин~25~сек.
+
+%\begin{wrapfigure}[12]{r}{0.5\tw}
+%    \centering
+%    \vspace{-.9pc}
+%    \tikzsetnextfilename{sun-path}
+%    \begin{tikzpicture}
+%        \begin{axis}[
+%            width    =    .5\tw,
+%            height    =    4.5cm,
+%            xlabel    =    {Прямое восхождение $\alpha^h$},
+%            ylabel    =    {Склонение $\delta^{\circ}$},
+%            extra y ticks    =    {23.44, -23.44},
+%            ytick = {-20, -10, 0, 10, 20},
+%            ymax    =    25,
+%            ymin    =    -25,
+%            xmax    =    24,
+%            xmin    =    0,
+%            xtick    =    {0, 4, 8, 12, 16, 20, 24},
+%            x dir = reverse
+%            ]
+%            \addplot [domain=0:24, samples=100] {atan(sin(x*15)*tan(23.44))};
+%        \end{axis}
+%    \end{tikzpicture}
+%    \caption{График зависимости склонения Солнца от его прямого восхождения}
+%\end{wrapfigure}
 В моменты, когда Солнце находится в \imp{точке весеннего равноденствия}~$\aries$  (20~марта, реже~21) его координаты: $\alpha=0^h$, $\delta=0^{\circ}$. Во время прохождения этой точки обе координаты Солнца растут. Так происходит до момента, пока Солнце не пройдет \imp{точку летнего солнцестояния} (21~июня, реже~20), координаты которой~--- $\alpha=6^h$ и $\delta=\varepsilon$. После этого склонение Солнца начинает убывать. В момент прохождения \imp{точки осеннего равноденствия}~$\libra$ (22~или 23~сентября), координаты Солнца составляют $\alpha=12^h$, $\delta=0^{\circ}$. После прохождения \imp{точки зимнего солнцестояния} с координатами $\alpha=18^h$, $\delta=-\varepsilon$ (22~или 21~декабря) склонение Солнца начинает увеличиваться.
 
-Пренебрегая сферическими искажениями, годичный путь Солнца по небесной сфере можно считать синусоидой, откуда
-\begin{equation}
-    \delta=\varepsilon\cdot\sin \frac{2 \pi t}{T},
-\end{equation}
-где $t$~--- время, прошедшее с момента весеннего равноденствия, $T$~--- тропический год.
+\begin{wrapfigure}[5]{r}{0.4\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{sun-lambda-alpha}
+    \tdplotsetmaincoords{70}{-70}
+    \begin{tikzpicture}[tdplot_main_coords]
+        \footnotesize
 
-Более точная формула следует из сферической тригонометрии и имеет вид
-\begin{equation}
-    \delta=\arcsin\left(\sin\varepsilon\cdot\sin \frac{2 \pi t}{T}\right).
-    \label{eq:delta-sun}
-\end{equation}
+        \def\R{5}
+        \def\EPS{23.5}
+        \def\ALPHA{45}
+        \def\LAMBDA{atan(tan(\ALPHA)/cos(\EPS))}
+        \def\DELTA{asin(sin(\LAMBDA)*sin(\EPS))}
 
-Известно, что движение Солнца по эклиптике происходит неравномерно, поэтому данные формулы не являются абсолютно точными.
+        % Draw triangle
+        \tdplotsetrotatedcoords{0}{0}{0};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:{\ALPHA}:\R);
+        \tdplotsetrotatedcoords{90}{-\EPS}{-90};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\LAMBDA:\R);
+        \tdplotsetrotatedcoords{90+\ALPHA}{-90}{-90};
+        \draw[tdplot_rotated_coords, semithick] (\R,0,0) arc (0:\DELTA:\R);
 
-Прямое восхождение Солнца связано со склонением формулой
+        % Draw points
+        \tdplotCsDrawPoint{\R}{180}{-90}
+        \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90 + \DELTA}
+        \tdplotCsDrawPoint{\R}{180 + \ALPHA}{-90}
+
+        % Label arcs
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90}{$\alpha$}{below}
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA / 2}{-90 + \DELTA / 2}{$\lambda$}{above right}
+        \tdplotCsLabelPoint{\R}{180 + \ALPHA}{-90 + \DELTA / 2}{$\delta$}{left}
+
+        % Mark right angle
+        \tdplotsetrotatedcoords{\ALPHA}{0}{0};
+        \draw [tdplot_rotated_coords](\R,-0.2,0.2) coordinate (c) (\R,0,0.2) coordinate (a1) -- (c) (\R,-0.2,0) coordinate (a2) -- (c) pic [angle radius=0.2cm] {right angle=a1--c--a2};
+
+        % Mark and label angle t near P
+        \def\angleRadius{0.6}
+        \tdplotsetrotatedcoords{0}{0}{0};
+        \draw [tdplot_rotated_coords, canvas is yz plane at x = \R]({\angleRadius * cos(\EPS)},0) arc (0:{\EPS - 3}:\angleRadius);
+        \tdplotCsLabelPoint{\R}{6}{88.3}{$\varepsilon$}{left}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:sun-lambda-alpha}
+\end{wrapfigure}
+Найдём выражение для прямого восхождения Солнца $\alpha$ через переменные $\lambda$ и $\varepsilon$, где $\varepsilon = 23.44^\circ$~--- угол наклона экватора Земли к эклиптике. Для этого рассмотрим формулу пяти элементов~\eqref{eq:formula-5-elem} для прямоугольного сферического треугольника, представленного на рисунке~\picRef{pic:sun-lambda-alpha}:
+\begin{gather}
+    \sin \delta \cos 90^\circ = \cos \lambda \sin \alpha - \sin \lambda \cos \alpha \cos \varepsilon,\notag\\
+    \cos \lambda \sin \alpha = \sin \lambda \cos \alpha \cos \varepsilon,\notag\\
+    \frac{\tg \alpha }{\tg \lambda} = \cos \varepsilon.
+    \label{eq:tgAlpha/tgLambda}
+\end{gather}
+
+Из аналогичных рассуждений несложно получить, что прямое восхождение Солнца связано со склонением формулой. Рассмотрим формулу пяти элементов~\eqref{eq:formula-5-elem},
+\begin{gather*}
+    \cos \delta \sin \alpha = \sin \delta \cos \alpha \cos 90^\circ + \sin \lambda \cos \varepsilon,\\
+    \cos \delta \sin \alpha = \sin \lambda \cos \varepsilon.
+\end{gather*}
+Выразим $\sin \lambda$ из теоремы синусов~\eqref{eq:sphere-th-sinus}:
+\begin{equation*}    
+    \sin \lambda = \frac{\sin \delta}{\sin \varepsilon}.
+\end{equation*}
+и подставим в полученное выше равенство:
 \begin{equation}
-    \sin\alpha=\frac{\tg\delta}{\tg\varepsilon}.
+    \sin\alpha = \frac{\tg\delta}{\tg\varepsilon}.  
     \label{eq:sin-alpha}
 \end{equation}
 
-Выражения \eqref{eq:delta-sun} и \eqref{eq:sin-alpha} следуют из формул перехода между экваториальной и эклиптической системами координат, получаемых из сферической тригонометрии.
+
+
+
