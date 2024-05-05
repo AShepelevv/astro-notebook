@@ -3,20 +3,20 @@
 \begin{equation*}
 	F = \frac{dp}{dt}.
 \end{equation*}
-Рассмотрим малое изменение импульса в лабораторной СО, напомним что $F$ выражается как $ma'$:
+Рассмотрим малое изменение импульса в лабораторной СО, напомним что $F = ma'$:
 \begin{equation*}
 	dp = F dt = m a' dt = m a \gamma^{3} dt = m \gamma^{3} dv.
 \end{equation*}
 Тогда полный импульс тела $p$ может быть получен как интеграл от 0 до $v$:
 \begin{equation*}
-	p = \int\limits_0^{p} dp = \int\limits_0^{v} m \gamma^{3} \,dv = \int\limits_0^{v} \frac{m \, dv}{\left(1 - \frac{v^2}{c^2}\right)^{3/2}}.
+	p = \int\limits_0^{p} dp = \int\limits_0^{v} m \gamma^{3} \,dv = \int\limits_0^{v} \frac{m \, dv}{\left(1 - v^2 / c^2\right)^{3/2}}.
 \end{equation*}
-Для того чтобы найти данный интеграл примемним тригонометрическую подстановку:
+Для того чтобы найти данный интеграл, применим тригонометрическую подстановку:
 \begin{equation}
 	\frac{v}{c} = \sin x, \quad dv = c \cdot \cos x \, dx, \quad \sqrt{1-\frac{v^2}{c^2}} = \cos x.
 	\label{eq:sr-imp-trigsub}
 \end{equation}
-Тогда подставляя в интеграл получим:
+Тогда, подставляя в интеграл получим:
 \begin{equation*}
 	\int\limits \frac{mc \cdot \cos x \, dx}{\cos^{3} x} = mc \tg x = \frac{mv}{\sqrt{1-v^2/c^2}}.
 \end{equation*}

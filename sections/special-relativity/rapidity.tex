@@ -5,33 +5,54 @@
 \end{equation}
 И распишем выражение $c \cdot \th (x+y)$:
 \begin{equation*}
-	c \cdot \th (x+y)=\frac{u+v}{1+\frac{u v}{c^2}}=v^{\prime}.
+	c \cdot \th (x+y) 
+	   = \frac{u+v}{1+\frac{u v}{c^2}} 
+	   = v'.
 \end{equation*}
 Мы получили закон сложения скоростей. Тогда преобразуем выражение далее как:
 \begin{equation*}
-\operatorname{arcth}\left(\frac{v^{\prime}}{c}\right)=x+y=\operatorname{arcth}\left(\frac{u}{c}\right)+\operatorname{arcth}\left(\frac{v}{c}\right).
+    \arcth \frac{v'}{c} 
+        = x + y 
+        = \arcth \frac{u}{c} +\arcth \frac{v}{c}.
 \end{equation*}
-Мы получили величину, которую можно просто складывать вместо использования громоздкой формулы для релятивистского сложения скоростей. В случае, когда нужно несколько раз переводить скорости из одной СО в другую, это бывает полезно. Такая величина называется быстротой, и обычно обозначается буквой $\vartheta$ :
+Мы получили величину, которую можно просто складывать вместо использования громоздкой формулы для релятивистского сложения скоростей. В случае, когда нужно несколько раз переводить скорости из одной СО в другую, это бывает полезно. Такая величина называется быстротой, и обычно обозначается как
 \begin{equation*}
-	\vartheta=\operatorname{arcth}\left(\frac{v}{c}\right)
+	\vartheta \equiv \arcth \frac{v}{c}.
 \end{equation*}
 Выразим лоренц-фактор через быстроту:
 \begin{multline}
-	\gamma=\frac{1}{\sqrt{1-v^2 / c^2}}=\frac{1}{\sqrt{1-\th ^2 \vartheta}}=\frac{1}{\sqrt{1-\frac{\sh ^2 \vartheta}{\ch ^2 \vartheta}}}=\\=\frac{1}{\sqrt{\frac{\ch ^2 \vartheta-\sh ^2 \vartheta}{\ch ^2 \vartheta}}}=\frac{1}{\sqrt{\frac{1}{\ch ^2 \vartheta}}}=\ch \vartheta.
+	\gamma
+	   = \frac{1}{\sqrt{1 - v^2 / c^2}}
+	   = \frac{1}{\sqrt{1 - \th^2 \vartheta}}
+	   = \frac{1}{\sqrt{1-\frac{\sh^2 \vartheta}{\ch^2 \vartheta}}} = \\
+	   = \frac{1}{\sqrt{\frac{\ch^2 \vartheta - \sh^2 \vartheta}{\ch^2 \vartheta}}}
+	   = \frac{1}{\sqrt{\frac{1}{\ch^2 \vartheta}}}
+	   =\ch \vartheta.
 \end{multline}
 Выразим импульс тела через его массу и быстроту:
 \begin{equation}
-p=\gamma m v=\ch \vartheta \cdot m v=\frac{v}{c} \cdot \ch \vartheta \cdot m c=\th \vartheta \cdot \ch \vartheta \cdot m c=m c \sh \vartheta.
+    p 
+        = \gamma m v
+        = \ch \vartheta \cdot m v 
+        = \frac{v}{c} \cdot \ch \vartheta \cdot m c
+        = \th \vartheta \cdot \ch \vartheta \cdot m c
+        = m c \sh \vartheta.
 \end{equation}
 Запишем выражения для преобразований Лоренца через быстроту
 \begin{gather*}
-x^{\prime}=\frac{x-v t}{\sqrt{1-v^2 / c^2}}=(x-v t) \ch \vartheta=x \ch \vartheta-c t \sh \vartheta; \\
-t^{\prime}=\frac{t-\frac{v x}{c^2}}{\sqrt{1-v^2 / c^2}}=\left(t-\frac{v x}{c^2}\right) \ch \vartheta=\frac{1}{c}(c t \ch \vartheta-x \sh \vartheta).
+    x' 
+        = \frac{x - v t}{\sqrt{1 - v^2 / c^2}}
+        = (x - v t) \ch \vartheta
+        = x \ch \vartheta - c t \sh \vartheta; \\
+    t' 
+        = \frac{t - v x / c^2}{\sqrt{1 - v^2 / c^2}}
+        = \left( t - v x / c^2 \right) \ch \vartheta
+        = \frac{1}{c}(c t \ch \vartheta - x \sh \vartheta).
 \end{gather*}
 Для удобства запишем эти выражения через переменную $\tau$:
 \begin{align*}
-x^{\prime} & =x \ch \vartheta-\tau \sh \vartheta; \\
-\tau^{\prime} & =\tau \ch \vartheta-x \sh \vartheta.
+    x' & = x \ch \vartheta - \tau \sh \vartheta; \\
+    \tau' & = \tau \ch \vartheta - x \sh \vartheta.
 \end{align*}
 Заметим что последнюю систему можно выразить через произведение матриц:
 \begin{equation}
