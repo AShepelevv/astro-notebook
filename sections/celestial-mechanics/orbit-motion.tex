@@ -89,6 +89,12 @@
 \end{equation}
 где $\nu$~--- истинная аномалия, а $p$~--- фокальный параметр.
 
+Поставив в интеграл энергии за $r$ выражение (\ref{eq:kepler-eq-r-E}), можно получить зависимость скорости от эксцентрической аномалии
+\begin{equation}
+	v = \sqrt{\frac{GM}{a}}\sqrt{\frac{1 + e \cos E}{1 - e \cos E}}.
+	\label{eq:orbit-motion-eccentcic-int-energy}
+\end{equation}
+
 Найдем величину момента импульса пробной массы $m$ на эллиптической орбите. В силу постоянства данной величины, можно выбрать любую точку орбиты для её поиска. Проще всего рассмотреть перицентр или апоцентр, рассмотрим первый.
 \begin{multline*}
     L
@@ -109,4 +115,9 @@
     = m \sqrt{2GM \cdot \frac{p}{2}}
     = m \sqrt{GMp}.
 \end{multline*}
+Момент импульса также можно записать в терминах эксцентрической аномалии. Из такого равенства можно получить зависимость угла между радиус-вектором и вектором скорости от эксцентрической аномалии. Записав $L$ как $m r v \sin \alpha$, а далее подставив (\ref{eq:kepler-eq-r-E}) и (\ref{eq:orbit-motion-eccentcic-int-energy})
+\begin{gather}
+	m a (1 - e \cos E) \cdot \sqrt{\frac{GM}{a}}\sqrt{\frac{1 + e \cos E}{1 - e \cos E}} \sin \alpha = m \sqrt{GMa(1-e^2)}, \nonumber\\
+	 \sin \alpha = \sqrt{\frac{1-e^2}{1- e^2 \cos^2 E}}.
+\end{gather}
 
