@@ -18,7 +18,7 @@
         \tkzDefLine[tangent from = X](C1,R1) \tkzGetPoints{A1}{B1}
         \tkzDefLine[tangent from = X](C2,R2) \tkzGetPoints{A2}{B2}
         
-        \tkzDrawPolygon[fill=gray!40,draw=none](X,A1,B1)
+        \tkzDrawPolygon[fill=gray!70,draw=none](X,A1,B1)
         
         \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2)
         \tkzDrawSegments(X,A2 X,B2 X,C2 C2,A2 C2,B2 C1,A1 C1,B1)
@@ -72,7 +72,7 @@
         
         %%% draw
         
-        \tkzDrawPolygon[fill=gray!40,draw=none](X,A1,B1)
+        \tkzDrawPolygon[fill=gray!70,draw=none](X,A1,B1)
         \tkzDrawPolygon[fill=white,draw=none](X,H1,H2)
         
         \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2 C3,R3)
@@ -192,7 +192,7 @@
         \tkzInterLL(S',M')(S'',M'') \tkzGetPoint{I''}
         
 
-        \tkzDrawPolygon[fill=gray!40,draw=none](M',I'',M'')    
+        \tkzDrawPolygon[fill=gray!70,draw=none](M',I'',M'')    
             
         \tkzDrawCircles[black, thick, fill=white](E,e S,s M,m)
         
@@ -768,12 +768,19 @@
         \tkzInterLL(E,x)(I,E'') \tkzGetPoint{I''}
 
         % Draw shadow
-        \tkzDrawPolygon[fill=gray!40,draw=none](E',I,E'')    
+        \tkzDrawPolygon[fill=gray!70,draw=none](E',I,E'')    
             
         % Draw objects
         \tkzDrawCircles[black, thick, fill=white](E,e)
         \tkzDrawCircles[black, thick, fill=white](S,s)
         \tkzDrawCircles[black, thick, fill=white](M,m)
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=1}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$D$, -1.6cm, below=2pt}](S,E)
+        \end{scope}
         
         \tkzDrawSegments(S,I E,M S,S' S,S'' E,E' E,E'' M,M' E,I'')
         \tkzDrawSegments[semithick](S',I S'',I)
@@ -791,7 +798,7 @@
         \tkzMarkAngle[arc=lll, size=1.5](I,E,M)
         \tkzLabelAngle[pos=1.7](I,E,M){\footnotesize$\gamma$}
         
-        \tkzDrawPoints(S, S')
+        \tkzDrawPoints(S, S', S'')
         \tkzDrawPoints(E, E', E'')
         \tkzDrawPoints(M, M')
         \tkzDrawPoints(I, I', I'')
@@ -799,10 +806,145 @@
         \tkzLabelSegment[right](S,S'){$R_0$}
         \tkzLabelSegment[right](E,E'){$R$}
         \tkzLabelSegment[right=-1pt,pos=0.4](M,M'){$r$}
+        \tkzLabelSegment[above=-1pt,pos=0.45](E,M){$d$}
     \end{tikzpicture}
     \caption{}
     \label{pic:eclipses-full-lunar-eslipse}
 \end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \tikzsetnextfilename{eclipses-semi-shadow-lunar-eclipse}
+    \begin{tikzpicture}
+        \footnotesize
+        
+        % Radius of the Sun
+        \def\RS{1.4}
+        
+        % Radius of the Earth
+        \def\RE{0.9}
+        
+        % Radius of the Moon
+        \def\RM{0.4}
+    
+        % Earth orbit radius
+        \def\AE{5}
+        
+        % Moon orbit radius
+        \def\AM{2}
+        
+        \tkzInit[
+            xmax=3.0,
+            xmin=-6.5,
+            ymin=-2.2,
+            ymax=2.2
+        ]
+        
+        \tkzClip
+        
+        % ALPHA
+        \pgfmathsetmacro\ALPHA{asin((\RS + \RE) / \AE)}
+   
+        % BETA
+        \pgfmathsetmacro\BETA{acos((\RE - \RM) / \AM)}
+     
+        % GAMMA
+        \pgfmathsetmacro\GAMMA{90 + \ALPHA - \BETA}
+        
+        % Earth
+        \tkzDefPoint(0,0){E}
+        \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+        
+        % Sun
+        \tkzDefShiftPoint[E](-\AE,0){S}
+        \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+        
+        % Moon
+        \tkzDefShiftPoint[E](\AM,0){m}
+        \tkzDefPointBy[rotation=center E angle \GAMMA](m) \tkzGetPoint{M}
+        \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+        
+        % Intersections of Sun-Earth and common tangent to Sun and Earth
+        \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RE))](E)
+        \tkzGetPoint{I}
+        \tkzDefPointBy[homothety=center S ratio (\RS / (\RS + \RE))](E)
+        \tkzGetPoint{I'}
+        
+        % Full shadow tangent points of the Sun
+        \tkzDefLine[tangent from = I](S,s) \tkzGetPoints{S'}{x}
+        \tkzDefPointBy[reflection = over S--E](S') \tkzGetPoint{S''}
+        
+        % Semi-shadow tangent points of the Sun
+        \tkzDefLine[tangent from = I'](S,s) \tkzGetPoints{SsS'}{x}
+        \tkzDefPointBy[reflection = over S--E](SsS') \tkzGetPoint{SsS''}
+
+        % Full shadow tangent points of the Earth
+        \tkzDefLine[tangent from = I](E,e) \tkzGetPoints{E'}{x}
+        \tkzDefPointBy[reflection = over S--E](E') \tkzGetPoint{E''}
+        
+        % Semi-shadow tangent points of the Earth
+        \tkzDefLine[tangent from = I'](E,e) \tkzGetPoints{SsE'}{x}
+        \tkzDefPointBy[reflection = over S--E](SsE') \tkzGetPoint{SsE''}
+ 
+        % Tangent point of the Moon
+        \tkzDefLine[tangent from = I'](M,m) \tkzGetPoints{M'}{x}
+        
+        % Projection of the center of the Moon to the radius of the Earth
+        \tkzDefPointBy[projection=onto E--SsE'](M) \tkzGetPoint{I''}
+        
+        % Semishadow
+        \tkzDefPointBy[homothety=center SsE'' ratio -1.7](I') \tkzGetPoint{Ss1}
+        \tkzDefPointBy[homothety=center SsE' ratio -1.7](I') \tkzGetPoint{Ss2}
+        
+        % Draw semishadow
+        \tkzFillSector[gray!30](I',Ss1)(Ss2)
+        \tkzFillSector[white](I',SsE'')(SsE')
+        \tkzDrawSegments[semithick](SsS',Ss2 SsS'',Ss1)  
+
+        % Draw shadow
+        \tkzDrawPolygon[fill=gray!70,draw=none](E',I,E'') 
+            
+        % Draw objects
+        \tkzDrawCircles[black, thick, fill=white](E,e)
+        \tkzDrawCircles[black, thick, fill=white](S,s)
+        \tkzDrawCircles[black, thick, fill=white](M,m)
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=1}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$D$, -1.6cm, below=2pt}](S,E)
+            \tkzDrawSegment[opacity=0, dim={$d$, 1.1cm, below right=1pt, pos=0.46, fill=none}](M,E)
+        \end{scope}
+        
+        \tkzDrawSegments(S,I E,M S,S' S,S'' E,E' M,M' E,SsE' E,SsE'' S,SsS' S,SsS'')
+        \tkzDrawSegments[semithick](S',I S'',I)
+        \tkzDrawSegments[dashed](M,I'')
+
+        \tkzMarkRightAngles[size=0.15](I,E',E I,S',S S,S'',I SsE',M',M E,SsE',Ss2 S,SsS',I' I',SsS'',S Ss1,SsE'',E M,I'',SsE')
+ 
+        \tkzMarkAngle[arc=l, size=0.5](E,I',SsE')
+        \tkzLabelAngle[pos=0.7](E,I',SsE'){\footnotesize$\alpha$}
+        
+        \tkzMarkAngle[arc=ll, size=0.2](M,E,SsE')
+        \tkzLabelAngle[pos=0.4](M,E,SsE'){\footnotesize$\beta$}
+
+        \tkzMarkAngle[arc=lll, size=0.4](I,E,M)
+        \tkzLabelAngle[pos=0.6](I,E,M){\footnotesize$\gamma$}
+        
+        \tkzDrawPoints(S, S', S'', SsS', SsS'')
+        \tkzDrawPoints(E, E', E'', SsE', SsE'')
+        \tkzDrawPoints(M, M')
+        \tkzDrawPoints(I, I')
+        
+        \tkzLabelSegment[left](S,S''){$R_0$}
+        \tkzLabelSegment[left](E,SsE'){$R$}
+        \tkzLabelSegment[right=-1pt,pos=0.4](M,M'){$r$}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:eclipses-semi-shadow-lunar-eclipse}    
+\end{figure}
+
 
 \term{Синодический месяц}~--- промежуток времени между одинаковыми фазами Луны, равен 29.53 суток.
 
