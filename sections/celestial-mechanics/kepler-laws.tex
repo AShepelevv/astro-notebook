@@ -4,7 +4,98 @@
 \label{sec:first-kepler-law} 
 \imp{Все планеты движутся по эллиптическим орбитам, в одном из фокусов которых находится Солнце.}
 
-Для доказательства первого закона Кеплера введём обозначение: $u \equiv 1/r$, используя его, запишем выражение для модуля момента импульса планеты:
+Запишем уравнение движения планеты в гравитационном поле Солнца~--- сила, действующая на планету, равна силе гравитационного притяжения. По второму закону Ньютона:
+\begin{equation}
+	\vec{F}=m\ddot{\vec{r}}=-\frac{GMm}{r^3}\vec{r}.
+	\label{eq:kepler-laws-nsl}
+\end{equation}
+Найдем выражение для $\ddot{\vec{r}}$ и решим данное векторное уравнение. Введем мгновенную ортонормировенную систему отсчета $(\hat{r}, \hat{\theta})$. Вектор $\hat{r}$~--- единичный вектор в направлении $\vec{r}$, а $\hat{\theta}$ единичный вектор выбранный так, чтобы образовывать с $\hat{r}$ правую пару.
+
+\begin{figure}[h!]
+    \begin{subcaptionblock}[b]{0.5\textwidth}
+        \centering
+        \tikzsetnextfilename{norms-def}
+        \begin{tikzpicture}[]
+        
+        \tkzDefPoint(0, 0){O}
+        \tkzDefPoint(4, 0){X}
+        \tkzDefPoint(0, 2){Y}
+        \tkzDefPoint(2, 1){M}
+        \tkzDefPoint(2.5, 1.25){RH}
+        \tkzDefPoint(1.75, 1.5){TH}
+        
+        \tkzLabelPoint[below](X){$x$}
+        \tkzLabelPoint[left](Y){$y$}
+
+        \tkzLabelSegment[below right=-3pt](O,M){$\vec{r} = r \hat{r}$}
+        \tkzLabelSegment[below right=-3pt, pos=0.4](M,RH){$\hat{r}$}
+        \tkzLabelSegment[below left=-3pt, pos=0.7](M,TH){$\hat{\theta}$}
+
+        \tkzDrawSegments[latex-](X,O Y,O M,O RH,M TH,M)
+        
+        \tkzDrawPoints(M)
+    	\end{tikzpicture}
+    	\caption{Определение орт}
+        \label{pic:norms-def}
+    \end{subcaptionblock}
+    \begin{subcaptionblock}[b]{0.5\textwidth}
+        \centering
+        \tikzsetnextfilename{norms-derivative}
+        \begin{tikzpicture}[]
+        
+        \tkzDefPoint(0, 0){O}
+        \tkzDefPoint(0:2){X}
+        \tkzDefPoint(90:2){Y}
+        \tkzDefPoint(15:2){DX}
+        \tkzDefPoint(105:2){DY}
+        
+        \tkzLabelSegment[below](O,X){$\hat{r}$}
+        \tkzLabelSegment[right](O,Y){$\hat{\theta}$}
+        \tkzLabelSegment[right](X,DX){$\Delta\hat{r}$}
+        \tkzLabelSegment[above](Y,DY){$\Delta\hat{\theta}$}
+
+        \tkzDrawSegments[latex-](X,O Y,O DX,O DY,O DX,X DY,Y)
+        
+        \tkzMarkAngle[size=0.6, angle eccentricity=2](X,O,DX)
+        \tkzMarkAngle[size=0.6, angle eccentricity=2](Y,O,DY)
+        
+        \tkzDrawPoints(O)
+    	\end{tikzpicture}
+    	\caption{Производная орт}
+        \label{pic:norms-derivative}
+    \end{subcaptionblock}
+\end{figure}
+Возьмем производные от орт:
+\begin{equation}
+	\begin{aligned}
+		\Delta\hat{r} &= \Delta\theta \hat{\theta}, \\
+		\Delta\hat{\theta} &= -\Delta\theta \hat{r}.
+	\end{aligned}\qquad
+	\begin{aligned}
+		\dot{\hat{r}} &= \omega \hat{\theta}, \\
+		\dot{\hat{\theta}} &= -\omega \hat{r}.
+	\end{aligned}
+\end{equation}
+Теперь получим производную от $\dot{\vec{r}}$ и $\ddot{\vec{r}}$:
+\begin{align}
+	\dot{\vec{r}} &= (r \hat{r})^{\cdot} = \dot{r} \hat{r} + r \omega \hat{\theta}, \nonumber\\
+	\ddot{\vec{r}} &= (\dot{r} \hat{r} + r \omega \hat{\theta})^{\cdot} = \hat{r} (\ddot{r} - r \omega^2) + \hat{\theta} (2\dot{r}\omega + r \ddot{\theta}). 
+\end{align}
+Для данной системы выполняется ЗСМИ, рассмотрим производную от момента импульса
+\begin{equation*}
+	\dot{l} = (r^2 \omega)^{\cdot} = 2 r \dot{r} \omega + r^2 \ddot{\theta} = (2\dot{r}\omega + r \ddot{\theta})r = 0.
+\end{equation*}
+Отсюда заключим, что
+\begin{equation}
+	\ddot{\vec{r}} = \hat{r} (\ddot{r} - r \omega^2).
+\end{equation}
+Вспомним выражение второго закона Ньютона (\ref{eq:kepler-laws-nsl}) и перепишем выражение для $\ddot{r}$:
+\begin{gather}
+	m (\ddot{r} - r \omega^2) \hat{r} = - \frac{GMm}{r^2} \hat{r}, \nonumber\\
+	m (\ddot{r} - r \omega^2) + \frac{GMm}{r^2} = 0.
+	\label{eq:kepler-laws-difeq}
+\end{gather}
+Теперь введём обозначение: $u \equiv 1/r$, используя его, запишем выражение для модуля момента импульса планеты:
 \begin{equation*}
     L = 2 m \sigma = m r^2 \omega = \frac{m \omega}{u^2} = \frac{m}{u^2} \frac{d \theta}{d t},
 \end{equation*}
@@ -16,29 +107,27 @@
 
 Найдем теперь первую производную длины радиус-вектора по времени в новых обозначених:
 \begin{equation*}
-    \frac{d r}{d t} = \frac{d}{d t} \left( \frac{1}{u} \right) = - \frac{1}{u^2} \frac{du}{dt},
+    \dot{r} = \frac{d}{d t} \left( \frac{1}{u} \right) = - \frac{1}{u^2} \frac{du}{dt},
 \end{equation*}
 подставим сюда выражение для $dt$:
 \begin{equation*}
-    \frac{d r}{d t} = - \frac{1}{u^2} \frac{du \cdot L u^2}{m \,d \theta} = - \frac{L}{m} \frac{d u}{d \theta}.
+    \dot{r} = - \frac{1}{u^2} \frac{du \cdot L u^2}{m \,d \theta} = - \frac{L}{m} \frac{d u}{d \theta}.
 \end{equation*}
 
 Далее получим выражение для второй производной:
 \begin{equation*}
-    \frac{d^2 r}{dt^2} = \frac{d}{dt} \frac{d r}{d t} = \frac{d}{dt} \left( - \frac{L}{m} \frac{d u}{d \theta} \right) = -\frac{L}{m} \frac{d^2 u}{dt \,d \theta},
+    \ddot{r} = \frac{d}{dt} \frac{d r}{d t} = \frac{d}{dt} \left( - \frac{L}{m} \frac{d u}{d \theta} \right) = -\frac{L}{m} \frac{d^2 u}{dt \,d \theta},
 \end{equation*}
 снова воспользуемся выражением для $dt$,
 \begin{equation*}
-    \frac{d^2 r}{dt^2} = - \frac{L^2 u^2}{m^2} \frac{d^2 u}{d \theta^2}.
+    \ddot{r} = - \frac{L^2 u^2}{m^2} \frac{d^2 u}{d \theta^2}.
 \end{equation*}
-
-Запишем теперь уравнение движения планеты в гравитационном поле Солнца~--- результирующая сила, действующая на планету, равна сумме силы гравитационного притяжения и центробежной силы.
+Подставим $\ddot{r}$ и $mr^2 \omega = L$ в (\ref{eq:kepler-laws-difeq}) и получим следующее дифференциальное уравнение:
 \begin{gather}
-    m \frac{d^2 r}{d t^2} = - \frac{G M m}{r^2} + m \omega^2 r, \nonumber \\
     - \frac{L^2 u^2}{m^2} \frac{d^2 u}{d \theta^2} = - GMu^2 + \frac{L^2 u^3}{m^2}, \nonumber\\
     \frac{d^2 u}{d \theta^2} + u = \frac{GM m^2}{L^2}. \label{eq:first-kepler-law-eq}
 \end{gather}
-Общее решение полученного неоднородного уравнение есть сумма общего решения однородного уравнения
+Общее решение полученного неоднородного уравнения есть сумма общего решения однородного уравнения
 \begin{equation*}
     \frac{d^2 u}{d \theta^2} + u = 0
 \end{equation*}

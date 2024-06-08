@@ -1,0 +1,96 @@
+\subsection{Задача двух тел}
+В случае сравнимых масс законы Кеплера нуждаются в уточнении. Данная проблема называется задачей двух тел. Пусть в пространстве в некоторой произвольной системе отсчета существуют два тела с массми $M_1$ и $M_2$ c данными начальными координатами $\vec{r_1}$ и $\vec{r_2}$, а также начальными скоростями $\vec{v_1}$ и $\vec{v_2}$. Решение задачи двух тел заключается в поиске законов движения $\vec{r}_1(t)$ и $\vec{r}_2(t)$.
+
+\begin{wrapfigure}[7]{r}{0.47\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{reduced-mass}
+    \begin{tikzpicture}[]
+        
+        \tkzDefPoint(0, 0){BC}
+        \tkzDefPoint(-2, 1){M1}
+        \tkzDefPoint(1, -1/2){M2}
+        \tkzDefPoint(-1, -1){O}
+        
+        \tkzLabelPoint[above right](BC){Ц.М.}
+        \tkzLabelPoint[left](M1){$M_1$}
+        \tkzLabelPoint[right](M2){$M_2$}
+        \tkzLabelSegment[below left=-3pt](O,M1){$\vec{r_1}$}
+        \tkzLabelSegment[below right=-3pt, pos=0.45](O,M2){$\vec{r_2}$}
+        \tkzLabelSegment[above, pos=0.45](M1,M2){$\vec{r}$}
+        \tkzLabelSegment[above left=-3pt](O,BC){$\vec{R}$}
+        
+        \tkzDrawSegments[latex-](M1,O M2,O M1,M2 BC,O)
+        
+        \tkzDrawPoints(M1,M2,O,BC)
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:reduced-mass}    
+\end{wrapfigure}
+
+Второй закон Ньютона в данной СО записывается как:
+\begin{equation}
+\begin{aligned}
+	\vec{F}_{12} &= M_1 \ddot{\vec{r}}_1,\\
+	\vec{F}_{21} &= M_2 \ddot{\vec{r}}_2.
+\end{aligned}
+\label{eq:tbp-newton-second-laws}
+\end{equation}
+Если сложить два данных уравнения, учитывая что по третьему закону Ньютона $\vec{F}_{12} = -\vec{F}_{21}$, можно получить частный случай \imp{теоремы о движении центра масс}:
+\begin{equation*}
+	M_1 \ddot{\vec{r}}_1 + M_2 \ddot{\vec{r}}_2 = (M_1 + M_2) \ddot{\vec{R}} = 0,
+\end{equation*}
+где $\ddot{\vec{R}}$~--- ускорение центра масс системы. Тогда общее решение задачи можно найти как:
+\begin{equation}
+\begin{aligned}
+	\vec{r_1}(t) &= \vec{R}(t) + \frac{M_2}{M_1 + M_2} \vec{r}(t), \\
+	\vec{r_2}(t) &= \vec{R}(t) - \frac{M_1}{M_1 + M_2} \vec{r}(t).
+\end{aligned}
+\end{equation}
+Как уже было показано, в данной системе ускорение центра масс равно нулю, а его координаты и скорость находятся напрямую из начальных условий, поэтому сконцентрируемся на поиске выражения для $\vec{r}(t)$.
+
+Поделим каждое из уравнений (\ref{eq:tbp-newton-second-laws}) на соответствующую массу и вычтем их друг из друга:
+\begin{equation}
+	\ddot{\vec{r}}_1 - \ddot{\vec{r}}_2 = \ddot{\vec{r}} = \frac{\vec{F}_{12}}{M_1}-\frac{\vec{F}_{21}}{M_2} = \left(\frac{1}{M_1}+\frac{1}{M_2}\right) \vec{F} = \frac{\vec{F}}{\mu}.
+	\label{eq:tbp-relative-second-law}
+\end{equation}
+Тут мы опять воспользовались третьим законом Ньютона. Выражение с суммой обратных масс называется \term{приведённой массой} системы.
+\begin{equation}
+	\mu = \frac{1}{\frac{1}{M_1} + \frac{1}{M_2}} = \frac{M_1 M_2}{M_1 + M_2}.
+\end{equation}
+Выражение (\ref{eq:tbp-relative-second-law}) является аналогом второго закона Ньютона для задачи двух тел. Это уравнение можно решить аналогично обычной задаче Кеплера и свести его к аналогу уравнения (\ref{eq:first-kepler-law-eq}):
+\begin{equation}
+	\frac{d^2 u}{d \theta^2} + u = \frac{GM_1 M_2}{\mu l^2}.
+\end{equation}
+Решение данного уравнения~--- эллипс с фокальным параметром
+\begin{equation*}
+	p = \frac{\mu l^2}{GM_1 M_2} = \frac{l^2}{G(M_1 + M_2)}.
+\end{equation*}
+Таким образом тела будут двигаться по побдомным эллипсам с коэффициентом подобия $M_1/M_2$ так, что центр масс системы будет двигаться без ускорения.
+
+Найдем выражение для полной энергии в системе двух тел. По определению полная энергия есть сумма кинетической и потенциальной:
+\begin{equation*}
+	T + U = E_0
+\end{equation*}
+Из теоремы о вириале известно соотношение
+\begin{equation*}
+	2\langle T \rangle_\tau = -\langle U \rangle_\tau
+\end{equation*}
+Таким образом можно получить выражение для полной энергии через среднюю величину потенциальной энергии:
+\begin{equation*}
+	E_0 = \left\langle \frac{U}{2} \right\rangle_\tau
+\end{equation*}
+Гравитационный потенциал имеет форму $1/r$. Найдем по определению среднее по времени (средней аномалии) значение величины для тела на орбите:
+\begin{equation*}
+	\left\langle \frac{1}{r} \right\rangle_\tau = \frac{1}{2 \pi} \int\limits_0^{2\pi}\frac{dM}{r} = \frac{1}{2 \pi} \int\limits_0^{2\pi}\frac{dE}{a} = \frac{1}{a}.
+\end{equation*}
+Тут мы воспользовались соотношением $a dM = r dE$. Отсюда величина полной энергии
+\begin{equation*}
+	E_0 = -\frac{G M_1 M_2}{2a},
+\end{equation*}
+Где $a$ есть полуось эллипса образованного вектором $\vec{r}$.
+
+
+
+
+
