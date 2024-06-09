@@ -12,9 +12,10 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: astro-notebook.tex
+          texlive_version: 2024
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          args: -bibtex -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload PDF file
         id: upload-pdf
         uses: actions/upload-artifact@v4
