@@ -36,8 +36,6 @@
             legend cell align=left,
             legend style={
                 row sep = 0.8pc,
-%                draw=,
-%                fill=none,
                 font=\scriptsize,
                 at={(axis cs:1.75, 0.75)}, anchor=north west,
             },
@@ -52,21 +50,24 @@
         \end{axis}
     \end{tikzpicture}
     \caption{Эффективный потенциал}
-    \label{effitient-potential-plot}
+    \label{pic:effitient-potential-plot}
 \end{wrapfigure} 
 
-Исходя из Рис. \ref{effitient-potential-plot} при $E_0~<~0$ существует две различных интересующих нас величины $r$. 
+Исходя из \picRef{pic:effitient-potential-plot} при $E_0<0$ существует две различных интересующих нас величины $r$. 
 %Так как данные точки соответствуют перицентру и апоцентру орбиты запишем эту пару как $r_{\pi}$ и $r_{\alpha}$ соответственно.
-Решим уравнение $\tilde{U}(r) = E_0$ корнями которого являются $r_{\pi}$ и $r_{\alpha}$:
+Решим уравнение $\tilde{U}(r) = E_0$, корнями которого являются $r_{\pi}$ и $r_{\alpha}$:
 \begin{gather*}
 	\frac{L^2}{2mr^2} - \frac{GMm}{r} = E_0 \\
 	r^2 + \frac{GMm}{E_0}r - \frac{L^2}{2m E_0} = 0
 \end{gather*}
 По теореме Виета для корней данного квадратного уравнения можно записать следующие соотношения:
 \begin{equation*}
-	r_{\pi} + r_{\alpha} = 2a = -\frac{GMm}{E_0}, \quad r_{\pi}r_{\alpha} = b^2 = - \frac{L^2}{2m E_0}.
+\left\{\begin{aligned}
+&r_\pi+r_\alpha=2 a & =-\frac{G M m}{E_0} \\
+&r_\pi r_\alpha=b^2 & =-\frac{L^2}{2 m E_0} .
+\end{aligned}\right.
 \end{equation*}
-Решив данную систему уравнений получим выражения для $E_0$ и $L$:
+Решив данную систему уравнений, получим выражения для $E_0$ и $L$:
 \begin{gather}
 	L = m \sqrt{GMp}, \\
 	E_0 = -\frac{GMm}{2a}.

@@ -64,8 +64,9 @@
     	\caption{Производная орт}
         \label{pic:norms-derivative}
     \end{subcaptionblock}
+    \caption{}
 \end{figure}
-Возьмем производные от орт:
+Возьмём производные от орт:
 \begin{equation}
 	\begin{aligned}
 		\Delta\hat{r} &= \Delta\theta \hat{\theta}, \\
@@ -76,7 +77,7 @@
 		\dot{\hat{\theta}} &= -\omega \hat{r}.
 	\end{aligned}
 \end{equation}
-Теперь получим производную от $\dot{\vec{r}}$ и $\ddot{\vec{r}}$:
+Найдем производные от $\dot{\vec{r}}$ и $\ddot{\vec{r}}$:
 \begin{align}
 	\dot{\vec{r}} &= (r \hat{r})^{\cdot} = \dot{r} \hat{r} + r \omega \hat{\theta}, \nonumber\\
 	\ddot{\vec{r}} &= (\dot{r} \hat{r} + r \omega \hat{\theta})^{\cdot} = \hat{r} (\ddot{r} - r \omega^2) + \hat{\theta} (2\dot{r}\omega + r \ddot{\theta}). 
@@ -89,7 +90,7 @@
 \begin{equation}
 	\ddot{\vec{r}} = \hat{r} (\ddot{r} - r \omega^2).
 \end{equation}
-Вспомним выражение второго закона Ньютона (\ref{eq:kepler-laws-nsl}) и перепишем выражение для $\ddot{r}$:
+Вспомним выражение второго закона Ньютона \eqref{eq:kepler-laws-nsl} и перепишем выражение для $\ddot{r}$:
 \begin{gather}
 	m (\ddot{r} - r \omega^2) \hat{r} = - \frac{GMm}{r^2} \hat{r}, \nonumber\\
 	m (\ddot{r} - r \omega^2) + \frac{GMm}{r^2} = 0.
