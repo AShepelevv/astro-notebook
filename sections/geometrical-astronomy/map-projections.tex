@@ -278,7 +278,7 @@
         ]
             \addlegendimage{/pgfplots/refstyle=plot:robinson-length}
             \addlegendentry{$l(\varphi) / l(0)$}
-            \addplot[smooth, domain=0:90, dashed] table[x=lat, y=distance] {data/robinson.txt}; \label{plot:robinson-distance};
+            \addplot[smooth, domain=0:90, dashed] table[x=lat, y=distance, col sep = comma] {data/robinson.csv}; \label{plot:robinson-distance};
             \addlegendentry{$d(\varphi) / l(0)$}
         \end{axis}
     \end{tikzpicture}
