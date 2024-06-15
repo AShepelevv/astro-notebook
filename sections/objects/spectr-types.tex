@@ -60,7 +60,7 @@
                          ylabel    =    {Абсолютная звёздная величина $M$, $\!~^m$}
                      ]
             \ifthenelse{\boolean{useLightPlotVersion}}{}{
-                \addplot+[only marks, mark = o, mark options={scale=0.2, darkgray}] table[x=BV, y=M]{data/gr-plot.txt};
+                \addplot+[only marks, mark = o, mark options={scale=0.2, darkgray}] table[x=BV, y=M, col sep = comma]{data/gr-plot.csv};
             }
          \end{axis}
          \begin{semilogyaxis}[

@@ -29,7 +29,7 @@
             xmin   = 4000,
             ytick  = {0, 1},
         ]
-            \addplot[smooth] table[x=wavelength, y=intensity, col sep=comma]{data/spectrum-m27.txt};
+            \addplot[smooth] table[x=wavelength, y=intensity, col sep=comma]{data/spectrum-m27.csv};
             \draw[thin] (axis cs:6560,0.3) -- (axis cs:6400,0.5) node[anchor=south] {$\text{H}_\alpha$};
             \draw[thin] (axis cs:4861,0.12) -- (axis cs:4800,0.4) node[anchor=south] {$\text{H}_\beta$};
             \draw[thin] (axis cs:4340,0.07) -- (axis cs:4340,0.25) node[anchor=south] {$\text{H}_\gamma$};

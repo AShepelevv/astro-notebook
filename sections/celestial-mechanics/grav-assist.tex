@@ -202,7 +202,7 @@
             colorbar style = {ytick = {0, .2, .4, .6, .8, 1.}}
         ]
 
-            \addplot3[surf,shader=interp] table[x=r, y=v, z=D] {data/grav-assist.txt};
+            \addplot3[surf,shader=interp] table[x=r, y=v, z=D, col sep = comma] {data/grav-assist.csv};
         \end{axis}
     \end{tikzpicture}
     \caption{Зависимость величины приращения скорости $\frac{\Delta v}{v_1}$ от параметров $\rho$ и $\nu$}

@@ -28,7 +28,7 @@
                 xmax   = 1.75,
                 xmin   = 0.25
             ]
-                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V]{data/hr-47-Tuc.txt};
+                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V, col sep = comma]{data/hr-47-Tuc.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{47\,Tuc}
@@ -49,7 +49,7 @@
                 xmax   = 1.25,
                 xmin   = -0.25
             ]
-                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V]{data/hr-M13.txt};
+                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V, col sep = comma]{data/hr-M13.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{M13}

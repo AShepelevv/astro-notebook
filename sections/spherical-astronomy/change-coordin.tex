@@ -16,8 +16,8 @@
             xlabel    =    {$\eta$, мин},
             ylabel     =     {$\delta_\odot$, $~^\circ$}
         ]
-            \addplot[smooth] table[x=eta, y=delta] {data/analemma.txt};
-            \addplot[only marks, mark = o,mark options={scale=0.4, black}] table[x=eta, y=delta] {data/analemma-months.txt}; %
+            \addplot[smooth] table[x=eta, y=delta, col sep = comma] {data/analemma.csv};
+            \addplot[only marks, mark = o,mark options={scale=0.4, black}] table[x=eta, y=delta, col sep = comma] {data/analemma-months.csv}; %
             \draw (axis cs:-4.31549,-22.7642) node[anchor=south west] {01.01};
             \draw (axis cs:-13.7937,-15.9581) node[anchor=north east] {01.02};
             \draw (axis cs:-12.2946,-5.49806) node[anchor=south east] {01.03};

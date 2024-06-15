@@ -27,14 +27,14 @@
                          row sep    =   .5pc,
                     }
                 ]
-                    \addplot[only marks, mark = o, mark options={scale=0.2}, black] table[x=x, y=y] {data/tanget_arc_h\h.txt};
+                    \addplot[only marks, mark = o, mark options={scale=0.2}, black] table[x=x, y=y, col sep = comma] {data/tanget_arc_h\h.csv};
 %                    
                     \foreach \hh in {-80,-70,...,-10,10,20,...,80} {
-                        \addplot+[smooth, dashes, gray] table[x=x, y=y] {data/tanget_arc_grid\hh.txt};
+                        \addplot+[smooth, dashes, gray] table[x=x, y=y, col sep = comma] {data/tanget_arc_grid\hh.csv};
                     }
 %                    
-                    \addplot+[smooth, gray, solid] table[x=x, y=y] {data/tanget_arc_grid0.txt};
-                    \addplot+[smooth, black, solid] table[x=x, y=y] {data/tanget_arc_grid_border.txt};
+                    \addplot+[smooth, gray, solid] table[x=x, y=y, col sep = comma] {data/tanget_arc_grid0.csv};
+                    \addplot+[smooth, black, solid] table[x=x, y=y, col sep = comma] {data/tanget_arc_grid_border.csv};
                 \end{axis}
             \end{tikzpicture}
             \caption{$h = \h^\circ$}

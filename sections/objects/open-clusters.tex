@@ -23,7 +23,7 @@
                 xmax   = 1.5,
                 xmin   = -0.25
             ]
-                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V]{data/hr-M45.txt};
+                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V, col sep = comma]{data/hr-M45.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{M45 (Плеяды)}
@@ -45,7 +45,7 @@
                 xmax   = 1.5,
                 xmin   = 0.25
             ]
-                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V]{data/hr-M67.txt};
+                \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=B-V, y=M_V, col sep = comma]{data/hr-M67.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{M67}

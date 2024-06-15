@@ -19,7 +19,7 @@
             xmax    =    1,
             xmin    =    0
         ]
-            \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m]{data/light-curve-D-Cep.txt};
+            \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m, col sep = comma]{data/light-curve-D-Cep.csv};
         \end{axis}
     \end{tikzpicture}
     \caption{Кривая блеска переменной типа $\delta$\,Cep}
@@ -48,7 +48,7 @@
             xmax    =    1,
             xmin    =    0
         ]
-            \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m]{data/rr-lyr.txt};
+            \addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m, col sep = comma]{data/rr-lyr.csv};
         \end{axis}
     \end{tikzpicture}
     \caption{Кривая блеска переменной типа RR~Lyr} % http://www.astrouw.edu.pl/asas/?psect=acvs&page=details&id=000405-1659.8
@@ -77,7 +77,7 @@
                 xmin    =    0
                 ]
 
-                \addplot[smooth] table[x=t, y=m]{data/light-curve-W-UMa.txt};
+                \addplot[smooth] table[x=t, y=m, col sep = comma]{data/light-curve-W-UMa.csv};
             \end{axis}
         \end{tikzpicture}
     \end{minipage}
@@ -106,7 +106,7 @@
                 xmax    =    1.,
                 xmin    =    .0
                 ]
-                \addplot[smooth] table[x=t, y=m]{data/light-curve-B-Per.txt};
+                \addplot[smooth] table[x=t, y=m, col sep = comma]{data/light-curve-B-Per.csv};
             \end{axis}
         \end{tikzpicture}
     \end{minipage}

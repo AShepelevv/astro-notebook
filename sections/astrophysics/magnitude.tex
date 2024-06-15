@@ -73,12 +73,12 @@
                 xlabel  =    {Длина волны $\lambda$,~нм},
                 ylabel  =    {$S_\xi(\lambda)$}
             ]
-                \addplot[black, smooth] table[x=l, y=U] {data/filters-data-U.txt} node at (axis cs:350, 0.5) {\scriptsize{$U$}};
-                \addplot[black, smooth] table[x=l, y=B] {data/filters-data-B.txt} node at (axis cs:440, 0.5) {\scriptsize{$B$}};
-                \addplot[black, smooth] table[x=l, y=V] {data/filters-data-V.txt} node at (axis cs:550, 0.5) {\scriptsize{$V$}};
-                \addplot[black, smooth] table[x=l, y=R] {data/filters-data-R.txt} node at (axis cs:700, 0.5) {\scriptsize{$R$}};
-                \addplot[black, smooth] table[x=l, y=I] {data/filters-data-I.txt} node at (axis cs:870, 0.5) {\scriptsize{$I$}};
-                \addplot[black, smooth] table[x=l, y=J] {data/filters-data-J.txt} node at (axis cs:1250, 0.5) {\scriptsize{$J$}};
+                \addplot[black, smooth] table[x=l, y=U, col sep = comma] {data/filters-data-U.csv} node at (axis cs:350, 0.5) {\scriptsize{$U$}};
+                \addplot[black, smooth] table[x=l, y=B, col sep = comma] {data/filters-data-B.csv} node at (axis cs:440, 0.5) {\scriptsize{$B$}};
+                \addplot[black, smooth] table[x=l, y=V, col sep = comma] {data/filters-data-V.csv} node at (axis cs:550, 0.5) {\scriptsize{$V$}};
+                \addplot[black, smooth] table[x=l, y=R, col sep = comma] {data/filters-data-R.csv} node at (axis cs:700, 0.5) {\scriptsize{$R$}};
+                \addplot[black, smooth] table[x=l, y=I, col sep = comma] {data/filters-data-I.csv} node at (axis cs:870, 0.5) {\scriptsize{$I$}};
+                \addplot[black, smooth] table[x=l, y=J, col sep = comma] {data/filters-data-J.csv} node at (axis cs:1250, 0.5) {\scriptsize{$J$}};
             \end{axis}
         \end{tikzpicture}
     \end{subcaptionblock}
@@ -96,10 +96,10 @@
                 xlabel  =    {Длина волны $\lambda$,~мкм},
                 ylabel  =    {$S_\xi(\lambda)$}
             ]
-                \addplot[black, smooth] table[x=l, y=K] {data/filters-data-K.txt} node at (axis cs:2.2, 0.5) {\scriptsize{$K$}};
-                \addplot[black, smooth] table[x=l, y=L] {data/filters-data-L.txt} node at (axis cs:3.5, 0.5) {\scriptsize{$L$}};
-                \addplot[black, smooth] table[x=l, y=M] {data/filters-data-M.txt} node at (axis cs:5, 0.5) {\scriptsize{$M$}};
-                \addplot[black, smooth] table[x=l, y=N] {data/filters-data-N.txt} node at (axis cs:10, 0.5) {\scriptsize{$N$}};
+                \addplot[black, smooth] table[x=l, y=K, col sep = comma] {data/filters-data-K.csv} node at (axis cs:2.2, 0.5) {\scriptsize{$K$}};
+                \addplot[black, smooth] table[x=l, y=L, col sep = comma] {data/filters-data-L.csv} node at (axis cs:3.5, 0.5) {\scriptsize{$L$}};
+                \addplot[black, smooth] table[x=l, y=M, col sep = comma] {data/filters-data-M.csv} node at (axis cs:5, 0.5) {\scriptsize{$M$}};
+                \addplot[black, smooth] table[x=l, y=N, col sep = comma] {data/filters-data-N.csv} node at (axis cs:10, 0.5) {\scriptsize{$N$}};
             \end{axis}
         \end{tikzpicture}
     \end{subcaptionblock}

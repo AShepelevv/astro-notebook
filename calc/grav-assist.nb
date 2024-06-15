@@ -10,14 +10,31 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8051,        210]
-NotebookOptionsPosition[      7326,        192]
-NotebookOutlinePosition[      7721,        208]
-CellTagsIndexPosition[      7678,        205]
+NotebookDataLength[      8789,        230]
+NotebookOptionsPosition[      7847,        208]
+NotebookOutlinePosition[      8242,        224]
+CellTagsIndexPosition[      8199,        221]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell["Gravitation assistant", "Title",
+ CellChangeTimes->{{3.9274454648531027`*^9, 
+  3.927445495486457*^9}},ExpressionUUID->"3b5abc4e-ff65-4948-81cc-\
+07cd6c4f5fc1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<ExportToCSV.wl\>\""}], "}"}], "]"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"389a1974-3c61-4135-bf5c-8c63bdeda27c"],
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{
@@ -77,7 +94,7 @@ Cell[BoxData[{
    3.8306017558514442`*^9}, 3.830604931014141*^9, 3.830605824234251*^9, {
    3.885789241247055*^9, 3.885789275070606*^9}, {3.885789378202899*^9, 
    3.885789405513459*^9}, {3.885789501167308*^9, 3.885789523541047*^9}},
- CellLabel->"In[44]:=",ExpressionUUID->"df01aac8-0e7c-44b7-9276-0d73d5de924c"],
+ CellLabel->"In[2]:=",ExpressionUUID->"df01aac8-0e7c-44b7-9276-0d73d5de924c"],
 
 Cell[BoxData[
  RowBox[{"FindMaximum", "[", 
@@ -92,7 +109,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.830606425682624*^9, 3.8306064462029667`*^9}, {
    3.830607288094027*^9, 3.830607300945614*^9}, {3.885789464666754*^9, 
    3.885789471055065*^9}, 3.885789527513464*^9},
- CellLabel->"In[48]:=",ExpressionUUID->"78ba3923-c9fd-429d-a67f-727cc1fcbaa6"],
+ CellLabel->"In[6]:=",ExpressionUUID->"78ba3923-c9fd-429d-a67f-727cc1fcbaa6"],
 
 Cell[BoxData[
  RowBox[{
@@ -139,27 +156,25 @@ Cell[BoxData[
   3.8850418279739847`*^9, 3.8850418918268147`*^9}, {3.885043439660049*^9, 
   3.885043452141608*^9}, {3.885043509638742*^9, 3.885043511657254*^9}, {
   3.885789565068264*^9, 3.885789565680275*^9}},
- CellLabel->"In[49]:=",ExpressionUUID->"885504e1-ca20-4985-b80f-1b04a65b4038"],
+ CellLabel->"In[7]:=",ExpressionUUID->"885504e1-ca20-4985-b80f-1b04a65b4038"],
 
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
-       "\"\<data\>\"", ",", "\"\<grav-assist.txt\>\""}], "}"}], "]"}], ",", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Join", "[", 
-     RowBox[{
-      RowBox[{"{", 
+  RowBox[{"file", " ", "=", " ", 
+   RowBox[{"ExportToCSV", "[", 
+    RowBox[{
+     RowBox[{"TableWithTitle", "[", 
+      RowBox[{"data", ",", 
        RowBox[{"{", 
-        RowBox[{"\"\<r\>\"", ",", "\"\<v\>\"", ",", "\"\<D\>\""}], "}"}], 
-       "}"}], ",", "data"}], "]"}], ",", "\"\<Table\>\""}], "]"}], 
-  ";"}]], "Input",
- CellChangeTimes->{3.88578957492043*^9},
- CellLabel->"In[50]:=",ExpressionUUID->"cabd8c75-1be8-4a37-8908-f60efe7f1241"],
+        RowBox[{"\"\<r\>\"", ",", "\"\<v\>\"", ",", "\"\<D\>\""}], "}"}]}], 
+      "]"}], ",", 
+     RowBox[{"DataFileName", "[", "\"\<grav-assist.csv\>\"", "]"}]}], "]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FilePrint", "[", "file", "]"}]}], "Input",
+ CellChangeTimes->{
+  3.88578957492043*^9, {3.9274455298307447`*^9, 3.927445584765005*^9}, {
+   3.9274456858678923`*^9, 3.927445686141303*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"cabd8c75-1be8-4a37-8908-f60efe7f1241"],
 
 Cell[BoxData[
  RowBox[{"ContourPlot", "[", 
@@ -188,7 +203,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.8870369664120197`*^9, 3.88703704589263*^9}, {
   3.8870371182048903`*^9, 3.8870371193324337`*^9}, {3.887037157855734*^9, 
   3.887037159017899*^9}, {3.887037193899989*^9, 3.88703721919592*^9}},
- CellLabel->"In[51]:=",ExpressionUUID->"fee48a14-600c-4751-a6fe-b9ed5ee83125"]
+ CellLabel->"In[11]:=",ExpressionUUID->"fee48a14-600c-4751-a6fe-b9ed5ee83125"]
+}, Open  ]]
 },
 WindowSize->{947, 1083},
 WindowMargins->{{12, Automatic}, {Automatic, 24}},
@@ -207,11 +223,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2273, 59, 127, "Input",ExpressionUUID->"df01aac8-0e7c-44b7-9276-0d73d5de924c"],
-Cell[2834, 81, 596, 13, 30, "Input",ExpressionUUID->"78ba3923-c9fd-429d-a67f-727cc1fcbaa6"],
-Cell[3433, 96, 1908, 45, 142, "Input",ExpressionUUID->"885504e1-ca20-4985-b80f-1b04a65b4038"],
-Cell[5344, 143, 670, 18, 52, "Input",ExpressionUUID->"cabd8c75-1be8-4a37-8908-f60efe7f1241"],
-Cell[6017, 163, 1305, 27, 80, "Input",ExpressionUUID->"fee48a14-600c-4751-a6fe-b9ed5ee83125"]
+Cell[CellGroupData[{
+Cell[580, 22, 166, 3, 98, "Title",ExpressionUUID->"3b5abc4e-ff65-4948-81cc-07cd6c4f5fc1"],
+Cell[749, 27, 314, 8, 30, "Input",ExpressionUUID->"389a1974-3c61-4135-bf5c-8c63bdeda27c"],
+Cell[1066, 37, 2272, 59, 127, "Input",ExpressionUUID->"df01aac8-0e7c-44b7-9276-0d73d5de924c"],
+Cell[3341, 98, 595, 13, 30, "Input",ExpressionUUID->"78ba3923-c9fd-429d-a67f-727cc1fcbaa6"],
+Cell[3939, 113, 1907, 45, 142, "Input",ExpressionUUID->"885504e1-ca20-4985-b80f-1b04a65b4038"],
+Cell[5849, 160, 674, 16, 52, "Input",ExpressionUUID->"cabd8c75-1be8-4a37-8908-f60efe7f1241"],
+Cell[6526, 178, 1305, 27, 80, "Input",ExpressionUUID->"fee48a14-600c-4751-a6fe-b9ed5ee83125"]
+}, Open  ]]
 }
 ]
 *)

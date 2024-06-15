@@ -21,10 +21,14 @@ T = [i * 100 for i in range(30, 300 + 1)]
 
 N = 50
 
-with open("../data/planck.txt", "w") as f:
+with open("../data/planck.csv", "w") as f:
+    f.write("l,")
+    for t in T:
+        f.write("t{},".format(t))
+    f.write("tl\n")
     for i in np.linspace(0, np.log(N), num=N):
         l = np.float64(l_min) + np.float64((l_max - l_min) * (np.exp(i) - 1)) / np.float64(N - 1)
-        f.write("{}\t".format(np.format_float_scientific(l, precision=3)))
+        f.write("{},".format(np.format_float_scientific(l, precision=3)))
         for t in T:
-            f.write("{}\t".format(np.format_float_scientific(B(l * 10 ** (-9), t), precision=3)))
+            f.write("{},".format(np.format_float_scientific(B(l * 10 ** (-9), t), precision=3)))
         f.write("{}\n".format(np.format_float_scientific(vin(l * 10 ** (-9)), precision=3)))

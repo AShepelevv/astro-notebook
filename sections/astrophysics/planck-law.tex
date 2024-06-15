@@ -49,24 +49,24 @@
     \tikzsetnextfilename{wien-law}
     \begin{tikzpicture}
         \begin{axis}[
-            width     =    \tw,
-            height    =    8cm,
-            ymax    =    1e+14,
-            xmax    =    2000,
-            xmin    =    0,
-            ymin    =    0,
-            xlabel    =    {Длина волны $\lambda$,~нм},
-            ylabel     =     {$B_\lambda(\lambda, T)$,~$\text{Вт} \cdot \text{м}^{-3}$},
-            restrict y to domain        =    0:1e+15
-            ]
-            \addplot+[dashed, thin, black] table[x=l, y=tl] {data/planck.txt};
-            \addplot[black] table[x=l, y=t3800] {data/planck.txt} node at (axis cs:870, 1.4e+13) {\scriptsize{$3800$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t4500] {data/planck.txt} node at (axis cs:750, 2.7e+13) {\scriptsize{$4500$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t5000] {data/planck.txt}node at (axis cs:710, 4.4e+13) {\scriptsize{$5000$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t5800] {data/planck.txt}node at (axis cs:640, 8.7e+13) {\scriptsize{$5800$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t7000] {data/planck.txt}node at (axis cs:1340, 3.3e+13) {\scriptsize{$7000$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t10000] {data/planck.txt} node at (axis cs:1430, 5.5e+13) {\scriptsize{$10000$~K}};
-            \addplot+[black, smooth, solid] table[x=l, y=t20000] {data/planck.txt} node at (axis cs:1670, 8.0e+13) {\scriptsize{$20000$~K}};
+            width  = \tw,
+            height = 8cm,
+            ymax   = 1e+14,
+            xmax   = 2000,
+            xmin   = 0,
+            ymin   = 0,
+            xlabel = {Длина волны $\lambda$,~нм},
+            ylabel = {$B_\lambda(\lambda, T)$,~$\text{Вт} \cdot \text{м}^{-3}$},
+            restrict y to domain = 0:1e+15
+        ]
+            \addplot+[dashed, thin, black] table[x=l, y=tl, col sep = comma] {data/planck.csv};
+            \addplot[black] table[x=l, y=t3800, col sep = comma] {data/planck.csv} node at (axis cs:870, 1.4e+13) {\scriptsize{$3800$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t4500, col sep = comma] {data/planck.csv} node at (axis cs:750, 2.7e+13) {\scriptsize{$4500$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t5000, col sep = comma] {data/planck.csv}node at (axis cs:710, 4.4e+13) {\scriptsize{$5000$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t5800, col sep = comma] {data/planck.csv}node at (axis cs:640, 8.7e+13) {\scriptsize{$5800$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t7000, col sep = comma] {data/planck.csv}node at (axis cs:1340, 3.3e+13) {\scriptsize{$7000$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t10000, col sep = comma] {data/planck.csv} node at (axis cs:1430, 5.5e+13) {\scriptsize{$10000$~K}};
+            \addplot+[black, smooth, solid] table[x=l, y=t20000, col sep = comma] {data/planck.csv} node at (axis cs:1670, 8.0e+13) {\scriptsize{$20000$~K}};
         \end{axis}
     \end{tikzpicture}
     \caption{Кривые спектральной плотности мощности изотропного излучения АЧТ с разной температурой}

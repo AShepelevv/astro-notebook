@@ -160,7 +160,7 @@
                 x filter/.code        =    \def\pgfmathresult{-5},
                 smooth
                 ]
-                table[x=x, y=y, z=I] {data/eiry-disk-x.txt};
+                table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk-x.csv};
                 %
                 \addplot3[
                 samples            =    100,
@@ -170,10 +170,10 @@
                 y filter/.code    =    \def\pgfmathresult{4.5},
                 smooth
                 ]
-                table[x=x, y=y, z=I] {data/eiry-disk-y.txt};
+                table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk-y.csv};
 
                 \ifthenelse{\boolean{useLightPlotVersion}}{}{
-                    \addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+                    \addplot3[surf] table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk.csv};
                 }
             \end{axis}
         \end{tikzpicture}
@@ -198,7 +198,7 @@
                 ]
 
                 \ifthenelse{\boolean{useLightPlotVersion}}{}{
-                    \addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+                    \addplot3[surf, shader=interp] table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk.csv};
                 }
             \end{axis}
         \end{tikzpicture}
@@ -237,7 +237,7 @@
                 x filter/.code        =    \def\pgfmathresult{-5},
                 smooth
                 ]
-                table[x=x, y=y, z=I] {data/eiry-disk-x.txt};
+                table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk-x.csv};
                 %
                 \addplot3[
                 samples            =    100,
@@ -247,10 +247,10 @@
                 y filter/.code    =    \def\pgfmathresult{4.5},
                 smooth
                 ]
-                table[x=x, y=y, z=I] {data/eiry-disk-y.txt};
+                table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk-y.csv};
 
                 \ifthenelse{\boolean{useLightPlotVersion}}{}{
-                    \addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+                    \addplot3[surf] table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk.csv};
                 }
             \end{axis}
         \end{tikzpicture}
@@ -274,7 +274,7 @@
                 ylabel             =    {$y$, $\frac{\lambda}{D}$},
             ]
                 \ifthenelse{\boolean{useLightPlotVersion}}{}{
-                    \addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+                    \addplot3[surf, shader=interp] table[x=x, y=y, z=I, col sep = comma] {data/eiry-disk.csv};
                 }
             \end{axis}
         \end{tikzpicture}
@@ -296,7 +296,7 @@
                 xlabel    =    {$x$, $\frac{\lambda}{D}$},
                 ylabel    =    {$I/I_0$},
             ]
-                \addplot[smooth] table[x=x, y=e0]{data/eiry-disk-profile.txt};
+                \addplot[smooth] table[x=x, y=e0, col sep = comma]{data/eiry-disk-profile.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{Диффракционное изображение от одного источника}
@@ -312,7 +312,7 @@
                 xlabel    =    {$x$, $\frac{\lambda}{D}$},
                 ylabel    =    {$I/I_0$},
             ]
-                \addplot[smooth] table[x=x, y=e1]{data/eiry-disk-profile.txt};
+                \addplot[smooth] table[x=x, y=e1, col sep = comma]{data/eiry-disk-profile.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{Диффракционное изображение от двух источников с разделением~$1.22\lambda/D$}
@@ -327,7 +327,7 @@
                 xlabel    =    {$x$, $\frac{\lambda}{D}$},
                 ylabel    =    {$I/I_0$},
             ]
-                \addplot[smooth] table[x=x, y=e2]{data/eiry-disk-profile.txt};
+                \addplot[smooth] table[x=x, y=e2, col sep = comma]{data/eiry-disk-profile.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{Диффракционное изображение от двух источников с разделением~$2 \cdot 1.22\lambda/D$}
@@ -342,7 +342,7 @@
                 xlabel    =    {$x$, $\frac{\lambda}{D}$},
                 ylabel    =    {$I/I_0$},
             ]
-                \addplot[smooth] table[x=x, y=e3]{data/eiry-disk-profile.txt};
+                \addplot[smooth] table[x=x, y=e3, col sep = comma]{data/eiry-disk-profile.csv};
             \end{axis}
         \end{tikzpicture}
         \caption{Диффракционное изображение от двух источников с разделением~$3 \cdot 1.22\lambda/D$}

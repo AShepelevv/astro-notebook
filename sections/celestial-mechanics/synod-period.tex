@@ -188,11 +188,11 @@
             ytick={-pi, -pi / 2, 0, pi / 2, pi}, 
             yticklabels={$-\pi$, $-\dfrac{\pi}{2}$, $0$, $\dfrac{\pi}{2}$, $\pi$},
         ]
-            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e01] {data/libration.txt};
-            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e03] {data/libration.txt};
-            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt] table[x=m, y=e05] {data/libration.txt};
-            \addplot[smooth,dash pattern=on 6pt off 2pt] table[x=m, y=e07] {data/libration.txt};
-            \addplot[smooth] table[x=m, y=e09] {data/libration.txt};
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e01, col sep = comma] {data/libration.csv};
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e03, col sep = comma] {data/libration.csv};
+            \addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt] table[x=m, y=e05, col sep = comma] {data/libration.csv};
+            \addplot[smooth,dash pattern=on 6pt off 2pt] table[x=m, y=e07, col sep = comma] {data/libration.csv};
+            \addplot[smooth] table[x=m, y=e09, col sep = comma] {data/libration.csv};
 
             \legend{
                 $e=0.1$,

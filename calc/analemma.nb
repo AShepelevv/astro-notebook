@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9504,        257]
-NotebookOptionsPosition[      8658,        236]
-NotebookOutlinePosition[      9050,        252]
-CellTagsIndexPosition[      9007,        249]
+NotebookDataLength[     11273,        292]
+NotebookOptionsPosition[     10329,        270]
+NotebookOutlinePosition[     10723,        286]
+CellTagsIndexPosition[     10680,        283]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,8 +21,9 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell["Analemma", "Title",
- CellChangeTimes->{{3.913527373317152*^9, 
-  3.9135273800875273`*^9}},ExpressionUUID->"b9afb94b-b095-4879-aafe-\
+ CellChangeTimes->{{3.913527373317152*^9, 3.9135273800875273`*^9}, {
+  3.927425664346027*^9, 
+  3.927425669055478*^9}},ExpressionUUID->"b9afb94b-b095-4879-aafe-\
 43a4838777da"],
 
 Cell[BoxData[{
@@ -159,12 +160,12 @@ Cell[BoxData[{
    3.913444588345091*^9}, {3.913527395272806*^9, 3.91352749898803*^9}, {
    3.913530319431258*^9, 3.9135303206567917`*^9}, {3.916030248408989*^9, 
    3.916030279221981*^9}, {3.916030326791511*^9, 3.916030328102264*^9}},
- CellLabel->"In[29]:=",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
+ CellLabel->"In[1]:=",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
 
 Cell[BoxData[
  RowBox[{"TableForm", "[", "analemmaByMonthsData", "]"}]], "Input",
  CellChangeTimes->{{3.913530324355253*^9, 3.913530338955241*^9}},
- CellLabel->"In[39]:=",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
+ CellLabel->"In[11]:=",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
 
 Cell[BoxData[
  RowBox[{"ListPlot", "[", 
@@ -196,46 +197,79 @@ Cell[BoxData[
     RowBox[{"5", "/", "4"}]}]}], "]"}]], "Input",
  CellChangeTimes->{
   3.916030216421568*^9, {3.916030336290679*^9, 3.916030396512063*^9}},
- CellLabel->"In[40]:=",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
+ CellLabel->"In[12]:=",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
 
 Cell[BoxData[
- RowBox[{"Export", "[", 
+ RowBox[{
   RowBox[{
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
-      "\"\<data\>\"", ",", "\"\<analemma.txt\>\""}], "}"}], "]"}], ",", " ", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Join", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"{", 
-       RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
-     "analemmaData"}], "]"}], ",", " ", "\"\<Table\>\""}], "]"}]], "Input",
- CellLabel->"In[41]:=",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
+   RowBox[{"formatTable", "[", "t_", "]"}], ":=", 
+   RowBox[{"t", "/.", 
+    RowBox[{"x_Real", "\[RuleDelayed]", 
+     RowBox[{"SetPrecision", "[", 
+      RowBox[{"x", ",", "4"}], "]"}]}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.927425824384489*^9, 3.927425835727351*^9}, {
+  3.927425869194517*^9, 3.92742589013052*^9}, {3.927425953550167*^9, 
+  3.927425965947057*^9}, {3.9274265089258327`*^9, 3.927426514763854*^9}, {
+  3.927426566910522*^9, 3.927426567426489*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"08c0c556-5fd4-4a2c-bd41-2da35f856d1c"],
 
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
-      "\"\<data\>\"", ",", "\"\<analemma-months.txt\>\""}], "}"}], "]"}], ",",
-    " ", "\[IndentingNewLine]", 
-   RowBox[{"Join", "[", 
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"Export", "[", 
     RowBox[{
-     RowBox[{"{", 
+     RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
-       RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
-     "analemmaByMonthsData"}], "]"}], ",", " ", "\"\<Table\>\""}], 
-  "]"}]], "Input",
- CellLabel->"In[42]:=",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+        "\"\<data\>\"", ",", "\"\<analemma.csv\>\""}], "}"}], "]"}], ",", " ",
+      "\[IndentingNewLine]", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
+       RowBox[{"formatTable", "[", "analemmaData", "]"}]}], "]"}], ",", " ", 
+     "\"\<CSV\>\"", ",", " ", 
+     RowBox[{"\"\<TextDelimiters\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FilePrint", "[", "file", "]"}]}], "Input",
+ CellChangeTimes->{{3.927425747166914*^9, 3.927425765092167*^9}, {
+  3.927425813770742*^9, 3.927425882000566*^9}, {3.927426052867964*^9, 
+  3.92742605550292*^9}, {3.927426450924163*^9, 3.9274264512865467`*^9}, {
+  3.9274268053280993`*^9, 3.927426822103878*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+        "\"\<data\>\"", ",", "\"\<analemma-months.csv\>\""}], "}"}], "]"}], 
+     ",", " ", "\[IndentingNewLine]", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"\"\<eta\>\"", ",", "\"\<delta\>\""}], "}"}], "}"}], ",", 
+       RowBox[{"formatTable", "[", "analemmaByMonthsData", "]"}]}], "]"}], 
+     ",", " ", "\"\<CSV\>\"", ",", " ", 
+     RowBox[{"\"\<TextDelimiters\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FilePrint", "[", "file", "]"}]}], "Input",
+ CellChangeTimes->{{3.927425742456367*^9, 3.927425743345418*^9}, {
+  3.927425894928061*^9, 3.9274258963293953`*^9}, {3.927426059101037*^9, 
+  3.927426059385289*^9}, {3.927426453680238*^9, 3.9274264540349913`*^9}, {
+  3.927426826733685*^9, 3.9274268355392714`*^9}},
+ CellLabel->"In[91]:=",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
 }, Open  ]]
 },
 WindowSize->{992, 901},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+WindowMargins->{{Automatic, -3}, {Automatic, 15}},
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"fed8b684-1494-4f0c-9674-82fc353e7ce7"
@@ -252,12 +286,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 153, 3, 98, "Title",ExpressionUUID->"b9afb94b-b095-4879-aafe-43a4838777da"],
-Cell[736, 27, 5365, 134, 314, "Input",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
-Cell[6104, 163, 226, 3, 30, "Input",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
-Cell[6333, 168, 1091, 30, 52, "Input",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
-Cell[7427, 200, 597, 15, 52, "Input",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
-Cell[8027, 217, 615, 16, 52, "Input",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
+Cell[580, 22, 202, 4, 98, "Title",ExpressionUUID->"b9afb94b-b095-4879-aafe-43a4838777da"],
+Cell[785, 28, 5364, 134, 314, "Input",ExpressionUUID->"768c3947-bf16-472e-ad5d-25dbca831819"],
+Cell[6152, 164, 226, 3, 30, "Input",ExpressionUUID->"e2e017b2-55da-4f83-b538-4dcbe5e174dc"],
+Cell[6381, 169, 1091, 30, 52, "Input",ExpressionUUID->"bddd6d6d-c626-4f2e-8a5a-49ddd588ec64"],
+Cell[7475, 201, 584, 12, 30, "Input",ExpressionUUID->"08c0c556-5fd4-4a2c-bd41-2da35f856d1c"],
+Cell[8062, 215, 1115, 25, 73, "Input",ExpressionUUID->"5964098a-1e47-4729-92e9-79116c330520"],
+Cell[9180, 242, 1133, 25, 73, "Input",ExpressionUUID->"9b529986-bf8a-42b3-8cb9-a15912637c55"]
 }, Open  ]]
 }
 ]

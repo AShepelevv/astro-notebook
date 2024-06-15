@@ -18,14 +18,14 @@
 \end{equation}
 Рассмотрим случай $v_r=0$ (перицентр или апоцентр орбиты). В таких точках полная энергия тела в точности равна $\tilde{U}(r)$.
 
-\begin{wrapfigure}[10]{r}{0.47\tw}
+\begin{wrapfigure}[7]{r}{0.3\tw}
     \centering
-%    \vspace{-1pc}
+    \vspace{-1pc}
     \tikzsetnextfilename{effitient-potential-plot}
     \begin{tikzpicture}
         \begin{axis}[
-            width    =    6cm,
-            height    =    6cm,
+            width    =  4.5cm,
+            height    =    4.5cm,
 %            xlabel    =    {$r$},
 %            xlabel style = {at={(axis description cs:0.5,-0.1)}}
             ymax    =    1,
@@ -35,9 +35,10 @@
             ticks = none,
             legend cell align=left,
             legend style={
-                row sep = 0.8pc,
+                row sep = 0.3pc,
                 font=\scriptsize,
-                at={(axis cs:1.75, 0.75)}, anchor=north west,
+                at={(axis cs:2.75, 0.75)}, 
+                anchor=north east,
             },
         ]
             \addplot [domain=0.25:3, samples=100, black] {1 / (2 * x^2) - 1.73 / x};
