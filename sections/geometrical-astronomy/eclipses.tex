@@ -952,85 +952,95 @@
 
 \term{Сарос}~--- промежуток  времени, по прошествии которого солнечные и лунные затмения повторяются в прежнем порядке. Происходит это из-за того, что каждый сарос Луна, орбита Луны и Солнце возвращаются в прежнее положение относительно далёких звёзд. Сарос длится ровно 242 драконических месяца, или 223 синодических месяца, или 18 лет 11 дней 8 часов.
 
-\begin{wrapfigure}[8]{r}{.42\tw}
+\begin{wrapfigure}[15]{r}{.27\tw}
     \centering
     \vspace{-1pc}
-    \tikzsetnextfilename{part-eclipses-scheme1}
-    \begin{tikzpicture}
-        \tkzDefPoint(0,0){C1}
-        \tkzDefPoint(-0.6,0.6){C2}
+    \begin{subcaptionblock}[t]{.27\tw}
+        \centering
+        \tikzsetnextfilename{part-eclipses-scheme1}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){C1}
+            \tkzDefPoint(-0.6,0.6){C2}
 
-        \def\R{0.7}
-        \def\r{0.6}
+            \def\R{0.7}
+            \def\r{0.6}
 
-        \tkzDefShiftPoint[C2](\r,0){R2}
-        \tkzDrawCircle[semithick, draw=black, fill=white](C2,R2)
+            \tkzDefShiftPoint[C2](\r,0){R2}
+            \tkzDrawCircle[semithick, draw=black, fill=white](C2,R2)
 
-        \tkzDefShiftPoint[C1](\R,0){R1}
-        \tkzDrawCircle[semithick, draw=black, fill=black!30](C1,R1)
+            \tkzDefShiftPoint[C1](\R,0){R1}
+            \tkzDrawCircle[semithick, draw=black, fill=black!30](C1,R1)
 
-        \tkzInterCC(C1,R1)(C2,R2) \tkzGetPoints{I1}{I2}
-        \tkzInterLC(C1,C2)(C1,R1) \tkzGetPoints{x}{L1}
-        \tkzInterLC(C1,C2)(C2,R2) \tkzGetPoints{L2}{x}
+            \tkzInterCC(C1,R1)(C2,R2) \tkzGetPoints{I1}{I2}
+            \tkzInterLC(C1,C2)(C1,R1) \tkzGetPoints{x}{L1}
+            \tkzInterLC(C1,C2)(C2,R2) \tkzGetPoints{L2}{x}
 
-        \tkzDrawArc[semithick, dashed](C2,I1)(I2)
+            \tkzDrawArc[semithick, dashed](C2,I1)(I2)
 
-        \tkzDrawSegment(C1,C2)
-        \tkzDrawSegment[latex-latex](L1,L2)
+            \tkzDrawSegment(C1,C2)
+            \tkzDrawSegment[latex-latex](L1,L2)
 
-        \tkzDefPointBy[homothety=center C2 ratio -1](R2) \tkzGetPoint{R2'}
+            \tkzDefPointBy[homothety=center C2 ratio -1](R2) \tkzGetPoint{R2'}
 
-        \tkzDrawSegment[
-        dim style/.append style={opacity=1},
-        dim fence style/.style={opacity=1},
-        dim={$D$, \fpeval{\r + 0.1} cm, above=2pt},
-        opacity=0
-        ](R2',R2)
+            \tkzDrawSegment[
+                dim style/.append style={opacity=1},
+                dim fence style/.style={opacity=1},
+                dim={$D$, \fpeval{\r + 0.1} cm, above=2pt},
+                opacity=0
+            ](R2',R2)
 
-        \tkzLabelSegment[above right=-2pt](L1,L2){$x$}
+            \tkzLabelSegment[above right=-2pt](L1,L2){$x$}
 
-        \tkzDrawPoints(C1, C2)
-    \end{tikzpicture}
-    \hfill
-    \tikzsetnextfilename{part-eclipses-scheme2}
-    \begin{tikzpicture}
-        \tkzDefPoint(0,0){C1}
-        \tkzDefPoint(-0.2,-0.2){C2}
+            \tkzDrawPoints(C1, C2)
+        \end{tikzpicture}
+        \caption{Частное}
+        \label{pic:partial-esclipse-phase}
+    \end{subcaptionblock}
+    \begin{subcaptionblock}[t]{.27\tw}
+        \centering
+        \tikzsetnextfilename{part-eclipses-scheme2}
+        \begin{tikzpicture}
+            \tkzDefPoint(0,0){C1}
+            \tkzDefPoint(-0.2,-0.2){C2}
 
-        \def\R{1.3}
-        \def\r{0.6}
+            \def\R{1.3}
+            \def\r{0.6}
 
-        \tkzDefShiftPoint[C1](\R,0){R1}
-        \tkzDrawCircle[semithick, draw=black, fill=black!30](C1,R1)
+            \tkzDefShiftPoint[C1](\R,0){R1}
+            \tkzDrawCircle[semithick, draw=black, fill=black!30](C1,R1)
 
-        \tkzDefShiftPoint[C2](\r,0){R2}
-        \tkzDrawCircle[semithick, draw=black, dashed](C2,R2)
+            \tkzDefShiftPoint[C2](\r,0){R2}
+            \tkzDrawCircle[semithick, draw=black, dashed](C2,R2)
 
-        \tkzInterLC(C1,C2)(C1,R1) \tkzGetPoints{L1}{L2}
-        \tkzInterLC(C1,C2)(C2,R2) \tkzGetPoints{I1}{I2}
+            \tkzInterLC(C1,C2)(C1,R1) \tkzGetPoints{L1}{L2}
+            \tkzInterLC(C1,C2)(C2,R2) \tkzGetPoints{I1}{I2}
 
-        \tkzDefPointBy[homothety=center C2 ratio -1](R2) \tkzGetPoint{R2'}
+            \tkzDefPointBy[homothety=center C2 ratio -1](R2) \tkzGetPoint{R2'}
 
-        \tkzDrawSegment(L1,L2)
-        \tkzDrawSegments[latex-latex](L1,I1 L2,I2)
+            \tkzDrawSegment(L1,L2)
+            \tkzDrawSegments[latex-latex](L1,I1 L2,I2)
 
-        \tkzDrawSegment[
-            dim style/.append style={opacity=1},
-            dim fence style/.style={opacity=1},
-            dim={$D$, \fpeval{\r + 0.1} cm, above=2pt, fill=none},
-            opacity=0
-        ](R2',R2)
+            \tkzDrawSegment[
+                dim style/.append style={opacity=1},
+                dim fence style/.style={opacity=1},
+                dim={$D$, \fpeval{\r + 0.1} cm, above=2pt, fill=none},
+                opacity=0
+            ](R2',R2)
 
-        \tkzLabelSegment[below right=-4pt](L1,I1){$d_1$}
-        \tkzLabelSegment[below right=-4pt](L2,I2){$d_2$}
+            \tkzLabelSegment[below right=-4pt](L1,I1){$d_1$}
+            \tkzLabelSegment[below right=-4pt](L2,I2){$d_2$}
 
-        \tkzDrawPoints(C1, C2)
-    \end{tikzpicture}
-    \caption{Частное и полное затмение}
+            \tkzDrawPoints(C1, C2)
+        \end{tikzpicture}
+        \caption{Полное}
+        \label{pic:full-esclipse-phase}
+    \end{subcaptionblock}
+    \caption{Схемы затмений}
     \label{fig:part-eclipses-scheme}
 \end{wrapfigure}
 Важной характеристикой любого затмения является его \term{фаза}~--- для \imp{частных} и \imp{кольцеобразных} затмений: отношение закрытой части $x$ диаметра\footnote{Здесь имеется в виду \imp{угловой} диаметр} затмеваемого тела, проходящего через центр затмевающего тела, ко всему диаметру затмеваемого тела $D$; для \imp{полного}: единица плюс отношение расстояния\footnote{Расстояние между окружностями $l_1$ и $l_2$~--- это $\min |L_1L_2|$ по всем $L_1 \in l_1$ и $L_2 \in l_2$.} между краями дисков затмеваемого и затмевающего тел к диаметру затмеваемого тела $D$.
-\begin{equation}
-    \Phi_{\text{част}} = \frac{x}{D} < 1, \quad \quad \quad \Phi_{\text{полн}} =  1 + \frac{\min\{d_1, d_2\}}{D} > 1.
-\end{equation}
-Иногда вводят такое понятие, как \term{площадная фаза затмения}, т.\,е. отношение площади закрытой части диска затмеваемого тела к полной площади его диска. Чаще всего  площадную фазу используют применительно к двойным звёздам, когда считают падение блеска при затмении одной звезды другой.
+\begin{align}
+    \Phi_{\text{част}} &= \frac{x}{D}< 1,\\
+    \Phi_{\text{полн}} &= 1 + \frac{\min\{d_1, d_2\}}{D}> 1.
+\end{align}
+Иногда вводят такое понятие, как \term{площадная фаза затмения}, т.\,е. отношение площади закрытой части диска затмеваемого тела к полной площади его диска. Чаще всего площадную фазу используют применительно к двойным звёздам, когда считают падение блеска при затмении одной звезды другой.

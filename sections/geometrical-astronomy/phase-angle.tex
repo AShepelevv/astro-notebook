@@ -1,90 +1,88 @@
 \subsection{Фазы планет и спутников}
 
+\begin{wrapfigure}[10]{r}{.3\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{phase-angle-1}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){C}
+
+        \def\R{1}
+        \def\f{55}
+
+        \tkzDefShiftPoint[C](0,\R){L1}
+        \tkzDefPointBy[homothety=center C ratio -1](L1) \tkzGetPoint{L2}
+
+        \tkzFillSector[fill=black!30](C,L2)(L1)
+        \tkzDrawCircle[semithick, black](C,L1)
+        \tkzDrawSegment(L1,L2)
+
+        \tkzDefPointBy[rotation=center C angle -\f](L1) \tkzGetPoint{O1}
+        \tkzDefPointBy[homothety=center C ratio -1](O1) \tkzGetPoint{O2}
+
+        \tkzDrawSegment[dashed](O1,O2)
+
+        \tkzDefPointWith[orthogonal,K=1.3](C,O1) \tkzGetPoint{O}
+        \tkzDefPointWith[orthogonal,K=1.7](C,L1) \tkzGetPoint{L}
+        \tkzDrawSegments[-latex](C,O C,L)
+
+        \tkzMarkAngles[arc=l, size=0.4](O,C,L O1,C,L1)
+        \tkzLabelAngles[pos=0.6](O,C,L O1,C,L1){\footnotesize$\phi$}
+
+        \tkzMarkRightAngles[size=0.2](O1,C,O L,C,L2)
+
+        \tkzLabelPoint[above](L){Источник}
+        \tkzLabelPoint[above=-1pt](O){Наблюдатель}
+
+        \tkzDrawPoints(C)
+    \end{tikzpicture}
+    \caption{Проекция объекта на плосткость {\slshape Источник\,--\,Объект\,--\,Наб\-людатель}}
+    \label{pic:phase-angle-1}
+\end{wrapfigure}
+
 \term{Фаза} планеты (спутника)~--- отношение площади освещённой  части видимого диска ко всей его площади. Фаза объекта может принимать значения от 0 до 1. Видимая граница между освещенной и неосвещенной частями поверхности объекта называется \term[терминатор]{терминатором}. Если лучи от источника считать параллельными, то терминатор является большим кругом на поверхности сферического объекта наблюдения. При этом для наблюдателя большой круг терминатора повернут вокруг оси, перпендикулярной лучу зрения, следовательно, проекция терминатора на картинную плоскость~--- эллипс. Напомним, что площади круга и эллипса с одинаковыми большими полуосями, равными $a$, относятся как $a/b$, где $b$~--- малая полуось эллипса. Отсюда следует, что для вычисления фазы достаточно рассмотреть отрезки проекции большого круга на поверхности наблюдаемого объекта, лежащего в плоскости {\slshape Источник\,--\,Объект\,--\,Наблюдатель}, на картинную плоскость.
 
+\begin{wrapfigure}[8]{r}{.3\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{phase-angle-2}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){C}
 
-Однако сначала рассмотрим картину происходящего в проекции на плоскость {\slshape Источник\,--\,Объект\,--\,Наблюдатель} (\lookPicRef{pic:phase-angle-1}). Пусть \term{фа\-зо\-вый угол} {\slshape Источник\,--\,Объект\,--\,Наблюдатель} равен $\phi$. Тогда угол между плоскостью терминатора и картинной плоскостью наблюдателя также равен $\phi$, а ширина проекции неосвещенной части объекта $s = R(1 - \cos \phi)$. Значит освещенной~--- $l = R( 1+ \cos \phi)$, (\lookPicRef{pic:phase-angle-2}).
+        \def\R{1}
+        \def\f{55}
+
+        \def\s{\R *(1 - cos(\f / 180 * pi))}
+
+        \tkzDefShiftPoint[C](0,\R){P1}
+        \tkzDefPointBy[homothety=center C ratio -1](P1) \tkzGetPoint{P2}
+
+        \tkzFillCircle[fill=black!30](C,P1)
+        \begin{scope}[xscale=\fpeval{1 - \s/\R}]
+            \tkzGetPointCoord(C){c}
+            \draw[fill=white,draw=none] (\cx,\cy) circle (\R);
+            \tkzGetPointCoord(P2){p}
+            \draw[dashed] (\px,\py) arc(270:90:\R);
+        \end{scope}
+        \tkzFillSector[fill=white](C,P2)(P1)
+
+        \tkzDrawCircle[semithick, black](C,P1)
+
+        \tkzDefPointWith[orthogonal,K=1](C,P1) \tkzGetPoint{E1}
+        \tkzDefPointWith[orthogonal,K=1](C,P2) \tkzGetPoint{E2}
+        \tkzDefPointWith[orthogonal,K={1 - \s/\R}](C,P1) \tkzGetPoint{T}
+
+        \tkzDrawSegments[latex-latex](E1,T T,E2)
+        \tkzLabelSegment[above](E1,T){$s$}
+        \tkzLabelSegment[above](T,E2){$l$}
+    \end{tikzpicture}
+    \caption{Проекция объекта на картинную плоскость наблюдателя}
+    \label{pic:phase-angle-2}
+\end{wrapfigure}
+Однако сначала рассмотрим картину происходящего в проекции на плоскость {\slshape Источник\,--\,Объект\,--\,Наблюдатель}, \lookPicRef{pic:phase-angle-1}. Пусть \term{фа\-зо\-вый угол} {\slshape Источник\,--\,Объект\,--\,Наблюдатель} равен $\phi$. Тогда угол между плоскостью терминатора и картинной плоскостью наблюдателя также равен $\phi$, а ширина проекции неосвещенной части объекта $s = R(1 - \cos \phi)$. Значит освещенной~--- $l = R( 1+ \cos \phi)$, \lookPicRef{pic:phase-angle-2}.
 
 Теперь легко получить выражения для величины фазы через величину фазового угла:
 \begin{equation}
     \Phi = \frac{S_\text{освещ}}{S} = \frac{l}{D} = \frac{R ( 1 + \cos \phi )}{2R} = \frac{1 + \cos \phi}{2} =  \cos^2 \frac{\phi}{2}.
 \end{equation}
 
-\begin{figure}[h!]
-    \begin{subcaptionblock}[b]{0.47\tw}
-        \centering
-        \tikzsetnextfilename{phase-angle-1}
-        \begin{tikzpicture}
-            \tkzDefPoint(0,0){C}
-
-            \def\R{1}
-            \def\f{55}
-
-            \tkzDefShiftPoint[C](0,\R){L1}
-            \tkzDefPointBy[homothety=center C ratio -1](L1) \tkzGetPoint{L2}
-
-            \tkzFillSector[fill=black!30](C,L2)(L1)
-            \tkzDrawCircle[semithick, black](C,L1)
-            \tkzDrawSegment(L1,L2)
-
-            \tkzDefPointBy[rotation=center C angle -\f](L1) \tkzGetPoint{O1}
-            \tkzDefPointBy[homothety=center C ratio -1](O1) \tkzGetPoint{O2}
-
-            \tkzDrawSegment[dashed](O1,O2)
-
-            \tkzDefPointWith[orthogonal,K=1.3](C,O1) \tkzGetPoint{O}
-            \tkzDefPointWith[orthogonal,K=1.7](C,L1) \tkzGetPoint{L}
-            \tkzDrawSegments[-latex](C,O C,L)
-
-            \tkzMarkAngles[arc=l, size=0.4](O,C,L O1,C,L1)
-            \tkzLabelAngles[pos=0.6](O,C,L O1,C,L1){\footnotesize$\phi$}
-
-            \tkzMarkRightAngles[size=0.2](O1,C,O L,C,L2)
-
-            \tkzLabelPoint[above](L){Источник}
-            \tkzLabelPoint[above=-1pt](O){Наблюдатель}
-
-            \tkzDrawPoints(C)
-        \end{tikzpicture}
-        \caption{Проекция объекта на плосткость {\slshape Источник\,--\,Объект\,--\,Наблюдатель}}
-        \label{pic:phase-angle-1}
-    \end{subcaptionblock}
-    \hfill
-    \begin{subcaptionblock}[b]{0.47\tw}
-        \centering
-        \tikzsetnextfilename{phase-angle-2}
-        \begin{tikzpicture}
-            \tkzDefPoint(0,0){C}
-
-            \def\R{1}
-            \def\f{55}
-
-            \def\s{\R *(1 - cos(\f / 180 * pi))}
-
-            \tkzDefShiftPoint[C](0,\R){P1}
-            \tkzDefPointBy[homothety=center C ratio -1](P1) \tkzGetPoint{P2}
-
-            \tkzFillCircle[fill=black!30](C,P1)
-            \begin{scope}[xscale=\fpeval{1 - \s/\R}]
-                \tkzGetPointCoord(C){c}
-                \draw[fill=white,draw=none] (\cx,\cy) circle (\R);
-                \tkzGetPointCoord(P2){p}
-                \draw[dashed] (\px,\py) arc(270:90:\R);
-            \end{scope}
-            \tkzFillSector[fill=white](C,P2)(P1)
-
-            \tkzDrawCircle[semithick, black](C,P1)
-
-            \tkzDefPointWith[orthogonal,K=1](C,P1) \tkzGetPoint{E1}
-            \tkzDefPointWith[orthogonal,K=1](C,P2) \tkzGetPoint{E2}
-            \tkzDefPointWith[orthogonal,K={1 - \s/\R}](C,P1) \tkzGetPoint{T}
-
-            \tkzDrawSegments[latex-latex](E1,T T,E2)
-            \tkzLabelSegment[above](E1,T){$s$}
-            \tkzLabelSegment[above](T,E2){$l$}
-        \end{tikzpicture}
-        \caption{Проекция объекта на картинную плоскость наблюдателя}
-        \label{pic:phase-angle-2}
-    \end{subcaptionblock}
-    \caption{}
-\end{figure}

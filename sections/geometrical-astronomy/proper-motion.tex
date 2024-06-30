@@ -1,5 +1,5 @@
 \subsection{Собственное движение звёзд}
-\term{Собственным движением} $(\mu)$ называется изменение координат звёзд на небесной сфере, вызванное относительным движением звёзд и Солнца в пространстве, измеряется обычно в mas/год. Пусть $v_\tau$~--- гелиоцентрическая (относительно Солнца) тангенциальная скорость звезды, $d$~---~расстояние до неё от Солнца, тогда её собственное движение
+\term{Собственным движением} называется изменение координат звёзд на небесной сфере, вызванное относительным движением звёзд и Солнца в пространстве, измеряется обычно в mas/год. Пусть $v_\tau$~--- гелиоцентрическая (относительно Солнца) тангенциальная скорость звезды, $d$~---~расстояние до неё от Солнца, тогда её собственное движение
 \begin{equation}
     \mu = \frac{v_\tau}{d}.
 \end{equation}
@@ -10,15 +10,14 @@
     \mu_\alpha(t) = \lim_{\Delta t \rightarrow 0} \frac{\alpha(t + \Delta t) - \alpha(t)}{\Delta t} = \alpha'(t).
 \end{gather}
 
-Из определения видно, что $\mu_\alpha$ является угловой скоростью по малому кругу, а значит, зависит от $\delta$. Следовательно, полное собственное движение $\mu$ можно найти из такой формулы:
+Из определения видно, что $\mu_\alpha$ является угловой скоростью по малому кругу, а значит, зависит от $\delta$. Следовательно, полное собственное движение $\mu$ определяется выражением
 \begin{equation}
     \mu = \sqrt{\mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta},
 \end{equation}
 потому что радиус малого круга, состоящего из точек со склонением~$\delta$, равен $R \cos \delta$, где $R$~--- радиус сферы, содержащей этот круг.
 
-
 \begin{figure}[h!]
-    \begin{subcaptionblock}{0.27\tw}
+    \begin{subcaptionblock}[t]{0.29\tw}
         \centering
         \tdplotsetmaincoords{70}{179}
         \tikzsetnextfilename{proper-motion-components}
@@ -81,11 +80,11 @@
             \tdplotCsLabelPoint{\r}{\l-3}{90 - \d + 7}{$\alpha(t\!+\!\Delta t)$}{below}
             \tdplotCsLabelPoint{\r}{\ll+3}{90 - \d + 15.5}{$\alpha(t)$}{below}
         \end{tikzpicture}
-        \caption{}
+        \caption{Компоненты собственного движения}
         \label{pic:proper-motion-components}
     \end{subcaptionblock}
     \hfill
-    \begin{subcaptionblock}[b]{0.21\tw}
+    \begin{subcaptionblock}[t]{0.25\tw}
         \centering
         \tikzsetnextfilename{proper-motion-1}
         \begin{tikzpicture}
@@ -121,11 +120,11 @@
             \pointStar(Star)
             \tkzDrawPoint(P)
         \end{tikzpicture}
-        \caption{}
+        \caption{Схема дви\-же\-ния в пространстве}
         \label{pic:proper-motion-1}
     \end{subcaptionblock}
     \hfill
-    \begin{subcaptionblock}[b]{0.42\tw}
+    \begin{subcaptionblock}[t]{0.39\tw}
         \centering
         \tdplotsetmaincoords{70}{179}
         \tikzsetnextfilename{proper-motion-2}
@@ -214,7 +213,7 @@
             \tdplotCsDrawPoint{\r}{\ll}{90 - \dd}
             \tdplotCsDrawPoint{\r}{\l}{90 - \d}
         \end{tikzpicture}
-        \caption{}
+        \caption{Схема видимого движения по небесной сфере}
         \label{pic:proper-motion-2}
     \end{subcaptionblock}
     \caption{}
@@ -225,7 +224,7 @@
     v_\tau =  \mu r_0 = r_0 \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta} = \frac{a_\oplus \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta}}{\pi_0},
 \end{equation*}
 где $r_0 = a_\oplus / \pi_0$~--- расстояние до звезды в начальный момент.
-Определим угол между лучом зрения и полной скоростью звезды, исходя из \picRef{pic:proper-motion-1}, имеем:
+Определим угол между лучом зрения и полной скоростью звезды, согласно \picRef{pic:proper-motion-1}, имеем:
 \begin{equation*}
     \tg \gamma = \frac{v_\tau}{v_r},
 \end{equation*}
