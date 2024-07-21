@@ -1,0 +1,129 @@
+\begin{tikzpicture}
+    \footnotesize
+
+    % Radius of the Sun
+    \def\RS{1.5}
+
+    % Radius of the Earth
+    \def\RE{0.8}
+
+    % Radius of the Moon
+    \def\RM{0.5}
+
+    % Earth orbit radius
+    \def\AE{7} % D
+
+    % Moon orbit radius
+    \def\AM{2.5}
+
+
+    \def\eps{0.1}
+    \tkzInit[
+        ymax=2.6,
+        xmin=-8.6,
+        ymin=-1.8
+    ]
+
+    \tkzClip
+
+    % ALPHA
+    \pgfmathsetmacro\ALPHA{asin((\RE + \RM) / \AM)}
+
+    % BETA
+    \pgfmathsetmacro\BETA{asin((\RS - \RE) / \AE)}
+
+    % GAMMA
+    \pgfmathsetmacro\GAMMA{\ALPHA + \BETA}
+
+    % Earth (E)
+    \tkzDefPoint(0,0){E}
+    \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+
+    % Sun (S)
+    \tkzDefShiftPoint[E](-\AE,0){S}
+    \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+
+    % Moon (M)
+    \tkzDefShiftPoint[E](-\AM,0){m}
+    \tkzDefPointBy[rotation=center E angle -\GAMMA](m) \tkzGetPoint{M}
+    \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+
+    %%% Semishadow (Ss)
+    % Tangent points of common to Sun, Moon and Earth tangent
+    \pgfmathsetmacro\Ex{\RE * \AE / (\RS - \RE)}
+    \tkzDefShiftPoint[E](\Ex, 0){EV}
+    \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RE))](E) \tkzGetPoint{EV}
+    \tkzDefLine[tangent from = EV](S,s) \tkzGetPoints{x}{SsSu}
+    \tkzDefLine[tangent from = EV](E,e) \tkzGetPoints{x}{SsE}
+    \tkzDefLine[tangent from = EV](M,m) \tkzGetPoints{SsMd}{x}
+
+    % Tangent points of common to Sun and Moon tangent on semishadow
+    \tkzDefPointBy[reflection=over S--M](SsMd) \tkzGetPoint{SsMu}
+    \tkzDefPointBy[reflection=over S--M](SsSu) \tkzGetPoint{SsSd}
+
+    % Shadow
+    \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RM))](M) \tkzGetPoint{FsV}
+    \tkzDefLine[tangent from = FsV](S,s) \tkzGetPoints{FsSd}{FsSu}
+    \tkzDefLine[tangent from = FsV](M,m) \tkzGetPoints{FsMd}{FsMu}
+
+    % Semishadow vertix
+    \tkzInterLL(SsSd,SsMu)(SsSu,SsMd) \tkzGetPoint{SsV}
+    \tkzCalcLength(SsSd,SsMu) \tkzGetLength{SsL}
+
+    % Semishadow radius
+    \def\SsRatio{0.83}
+    \tkzCalcLength(SsV,SsMu) \tkzGetLength{SsLl}
+    \pgfmathsetmacro\SsR{\SsLl + \SsL * \SsRatio}
+
+    % Angle alpha
+    \tkzInterLL(E,M)(SsSu,SsE) \tkzGetPoint{AlphaV}
+
+    % Draw semishadow
+    \tkzFillSector[R with nodes, gray!30](SsV,\SsR)(SsMd,SsMu)
+    \tkzFillSector[white](SsV,SsMd)(SsMu)
+
+    % Draw full shadow
+    \tkzFillPolygon[gray!70](FsMu,FsV,FsMd)
+
+    % Draw objects
+    \tkzDrawCircles[black, thick, fill=white](E,e S,s M,m)
+
+    \tkzDrawLines[semithick, add=0 and \SsRatio](SsSu,SsMd SsSd,SsMu)
+    \tkzDrawSegments[semithick](FsSu,FsV FsV,FsSd)
+
+    \tkzDrawSegments(E,M)
+    \tkzDrawSegments(E,SsE)
+    \tkzDrawSegments(S,SsSu S,SsSd S,FsSu S,FsSd)
+    \tkzDrawSegments(M,SsMd M,SsMu M,FsMd M,FsMu)
+    \tkzDrawLines[add=0 and 0.27](S,E)
+
+    \tkzLabelSegment[right](S,SsSu){$R_0$}
+    \tkzLabelSegment[left=-1pt](E,SsE){$R$}
+    \tkzLabelSegment[left=-1.5pt, pos=0.4](M,SsMd){$r$}
+
+    \tkzMarkRightAngles[size=0.15](SsSu,SsE,E)
+    \tkzMarkRightAngles[size=0.15](FsMd,FsSd,S SsV,SsSd,S SsV,FsSu,S SsMd,SsSu,S)
+    \tkzMarkRightAngles[size=0.15](FsV,FsMd,M M,FsMu,FsV SsV,SsMu,M M,SsMd,SsV)
+
+    \begin{scope}[
+        dim style/.style={black, latex-latex, opacity=1},
+        dim fence style/.style={black, opacity=1}
+    ]
+        \tkzDrawSegment[opacity=0, dim={$d$, 1cm, above right=1pt,fill=none}](M,E)
+        \tkzDrawSegment[opacity=0, dim={$D$, -1.6cm, above=2pt}](S,E)
+    \end{scope}
+
+    \tkzDrawPoints(SsSu, SsSd, SsE, SsMu, SsMd)
+    \tkzDrawPoints(E, S, M, FsSu, FsSd, FsMd, FsMu, AlphaV)
+
+    \tkzMarkAngle[arc=l, size=0.35](E,AlphaV,SsE)
+    \tkzLabelAngle[pos=0.5](E,AlphaV,SsE){\footnotesize$\alpha$}
+
+
+    \tkzMarkAngle[arc=lll, size=0.95](M,E,S)
+    \tkzLabelAngle[pos=1.15](M,E,S){\footnotesize$\gamma$}
+
+    \pgfmathsetmacro\BetaR{\Ex - 1.7*\RE}
+    \tkzMarkAngle[arc=ll, size=\BetaR](SsE,EV,E)
+    \tkzLabelAngle[pos={\BetaR + 0.2}](SsE,EV,E){\footnotesize$\beta$}
+\end{tikzpicture}

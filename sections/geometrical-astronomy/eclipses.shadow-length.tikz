@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+    \tkzDefPoint(0, 0){X}
+    \tkzDefPoint(-3.5,0){C1}
+    \tkzDefShiftPoint[C1](0.5,0){R1}
+
+    \def\k{2.5}
+    \tkzDefPointBy[homothety=center X  ratio \k](C1) \tkzGetPoint{C2}
+    \tkzDefPointBy[homothety=center X  ratio \k](R1) \tkzGetPoint{R2}
+
+    \tkzDefLine[tangent from = X](C1,R1) \tkzGetPoints{A1}{B1}
+    \tkzDefLine[tangent from = X](C2,R2) \tkzGetPoints{A2}{B2}
+
+    \tkzDrawPolygon[fill=gray!70,draw=none](X,A1,B1)
+
+    \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2)
+    \tkzDrawSegments(X,A2 X,B2 X,C2 C2,A2 C2,B2 C1,A1 C1,B1)
+
+    \tkzLabelSegments[left=-1pt](C2,B2 C2,A2){$R$}
+    \tkzLabelSegments[left=-2pt](C1,B1 C1,A1){$r$}
+    \tkzLabelSegment[above=-1.5pt](C1,C2){$d$}
+    \tkzLabelSegment[above=-1.5pt](C1,X){$x$}
+
+    \tkzMarkRightAngles[size=0.15](C2,A2,X X,B2,C2 C1,A1,X X,B1,C1)
+    \tkzDrawPoints(C1, C2, A1, A2, B1, B2, X)
+\end{tikzpicture}

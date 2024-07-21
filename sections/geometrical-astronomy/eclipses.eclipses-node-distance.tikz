@@ -1,0 +1,61 @@
+\begin{tikzpicture}
+    \footnotesize
+    \def\size{2}
+    \def\Gamma{1}
+    \def\i{35}
+
+    \tkzDefPoint(0,0){O}
+    \tkzDefShiftPoint[O](-\size,0){E1}
+    \tkzDefShiftPoint[O](+\size,0){E2}
+
+    \tkzDefShiftPoint[E1](0,+\Gamma){G1}
+    \tkzDefShiftPoint[E1](0,-\Gamma){G1'}
+    \tkzDefShiftPoint[E2](0,+\Gamma){G2}
+    \tkzDefShiftPoint[E2](0,-\Gamma){G2'}
+
+    \tkzDefPointsBy[rotation=center O angle -\i](E1, E2){}
+
+    \tkzInterLL(E1',E2')(G1,G2) \tkzGetPoint{M}
+    \tkzInterLL(E1',E2')(G1',G2') \tkzGetPoint{M'}
+
+    \tkzDrawSegments[semithick](E1',E2' E1,E2)
+    \tkzDrawSegments[dashed](G1,G2 G1',G2')
+
+    \tkzDrawSegment[thick](M,M')
+
+    \tkzDrawSegment[
+        decorate,
+        decoration = {
+            raise = 3pt,
+            text along path,
+            text = {Эклиптика},
+            text align={right}
+        }
+    ](E1,E2)
+
+    \tkzDrawSegment[
+        decorate,
+        decoration = {
+            raise = 3pt,
+            text along path,
+            text = {~~Орбита~~~~~~~~Луны},
+            text align={center}
+        }
+    ](E1',E2')
+
+    \tkzMarkAngle[size=0.4, arc=l](E1',O,E1)
+    \tkzLabelAngle[pos=0.55](E1',O,E1){\footnotesize$i$}
+
+    \begin{scope}[
+        dim style/.style={black, latex-latex, opacity=1},
+        dim fence style/.style={black, opacity=0}
+    ]
+        \tkzDrawSegment[opacity=0, dim={$\gamma$, -0.1cm, right=2pt}](E1,G1)
+        \tkzDrawSegment[opacity=0, dim={$\gamma$, -0.1cm, right=2pt}](G1',E1)
+    \end{scope}
+
+    \tkzDrawPoints(O, M, M')
+    \tkzLabelPoint[below](O){$\ascnode$}
+    \tkzLabelSegment[below](O,M'){$l$}
+    \tkzLabelSegment[below, pos=0.35](M,O){$l$}
+\end{tikzpicture}

@@ -1,0 +1,62 @@
+\begin{tikzpicture}
+    \def\e{2.2}
+    \def\m{0}
+    \def\s{-7.2}
+
+    \def\earthR{0.25}
+    \def\moonR{0.7}
+    \def\sunR{1}
+
+    \def\gap{0.2}
+
+    \tkzInit[
+        xmax=\e + \earthR + \gap,
+        xmin=\s - \sunR - \gap,
+        ymin=-\sunR - \gap,
+        ymax=\sunR + \gap
+    ]
+    \tkzClip
+
+    \tkzDefPoint(\e,0){E}
+    \tkzDefPoint(\m,0){M}
+    \tkzDefPoint(\s,0){S}
+
+    \tkzDefShiftPoint[S](0,\sunR){S'}
+    \tkzDefShiftPoint[M](0,\moonR){M'}
+    \tkzDefShiftPoint[E](0,\earthR){E'}
+
+    \def\shadeCornerCoef{\sunR / (\sunR - \moonR)}
+    \tkzDefPointBy[homothety=center S ratio \shadeCornerCoef](M)
+    \tkzGetPoint{SC}
+
+    \def\halfShadowCornerCoef{\sunR / (\sunR + \moonR)}
+    \tkzDefPointBy[homothety=center S ratio \halfShadowCornerCoef](M)
+    \tkzGetPoint{HSC}
+
+    \tkzDefLine[tangent from = SC](S,S')  \tkzGetPoints{S1}{S2}
+    \tkzDefLine[tangent from = SC](M,M')  \tkzGetPoints{M1}{M2}
+    \tkzDefLine[tangent from = HSC](S,S')  \tkzGetPoints{HS1}{HS2}
+    \tkzDefLine[tangent from = HSC](M,M')  \tkzGetPoints{HM1}{HM2}
+
+    \tkzGetVectxy(HSC,M){hs}
+    \def\halfShadowCoef{1 + (\e - \m + \hsx) / \hsx }
+    \tkzDefPointBy[homothety=center HSC ratio \halfShadowCoef](HM1)
+    \tkzGetPoint{HE1}
+    \tkzDefPointBy[homothety=center HSC ratio \halfShadowCoef](HM2)
+    \tkzGetPoint{HE2}
+
+    \tkzDrawSector[fill=gray!30,gray!30](HSC,HE2)(HE1)
+    \tkzDrawSector[fill=gray!70](SC,M2)(M1)
+    \tkzDrawSector[fill=white](HSC,HM2)(HM1)
+
+    \tkzDrawCircles[dashed, line width=.4pt](S,M M,E)
+
+    \tkzDrawCircles[black, line width=.4pt, fill=white](S,S' M,M')
+    \tkzDrawSegments(SC,S1 SC,S2 HS1,HE1 HS2,HE2)
+
+    \tkzDrawCircles[black, line width=.4pt, fill=white, fill opacity=1](E,E')
+
+    \tkzLabelPoint[inner sep=5mm](S){\tikz{\sun(S)}}
+    \tkzLabelPoint(M){\tikz{\earth(E)}}
+    \tkzLabelPoint(E){$\rightmoon$}
+\end{tikzpicture}

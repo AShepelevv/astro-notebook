@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \tkzDefPoint(0,0){C1}
+    \tkzDefPoint(-0.6,0.6){C2}
+
+    \def\R{0.7}
+    \def\r{0.6}
+
+    \tkzDefShiftPoint[C2](\r,0){R2}
+    \tkzDrawCircle[semithick, draw=black, fill=white](C2,R2)
+
+    \tkzDefShiftPoint[C1](\R,0){R1}
+    \tkzDrawCircle[semithick, draw=black, fill=black!30](C1,R1)
+
+    \tkzInterCC(C1,R1)(C2,R2) \tkzGetPoints{I1}{I2}
+    \tkzInterLC(C1,C2)(C1,R1) \tkzGetPoints{x}{L1}
+    \tkzInterLC(C1,C2)(C2,R2) \tkzGetPoints{L2}{x}
+
+    \tkzDrawArc[semithick, dashed](C2,I1)(I2)
+
+    \tkzDrawSegment(C1,C2)
+    \tkzDrawSegment[latex-latex](L1,L2)
+
+    \tkzDefPointBy[homothety=center C2 ratio -1](R2) \tkzGetPoint{R2'}
+
+    \tkzDrawSegment[
+    dim style/.append style={opacity=1},
+    dim fence style/.style={opacity=1},
+    dim={$D$, \fpeval{\r + 0.1} cm, above=2pt},
+    opacity=0
+    ](R2',R2)
+
+    \tkzLabelSegment[above right=-2pt](L1,L2){$x$}
+
+    \tkzDrawPoints(C1, C2)
+\end{tikzpicture}

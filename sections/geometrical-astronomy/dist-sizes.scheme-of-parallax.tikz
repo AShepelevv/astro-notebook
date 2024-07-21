@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \tkzDefPoint(0,0){Sun}
+    \tkzDefPoint(3,0){Star}
+    \tkzDefPoint(0,1){E}
+
+    \tkzLabelPoint[above](E){Земля}
+    \tkzLabelPoint[below](Sun){Солнце}
+    \tkzLabelPoint[below](Star){Звезда}
+
+    \tkzDrawCircle[dashed, black, line width=.5pt](Sun,E)
+    \tkzDrawPolygon[thick](Sun,Star,E)
+    \tkzMarkRightAngle[size=0.2](Star,Sun,E)
+    \tkzMarkAngle(E,Star,Sun)
+    \tkzLabelAngle[font=\footnotesize, pos=1.2](E,Star,Sun){$p$}
+
+    \earth(E)
+    \sun(Sun)
+    \pointStar(Star)
+
+    \tkzLabelSegment[below](Sun,Star){$r$}
+    \tkzLabelSegment[left=-2pt](Sun,E){1\,\text{а.\!\:е.}}
+\end{tikzpicture}

@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+    \tkzDefPoint(0, 0){X}               % shadow's top
+    \tkzDefPoint(-5,0){C1}              % sun's center
+    \tkzDefShiftPoint[C1](0.7,0){R1}    % sun's radius
+    \tkzDefPoint(-1.3,0){C3}            % earth's center
+    \tkzDefShiftPoint[C3](-0.9,0){R3}   % earth's radius
+
+    \def\k{1.7}
+    \tkzDefPointBy[homothety=center X  ratio \k](C1)
+    \tkzGetPoint{C2} % moon's center
+    \tkzDefPointBy[homothety=center X  ratio \k](R1)
+    \tkzGetPoint{R2} % moon's radius
+
+    \tkzDefLine[tangent from = X](C1,R1) \tkzGetPoints{A1}{B1}
+    \tkzDefLine[tangent from = X](C2,R2) \tkzGetPoints{A2}{B2}
+
+    \tkzInterLC(X,B1)(C3,R3) \tkzGetPoints{x}{H1}
+    \tkzInterLC(X,A1)(C3,R3) \tkzGetPoints{H2}{x}
+
+    %%% draw
+
+    \tkzDrawPolygon[fill=gray!70,draw=none](X,A1,B1)
+    \tkzDrawPolygon[fill=white,draw=none](X,H1,H2)
+
+    \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2 C3,R3)
+    \tkzDrawSegments(R3,C2 C2,A2 C2,B2 C1,A1 C1,B1)
+    \tkzDrawSegments[semithick](H2,A2 H1,B2)
+    \tkzDrawSegments[dashed](R3,X)
+    \tkzDrawSegments[dashed, semithick](H2,X H1,X)
+
+    \begin{scope}[
+        dim style/.style={black, latex-latex, opacity=1},
+        dim fence style/.style={black, opacity=1}
+    ]
+        \tkzDrawSegment[opacity=0, dim={$R$, -1cm, above=2pt}](C3,R3)
+        \tkzDrawSegment[opacity=0, dim={$d$, -1.4cm, above=2pt}](C3,C1)
+        \tkzDrawSegment[opacity=0, dim={$D$, -1.8cm, above=2pt}](C3,C2)
+        \tkzDrawSegment[opacity=0, dim={$h$, 1cm, below=2pt}](X,R3)
+        \tkzDrawSegment[opacity=0, dim={$x$, 1.5cm, above=2pt}](X,C1)
+    \end{scope}
+
+    \tkzMarkRightAngles[size=0.15](C2,A2,X X,B2,C2 C1,A1,X X,B1,C1)
+    \tkzDrawPoints(C1, C2, A1, A2, B1, B2, X, C3, R3, H1, H2)
+
+    %%% label
+
+    \tkzLabelSegments[right=-1pt](C2,B2 C2,A2){$R_0$}
+    \tkzLabelSegments[right=-2pt](C1,B1 C1,A1){$r$}
+    \tkzLabelSegments[left=-2pt](R3,H1 R3,H2){$s$}
+\end{tikzpicture}

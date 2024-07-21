@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+    \tkzDefPoint(0,0){C}
+    \tkzDefPoint(4,0){O}
+    \tkzDefPointBy[homothety=center C ratio .25](O) \tkzGetPoint{U}
+
+    \tkzDrawCircle[color=black, fill=gray!40, thick](C,U)
+    \tkzDefLine[tangent from = O](C,U) \tkzGetPoints{I1}{I2}
+    \tkzDrawSegments(C,I1 C,I2 C,O)
+    \tkzDrawSegments[thick](O,I2 O,I1)
+    \tkzMarkRightAngles[size=0.2](O,I1,C C,I2,O)
+    \tkzMarkAngle[size=1.2](I2,O,C)
+    \tkzMarkAngle[size=1.1](C,O,I1)
+
+    \tkzLabelSegment[left](C,I1){$R$}
+    \tkzLabelSegment[left](C,I2){$R$}
+    \tkzLabelSegment[above](C,O){$r$}
+
+    \DeclareCollectionInstance{angular-size-xfrac}{xfrac}{mathdefault}{math}{
+        denominator-bot-sep = -1pt,
+        slash-symbol        = \scalebox{0.9}{/},
+        numerator-bot-sep   = 3pt,
+        scaling             = true,
+        slash-right-mkern   = -2 mu,
+        slash-left-mkern    = -1.5 mu
+    }
+    \UseCollection{xfrac}{angular-size-xfrac}
+
+    \tkzLabelAngle[pos=1.5](I2,O,C){$\sfrac{\rho}{2}$}
+    \tkzLabelAngle[pos=1.5](C,O,I1){$\sfrac{\rho}{2}$}
+
+    \tkzDrawPoints(C, O, I1, I2)
+\end{tikzpicture}

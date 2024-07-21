@@ -1,0 +1,94 @@
+\begin{tikzpicture}
+    \footnotesize
+
+    % Radius of the Sun
+    \def\RS{1.2}
+
+    % Radius of the Earth
+    \def\RE{0.8}
+
+    % Radius of the Moon
+    \def\RM{0.5}
+
+    % Earth orbit radius
+    \def\AE{7}
+
+    % Moon orbit radius
+    \def\AM{2.2}
+
+    % ALPHA
+    \pgfmathsetmacro\ALPHA{asin((\RE + \RM) / \AM)}
+
+    % BETA
+    \pgfmathsetmacro\BETA{asin((\RS + \RE) / \AE)}
+
+    % GAMMA
+    \pgfmathsetmacro\GAMMA{\ALPHA - \BETA}
+
+    % Earth
+    \tkzDefPoint(0,0){E}
+    \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+
+    % Sun
+    \tkzDefShiftPoint[E](-\AE,0){S}
+    \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+
+    % Moon
+    \tkzDefShiftPoint[E](-\AM,0){m}
+    \tkzDefPointBy[rotation=center E angle -\GAMMA](m) \tkzGetPoint{M}
+    \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+
+    % Intersection of Sun-Earth and common tangent to Sun and Earth
+    \tkzDefPointBy[homothety=center S ratio (\RS / (\RS + \RE))](E)
+    \tkzGetPoint{I}
+
+    % Tangent points of the Sun
+    \tkzDefLine[tangent from = I](S,s) \tkzGetPoints{S'}{x}
+    \tkzDefPointBy[reflection = over S--M](S') \tkzGetPoint{S''}
+
+    % Tangent point of the Earth
+    \tkzDefLine[tangent from = I](E,e) \tkzGetPoints{E'}{x}
+
+    % Tangent points of the Moon
+    \tkzDefLine[tangent from = I](M,m) \tkzGetPoints{x}{M'}
+    \tkzDefPointBy[reflection = over S--M](M') \tkzGetPoint{M''}
+
+    % Intersection of Moon-Earth and common tangent to Sun and Earth
+    \tkzInterLL(M,E)(S',E') \tkzGetPoint{I'}
+
+    % Moon's shadow vertix
+    \tkzInterLL(S',M')(S'',M'') \tkzGetPoint{I''}
+
+
+    \tkzDrawPolygon[fill=gray!70,draw=none](M',I'',M'')
+
+    \tkzDrawCircles[black, thick, fill=white](E,e S,s M,m)
+
+    \tkzDrawSegments(S,E E,M S,S' E,E' M,M')
+    \tkzDrawSegments[semithick](S',I'' S'',I'')
+
+    \begin{scope}[
+        dim style/.style={black, latex-latex, opacity=1},
+        dim fence style/.style={black, opacity=1}
+    ]
+        \tkzDrawSegment[opacity=0, dim={$d$, 1.1cm, above=2pt}](M,E)
+        \tkzDrawSegment[opacity=0, dim={$D$, -1.3cm, above=2pt}](S,E)
+    \end{scope}
+
+    \tkzMarkRightAngles[size=0.15](I,E',E I,S',S E',M',M)
+
+    \tkzMarkAngle[arc=l, size=0.3](E,I',E')
+    \tkzLabelAngle[pos=0.45](E,I',E'){\footnotesize$\alpha$}
+
+    \tkzMarkAngle[arc=ll, size=0.8](S,I,S')
+    \tkzLabelAngle[pos=1](S,I,S'){\footnotesize$\beta$}
+
+    \tkzMarkAngle[arc=lll, size=0.95](M,E,S)
+    \tkzLabelAngle[pos=1.15](M,E,S){\footnotesize$\gamma$}
+
+    \tkzDrawPoints(E, S, I, S', E', M, M')
+
+    \tkzLabelSegment[right](S,S'){$R_0$}
+    \tkzLabelSegment[left](E,E'){$R$}
+    \tkzLabelSegment[left](M,M'){$r$}
+\end{tikzpicture}

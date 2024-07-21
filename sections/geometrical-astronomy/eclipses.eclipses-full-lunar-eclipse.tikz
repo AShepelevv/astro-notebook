@@ -1,0 +1,103 @@
+\begin{tikzpicture}
+    \footnotesize
+
+    % Radius of the Sun
+    \def\RS{1.5}
+
+    % Radius of the Earth
+    \def\RE{1}
+
+    % Radius of the Moon
+    \def\RM{0.4}
+
+    % Earth orbit radius
+    \def\AE{3}
+
+    % Moon orbit radius
+    \def\AM{1.7}
+
+    % ALPHA
+    \pgfmathsetmacro\ALPHA{asin((\RS - \RE) / \AE)}
+
+    % BETA
+    \pgfmathsetmacro\BETA{acos((\RE - \RM) / \AM)}
+
+    % GAMMA
+    \pgfmathsetmacro\GAMMA{90 - \ALPHA - \BETA}
+
+    % Earth
+    \tkzDefPoint(0,0){E}
+    \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+
+    % Sun
+    \tkzDefShiftPoint[E](-\AE,0){S}
+    \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+
+    % Moon
+    \tkzDefShiftPoint[E](\AM,0){m}
+    \tkzDefPointBy[rotation=center E angle \GAMMA](m) \tkzGetPoint{M}
+    \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+
+    % Intersection of Sun-Earth and common tangent to Sun and Earth
+    \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RE))](E)
+    \tkzGetPoint{I}
+
+    % Tangent points of the Sun
+    \tkzDefLine[tangent from = I](S,s) \tkzGetPoints{S'}{x}
+    \tkzDefPointBy[reflection = over S--E](S') \tkzGetPoint{S''}
+
+    % Tangent points of the Earth
+    \tkzDefLine[tangent from = I](E,e) \tkzGetPoints{E'}{x}
+    \tkzDefPointBy[reflection = over S--E](E') \tkzGetPoint{E''}
+
+    % Tangent point of the Moon
+    \tkzDefLine[tangent from = I](M,m) \tkzGetPoints{x}{M'}
+
+    % Projection of the center of the Moon to the radius of the Earth
+    \tkzDefPointBy[projection=onto E--E''](M) \tkzGetPoint{I'}
+
+    % Intersection of a normal to Sun-Earth at the center of the Earth with common tangent of Sun and Earth
+    \tkzDefPointWith[orthogonal,K=-1](E,I) \tkzGetPoint{x}
+    \tkzInterLL(E,x)(I,E'') \tkzGetPoint{I''}
+
+    % Draw shadow
+    \tkzDrawPolygon[fill=gray!70,draw=none](E',I,E'')
+
+    % Draw objects
+    \tkzDrawCircles[black, thick, fill=white](E,e)
+    \tkzDrawCircles[black, thick, fill=white](S,s)
+    \tkzDrawCircles[black, thick, fill=white](M,m)
+
+    \begin{scope}[
+        dim style/.style={black, latex-latex, opacity=1},
+        dim fence style/.style={black, opacity=1}
+    ]
+        \tkzDrawSegment[opacity=0, dim={$D$, -1.6cm, below=2pt}](S,E)
+    \end{scope}
+
+    \tkzDrawSegments(S,I E,M S,S' S,S'' E,E' E,E'' M,M' E,I'')
+    \tkzDrawSegments[semithick](S',I S'',I)
+    \tkzDrawSegments[dashed](M,I')
+
+    \tkzMarkRightAngles[size=0.15](I,E',E E,E'',I I,S',S S,S'',I I'',E,S E'',M',M E,I',M)
+
+    \tkzMarkAngle[arc=l, size=0.7](E'',E,I'')
+    \tkzMarkAngle[arc=l, size=1.3](E'',I,E)
+    \tkzLabelAngle[pos=1.5](E'',I,E){\footnotesize$\alpha$}
+
+    \tkzMarkAngle[arc=ll, size=0.25](M,E,I')
+    \tkzLabelAngle[pos=0.5](M,E,I'){\footnotesize$\beta$}
+
+    \tkzMarkAngle[arc=lll, size=1.5](I,E,M)
+    \tkzLabelAngle[pos=1.7](I,E,M){\footnotesize$\gamma$}
+
+    \tkzDrawPoints(S, S', S'')
+    \tkzDrawPoints(E, E', E'')
+    \tkzDrawPoints(M, M')
+    \tkzDrawPoints(I, I', I'')
+
+    \tkzLabelSegment[right](S,S'){$R_0$}
+    \tkzLabelSegment[right](E,E'){$R$}
+    \tkzLabelSegment[right=-1pt,pos=0.4](M,M'){$r$}
+    \tkzLabelSegment[above=-1pt,pos=0.45](E,M){$d$}
+\end{tikzpicture}

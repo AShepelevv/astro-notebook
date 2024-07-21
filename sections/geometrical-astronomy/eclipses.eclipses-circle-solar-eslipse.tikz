@@ -1,0 +1,69 @@
+\begin{tikzpicture}
+    \def\e{0}
+    \def\m{-2.2}
+    \def\s{-7.2}
+
+    \def\earthR{0.7}
+    \def\moonR{0.18}
+    \def\sunR{1}
+
+    \def\gap{0.2}
+
+    \tkzInit[
+        xmax=\e + \earthR + \gap,
+        xmin=\s - \sunR - \gap,
+        ymin=-\sunR - \gap,
+        ymax=\sunR + \gap
+    ]
+    \tkzClip
+
+    \tkzDefPoint(\e,0){E}
+    \tkzDefPoint(\m,0){M}
+    \tkzDefPoint(\s,0){S}
+
+    \tkzDefShiftPoint[S](0,\sunR){S'}
+    \tkzDefShiftPoint[M](0,\moonR){M'}
+    \tkzDefShiftPoint[E](0,\earthR){E'}
+
+    \def\shadeCornerCoef{\sunR / (\sunR - \moonR)}
+    \tkzDefPointBy[homothety=center S ratio \shadeCornerCoef](M)
+    \tkzGetPoint{SC}
+
+    \def\halfShadowCornerCoef{\sunR / (\sunR + \moonR)}
+    \tkzDefPointBy[homothety=center S ratio \halfShadowCornerCoef](M)
+    \tkzGetPoint{HSC}
+
+    \tkzDefLine[tangent from = SC](S,S')  \tkzGetPoints{S1}{S2}
+    \tkzDefLine[tangent from = SC](M,M')  \tkzGetPoints{M1}{M2}
+    \tkzDefLine[tangent from = HSC](S,S')  \tkzGetPoints{HS1}{HS2}
+    \tkzDefLine[tangent from = HSC](M,M')  \tkzGetPoints{HM1}{HM2}
+
+    \tkzInterLC(SC,S1)(E,E') \tkzGetSecondPoint{E1}
+    \tkzInterLC(SC,S2)(E,E') \tkzGetFirstPoint{E2}
+
+    \tkzGetVectxy(HSC,M){hs}
+    \def\halfShadowCoef{(\e - \m + \hsx) / \hsx }
+    \tkzDefPointBy[homothety=center HSC ratio \halfShadowCoef](HM1)
+    \tkzGetPoint{HE1}
+    \tkzDefPointBy[homothety=center HSC ratio \halfShadowCoef](HM2)
+    \tkzGetPoint{HE2}
+
+    \tkzDefPointBy[homothety=center SC ratio -1](M1) \tkzGetPoint{SC1}
+    \tkzDefPointBy[homothety=center SC ratio -1](M2) \tkzGetPoint{SC2}
+
+    \tkzDrawSector[fill=gray!30,gray!30](HSC,HE2)(HE1)
+    \tkzDrawSector[fill=gray!70](SC,M2)(M1)
+    \tkzDrawSector[fill=gray!50](SC,SC2)(SC1)
+    \tkzDrawSector[fill=white](HSC,HM2)(HM1)
+
+    \tkzDrawCircles[dashed, line width=.4pt](S,E E,M)
+
+    \tkzDrawCircles[black, line width=.4pt, fill=white](S,S' M,M')
+    \tkzDrawSegments(SC,S1 SC,S2 HS1,HE1 HS2,HE2)
+
+    \tkzDrawCircles[black, line width=.4pt, fill=white, fill opacity=1](E,E')
+
+    \tkzLabelPoint[inner sep=5mm](S){\tikz{\sun(S)}}
+    \tkzLabelPoint(E){\tikz{\earth(E)}}
+    \tkzLabelPoint(M){$\rightmoon$}
+\end{tikzpicture}
