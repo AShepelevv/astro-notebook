@@ -18,3 +18,38 @@
     T = \frac{h c^3}{16 \pi^2 k G M},
 \end{equation}
 где $k$ --- постоянная Больцмана.
+
+\term{Квазар}~— центральная область галактики с активным ядром, содержащая свермассивную черную дыру. Квазары представляют собой очень яркие и в то же время далекие и древние источники, поэтому ввиду их малого параллакса их зачастую используют для калибровки точных астрометрических инструментов.
+
+\begin{figure}[h!]
+    \centering
+    \tikzsetnextfilename{spectrum-QSO}
+    \begin{tikzpicture}
+        \footnotesize
+        \begin{axis} [
+            height = 4cm,
+            width  = \tw,
+            xlabel = {Длина волны $\lambda,~\mathring{\text{A}}$},
+            ylabel style={
+                text width=3cm,
+                align=center
+            },
+            ylabel = Относительная\\интенсивность,
+            xmax   = 7000,
+            xmin   = 4000,
+%            xticklabels={4000, 5000, 6000, 7000, 8000, 9000},
+%            xtick  ={4000, 5000, 6000, 7000, 8000, 9000},
+            ytick  = {0, 1},
+        ]
+            \addplot[smooth] table[x=wavelength, y=flux, col sep=comma]{data/spectrum-QSO.csv};
+            \draw[thin] (axis cs:6500,0.3) -- (axis cs:6400,0.5) node[anchor=south] {$\text{H}_\alpha$};
+            \draw[thin] (axis cs:4861,0.43) -- (axis cs:4800,0.6) node[anchor=south] {$\text{H}_\beta$};
+            \draw[thin] (axis cs:4340,0.19) -- (axis cs:4340,0.4) node[anchor=south] {$\text{H}_\gamma$};
+
+            \draw[thin] (axis cs:5010,0.5) -- (axis cs:4980,0.8);
+            \draw[thin] (axis cs:4959,0.27) -- (axis cs:4980,0.8) node[anchor=south] {O\,III};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Приведённый спектр квазара}
+    \label{pic:spectrum-QSO}
+\end{figure}
