@@ -22,13 +22,12 @@
 Важно отметить, что \imp{закон Стефана-Больцмана}~--- прямое следствие формулы Планка (\ref{eq:plancks-law-nu} -- \ref{eq:plancks-law-lambda}), так как, исходя из физического смысла формулы Планка, справедливы равенства
 \begin{multline}
     \sigma T^4
-    = \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta
-    = \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda =\\
-    = \int\limits^\infty_0 B(\nu, T) \,d \nu \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta
+    = \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int \cos \theta \, d \Omega = \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{2 \pi} \, d \varphi \int\limits_0^{\pi / 2} \cos \theta \sin \theta \, d \theta = \\
+    = \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda 
     = \pi \int\limits^\infty_0 B(\nu, T) \,d \nu.
 \end{multline}
 
-Здесь интегрирование ведется в сферических координатах $(\varphi, \theta)$ по телесному углу $d\Omega = d\varphi \cos \varphi d\theta$. А $\sin \varphi$ во втором интеграле отвечает за проекцию единичной площадки на направление излучения. Вычислим данный интеграл, чтобы получить значение постоянной Стефана-Больцмана:
+Здесь интегрирование ведется в сферических координатах $(\varphi, \theta)$ по телесному углу $d\Omega = \sin \theta \,  d\theta \, d\varphi$. Вычислим данный интеграл, чтобы получить значение постоянной Стефана-Больцмана:
 \begin{equation*}
     \sigma T^4 = \pi \int\limits_0^{\infty} \frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-1} \,d \nu.
 \end{equation*}
