@@ -1,0 +1,33 @@
+***********************************************
+**           English version below           **
+***********************************************
+
+Лицензия на использование в образовательных целях
+
+Авторское право (c) 2024 Алексей Шепелев
+
+Настоящим разрешается использовать код, содержащийся в этом репозитории, исключительно в образовательных целях, включая, но не ограничиваясь обучением, преподаванием и академическими исследованиями.
+
+Применяются следующие ограничения:
+- Код не может быть использован в коммерческих целях или для получения прибыли.
+- Модификация, распространение или создание производных работ на основе кода строго запрещены без предварительного письменного разрешения правообладателя.
+- Любое использование кода вне образовательных целей, включая, но не ограничиваясь коммерческим использованием, распространением и модификацией, запрещено.
+
+ОТКАЗ ОТ ГАРАНТИЙ:
+Код предоставляется «как есть», без каких-либо гарантий, явных или подразумеваемых. Автор(ы) не несут ответственности за любые претензии, убытки или иные обязательства.
+
+***********************************************
+
+Educational Use License
+
+Copyright (c) 2024 Aleksei Shepelev
+
+Permission is hereby granted to use the code contained in this repository solely for educational purposes, including but not limited to teaching, learning, and academic research.
+
+The following restrictions apply:
+- The code may not be used for commercial purposes or for-profit activities.
+- Modification, distribution, or creation of derivative works based on the code is strictly prohibited without prior written permission from the copyright holder.
+- Any use outside of education, including but not limited to commercial use, redistribution, and modification, is not allowed.
+
+DISCLAIMER:
+The code is provided "as is", without warranty of any kind, express or implied. In no event shall the author(s) be liable for any claim, damages, or other liability.
