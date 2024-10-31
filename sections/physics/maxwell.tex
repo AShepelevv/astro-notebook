@@ -1,0 +1,127 @@
+\subsection{Распределение Максвелла}
+
+Рассмотрим газ в некотором объеме, причем движение отдельных его частиц имеет совершен­но хаотический характер. Это означает, что все направления скоростей частиц в любом элементе объ­ема газа равновероятны. 
+Пусть число молекул в единице объема, имеющих скорости в диапазоне
+\begin{equation*}
+	(v_x \div v_x+d v_x), (v_y \div v_y+d v_y), (v_z \div v_z+d z_z),
+\end{equation*}
+или же иначе в элементе объема пространства скоростей $d^3 v=d v_x d v_y d v_z$, равно
+\begin{equation*}
+	d n_{\mathrm{v}}=n f(v) d^3 v.
+\end{equation*}
+Где $n$ — концентрация частиц, а $f(v)$ — некоторая функция распределения.
+Представим вероятность того, что $x$-компонента скорости имеет значение в интервале $[v_x \div v_x+d v_x]$, как
+\begin{equation*}
+	d W\left(v_x\right)=\varphi\left(v_x\right) d v_x
+\end{equation*}
+Вследствие изотропности газа аналогичные распределения вероятностей должны быть и для других компонент скорости:
+\begin{equation*}
+	d W\left(v_y\right)=\varphi\left(v_y\right) d v_y, \quad d W\left(v_z\right)=\varphi\left(v_z\right) d v_z
+\end{equation*}
+Предполагая, что компоненты $\left\{v_x, v_y, v_z\right\}$ — независимые случайные величины, запишем вероятность некоторого значения вектора скорости $\vec{v}$:
+\begin{equation*}
+	d W\left(v_x, v_y, v_z\right)=\varphi\left(v_x\right) \varphi\left(v_y\right) \varphi\left(v_z\right) d v_x d v_y d v_z
+\end{equation*}
+С другой стороны,
+\begin{equation*}
+	d W\left(v_x, v_y, v_z\right)=\frac{d n_v}{n}=f(v) d v_x d v_y d v_z
+\end{equation*}
+Таким образом, получаем
+\begin{equation*}
+	f(v)=\varphi\left(v_x\right) \varphi\left(v_y\right) \varphi\left(v_z\right)
+\end{equation*}
+или
+\begin{equation}
+\ln f(v)=\ln \varphi\left(v_x\right)+\ln \varphi\left(v_y\right)+\ln \varphi\left(v_z\right)
+\label{eq:ln-maxwll}
+\end{equation}
+Это функциональное уравнение должно решаться совместно с уравнением
+\begin{equation*}
+v^2=v_x^2+v_y^2+v_z^2
+\end{equation*}
+Продифференцируем уравнение \eqref{eq:ln-maxwll} по переменной $v_x$:
+\begin{equation*}
+\frac{f^{\prime}(v)}{\int(v)} \frac{\partial v}{\partial v_x}=\frac{\varphi^{\prime}\left(v_x\right)}{\varphi\left(v_x\right)}
+\end{equation*}
+Так как
+\begin{equation*}
+\frac{\partial v}{\partial v_x}=\frac{\partial}{\partial v_x} \sqrt{v_x^2+v_y^2+v_z^2}=\frac{v_x}{v},
+\end{equation*}
+то
+\begin{equation*}
+\frac{1}{v} \frac{f^{\prime}(v)}{f(v)}=\frac{1}{v_x} \frac{\varphi^{\prime}\left(v_x\right)}{\varphi\left(v_x\right)}
+\end{equation*}
+Правая часть этого равенства не зависит от $v_y$ и $v_z$, тогда как левая часть содержит эти переменные. Следовательно, обе стороны равенства должны быть постоянными:
+\begin{equation*}
+	\frac{1}{v_x} \frac{\varphi^{\prime}\left(v_x\right)}{\varphi\left(v_x\right)}=-2 \alpha \quad \Rightarrow \quad \varphi\left(v_x\right)=A \exp \left(-\alpha v_x^2\right).
+\end{equation*}
+Аналогично находим
+\begin{gather*}
+\varphi\left(v_y\right)=A \exp \left(-\alpha v_y^2\right), \varphi\left(v_z\right)=A \exp \left(-\alpha v_z^2\right), \\
+f(v)=\varphi\left(v_x\right) \varphi\left(v_y\right) \varphi\left(v_z\right)=A^3 \exp \left(-\alpha v^2\right)
+\end{gather*}
+В результате для $d n_{\mathrm{v}}$ получаем выражение
+\begin{equation*}
+d n_{\mathrm{v}}=n A^3 \exp \left(-\alpha v^2\right) d^3 v
+\end{equation*}
+Константа $A$ определяется из условия нормировки
+\begin{equation*}
+\int d n_v=n \int f(v) d^3 v=n
+\end{equation*}
+откуда следует, что $A=\sqrt{\alpha / \pi}$.
+Таким образом, находим для одной компоненты скорости:
+\begin{equation*}
+d W\left(v_x\right)=\sqrt{\frac{\alpha}{\pi}} e^{-\alpha v_x^2} d v_x,
+\end{equation*}
+и для вектора скорости:
+\begin{equation*}
+d n_v=n\left(\frac{\alpha}{\pi}\right)^{3 / 2} e^{-\alpha v^2} d^3 v
+\end{equation*}
+Для выяснения смысла параметра $\alpha$ найдем среднюю кинетическую энергию молекул:
+\begin{equation*}
+\bar{\varepsilon}_{\text{кин}}=\frac{\overline{m v^2}}{2}=\frac{1}{n} \int \frac{m v^2}{2} n\left(\frac{a}{\pi}\right)^{3 / 2} e^{-\alpha v^2} d^3 v
+\end{equation*}
+Заменяя под знаком интеграла $d^3 v \rightarrow 4 \pi v^2 d v$, получим
+\begin{equation*}
+\bar{\varepsilon}_{\text{кин}}=\frac{1}{n} \int_0^{\infty} \frac{m v^2}{2} n\left(\frac{\alpha}{\pi}\right)^{3 / 2} e^{-\alpha v^2} 4 \pi v^2 d v=\frac{3 m}{4 \alpha}
+\end{equation*}
+Эта величина должна быть равна $3 k T / 2$, откуда находим, что $\alpha=m /(2 k T)$.
+
+Итак, в однородном по пространству идеальном газе со средней плотностью $n$ в равновесном состоянии число молекул, обладающих скоростями в интервале
+\begin{equation*}
+(v_x \div v_x+d v_x), \quad (v_y \div v_y+d v_y), \quad (v_z \div v_z+d v_z)
+\end{equation*}
+определяется распределением Максвелла
+\begin{equation}
+d n_{\vec{v}}=n\left(\frac{m}{2 \pi K T}\right)^{3 / 2} \exp \left(-\frac{m v^2}{2 k T}\right) d^3 v
+\end{equation}
+
+\subsubsection{Распределение по модулю скорости}
+Для того чтобы определить распределение по модулю скорости, от единичных клеток можно перейти с сферическим слоям радиуса $v, \, dv^3 \rightarrow 4 \pi v^2 \, dv$, таким образом в данном элементе пространства будут находиться все векторы данного модуля $v$
+\begin{gather}
+\nonumber d n(v)=n \Phi(v) d v,\\ 
+\Phi(v)=4 \pi v^2 f(v)=4 \pi\left(\frac{m}{2 \pi k T}\right)^{3 / 2} v^2 \exp \left(-\frac{m v^2}{2 k T}\right).
+\end{gather}
+
+\subsubsection{Распределение по энергиям}
+Распределение по энергиям. В некоторых случаях удобно перейти от распределения частиц по скоростям к распределению по кинетическим энергиям. Производя в распределении Максвелла по величине скорости замену $v=\sqrt{2 \varepsilon / m}$ и $d v=d \varepsilon / \sqrt{2 m \varepsilon}$, находим:
+\begin{equation}
+d n(\varepsilon)=n F(\varepsilon) d \varepsilon, \quad F(\varepsilon)=\frac{2}{\sqrt{\pi(k T)^3}} \exp \left(-\frac{\varepsilon}{k T}\right) \sqrt{\varepsilon}.
+\end{equation}
+
+\subsubsection{Средние значения}
+\begin{enumerate}
+	\item $\overline{\mathbf{v}}=0$ (все направления скорости равновероятны);
+	\item $v_{\text {с.к. }}=\sqrt{\overline{v^2}}=\sqrt{\int_0^{\infty} v^2 \Phi(v) d v}=\sqrt{3 k T / m}$ — средняя квадратичная скорость;
+	\item $\bar{v}=\int_0^{\infty} v \Phi(v) d v=\sqrt{\frac{8 k T}{\pi m}}$ — средняя скорость;
+	\item $\bar{\varepsilon}=\frac{1}{n} \int_{\varepsilon=0}^{\varepsilon=\infty} \varepsilon d n(\varepsilon)=\frac{3}{2} k T$ — средняя энергия.
+\end{enumerate}
+
+\subsubsection{Среднее число ударов молекул о стенку}
+Рассмотрим столкновения молекул газа с неподвижной стенкой. Выделим группу молекул, имеющих скорость $v$. Плотность этих молекул обозначим $d n(v)$. Вследствие изотропии газа в телесный угол $d \Omega=2 \pi \sin \theta d \theta$ летит доля молекул, равная $\nicefrac{d \Omega}{4 \pi}$. Соответственно плотность этих молекул равна $\nicefrac{dn(v) d \Omega}{4 \pi}$. За время $dt$ до поверхности долетят молекулы, удаленные от нее на расстояние $v_z d t$, где $v_z=v \cos \theta$. Bceго в площадку $d S$ попадут молекулы, находящиеся в цилиндре объемом $v_z d t d S$, содержащем $v_z d t d S d n(v) d \Omega /(4 \pi)$ молекул выделенной группы. Суммируя результат по всем допустимым углам ( $0<\theta<\nicefrac{\pi}{2}$ ) и скоростям $(0<v<\infty)$ и деля результат на $d t d S$, получаем
+\begin{equation}
+j=\int d n(v) v \cos \theta \frac{d \Omega}{4 \pi}=n \underbrace{\int_0^{\infty} v \Phi(v) \, d v}_{\text{средняя скорость}} \times \frac{1}{4 \pi} \int_0^{\pi / 2} \cos \theta \cdot 2 \pi \sin \theta d \theta=\frac{1}{4} n \bar{v} .
+\label{eq:mean-count-mxwl}
+\end{equation}
+Величина $j$ представляет собой плотность потока частиц газа, т. е. число частиц, пересекающих единичную площадку в единицу времени, $[j]= \text{частиц}/\left(\text{см}^2 \cdot \text{c}\right)$.
+
