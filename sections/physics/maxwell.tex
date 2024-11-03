@@ -113,31 +113,89 @@
 \begin{equation}
     d n(\vec{v})
         = n \left(\frac{m}{2 \pi k T}\right)^{3 / 2} \exp \left(-\frac{m v^2}{2 k T}\right) \, d^3 v.
+    \label{eq:maxwell-distribution}
 \end{equation}
 
 \subsubsection{Распределение по модулю скорости}
-Для того чтобы найти распределение по модулю скорости, от единичных клеток можно перейти с сферическим слоям радиуса $v, \, dv^3 \rightarrow 4 \pi v^2 \, dv$, таким образом в данном элементе пространства будут находиться все векторы данного модуля $v$
+Для того чтобы найти распределение по модулю скорости, от единичных клеток можно перейти с сферическим слоям радиуса $v$, как это было сделано ранее, и применить замену $dv^3 =  4 \pi v^2 \, dv$. Таким образом в данном элементе пространства будут находиться все векторы с модулем $v$
 \begin{gather}
-\nonumber d n(v)=n \Phi(v) d v,\\ 
+d n(v)=n \Phi(v) d v, \nonumber\\ 
 \Phi(v)=4 \pi v^2 f(v)=4 \pi\left(\frac{m}{2 \pi k T}\right)^{3 / 2} v^2 \exp \left(-\frac{m v^2}{2 k T}\right).
+\label{eq:maxwell-distribution-module}
 \end{gather}
 
 \subsubsection{Распределение по энергиям}
-В некоторых случаях удобно перейти от распределения частиц по скоростям к распределению по кинетическим энергиям. Производя в распределении Максвелла по величине скорости замену $v=\sqrt{2 \varepsilon / m}$ и $d v=d \varepsilon / \sqrt{2 m \varepsilon}$, находим:
+В некоторых случаях удобно перейти от распределения частиц по скоростям к распределению по кинетическим энергиям. Рассмотрим замену~$v = \sqrt{2 \varepsilon / m}$, тогда~$dv = d\varepsilon / \sqrt{2 m \varepsilon}$. Применим её к распределению Максвелла по модулю скорости~\eqref{eq:maxwell-distribution-module}, получим,
 \begin{equation}
 d n(\varepsilon)=n F(\varepsilon) d \varepsilon, \quad F(\varepsilon)=\frac{2}{\sqrt{\pi(k T)^3}} \exp \left(-\frac{\varepsilon}{k T}\right) \sqrt{\varepsilon}.
 \end{equation}
 
 \subsubsection{Средние значения}
-\begin{enumerate}
-	\item $\overline{\vec{v}} = 0$~--- все направления скорости равновероятны;
-	\item $\displaystyle v_{\text {с.к. }} = \sqrt{\overline{v^2}}=\sqrt{\int_0^{\infty} v^2 \Phi(v) \, dv}=\sqrt{3 k T / m}$~--- ср. квадратичная скорость;
-	\item $\displaystyle \bar{v}=\int_0^{\infty} v \Phi(v) \, dv=\sqrt{\frac{8 k T}{\pi m}}$~--- средняя скорость;
-	\item $\displaystyle  \bar{\varepsilon} = \frac{1}{n} \int_{\varepsilon = 0}^{\varepsilon = \infty} \varepsilon \, d n(\varepsilon) = \frac{3}{2} k T$~--- средняя энергия.
-\end{enumerate}
+
+Найдём среднее значение скорости частиц. По определению среднего
+\begin{equation*}
+    \overline{\vec{v}} = \int \vec{v} \, dn(\vec{v}),
+\end{equation*}
+заметим, что функция $dn(\vec{v})$~--- чётная, в то время как $\vec{v}$~--- нечётная, следовательно, подынтегральное выражение также нечётная функция, а значит, её интеграл по всему пространству равен нулю. Другими словами, $\vec{v} = 0$, то все направления скорости равновероятны.
+
+Значение остальных интегралов вычисляется аналогично действиям, проделанным выше,~--- путём соответствующих замен. Так что оставим это упражнение читателю, а здесь приведет лишь результат. 
+
+Итак, \term{средняя квадратичная скорость} 
+\begin{equation}
+    v_{\text {с.к. }} 
+        = \sqrt{\overline{v^2}}
+        = \sqrt{\int\limits_0^\infty v^2 \Phi(v) \, dv} 
+        = \sqrt{3 k T / m};
+\end{equation}
+\term{средняя величина} (модуль) \term{скорости}
+\begin{equation}
+     \overline{v}
+         = \int\limits_0^{\infty} v \Phi(v) \, dv
+         = \sqrt{\frac{8 k T}{\pi m}};
+\end{equation}
+\term{средняя энергия}
+\begin{equation}
+    \bar{\varepsilon} 
+        = \frac{1}{n} \int\limits_{\varepsilon = 0}^{\infty} \varepsilon \, d n(\varepsilon) 
+        = \frac{3}{2} k T.
+\end{equation}
 
 \subsubsection*{Среднее число ударов молекул о стенку}
-Рассмотрим столкновения молекул газа с неподвижной стенкой. Выделим группу молекул, имеющих скорость $v$. Плотность этих молекул обозначим $d n(v)$. Вследствие изотропии газа в телесный угол $d \Omega=2 \pi \sin \theta d \theta$ летит доля молекул, равная $d \Omega / 4 \pi$. Соответственно плотность этих молекул равна $dn(v) d \Omega / 4 \pi$. За время $dt$ до поверхности долетят молекулы, удаленные от нее на расстояние $v_z d t$, где $v_z=v \cos \theta$. Bceго в площадку $d S$ попадут молекулы, находящиеся в цилиндре объемом $v_z d t d S$, содержащем $v_z d t d S d n(v) d \Omega /(4 \pi)$ молекул выделенной группы. Суммируя результат по всем допустимым углам $\theta \in (0, \nicefrac{\pi}{2})$ и скоростям $v \in (0, \infty)$ и деля результат на $d t d S$, получаем
+
+\begin{wrapfigure}[9]{r}{0.35\tw}
+\centering
+\vspace{-1pc}
+\tikzsetnextfilename{mean-particles}
+\begin{tikzpicture}[]
+
+    \tkzDefPoint(0, 0){A}
+    \tkzDefPoint(0, 2){B}
+    \tkzDefPoint(3, 1){C}
+    \tkzDefPoint(3, -1){D}
+    \tkzDefPoint(1.5, 0.5){O}
+    \tkzDefPoint(-0.5, 0.5){V}
+    \tkzDefPoint(1.5, 1){dV1}
+    \tkzDefPoint(1.5, 1.2){dV2}
+
+
+    \foreach \r in {0.5,0.7} {
+        \tkzDefShiftPoint[O](\r,0){r}
+        \tkzDrawCircle[gray!40, line width=0.4pt](O,r)
+    }
+
+    \tkzDrawSegments[](A,B B,C C,D D,A)
+    \tkzDrawSegments[-latex](V,O V,dV1 V,dV2)
+    \tkzLabelSegments[below, font=\scriptsize](O,V){$\vec{v}_z$}
+    \tkzLabelSegments[above, font=\scriptsize](V,dV2){$\vec{v}$}
+
+    \tkzMarkAngle[size=0.8, arc=l, mksize=2pt](O,V,dV1)
+    \tkzLabelAngle[font=\scriptsize, pos=1.05](O,V,dV1){$\theta$}
+
+\end{tikzpicture}
+\caption{Столкновение частиц со стенкой}
+\label{pic:maxwell-mean-particle-collision}
+\end{wrapfigure}
+Рассмотрим столкновения молекул газа с неподвижной стенкой. Выделим группу молекул, имеющих скорость $\vec v$. Плотность этих молекул обозначим $d n(\vec{v})$. Вследствие изотропии газа в телесный угол $d \Omega = 2 \pi \sin \theta d \theta$, \lookPicRef{pic:maxwell-mean-particle-collision}, летит доля молекул, равная $d \Omega / 4 \pi$. Соответственно концентрация этих молекул равна $dn(\vec{v}) d \Omega / 4 \pi$. За время $dt$ до поверхности долетят молекулы, удаленные от нее на расстояние $v_z \, dt$, где $v_z = v \cos \theta$. Bсего в площадку $dS$ попадут молекулы, находящиеся в цилиндре объемом $v_z \, dt \, dS$, содержащем $v_z \, dt \, dS \, dn(\vec{v}) \, d\Omega / (4 \pi)$ молекул выделенной группы. Суммируя результат по всем допустимым углам $\theta \in (0, \nicefrac{\pi}{2})$ и скоростям $v \in (0, \infty)$ и деля результат на $d t d S$, получаем
 \begin{equation}
 j=\int d n(v) v \cos \theta \frac{d \Omega}{4 \pi}=n \underbrace{\int_0^{\infty} v \Phi(v) \, d v}_{\text{средняя скорость}} \times \frac{1}{4 \pi} \int_0^{\pi / 2} \cos \theta \cdot 2 \pi \sin \theta d \theta=\frac{1}{4} n \bar{v} .
 \label{eq:mean-count-mxwl}
