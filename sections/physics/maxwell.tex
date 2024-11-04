@@ -163,42 +163,44 @@ d n(\varepsilon)=n F(\varepsilon) d \varepsilon, \quad F(\varepsilon)=\frac{2}{\
 \subsubsection*{Среднее число ударов молекул о стенку}
 
 \begin{wrapfigure}[9]{r}{0.35\tw}
-\centering
-\vspace{-1pc}
-\tikzsetnextfilename{mean-particles}
-\begin{tikzpicture}[]
+    \vspace{-1pc}
+    \centering
+    \tikzsetnextfilename{mean-particles}
+    \begin{tikzpicture}
+        \tkzDefPoint(0, 0){A}
+        \tkzDefPoint(0, 2){B}
+        \tkzDefPoint(3, 1){C}
+        \tkzDefPoint(3, -1){D}
+        \tkzDefPoint(1.5, 0.5){O}
+        \tkzDefPoint(-0.5, 0.5){V}
+        \tkzDefPoint(1.5, 1){dV1}
+        \tkzDefPoint(1.5, 1.2){dV2}
 
-    \tkzDefPoint(0, 0){A}
-    \tkzDefPoint(0, 2){B}
-    \tkzDefPoint(3, 1){C}
-    \tkzDefPoint(3, -1){D}
-    \tkzDefPoint(1.5, 0.5){O}
-    \tkzDefPoint(-0.5, 0.5){V}
-    \tkzDefPoint(1.5, 1){dV1}
-    \tkzDefPoint(1.5, 1.2){dV2}
+        \foreach \r in {0.5, 0.7} {
+            \tkzDefShiftPoint[O](\r,0){r}
+            \tkzDrawCircle[gray!40, line width=0.4pt](O,r)
+        }
 
+        \tkzDrawSegments[](A,B B,C C,D D,A)
+        \tkzDrawSegments[-latex](V,O V,dV1 V,dV2)
+        \tkzLabelSegments[below, font=\scriptsize](O,V){$\vec{v}_z$}
+        \tkzLabelSegments[above, font=\scriptsize](V,dV2){$\vec{v}$}
 
-    \foreach \r in {0.5,0.7} {
-        \tkzDefShiftPoint[O](\r,0){r}
-        \tkzDrawCircle[gray!40, line width=0.4pt](O,r)
-    }
-
-    \tkzDrawSegments[](A,B B,C C,D D,A)
-    \tkzDrawSegments[-latex](V,O V,dV1 V,dV2)
-    \tkzLabelSegments[below, font=\scriptsize](O,V){$\vec{v}_z$}
-    \tkzLabelSegments[above, font=\scriptsize](V,dV2){$\vec{v}$}
-
-    \tkzMarkAngle[size=0.8, arc=l, mksize=2pt](O,V,dV1)
-    \tkzLabelAngle[font=\scriptsize, pos=1.05](O,V,dV1){$\theta$}
-
-\end{tikzpicture}
-\caption{Столкновение частиц со стенкой}
-\label{pic:maxwell-mean-particle-collision}
+        \tkzMarkAngle[size=0.8, arc=l, mksize=2pt](O,V,dV1)
+        \tkzLabelAngle[font=\scriptsize, pos=1.05](O,V,dV1){$\theta$}
+    \end{tikzpicture}
+    \caption{Столкновение частиц со стенкой}
+    \label{pic:maxwell-mean-particle-collision}
 \end{wrapfigure}
-Рассмотрим столкновения молекул газа с неподвижной стенкой. Выделим группу молекул, имеющих скорость $\vec v$. Плотность этих молекул обозначим $d n(\vec{v})$. Вследствие изотропии газа в телесный угол $d \Omega = 2 \pi \sin \theta d \theta$, \lookPicRef{pic:maxwell-mean-particle-collision}, летит доля молекул, равная $d \Omega / 4 \pi$. Соответственно концентрация этих молекул равна $dn(\vec{v}) d \Omega / 4 \pi$. За время $dt$ до поверхности долетят молекулы, удаленные от нее на расстояние $v_z \, dt$, где $v_z = v \cos \theta$. Bсего в площадку $dS$ попадут молекулы, находящиеся в цилиндре объемом $v_z \, dt \, dS$, содержащем $v_z \, dt \, dS \, dn(\vec{v}) \, d\Omega / (4 \pi)$ молекул выделенной группы. Суммируя результат по всем допустимым углам $\theta \in (0, \nicefrac{\pi}{2})$ и скоростям $v \in (0, \infty)$ и деля результат на $d t d S$, получаем
-\begin{equation}
-j=\int d n(v) v \cos \theta \frac{d \Omega}{4 \pi}=n \underbrace{\int_0^{\infty} v \Phi(v) \, d v}_{\text{средняя скорость}} \times \frac{1}{4 \pi} \int_0^{\pi / 2} \cos \theta \cdot 2 \pi \sin \theta d \theta=\frac{1}{4} n \bar{v} .
-\label{eq:mean-count-mxwl}
-\end{equation}
+Рассмотрим столкновения молекул газа с неподвижной стенкой. Выделим группу молекул, имеющих скорость $\vec v$. Число таких молекул обозначим как $d n(\vec{v})$. Вследствие изотропии газа в телесный угол $d \Omega = 2 \pi \sin \theta \, d \theta$, \lookPicRef{pic:maxwell-mean-particle-collision}, летит доля молекул, равная $d \Omega / 4 \pi$. Соответственно число этих молекул равна $dn(\vec{v}) \, d \Omega / 4 \pi$. 
+
+За время $dt$ до поверхности долетят молекулы, удаленные от нее на расстояние $v_z \, dt$, где $v_z = v \cos \theta$. Bсего в площадку $dS$ попадут молекулы, находящиеся в цилиндре объемом $v_z \, dt \, dS$, содержащем $v_z \, dt \, dS \, dn(\vec{v}) \, d\Omega / (4 \pi)$ молекул выделенной группы. Суммируя результат по всем допустимым углам $\theta \in (0, \nicefrac{\pi}{2})$ и скоростям $v \in (0, \infty)$ и деля результат на $d t \, d S$, получаем
+\begin{multline}
+    j 
+        = \int d n(v) v \cos \theta \, \frac{d \Omega}{4 \pi} = \\
+        = \frac{n}{4 \pi} \underbrace{\int\limits_0^{\infty} v \Phi(v) \, d v}_{\text{средняя скорость}} \underbrace{\int\limits_0^{\pi / 2} 2 \pi \cos \theta  \sin \theta \, d \theta}_{\pi / 2}
+        = \frac{1}{4} n \bar{v} .
+    \label{eq:mean-count-mxwl}
+\end{multline}
 Величина $j$ представляет собой плотность потока частиц газа, то есть число частиц, пересекающих единичную площадку в одну сторону в единицу времени, $[j]= \text{частиц}/\left(\text{м}^2 \cdot \text{c}\right)$.
 
